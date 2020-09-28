@@ -5,6 +5,7 @@ import {
   FontAwesome,
   FontAwesome5,
   MaterialCommunityIcons,
+  MaterialIcons,
 } from "@expo/vector-icons";
 
 const styles = StyleSheet.create({
@@ -31,10 +32,12 @@ export const menuItems = [
     text: "Calendar",
   },
   {
-    icon: (
-      <FontAwesome name="cog" size={17} color="black" style={styles.icons} />
-    ),
-    text: "Settings",
+    icon: <Feather name="settings" size={17} color="black" />,
+    text: "Office Settings",
+  },
+  {
+    icon: <MaterialIcons name="settings-brightness" size={24} color="black" />,
+    text: "Visual Settings",
   },
   {
     icon: (

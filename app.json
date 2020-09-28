@@ -13,14 +13,25 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "scott-bowles",
+            "project": "do2019android",
+            "authToken": "bc7b0dc562904449980f94e5bc7cc296f165498760b644b2a3b0e0472ec8f3ec",
+            "setCommits": true
+          }
+        }
+      ]
     }
   }
 }
