@@ -11,6 +11,7 @@ import Confession from "./Confession";
 import Invitatory from "./Invitatory";
 import useFetch from "../custom hooks/useFetch";
 import dummyOffice from "../dummyOffice";
+import { dummyCalendarDayData } from "../dummyCalendarDayData";
 
 const {
   office,
@@ -23,7 +24,6 @@ const {
 const styles = StyleSheet.create({
   container: {
     margin: 25,
-    marginTop: 50,
   },
   title: {
     marginBottom: 10,
@@ -35,9 +35,11 @@ const Title = ({ frequency, office }) => (
 );
 
 const Office = () => {
-  const [officeData, isLoading] = useFetch(
-    "https://data.dailyoffice2019.com/api/v1/calendar/2020-9-21?format=json"
-  );
+  // const [officeData, isLoading] = useFetch(
+  //   "https://data.dailyoffice2019.com/api/v1/calendar/2020-9-21?format=json"
+  // );
+  const officeData = dummyCalendarDayData;
+  const isLoading = false;
 
   return !!isLoading ? (
     <View style={styles.container}>

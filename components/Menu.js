@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-around",
+    marginTop: 8,
   },
   itemContainer: {
     flexDirection: "row",
