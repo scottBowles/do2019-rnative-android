@@ -9,29 +9,37 @@ import colors from "../../styles/colors";
 const dateStyles = StyleSheet.create({
   dateBlock: {
     borderRadius: 4,
-    paddingTop: 9,
-    paddingBottom: 8,
+    paddingTop: 11,
+    paddingBottom: 11,
     alignItems: "center",
     borderColor: "black",
     borderWidth: 1,
   },
   dateBlockText: {
     textTransform: "uppercase",
-    lineHeight: 14,
-    fontSize: 14,
-  },
-  weekday: {
+    lineHeight: 18,
+    fontSize: 17,
     fontWeight: "600",
   },
+  weekday: {
+    fontWeight: "700",
+    fontSize: 17,
+    lineHeight: 17,
+    lineHeight: 18,
+  },
   dayOfMonth: {
-    fontSize: 28,
-    lineHeight: 28,
+    fontSize: 34,
+    lineHeight: 37,
     fontWeight: "400",
   },
   fastDay: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-end",
     marginTop: 28,
+  },
+  fastText: {
+    textTransform: "uppercase",
+    fontSize: 17,
   },
 });
 
@@ -49,8 +57,13 @@ const composeTextStyle = (key, textColor) => {
 
 const Fast = ({ textColor }) => (
   <View style={dateStyles.fastDay}>
-    <FontAwesome5 name="cross" size={14} color={textColor} />
-    <Text style={[dateStyles.dateBlockText, { color: textColor }]}> Fast</Text>
+    <FontAwesome5
+      name="cross"
+      size={18}
+      color={textColor}
+      style={{ bottom: 1 }}
+    />
+    <Text style={[dateStyles.fastText, { color: textColor }]}> Fast</Text>
   </View>
 );
 // officeData: {

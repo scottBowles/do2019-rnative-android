@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   contentLine: {
     flexDirection: "row",
     alignItems: "flex-start",
+    paddingBottom: 4,
   },
   colorBox: {
     marginRight: 5,
@@ -16,25 +17,26 @@ const styles = StyleSheet.create({
   },
   colorBoxPrimary: {
     marginTop: 5,
-    height: 9,
-    width: 9,
+    height: 11,
+    width: 11,
   },
   colorBoxSecondary: {
     marginTop: 4,
-    height: 8,
-    width: 8,
+    height: 9,
+    width: 9,
   },
   colorBoxSeason: {
     marginTop: 3,
-    height: 6,
-    width: 6,
+    height: 7,
+    width: 7,
   },
   textPrimary: {
-    fontSize: 14.25,
+    fontSize: 16,
   },
   textSecondary: {
-    fontSize: 11,
-    lineHeight: 16,
+    fontSize: 13,
+    lineHeight: 19,
+    letterSpacing: -0.5,
   },
   textSeason: {
     fontSize: 9,

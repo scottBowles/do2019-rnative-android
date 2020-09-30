@@ -1,4 +1,4 @@
-export const calendarYearData = [
+export const dummyCalendarData = [
   {
     date: "2020-11-29",
     season: {

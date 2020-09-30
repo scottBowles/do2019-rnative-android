@@ -22,8 +22,8 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar />
         <Menu />
-        <Route exact path="/" component={Office} />
-        <Route path="/calendar" component={Calendar} />
+        <Route path="/office" component={Office} />
+        <Route exact path="/" component={Calendar} />
       </SafeAreaView>
     </Router>
   );

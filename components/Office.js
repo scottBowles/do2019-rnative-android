@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { AppLoading } from "expo";
+import React from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { H1 } from "../styles/typography";
 import Loading from "./Loading";
 import CalendarBlock from "./CalendarBlock";
@@ -46,30 +45,32 @@ const Office = () => {
       <Loading />
     </View>
   ) : (
-    <View style={styles.container}>
-      <Title frequency={frequency} office={office} />
-      <CalendarBlock weekday={date.weekday}>
-        <DateBlock
-          dateData={date}
-          date={officeData.date}
-          primaryColor={officeData.commemorations[0].colors[0]}
+    <ScrollView>
+      <View style={styles.container}>
+        <Title frequency={frequency} office={office} />
+        <CalendarBlock weekday={date.weekday}>
+          <DateBlock
+            dateData={date}
+            date={officeData.date}
+            primaryColor={officeData.commemorations[0].colors[0]}
+          />
+          <Content
+            season={officeData.season}
+            commemorations={officeData.commemorations}
+          />
+        </CalendarBlock>
+        <OpeningSentence
+          text={openingSentence.text}
+          citation={openingSentence.citation}
         />
-        <Content
-          season={officeData.season}
-          commemorations={officeData.commemorations}
+        <Confession
+          office={office}
+          useLongFormInvitation={useLongFormInvitation}
+          useDeaconOrLayAbsolution={useDeaconOrLayAbsolution}
         />
-      </CalendarBlock>
-      <OpeningSentence
-        text={openingSentence.text}
-        citation={openingSentence.citation}
-      />
-      <Confession
-        office={office}
-        useLongFormInvitation={useLongFormInvitation}
-        useDeaconOrLayAbsolution={useDeaconOrLayAbsolution}
-      />
-      <Invitatory office={office} />
-    </View>
+        <Invitatory office={office} />
+      </View>
+    </ScrollView>
   );
 };
 

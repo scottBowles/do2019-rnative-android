@@ -46,7 +46,7 @@ const menuItems = [
   {
     icon: <Feather name="clock" size={12} color="black" style={styles.icons} />,
     text: "Now",
-    route: "/",
+    route: "/office",
   },
   {
     icon: (
@@ -58,7 +58,7 @@ const menuItems = [
       />
     ),
     text: "Calendar",
-    route: "/calendar",
+    route: "/",
   },
   {
     icon: (
