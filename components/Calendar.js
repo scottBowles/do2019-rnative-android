@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionList, StyleSheet, Text, View } from "react-native";
+import { ScrollView, SectionList, StyleSheet, Text, View } from "react-native";
 import { H1, H2 } from "../styles/typography";
 import Loading from "./Loading";
 import useFetch from "../custom hooks/useFetch";
@@ -11,7 +11,7 @@ import { sectionizedCalData } from "../sectionizedCalData";
 
 const styles = StyleSheet.create({
   container: {
-    margin: 25,
+    padding: 25,
   },
 });
 
@@ -43,7 +43,7 @@ const renderSectionHeader = ({
       ? `Month: ${month}`
       : `Season: ${season}`;
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{renderString}</Text>
     </View>
   );
@@ -59,18 +59,20 @@ const Calendar = ({ startYear = 2020 }) => {
   if (isLoading) return <Loading />;
 
   return isLoading ? null : (
-    <View style={styles.container}>
-      <H1>The Church Year</H1>
-      <H2>
-        {startYear} - {+startYear + 1}
-      </H2>
-      <SectionList
-        sections={sectionizedCalData}
-        keyExtractor={(item, index) => item + index}
-        renderItem={renderItem}
-        renderSectionHeader={renderSectionHeader}
-      />
-    </View>
+    <SectionList
+      ListHeaderComponent={
+        <View style={styles.container}>
+          <H1>The Church Year</H1>
+          <H2>
+            {startYear} - {+startYear + 1}
+          </H2>
+        </View>
+      }
+      sections={sectionizedCalData}
+      keyExtractor={(item, index) => item + index}
+      renderItem={renderItem}
+      renderSectionHeader={renderSectionHeader}
+    />
   );
 };
 

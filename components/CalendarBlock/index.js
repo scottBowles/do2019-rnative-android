@@ -7,7 +7,8 @@ import colors from "../../styles/colors";
 
 const containerStyle = (weekday) => {
   return {
-    margin: 5,
+    marginVertical: 5,
+    marginHorizontal: 25,
     padding: 6,
     borderColor: "black",
     borderWidth: 1,
