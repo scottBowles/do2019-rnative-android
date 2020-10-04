@@ -1,14 +1,29 @@
 export const parseDate = (dateStr) => {
   const date = new Date(dateStr);
-  if (!date) return "Invalid date provided";
+  if (!date) return { error: "Invalid date provided" };
 
   const weekdayIndex = date.getUTCDay();
+  const monthIndex = date.getUTCMonth();
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
     weekdayIndex
   ];
+  const fullMonth = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ][monthIndex];
   const dayOfMonth = date.getUTCDate();
-  const month = date.toUTCString().slice(8, 11);
+  const month = fullMonth.slice(0, 3);
   const year = date.getUTCFullYear();
 
-  return { weekday, dayOfMonth, month, year };
+  return { dayOfMonth, fullMonth, month, weekday, year };
 };

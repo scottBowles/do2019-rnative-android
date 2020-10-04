@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, SectionList, StyleSheet, Text, View } from "react-native";
-import { H1, H2 } from "../styles/typography";
+import { H1, H2, H3 } from "../styles/typography";
 import Loading from "./Loading";
 import useFetch from "../custom hooks/useFetch";
 import { dummyCalendarData } from "../dummyCalendarData";
@@ -12,6 +12,7 @@ import { sectionizedCalData } from "../sectionizedCalData";
 const styles = StyleSheet.create({
   container: {
     padding: 25,
+    alignItems: "center",
   },
 });
 
@@ -33,18 +34,23 @@ const renderItem = ({ item }) => {
 
 const renderSectionHeader = ({
   section: {
-    section: { type, month, season },
+    section: { type, month, year, season },
   },
 }) => {
-  const renderString =
-    type === "both"
-      ? `Month: ${month}; Season: ${season}`
-      : type === "month"
-      ? `Month: ${month}`
-      : `Season: ${season}`;
+  const seasonDisplay = <H3>{season.name}</H3>;
+  const monthDisplay = (
+    <H3>
+      {month} {year}
+    </H3>
+  );
+
   return (
     <View style={styles.container}>
-      <Text>{renderString}</Text>
+      {type === "both"
+        ? [seasonDisplay, monthDisplay]
+        : type === "month"
+        ? monthDisplay
+        : seasonDisplay}
     </View>
   );
 };
