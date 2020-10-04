@@ -37,15 +37,15 @@ const renderSectionHeader = ({
     section: { type, month, year, season },
   },
 }) => {
-  const seasonDisplay = <H3>{season.name}</H3>;
+  const seasonDisplay = <H3 key={season + month + year}>{season.name}</H3>;
   const monthDisplay = (
-    <H3>
+    <H3 key={month + year + season}>
       {month} {year}
     </H3>
   );
 
   return (
-    <View style={styles.container} key={month + year + season}>
+    <View style={styles.container}>
       {type === "both"
         ? [seasonDisplay, monthDisplay]
         : type === "month"
