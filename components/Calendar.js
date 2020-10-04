@@ -45,7 +45,7 @@ const renderSectionHeader = ({
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} key={month + year + season}>
       {type === "both"
         ? [seasonDisplay, monthDisplay]
         : type === "month"
