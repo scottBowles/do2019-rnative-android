@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, SectionList, StyleSheet, Text, View } from "react-native";
 import { H1, H2 } from "../styles/typography";
 import Loading from "./Loading";
 import useFetch from "../custom hooks/useFetch";
@@ -7,6 +7,7 @@ import { dummyCalendarData } from "../dummyCalendarData";
 import CalendarBlock from "./CalendarBlock";
 import DateBlock from "./CalendarBlock/DateBlock";
 import Content from "./CalendarBlock/Content";
+import { sectionizedCalData } from "../sectionizedCalData";
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +31,24 @@ const renderItem = ({ item }) => {
   );
 };
 
+const renderSectionHeader = ({
+  section: {
+    section: { type, month, season },
+  },
+}) => {
+  const renderString =
+    type === "both"
+      ? `Month: ${month}; Season: ${season}`
+      : type === "month"
+      ? `Month: ${month}`
+      : `Season: ${season}`;
+  return (
+    <View>
+      <Text>{renderString}</Text>
+    </View>
+  );
+};
+
 const Calendar = ({ startYear = 2020 }) => {
   // const [data, isLoading] = useFetch(
   //   `https://data.dailyoffice2019.com/api/v1/calendar/${startYear}?format=json`
@@ -45,10 +64,11 @@ const Calendar = ({ startYear = 2020 }) => {
       <H2>
         {startYear} - {+startYear + 1}
       </H2>
-      <FlatList
-        data={data}
+      <SectionList
+        sections={sectionizedCalData}
+        keyExtractor={(item, index) => item + index}
         renderItem={renderItem}
-        keyExtractor={(item) => item.date}
+        renderSectionHeader={renderSectionHeader}
       />
     </View>
   );

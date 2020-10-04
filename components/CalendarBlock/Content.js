@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Text } from "../../styles/typography";
+import colors from "../../styles/colors";
 
 const styles = StyleSheet.create({
   contentLine: {
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
 const composeColorBoxStyle = (boxColor, typeCapitalized) => [
   styles.colorBox,
   styles[`colorBox${typeCapitalized}`],
-  { backgroundColor: boxColor },
+  { backgroundColor: colors[boxColor] },
 ];
 
 const ColorBox = ({ color, typeCapitalized }) => (
