@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import { AppLoading } from "expo";
 import { H1 } from "../styles/typography";
 import Loading from "./Loading";
 import CalendarBlock from "./CalendarBlock";
@@ -48,7 +49,7 @@ const Office = () => {
     <ScrollView>
       <View style={styles.container}>
         <Title frequency={frequency} office={office} />
-        <CalendarBlock weekday={date.weekday}>
+        <CalendarBlock date={officeData.date}>
           <DateBlock
             dateData={date}
             date={officeData.date}

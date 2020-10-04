@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, SectionList, StyleSheet, Text, View } from "react-native";
+import { SectionList, StyleSheet, Text, View } from "react-native";
 import { H1, H2 } from "../styles/typography";
 import Loading from "./Loading";
 import useFetch from "../custom hooks/useFetch";
@@ -20,9 +20,9 @@ const currentYear = new Date().getFullYear();
 
 const renderItem = ({ item }) => {
   return (
-    <CalendarBlock weekday="Sun">
+    <CalendarBlock date={item.date}>
       <DateBlock
-        dateData={{ isFastDay: true, weekday: "Sun" }}
+        dateData={{ isFastDay: true }}
         date={item.date}
         primaryColor={item.commemorations[0].colors[0]}
       />

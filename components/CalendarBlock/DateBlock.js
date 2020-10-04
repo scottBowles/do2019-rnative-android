@@ -9,37 +9,29 @@ import colors from "../../styles/colors";
 const dateStyles = StyleSheet.create({
   dateBlock: {
     borderRadius: 4,
-    paddingTop: 11,
-    paddingBottom: 11,
+    paddingTop: 9,
+    paddingBottom: 8,
     alignItems: "center",
     borderColor: "black",
     borderWidth: 1,
   },
   dateBlockText: {
     textTransform: "uppercase",
-    lineHeight: 18,
-    fontSize: 17,
-    fontWeight: "600",
+    lineHeight: 14,
+    fontSize: 14,
   },
   weekday: {
-    fontWeight: "700",
-    fontSize: 17,
-    lineHeight: 17,
-    lineHeight: 18,
+    fontWeight: "600",
   },
   dayOfMonth: {
-    fontSize: 34,
-    lineHeight: 37,
+    fontSize: 28,
+    lineHeight: 28,
     fontWeight: "400",
   },
   fastDay: {
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "center",
     marginTop: 28,
-  },
-  fastText: {
-    textTransform: "uppercase",
-    fontSize: 17,
   },
 });
 
@@ -57,13 +49,8 @@ const composeTextStyle = (key, textColor) => {
 
 const Fast = ({ textColor }) => (
   <View style={dateStyles.fastDay}>
-    <FontAwesome5
-      name="cross"
-      size={18}
-      color={textColor}
-      style={{ bottom: 1 }}
-    />
-    <Text style={[dateStyles.fastText, { color: textColor }]}> Fast</Text>
+    <FontAwesome5 name="cross" size={14} color={textColor} />
+    <Text style={[dateStyles.dateBlockText, { color: textColor }]}> Fast</Text>
   </View>
 );
 // officeData: {
@@ -74,21 +61,17 @@ const Fast = ({ textColor }) => (
 //       },
 //     ],
 //   },
-const DateBlock = ({
-  dateData: { isFastDay, weekday },
-  date,
-  primaryColor,
-}) => {
-  const { year, month, dayOfMonth } = parseDate(date);
+const DateBlock = ({ dateData: { isFastDay }, date, primaryColor }) => {
   const textColor = getTextColor(primaryColor);
   const blockStyle = composeBlockStyle(primaryColor);
-  const dateProperties = { weekday, dayOfMonth, month, year };
+  const parsedDate = parseDate(date);
+  const dateProperties = ["weekday", "dayOfMonth", "month", "year"];
 
   return (
     <View style={blockStyle}>
-      {Object.keys(dateProperties).map((property, index) => (
+      {dateProperties.map((property, index) => (
         <Text key={index} style={composeTextStyle(property, textColor)}>
-          {dateProperties[property]}
+          {parsedDate[property]}
         </Text>
       ))}
       {!!isFastDay && <Fast textColor={textColor} />}
