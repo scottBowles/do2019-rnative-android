@@ -1,7 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import DateBlock from "./DateBlock";
-import Content from "./Content";
+import { View } from "react-native";
 import { parseDate } from "../../utils";
 import colors from "../../styles/colors";
 
@@ -17,6 +15,8 @@ const containerStyle = (weekday) => {
       weekday.toLowerCase() === "sun" ? colors.lightGrey : "#ffffff",
   };
 };
+
+// Expects DateBlock and Content children
 
 const CalendarBlock = ({ date, children }) => {
   const { weekday } = parseDate(date);

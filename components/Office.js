@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { AppLoading } from "expo";
 import { H1 } from "../styles/typography";
 import Loading from "./Loading";
 import CalendarBlock from "./CalendarBlock";
@@ -9,9 +8,9 @@ import Content from "./CalendarBlock/Content";
 import OpeningSentence from "./OpeningSentence";
 import Confession from "./Confession";
 import Invitatory from "./Invitatory";
-import useFetch from "../custom hooks/useFetch";
-import dummyOffice from "../dummyOffice";
-import { dummyCalendarDayData } from "../dummyCalendarDayData";
+import useFetch from "../apiHooks/useFetch";
+import dummyOffice from "../apiHooks/dummyData/dummyOffice";
+import { dummyCalendarDayData } from "../apiHooks/dummyData/dummyCalendarDayData";
 
 const {
   office,

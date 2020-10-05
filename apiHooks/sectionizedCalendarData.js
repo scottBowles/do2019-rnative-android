@@ -1,5 +1,5 @@
-import { dummyCalendarData } from "./dummyCalendarData";
-import { parseDate } from "./utils";
+import { dummyCalendarData } from "./dummyData/dummyCalendarData";
+import { parseDate } from "../utils";
 
 export const sectionizedCalData = dummyCalendarData.reduce((acc, cur) => {
   const { date, season } = cur;

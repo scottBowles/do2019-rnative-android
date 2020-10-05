@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
-
+import { CrossIcon } from "../../assets/icons";
 import { parseDate } from "../../utils";
 import { Text } from "../../styles/typography";
 import colors from "../../styles/colors";
@@ -49,7 +48,7 @@ const composeTextStyle = (key, textColor) => {
 
 const Fast = ({ textColor }) => (
   <View style={dateStyles.fastDay}>
-    <FontAwesome5 name="cross" size={14} color={textColor} />
+    <CrossIcon size={14} color={textColor} />
     <Text style={[dateStyles.dateBlockText, { color: textColor }]}> Fast</Text>
   </View>
 );

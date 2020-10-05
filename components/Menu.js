@@ -3,12 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Link } from "react-router-native";
 import { Text } from "../styles/typography";
 import colors from "../styles/colors";
-import {
-  Feather,
-  FontAwesome,
-  FontAwesome5,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "../assets/icons";
 
 const styles = StyleSheet.create({
   container: {
@@ -44,33 +39,22 @@ const styles = StyleSheet.create({
 
 const menuItems = [
   {
-    icon: <Feather name="clock" size={12} color="black" style={styles.icons} />,
+    icon: <ClockIcon size={12} color="black" style={styles.icons} />,
     text: "Now",
     route: "/office",
   },
   {
-    icon: (
-      <MaterialCommunityIcons
-        name="calendar-month-outline"
-        size={12}
-        color="black"
-        style={styles.icons}
-      />
-    ),
+    icon: <CalendarIcon size={12} color="black" style={styles.icons} />,
     text: "Calendar",
     route: "/",
   },
   {
-    icon: (
-      <FontAwesome name="cog" size={12} color="black" style={styles.icons} />
-    ),
+    icon: <CogIcon size={12} color="black" style={styles.icons} />,
     text: "Settings",
     route: "/settings",
   },
   {
-    icon: (
-      <FontAwesome5 name="cross" size={12} color="black" style={styles.icons} />
-    ),
+    icon: <CrossIcon size={12} color="black" style={styles.icons} />,
     text: "About",
     route: "/about",
   },

@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { ExternalLinkIcon } from "../../assets/icons";
 import { Text } from "../../styles/typography";
 import colors from "../../styles/colors";
 
@@ -80,8 +80,7 @@ const ContentLine = ({ type, data: { colors, name, links } }) => {
           links.map((link, index) => (
             <Text key={index}>
               {" "}
-              <FontAwesome5
-                name="external-link-alt"
+              <ExternalLinkIcon
                 size={9}
                 color="black"
                 onPress={() => WebBrowser.openBrowserAsync(link)}
