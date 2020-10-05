@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { H2, P, People, Rubric } from "../styles/typography";
+import { H2, P, People, Rubric } from "styles/typography";
 
 const LesserInvitatory = () => (
   <View>

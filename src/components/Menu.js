@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Link } from "react-router-native";
-import { Text } from "../styles/typography";
-import colors from "../styles/colors";
-import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "../assets/icons";
+import { Text } from "styles/typography";
+import colors from "styles/colors";
+import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 
 const styles = StyleSheet.create({
   container: {

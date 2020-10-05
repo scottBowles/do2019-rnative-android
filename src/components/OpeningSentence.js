@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { P, H2, H5 } from "../styles/typography";
+import { P, H2, H5 } from "styles/typography";
 
 const OpeningSentence = ({ text, citation }) => (
   <View>

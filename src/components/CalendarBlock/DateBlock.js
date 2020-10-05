@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { CrossIcon } from "../../assets/icons";
-import { parseDate } from "../../utils";
-import { Text } from "../../styles/typography";
-import colors from "../../styles/colors";
+import { CrossIcon } from "assets/icons";
+import { parseDate } from "library/utils";
+import { Text } from "styles/typography";
+import colors from "styles/colors";
 
 const dateStyles = StyleSheet.create({
   dateBlock: {

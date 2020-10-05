@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import { ExternalLinkIcon } from "../../assets/icons";
-import { Text } from "../../styles/typography";
-import colors from "../../styles/colors";
+import { ExternalLinkIcon } from "assets/icons";
+import { Text } from "styles/typography";
+import colors from "styles/colors";
 
 const styles = StyleSheet.create({
   contentLine: {

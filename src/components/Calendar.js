@@ -1,13 +1,13 @@
 import React from "react";
-import { ScrollView, SectionList, StyleSheet, Text, View } from "react-native";
-import { H1, H2, H3 } from "../styles/typography";
-import Loading from "./Loading";
-import useFetch from "../apiHooks/useFetch";
-import { dummyCalendarData } from "../apiHooks/dummyData/dummyCalendarData";
-import CalendarBlock from "./CalendarBlock";
-import DateBlock from "./CalendarBlock/DateBlock";
-import Content from "./CalendarBlock/Content";
-import { sectionizedCalData } from "../apiHooks/sectionizedCalendarData";
+import { SectionList, StyleSheet, View } from "react-native";
+import { H1, H2, H3 } from "styles/typography";
+import Loading from "components/Loading";
+import useFetch from "apiHooks/useFetch";
+import { dummyCalendarData } from "apiHooks/dummyData/dummyCalendarData";
+import CalendarBlock from "components/CalendarBlock";
+import DateBlock from "components/CalendarBlock/DateBlock";
+import Content from "components/CalendarBlock/Content";
+import { sectionizedCalData } from "apiHooks/sectionizedCalendarData";
 
 const styles = StyleSheet.create({
   container: {

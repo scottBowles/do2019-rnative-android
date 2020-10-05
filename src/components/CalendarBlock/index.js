@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
-import { parseDate } from "../../utils";
-import colors from "../../styles/colors";
+import { parseDate } from "library/utils";
+import colors from "styles/colors";
 
 const containerStyle = (weekday) => {
   return {

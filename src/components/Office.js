@@ -1,16 +1,16 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { H1 } from "../styles/typography";
-import Loading from "./Loading";
-import CalendarBlock from "./CalendarBlock";
-import DateBlock from "./CalendarBlock/DateBlock";
-import Content from "./CalendarBlock/Content";
-import OpeningSentence from "./OpeningSentence";
-import Confession from "./Confession";
-import Invitatory from "./Invitatory";
-import useFetch from "../apiHooks/useFetch";
-import dummyOffice from "../apiHooks/dummyData/dummyOffice";
-import { dummyCalendarDayData } from "../apiHooks/dummyData/dummyCalendarDayData";
+import { H1 } from "styles/typography";
+import Loading from "components/Loading";
+import CalendarBlock from "components/CalendarBlock";
+import DateBlock from "components/CalendarBlock/DateBlock";
+import Content from "components/CalendarBlock/Content";
+import OpeningSentence from "components/OpeningSentence";
+import Confession from "components/Confession";
+import Invitatory from "components/Invitatory";
+import useFetch from "apiHooks/useFetch";
+import dummyOffice from "apiHooks/dummyData/dummyOffice";
+import { dummyCalendarDayData } from "apiHooks/dummyData/dummyCalendarDayData";
 
 const {
   office,

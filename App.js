@@ -11,10 +11,10 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import { NativeRouter as Router, Route, Link } from "react-router-native";
 import Constants from "expo-constants";
-import { Text } from "./styles/typography";
-import Menu from "./components/Menu";
-import Office from "./components/Office";
-import Calendar from "./components/Calendar";
+import { Text } from "./src/styles/typography";
+import Menu from "./src/components/Menu";
+import Office from "./src/components/Office";
+import Calendar from "./src/components/Calendar";
 
 export default function App() {
   return (
