@@ -87,7 +87,7 @@ const Calendar = ({ startYear = 2020 }) => {
     if (!isLoading) {
       setIsLoading(true);
       fetch(
-        `https://data.dailyoffice2019.com/api/v1/calendar/${currentYear}?format=json`
+        `https://data.dailyoffice2019.com/api/v1/calendar/${nextYear}?format=json`
       )
         .then((res) => res.json())
         .then((data) => {
