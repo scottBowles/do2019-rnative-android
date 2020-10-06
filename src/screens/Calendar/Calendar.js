@@ -43,7 +43,7 @@ const renderSectionHeader = ({
     section: { type, month, year, season },
   },
 }) => {
-  const seasonDisplay = (
+  const seasonHeader = (
     <View style={styles.seasonHeader}>
       <ColorBox
         color={season.colors[0]}
@@ -53,7 +53,7 @@ const renderSectionHeader = ({
       <H3 key={season + month + year}>{season.name}</H3>
     </View>
   );
-  const monthDisplay = (
+  const monthHeader = (
     <H3 key={month + year + season}>
       {month} {year}
     </H3>
@@ -62,10 +62,10 @@ const renderSectionHeader = ({
   return (
     <View style={styles.container}>
       {type === "both"
-        ? [seasonDisplay, monthDisplay]
+        ? [seasonHeader, monthHeader]
         : type === "month"
-        ? monthDisplay
-        : seasonDisplay}
+        ? monthHeader
+        : seasonHeader}
     </View>
   );
 };
