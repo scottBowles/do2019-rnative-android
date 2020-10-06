@@ -1,5 +1,5 @@
-import React from "react";
-import { SectionList, StyleSheet, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, SectionList, StyleSheet, View } from "react-native";
 
 import { dummyCalendarData, sectionizeCalendarData, useFetch } from "api";
 import { H1, H2, H3 } from "styles/typography";
@@ -22,19 +22,25 @@ const styles = StyleSheet.create({
   colorBox: {
     marginRight: 3,
   },
+  footer: {
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
 });
 
 const currentYear = new Date().getFullYear();
-// use to get current liturgical year's start year
+// use to get current liturgical year's start year, for default start year
 
-const renderItem = ({ item }) => (
-  <CalendarBlock date={item.date}>
+const renderItem = ({ item: { commemorations, date, season } }) => (
+  <CalendarBlock date={date}>
     <DateBlock
       dateData={{ isFastDay: true }}
-      date={item.date}
-      primaryColor={item.commemorations[0].colors[0]}
+      date={date}
+      primaryColor={commemorations[0].colors[0]}
     />
-    <Content season={item.season} commemorations={item.commemorations} />
+    <Content season={season} commemorations={commemorations} />
   </CalendarBlock>
 );
 
@@ -44,13 +50,13 @@ const renderSectionHeader = ({
   },
 }) => {
   const seasonHeader = (
-    <View style={styles.seasonHeader}>
+    <View style={styles.seasonHeader} key={season + month + year}>
       <ColorBox
         color={season.colors[0]}
         dimension={9}
         style={styles.colorBox}
       />
-      <H3 key={season + month + year}>{season.name}</H3>
+      <H3>{season.name}</H3>
     </View>
   );
   const monthHeader = (
@@ -71,15 +77,44 @@ const renderSectionHeader = ({
 };
 
 const Calendar = ({ startYear = 2020 }) => {
-  // const [data, isLoading] = useFetch(
-  //   `https://data.dailyoffice2019.com/api/v1/calendar/${startYear}?format=json`
-  // );
-  const data = dummyCalendarData;
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState(false);
+  const [dataSource, setDataSource] = useState([]);
+  const [nextYear, setNextYear] = useState(startYear);
 
-  if (isLoading) return <Loading />;
+  useEffect(() => getData(), []);
 
-  return isLoading ? null : (
+  const getData = () => {
+    if (!isLoading) {
+      setIsLoading(true);
+      fetch(
+        `https://data.dailyoffice2019.com/api/v1/calendar/${currentYear}?format=json`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const sectionizedData = sectionizeCalendarData(data);
+          setNextYear(nextYear + 1);
+          setDataSource([...dataSource, ...sectionizedData]);
+          setIsLoading(false);
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  // const data = dummyCalendarData;
+  // const isLoading = false;
+
+  const renderFooter = () => {
+    return (
+      // Footer View with Loader
+      <View style={styles.footer}>
+        {isLoading ? (
+          <ActivityIndicator color="black" style={{ margin: 15 }} />
+        ) : null}
+      </View>
+    );
+  };
+
+  return (
     <SectionList
       ListHeaderComponent={
         <View style={styles.container}>
@@ -89,10 +124,13 @@ const Calendar = ({ startYear = 2020 }) => {
           </H2>
         </View>
       }
-      sections={sectionizeCalendarData(dummyCalendarData)}
+      sections={dataSource}
       keyExtractor={(item, index) => item + index}
       renderItem={renderItem}
       renderSectionHeader={renderSectionHeader}
+      ListFooterComponent={renderFooter}
+      onEndReachedThreshold={15}
+      onEndReached={getData}
     />
   );
 };
