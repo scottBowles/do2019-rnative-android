@@ -1,5 +1,21 @@
 import { parseDate } from "library/utils";
 
+/**
+ *  Take calendar data and prepare it for a SectionList with
+ *     section headers for each season and month.
+ *
+ *  Outputs an array where each element is an object with shape:
+ *    {
+ *      section: {
+ *        type: "month", "season", or "both" for which heading is needed,
+ *        month,
+ *        year,
+ *        season
+ *      },
+ *      data: Array of dates in section
+ *    }
+ */
+
 export default sectionizeCalendarData = (calendarData) =>
   calendarData.reduce((acc, cur) => {
     const { date, season } = cur;

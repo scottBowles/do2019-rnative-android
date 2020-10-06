@@ -20,18 +20,16 @@ const styles = StyleSheet.create({
 const currentYear = new Date().getFullYear();
 // use to get current liturgical year's start year
 
-const renderItem = ({ item }) => {
-  return (
-    <CalendarBlock date={item.date}>
-      <DateBlock
-        dateData={{ isFastDay: true }}
-        date={item.date}
-        primaryColor={item.commemorations[0].colors[0]}
-      />
-      <Content season={item.season} commemorations={item.commemorations} />
-    </CalendarBlock>
-  );
-};
+const renderItem = ({ item }) => (
+  <CalendarBlock date={item.date}>
+    <DateBlock
+      dateData={{ isFastDay: true }}
+      date={item.date}
+      primaryColor={item.commemorations[0].colors[0]}
+    />
+    <Content season={item.season} commemorations={item.commemorations} />
+  </CalendarBlock>
+);
 
 const renderSectionHeader = ({
   section: {
