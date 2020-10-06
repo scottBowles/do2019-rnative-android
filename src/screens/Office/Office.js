@@ -3,13 +3,15 @@ import { ScrollView, StyleSheet, View } from "react-native";
 
 import { dummyCalendarDayData, dummyOffice, useFetch } from "api";
 import { H1 } from "styles/typography";
-import { Loading } from "library/components";
+import { Loading } from "common/components";
 import {
   CalendarBlock,
   Content,
   DateBlock,
-} from "library/components/CalendarBlock";
-import { Confession, Invitatory, OpeningSentence } from "./";
+} from "common/components/CalendarBlock";
+import { Confession } from "./Confession";
+import Invitatory from "./Invitatory";
+import OpeningSentence from "./OpeningSentence";
 
 const {
   office,

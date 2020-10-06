@@ -1,4 +1,4 @@
-import { parseDate } from "library/utils";
+import { parseDate } from "common/utils";
 
 /**
  *  Take calendar data and prepare it for a SectionList with

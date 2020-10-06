@@ -1,5 +1,6 @@
 import React from "react";
-import { ComplineConfession, GreaterOfficeConfession } from "./";
+import ComplineConfession from "./ComplineConfession";
+import GreaterOfficeConfession from "./GreaterOfficeConfession";
 
 const Confession = (props) => {
   switch (props.office) {

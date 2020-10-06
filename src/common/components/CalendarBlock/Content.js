@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
-import { ColorBox } from "library/components";
+import { ColorBox } from "common/components";
 
 const styles = StyleSheet.create({
   contentLine: {
@@ -90,7 +90,7 @@ const SeasonBox = ({ season }) => (
   </View>
 );
 
-const ContentBlock = ({ season, commemorations, withSeasonBox }) => (
+const Content = ({ season, commemorations, withSeasonBox }) => (
   <View style={{ paddingHorizontal: 14 }}>
     {commemorations.map((commemoration, index) => (
       <ContentLine
@@ -103,4 +103,4 @@ const ContentBlock = ({ season, commemorations, withSeasonBox }) => (
   </View>
 );
 
-export default ContentBlock;
+export default Content;

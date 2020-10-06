@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
-import { parseDate } from "library/utils";
+import { parseDate } from "common/utils";
 import { Text } from "styles/typography";
 import { colors } from "styles";
 

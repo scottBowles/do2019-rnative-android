@@ -9,7 +9,7 @@ module.exports = function (api) {
           alias: {
             api: "./src/api",
             assets: "./src/assets",
-            library: "./src/library",
+            common: "./src/common",
             screens: "./src/screens",
             styles: "./src/styles",
           },

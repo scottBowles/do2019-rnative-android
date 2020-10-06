@@ -11,7 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { NativeRouter as Router, Route } from "react-router-native";
 import Constants from "expo-constants";
-import { Menu } from "library/components";
+import { Menu } from "common/components";
 import { Calendar, Office } from "screens";
 
 export default function App() {

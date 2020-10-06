@@ -11,7 +11,7 @@ const colorBoxStyle = ({ color, dimension }) => ({
 });
 
 const ColorBox = ({ color, dimension, style, ...props }) => (
-  <View style={[colorBoxStyle({ color, dimension }), ...style]} {...props} />
+  <View style={[colorBoxStyle({ color, dimension }), style]} {...props} />
 );
 
 export default ColorBox;
