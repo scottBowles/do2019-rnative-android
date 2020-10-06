@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
-import { colors } from "styles";
+import { ColorBox } from "library/components";
 
 const styles = StyleSheet.create({
   contentLine: {
@@ -13,8 +13,6 @@ const styles = StyleSheet.create({
   },
   colorBox: {
     marginRight: 5,
-    borderColor: "black",
-    borderWidth: 1,
   },
   colorBoxPrimary: {
     marginTop: 5,
@@ -56,23 +54,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const composeColorBoxStyle = (boxColor, typeCapitalized) => [
-  styles.colorBox,
-  styles[`colorBox${typeCapitalized}`],
-  { backgroundColor: colors[boxColor] },
-];
-
-const ColorBox = ({ color, typeCapitalized }) => (
-  <View style={composeColorBoxStyle(color, typeCapitalized)} />
-);
-
 const ContentLine = ({ type, data: { colors, name, links } }) => {
   const typeCapitalized = type[0].toUpperCase() + type.slice(1);
 
   return (
     <View style={[styles.contentLine, type !== "season" && { marginTop: 8 }]}>
       {colors.map((color, index) => (
-        <ColorBox key={index} color={color} typeCapitalized={typeCapitalized} />
+        <ColorBox
+          key={index}
+          color={color}
+          style={[styles.colorBox, styles[`colorBox${typeCapitalized}`]]}
+        />
       ))}
       <Text style={styles[`text${typeCapitalized}`]}>
         {name}
