@@ -1,7 +1,5 @@
 import React from "react";
-import { View } from "react-native";
-import ComplineConfession from "./ComplineConfession";
-import GreaterOfficeConfession from "./GreaterOfficeConfession";
+import { ComplineConfession, GreaterOfficeConfession } from "./";
 
 const Confession = (props) => {
   switch (props.office) {

@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
 import { parseDate } from "library/utils";
 import { Text } from "styles/typography";
-import colors from "styles/colors";
+import { colors } from "styles";
 
 const dateStyles = StyleSheet.create({
   dateBlock: {

@@ -1,13 +1,14 @@
 import React from "react";
 import { SectionList, StyleSheet, View } from "react-native";
+
+import { dummyCalendarData, sectionizeCalendarData, useFetch } from "api";
 import { H1, H2, H3 } from "styles/typography";
-import Loading from "components/Loading";
-import useFetch from "apiHooks/useFetch";
-import { dummyCalendarData } from "apiHooks/dummyData/dummyCalendarData";
-import CalendarBlock from "components/CalendarBlock";
-import DateBlock from "components/CalendarBlock/DateBlock";
-import Content from "components/CalendarBlock/Content";
-import { sectionizedCalData } from "apiHooks/sectionizedCalendarData";
+import { Loading } from "library/components";
+import {
+  CalendarBlock,
+  Content,
+  DateBlock,
+} from "library/components/CalendarBlock";
 
 const styles = StyleSheet.create({
   container: {
@@ -74,7 +75,7 @@ const Calendar = ({ startYear = 2020 }) => {
           </H2>
         </View>
       }
-      sections={sectionizedCalData}
+      sections={sectionizeCalendarData(dummyCalendarData)}
       keyExtractor={(item, index) => item + index}
       renderItem={renderItem}
       renderSectionHeader={renderSectionHeader}

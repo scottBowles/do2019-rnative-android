@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (query) => {
+export default useFetch = (query) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
 
@@ -26,5 +26,3 @@ const useFetch = (query) => {
 
   return [data, isLoading];
 };
-
-export default useFetch;

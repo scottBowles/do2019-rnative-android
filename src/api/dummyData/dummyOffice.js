@@ -1,4 +1,4 @@
-const dummyOffice = {
+export const dummyOffice = {
   frequency: "Daily",
   office: "evening",
   daySection: {
@@ -40,5 +40,3 @@ const dummyOffice = {
     useDeaconOrLayAbsolution: true,
   },
 };
-
-export default dummyOffice;

@@ -8,13 +8,11 @@ Sentry.init({
 
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import { NativeRouter as Router, Route, Link } from "react-router-native";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { NativeRouter as Router, Route } from "react-router-native";
 import Constants from "expo-constants";
-import { Text } from "./src/styles/typography";
-import Menu from "./src/components/Menu";
-import Office from "./src/components/Office";
-import Calendar from "./src/components/Calendar";
+import { Menu } from "library/components";
+import { Calendar, Office } from "screens";
 
 export default function App() {
   return (
