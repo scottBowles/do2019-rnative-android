@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, SectionList, StyleSheet, View } from "react-native";
 
 import { dummyCalendarData, sectionizeCalendarData } from "api";
-import { H1, H2, H3 } from "styles/typography";
-import { ColorBox } from "common/components";
+import { H1, H2, H3, Text } from "styles/typography";
+import { ColorBox, OutlineBtn } from "common/components";
 import {
   CalendarBlock,
   Content,
@@ -110,6 +110,16 @@ const Calendar = React.memo(({ startYear = 2020 }) => {
       <H2>
         {startYear} - {+startYear + 1}
       </H2>
+      <OutlineBtn>
+        <Text>
+          {startYear - 1} - {startYear}
+        </Text>
+      </OutlineBtn>
+      <OutlineBtn>
+        <Text>
+          {startYear + 1} - {startYear + 2}
+        </Text>
+      </OutlineBtn>
     </View>
   ));
 

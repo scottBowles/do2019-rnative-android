@@ -5,6 +5,7 @@ import { Link } from "react-router-native";
 import { Text } from "styles/typography";
 import { colors } from "styles";
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
+import { OutlineBtn } from "common/components";
 
 const styles = StyleSheet.create({
   container: {
@@ -71,13 +72,13 @@ export default function Menu() {
           style={styles.linkItem}
           key={index}
         >
-          <View style={styles.itemContainer}>
+          <OutlineBtn>
             {item.icon}
             <Text>
               <Text style={styles.firstLetter}>{item.text[0]}</Text>
               <Text style={styles.item}>{item.text.slice(1)}</Text>
             </Text>
-          </View>
+          </OutlineBtn>
         </Link>
       ))}
     </View>
