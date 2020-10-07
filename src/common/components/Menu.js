@@ -13,15 +13,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: 8,
   },
-  itemContainer: {
+  outlineBtn: {
     flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    padding: 8,
-    borderWidth: 1,
-    borderColor: colors.fontGrey,
-    borderRadius: 10,
-    height: 34,
   },
   linkItem: {
     borderRadius: 10,
@@ -72,7 +65,7 @@ export default function Menu() {
           style={styles.linkItem}
           key={index}
         >
-          <OutlineBtn>
+          <OutlineBtn style={styles.outlineBtn}>
             {item.icon}
             <Text>
               <Text style={styles.firstLetter}>{item.text[0]}</Text>

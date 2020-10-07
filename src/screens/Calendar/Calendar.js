@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, SectionList, StyleSheet, View } from "react-native";
 
 import { dummyCalendarData, sectionizeCalendarData } from "api";
+import { ArrowLeft, ArrowRight } from "assets/icons";
 import { H1, H2, H3, Text } from "styles/typography";
 import { ColorBox, OutlineBtn } from "common/components";
 import {
@@ -11,22 +12,38 @@ import {
 } from "common/components/CalendarBlock";
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 25,
-    alignItems: "center",
-  },
-  seasonHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
   colorBox: {
     marginRight: 3,
+  },
+  listHeaderContainer: {
+    alignItems: "center",
+    padding: 25,
+  },
+  seasonHeaderContainer: {
+    alignItems: "center",
+    padding: 25,
   },
   footer: {
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+  },
+  outlineBtn: {
+    margin: 5,
+  },
+  outlineBtnText: {
+    fontSize: 12,
+  },
+  seasonHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  yearNavContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingTop: 5,
+    width: "100%",
   },
 });
 
@@ -67,7 +84,7 @@ const SectionHeader = React.memo(
     );
 
     return (
-      <View style={styles.container}>
+      <View style={styles.seasonHeaderContainer}>
         {type === "both"
           ? [seasonHeader, monthHeader]
           : type === "month"
@@ -105,21 +122,27 @@ const Calendar = React.memo(({ startYear = 2020 }) => {
   // const isLoading = false;
 
   const ListHeader = React.memo(() => (
-    <View style={styles.container}>
-      <H1>The Church Year</H1>
-      <H2>
-        {startYear} - {+startYear + 1}
-      </H2>
-      <OutlineBtn>
-        <Text>
-          {startYear - 1} - {startYear}
-        </Text>
-      </OutlineBtn>
-      <OutlineBtn>
-        <Text>
-          {startYear + 1} - {startYear + 2}
-        </Text>
-      </OutlineBtn>
+    <View style={styles.listHeaderContainer}>
+      <View>
+        <H1>The Church Year</H1>
+        <H2>
+          {startYear} - {+startYear + 1}
+        </H2>
+      </View>
+      <View style={styles.yearNavContainer}>
+        <OutlineBtn style={styles.outlineBtn}>
+          <Text style={styles.outlineBtnText}>
+            {startYear - 1} - {startYear}
+          </Text>
+          <ArrowLeft size={12} />
+        </OutlineBtn>
+        <OutlineBtn style={styles.outlineBtn}>
+          <Text style={styles.outlineBtnText}>
+            {startYear + 1} - {startYear + 2}
+          </Text>
+          <ArrowRight size={12} />
+        </OutlineBtn>
+      </View>
     </View>
   ));
 
