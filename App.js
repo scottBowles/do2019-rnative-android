@@ -9,7 +9,7 @@ Sentry.init({
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
-import { NativeRouter as Router, Route } from "react-router-native";
+import { NativeRouter as Router, Route, Switch } from "react-router-native";
 import Constants from "expo-constants";
 import { Menu } from "common/components";
 import { Calendar, Office } from "screens";
@@ -20,8 +20,20 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar />
         <Menu />
-        <Route path="/office" component={Office} />
-        <Route exact path="/" component={Calendar} />
+        <Switch>
+          <Route exact path="/">
+            <Calendar />
+          </Route>
+          <Route path="/office">
+            <Office />
+          </Route>
+          <Route
+            path="/calendar/:year"
+            render={({ location, ...rest }) => (
+              <Calendar key={location.pathname} {...rest} />
+            )}
+          />
+        </Switch>
       </SafeAreaView>
     </Router>
   );

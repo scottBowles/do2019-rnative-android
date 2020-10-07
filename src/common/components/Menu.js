@@ -41,7 +41,7 @@ const menuItems = [
   {
     icon: <CalendarIcon size={12} color="black" style={styles.icons} />,
     text: "Calendar",
-    route: "/",
+    route: "/calendar",
   },
   {
     icon: <CogIcon size={12} color="black" style={styles.icons} />,

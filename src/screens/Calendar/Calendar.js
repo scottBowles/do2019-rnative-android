@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, SectionList, StyleSheet, View } from "react-native";
+import { Link, useParams } from "react-router-native";
 
 import { dummyCalendarData, sectionizeCalendarData } from "api";
 import { ArrowLeft, ArrowRight } from "assets/icons";
@@ -10,6 +11,7 @@ import {
   Content,
   DateBlock,
 } from "common/components/CalendarBlock";
+import { getValidStartYear } from "common/utils";
 
 const styles = StyleSheet.create({
   colorBox: {
@@ -47,9 +49,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 });
-
-const currentYear = new Date().getFullYear();
-// use to get current liturgical year's start year, for default start year
 
 const Item = React.memo(({ item: { commemorations, date, season } }) => (
   <CalendarBlock date={date}>
@@ -95,7 +94,11 @@ const SectionHeader = React.memo(
     );
   }
 );
-const Calendar = React.memo(({ startYear = 2020 }) => {
+
+const Calendar = () => {
+  const { year } = useParams();
+  const startYear = getValidStartYear(year);
+
   const [isLoading, setIsLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [nextYear, setNextYear] = useState(startYear);
@@ -131,18 +134,22 @@ const Calendar = React.memo(({ startYear = 2020 }) => {
         </H2>
       </View>
       <View style={styles.yearNavContainer}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <Text style={styles.outlineBtnText}>
-            {startYear - 1} - {startYear}
-          </Text>
-          <ArrowLeft size={12} />
-        </OutlineBtn>
-        <OutlineBtn style={styles.outlineBtn}>
-          <Text style={styles.outlineBtnText}>
-            {startYear + 1} - {startYear + 2}
-          </Text>
-          <ArrowRight size={12} />
-        </OutlineBtn>
+        <Link to={`/calendar/${startYear - 1}`}>
+          <OutlineBtn style={styles.outlineBtn}>
+            <Text style={styles.outlineBtnText}>
+              {startYear - 1} - {startYear}
+            </Text>
+            <ArrowLeft size={12} />
+          </OutlineBtn>
+        </Link>
+        <Link to={`/calendar/${startYear + 1}`}>
+          <OutlineBtn style={styles.outlineBtn}>
+            <Text style={styles.outlineBtnText}>
+              {startYear + 1} - {startYear + 2}
+            </Text>
+            <ArrowRight size={12} />
+          </OutlineBtn>
+        </Link>
       </View>
     </View>
   ));
@@ -161,16 +168,16 @@ const Calendar = React.memo(({ startYear = 2020 }) => {
   return (
     <SectionList
       sections={dataSource}
-      keyExtractor={(item, index) => item + index}
       ListHeaderComponent={ListHeader}
+      ListFooterComponent={ListFooter}
       renderItem={({ item }) => <Item item={item} />}
       renderSectionHeader={({ section }) => <SectionHeader section={section} />}
-      ListFooterComponent={ListFooter}
       initialNumToRender={15}
       onEndReachedThreshold={0.25}
       onEndReached={getData}
+      keyExtractor={(item, index) => item + index}
     />
   );
-});
+};
 
 export default Calendar;

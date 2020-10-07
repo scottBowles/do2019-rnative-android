@@ -1,4 +1,4 @@
-export const parseDate = (dateStr) => {
+const parseDate = (dateStr) => {
   const date = new Date(dateStr);
   if (!date) return { error: "Invalid date provided" };
 
@@ -27,3 +27,5 @@ export const parseDate = (dateStr) => {
 
   return { dayOfMonth, fullMonth, month, weekday, year };
 };
+
+export default parseDate;
