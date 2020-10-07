@@ -77,7 +77,7 @@ const SectionHeader = React.memo(
     );
   }
 );
-const Calendar = ({ startYear = 2020 }) => {
+const Calendar = React.memo(({ startYear = 2020 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [nextYear, setNextYear] = useState(startYear);
@@ -133,10 +133,10 @@ const Calendar = ({ startYear = 2020 }) => {
       renderSectionHeader={({ section }) => <SectionHeader section={section} />}
       ListFooterComponent={ListFooter}
       initialNumToRender={15}
-      onEndReachedThreshold={15}
+      onEndReachedThreshold={0.25}
       onEndReached={getData}
     />
   );
-};
+});
 
 export default Calendar;
