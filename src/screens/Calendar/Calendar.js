@@ -19,9 +19,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 25,
   },
-  seasonHeaderContainer: {
+  sectionHeaderContainer: {
     alignItems: "center",
-    padding: 25,
   },
   footer: {
     padding: 10,
@@ -35,9 +34,11 @@ const styles = StyleSheet.create({
   outlineBtnText: {
     fontSize: 12,
   },
-  seasonHeader: {
+  sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: 6,
+    marginTop: 14,
   },
   yearNavContainer: {
     flexDirection: "row",
@@ -68,7 +69,7 @@ const SectionHeader = React.memo(
     },
   }) => {
     const seasonHeader = (
-      <View style={styles.seasonHeader} key={season + month + year}>
+      <View style={styles.sectionHeader} key={season + month + year}>
         <ColorBox
           color={season.colors[0]}
           dimension={9}
@@ -78,13 +79,13 @@ const SectionHeader = React.memo(
       </View>
     );
     const monthHeader = (
-      <H3 key={month + year + season}>
+      <H3 style={styles.sectionHeader} key={month + year + season}>
         {month} {year}
       </H3>
     );
 
     return (
-      <View style={styles.seasonHeaderContainer}>
+      <View style={styles.sectionHeaderContainer}>
         {type === "both"
           ? [seasonHeader, monthHeader]
           : type === "month"
