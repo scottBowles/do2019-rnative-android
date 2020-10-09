@@ -7,12 +7,8 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 
-const styles = StyleSheet.create({
-  icons: {
-    width: 15,
-    marginRight: 10,
-  },
-});
+// IF THIS ENDS UP BEING USED, ICONS SHOULD BE MOVED TO assets/icons AND
+//   IMPORTED FROM THERE
 
 export const menuItems = [
   {
@@ -45,3 +41,10 @@ export const menuItems = [
     text: "About",
   },
 ];
+
+const styles = StyleSheet.create({
+  icons: {
+    width: 15,
+    marginRight: 10,
+  },
+});

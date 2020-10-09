@@ -13,6 +13,20 @@ import { Confession } from "./Confession";
 import Invitatory from "./Invitatory";
 import OpeningSentence from "./OpeningSentence";
 
+/**
+ *
+ * IN THIS FILE
+ *
+ * parse dummyOffice data
+ *
+ * COMPONENTS
+ *   Title
+ *   Office (export default)
+ *
+ * Styles
+ *
+ */
+
 const {
   office,
   frequency,
@@ -20,15 +34,6 @@ const {
   openingSentence,
   confession: { useLongFormInvitation, useDeaconOrLayAbsolution },
 } = dummyOffice;
-
-const styles = StyleSheet.create({
-  container: {
-    margin: 25,
-  },
-  title: {
-    marginBottom: 10,
-  },
-});
 
 const Title = ({ frequency, office }) => (
   <H1 style={styles.title}>{frequency + "\n" + `${office} Prayer`}</H1>
@@ -74,5 +79,14 @@ const Office = () => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 25,
+  },
+  title: {
+    marginBottom: 10,
+  },
+});
 
 export default Office;

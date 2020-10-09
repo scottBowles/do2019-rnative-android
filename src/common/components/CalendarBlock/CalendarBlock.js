@@ -3,6 +3,13 @@ import { View } from "react-native";
 import { parseDate } from "common/utils";
 import { colors } from "styles";
 
+// Expects DateBlock and Content children
+
+const CalendarBlock = ({ date, children }) => {
+  const { weekday } = parseDate(date);
+  return <View style={containerStyle(weekday)}>{children}</View>;
+};
+
 const containerStyle = (weekday) => {
   return {
     marginVertical: 5,
@@ -14,13 +21,6 @@ const containerStyle = (weekday) => {
     backgroundColor:
       weekday.toLowerCase() === "sun" ? colors.lightGrey : "#ffffff",
   };
-};
-
-// Expects DateBlock and Content children
-
-const CalendarBlock = ({ date, children }) => {
-  const { weekday } = parseDate(date);
-  return <View style={containerStyle(weekday)}>{children}</View>;
 };
 
 export default CalendarBlock;

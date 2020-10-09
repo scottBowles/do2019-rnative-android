@@ -1,3 +1,5 @@
+// Grab dayOfMonth, fullMonth, month (abbr), weekday, & year from a date
+
 const parseDate = (dateStr) => {
   const date = new Date(dateStr);
   if (!date) return { error: "Invalid date provided" };

@@ -5,6 +5,68 @@ import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
 
+/**
+ *
+ * IN THIS FILE
+ *
+ * COMPONENTS
+ *   Content (export default)
+ *   ContentLine
+ *   SeasonBox
+ *
+ * Styles
+ *
+ */
+
+const Content = ({ season, commemorations, withSeasonBox }) => (
+  <View style={{ paddingHorizontal: 14 }}>
+    {commemorations.map((commemoration, index) => (
+      <ContentLine
+        key={index}
+        type={index === 0 ? "primary" : "secondary"}
+        data={commemoration}
+      />
+    ))}
+    {season && <SeasonBox season={season} />}
+  </View>
+);
+
+const ContentLine = ({ type, data: { colors, name, links } }) => {
+  const typeCapitalized = type[0].toUpperCase() + type.slice(1);
+
+  return (
+    <View style={[styles.contentLine, type !== "season" && { marginTop: 8 }]}>
+      {colors.map((color, index) => (
+        <ColorBox
+          key={index}
+          color={color}
+          style={[styles.colorBox, styles[`colorBox${typeCapitalized}`]]}
+        />
+      ))}
+      <Text style={styles[`text${typeCapitalized}`]}>
+        {name}
+        {links &&
+          links.map((link, index) => (
+            <Text key={index}>
+              {" "}
+              <ExternalLinkIcon
+                size={9}
+                color="black"
+                onPress={() => WebBrowser.openBrowserAsync(link)}
+              />
+            </Text>
+          ))}
+      </Text>
+    </View>
+  );
+};
+
+const SeasonBox = ({ season }) => (
+  <View style={styles.seasonBlock}>
+    <ContentLine type="season" data={season} />
+  </View>
+);
+
 const styles = StyleSheet.create({
   contentLine: {
     flexDirection: "row",
@@ -53,54 +115,5 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 });
-
-const ContentLine = ({ type, data: { colors, name, links } }) => {
-  const typeCapitalized = type[0].toUpperCase() + type.slice(1);
-
-  return (
-    <View style={[styles.contentLine, type !== "season" && { marginTop: 8 }]}>
-      {colors.map((color, index) => (
-        <ColorBox
-          key={index}
-          color={color}
-          style={[styles.colorBox, styles[`colorBox${typeCapitalized}`]]}
-        />
-      ))}
-      <Text style={styles[`text${typeCapitalized}`]}>
-        {name}
-        {links &&
-          links.map((link, index) => (
-            <Text key={index}>
-              {" "}
-              <ExternalLinkIcon
-                size={9}
-                color="black"
-                onPress={() => WebBrowser.openBrowserAsync(link)}
-              />
-            </Text>
-          ))}
-      </Text>
-    </View>
-  );
-};
-
-const SeasonBox = ({ season }) => (
-  <View style={styles.seasonBlock}>
-    <ContentLine type="season" data={season} />
-  </View>
-);
-
-const Content = ({ season, commemorations, withSeasonBox }) => (
-  <View style={{ paddingHorizontal: 14 }}>
-    {commemorations.map((commemoration, index) => (
-      <ContentLine
-        key={index}
-        type={index === 0 ? "primary" : "secondary"}
-        data={commemoration}
-      />
-    ))}
-    {season && <SeasonBox season={season} />}
-  </View>
-);
 
 export default Content;

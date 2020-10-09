@@ -7,30 +7,14 @@ import { colors } from "styles";
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import { OutlineBtn } from "common/components";
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 8,
-  },
-  outlineBtn: {
-    flexDirection: "row",
-  },
-  linkItem: {
-    borderRadius: 10,
-  },
-  item: {
-    fontSize: 11,
-    textTransform: "uppercase",
-  },
-  firstLetter: {
-    fontSize: 15,
-    textTransform: "uppercase",
-  },
-  icons: {
-    marginRight: 4,
-  },
-});
+/**
+ *
+ * IN THIS FILE
+ * menuItems
+ * Menu (maps menuItem => Link)(export default)
+ * styles
+ *
+ */
 
 const menuItems = [
   {
@@ -77,3 +61,28 @@ export default function Menu() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 8,
+  },
+  outlineBtn: {
+    flexDirection: "row",
+  },
+  linkItem: {
+    borderRadius: 10,
+  },
+  item: {
+    fontSize: 11,
+    textTransform: "uppercase",
+  },
+  firstLetter: {
+    fontSize: 15,
+    textTransform: "uppercase",
+  },
+  icons: {
+    marginRight: 4,
+  },
+});
