@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, SectionList, StyleSheet, View } from "react-native";
 import { Link, useParams } from "react-router-native";
 
-import { dummyCalendarData, sectionizeCalendarData } from "api";
+import { useCalendarData } from "api/apiHooks";
 import { ArrowLeft, ArrowRight } from "assets/icons";
 import { H1, H2, H3, Text } from "styles/typography";
 import { ColorBox, OutlineBtn } from "common/components";
@@ -19,6 +19,7 @@ import { getValidStartYear } from "common/utils";
  *
  * COMPONENTS
  *   Calendar              (default export)
+ *     renders a SectionList
  *     -contains-
  *       ListHeader        Top material
  *       ListHeaderLink    Nav to prev & next years
@@ -34,31 +35,7 @@ const Calendar = () => {
   const { year } = useParams();
   const startYear = getValidStartYear(year);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [dataSource, setDataSource] = useState([]);
-  const [nextYear, setNextYear] = useState(startYear);
-
-  useEffect(() => getData(), []);
-
-  const getData = () => {
-    if (!isLoading) {
-      setIsLoading(true);
-      fetch(
-        `https://data.dailyoffice2019.com/api/v1/calendar/${nextYear}?format=json`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          const sectionizedData = sectionizeCalendarData(data);
-          setNextYear(nextYear + 1);
-          setDataSource([...dataSource, ...sectionizedData]);
-          setIsLoading(false);
-        })
-        .catch((err) => console.error(err));
-    }
-  };
-
-  // const data = dummyCalendarData;
-  // const isLoading = false;
+  const { dataSource, isLoading, getData } = useCalendarData(startYear);
 
   const ListHeader = React.memo(() => (
     <View style={styles.listHeaderContainer}>

@@ -1,4 +1,7 @@
 const getValidStartYear = (year) => {
+  // Validate calendar start year
+  // If invalid, return current liturgical year
+
   const currentYear = new Date().getFullYear();
   // TODO: use to get current liturgical year's start year, for default start year
 

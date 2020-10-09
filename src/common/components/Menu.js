@@ -10,11 +10,36 @@ import { OutlineBtn } from "common/components";
 /**
  *
  * IN THIS FILE
+ * styles
  * menuItems
  * Menu (maps menuItem => Link)(export default)
- * styles
  *
  */
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 8,
+  },
+  outlineBtn: {
+    flexDirection: "row",
+  },
+  linkItem: {
+    borderRadius: 10,
+  },
+  item: {
+    fontSize: 11,
+    textTransform: "uppercase",
+  },
+  firstLetter: {
+    fontSize: 15,
+    textTransform: "uppercase",
+  },
+  icons: {
+    marginRight: 4,
+  },
+});
 
 const menuItems = [
   {
@@ -61,28 +86,3 @@ export default function Menu() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 8,
-  },
-  outlineBtn: {
-    flexDirection: "row",
-  },
-  linkItem: {
-    borderRadius: 10,
-  },
-  item: {
-    fontSize: 11,
-    textTransform: "uppercase",
-  },
-  firstLetter: {
-    fontSize: 15,
-    textTransform: "uppercase",
-  },
-  icons: {
-    marginRight: 4,
-  },
-});

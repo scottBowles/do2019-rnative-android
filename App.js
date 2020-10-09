@@ -27,6 +27,9 @@ export default function App() {
           <Route path="/office">
             <Office />
           </Route>
+          <Route exact path="/calendar">
+            <Calendar />
+          </Route>
           <Route
             path="/calendar/:year"
             render={({ location, ...rest }) => (
