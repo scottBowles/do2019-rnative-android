@@ -4,9 +4,9 @@
     "slug": "do2019-rnative-android",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./favicon-32x32.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./favicon-32x32.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./favicon-32x32.png"
     },
     "hooks": {
       "postPublish": [
