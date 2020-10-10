@@ -3,6 +3,7 @@ import {
   Feather,
   FontAwesome,
   FontAwesome5,
+  Ionicons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
@@ -37,4 +38,20 @@ export const CogIcon = ({ size = 12, color = "black", ...props }) => (
 
 export const ExternalLinkIcon = ({ size = 9, color = "black", ...props }) => (
   <FontAwesome5 name="external-link-alt" size={size} color={color} {...props} />
+);
+
+export const MoonIcon = ({ size = 12, color = "black", ...props }) => (
+  <Ionicons name="ios-moon" size={size} color={color} />
+);
+
+export const SunIcon = ({ size = 12, color = "black", ...props }) => (
+  <Feather name="sun" size={size} color={color} />
+);
+
+export const SunriseIcon = ({ size = 12, color = "black", ...props }) => (
+  <Feather name="sunrise" size={size} color={color} />
+);
+
+export const SunsetIcon = ({ size = 12, color = "black", ...props }) => (
+  <Feather name="sunset" size={size} color={color} />
 );

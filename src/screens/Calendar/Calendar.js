@@ -100,7 +100,7 @@ const Item = React.memo(({ item: { commemorations, date, season } }) => (
       date={date}
       primaryColor={commemorations[0].colors[0]}
     />
-    <Content season={season} commemorations={commemorations} />
+    <Content commemorations={commemorations} date={date} />
   </CalendarBlock>
 ));
 

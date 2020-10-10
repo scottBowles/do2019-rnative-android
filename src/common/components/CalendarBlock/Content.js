@@ -4,6 +4,7 @@ import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
+import { OfficeLinks } from "common/components/CalendarBlock";
 
 /**
  *
@@ -18,8 +19,10 @@ import { ColorBox } from "common/components";
  *
  */
 
-const Content = ({ season, commemorations, withSeasonBox }) => (
-  <View style={{ paddingHorizontal: 14 }}>
+const Content = ({ commemorations, date, season }) => (
+  // if season => SeasonBox will be rendered
+  // if date => OfficeLinks will be rendered
+  <View style={styles.container}>
     {commemorations.map((commemoration, index) => (
       <ContentLine
         key={index}
@@ -28,6 +31,7 @@ const Content = ({ season, commemorations, withSeasonBox }) => (
       />
     ))}
     {season && <SeasonBox season={season} />}
+    {date && <OfficeLinks date={date} />}
   </View>
 );
 
@@ -68,6 +72,9 @@ const SeasonBox = ({ season }) => (
 );
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 14,
+  },
   contentLine: {
     flexDirection: "row",
     alignItems: "flex-start",
