@@ -25,13 +25,15 @@ const Content = ({ commemorations, date, season }) => {
   // if date => OfficeLinks will be rendered
   return (
     <View style={styles.container}>
-      {commemorations.map((commemoration, index) => (
-        <ContentLine
-          key={index}
-          type={index === 0 ? "primary" : "secondary"}
-          data={commemoration}
-        />
-      ))}
+      <View style={styles.commemorationContainer}>
+        {commemorations.map((commemoration, index) => (
+          <ContentLine
+            key={index}
+            type={index === 0 ? "primary" : "secondary"}
+            data={commemoration}
+          />
+        ))}
+      </View>
       {season && <SeasonBox season={season} />}
       {date && <OfficeLinks date={date} />}
     </View>
@@ -76,7 +78,9 @@ const ContentLine = ({ type, data: { colors, name, links } }) => {
     ));
 
   return (
-    <View style={[styles.contentLine, type !== "season" && { marginTop: 8 }]}>
+    <View
+      style={[styles.contentLine, type !== "season" && { marginVertical: 4 }]}
+    >
       {[...colorBoxes, ...words, ...linksDisplay]}
     </View>
   );
@@ -91,6 +95,10 @@ const SeasonBox = ({ season }) => (
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 14,
+  },
+  commemorationContainer: {
+    paddingTop: 4,
+    paddingBottom: 8,
   },
   contentLine: {
     flexDirection: "row",
@@ -107,7 +115,7 @@ const styles = StyleSheet.create({
     width: 11,
   },
   colorBoxSecondary: {
-    marginTop: 4,
+    marginTop: 5,
     height: 9,
     width: 9,
   },
@@ -118,6 +126,7 @@ const styles = StyleSheet.create({
   },
   textPrimary: {
     fontSize: 16,
+    letterSpacing: -0.5,
   },
   textSecondary: {
     fontSize: 13,
