@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { sectionizeCalendarData } from "api";
+import { addIsFastDay, sectionizeCalendarData } from "api/utils";
 
 export default useCalendarData = (startYear) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +16,8 @@ export default useCalendarData = (startYear) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          const sectionizedData = sectionizeCalendarData(data);
+          const dataWithIsFastDay = addIsFastDay(data);
+          const sectionizedData = sectionizeCalendarData(dataWithIsFastDay);
           setNextYear(nextYear + 1);
           setDataSource([...dataSource, ...sectionizedData]);
           setIsLoading(false);

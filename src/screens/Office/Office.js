@@ -8,11 +8,13 @@ import {
   CalendarBlock,
   Content,
   DateBlock,
-} from "common/components/CalendarBlock";
+} from "common/components/calendarBlock";
 import { isFast } from "common/utils";
 import { Confession } from "./Confession";
 import Invitatory from "./Invitatory";
 import OpeningSentence from "./OpeningSentence";
+
+// TODO -- CONSIDER USING addIsFastDay API UTIL, IF IT PERFORMS BETTER THAN USING isFast HERE
 
 /**
  *
