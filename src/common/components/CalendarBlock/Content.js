@@ -14,53 +14,70 @@ import { OfficeLinks } from "common/components/calendarBlock";
  *   Content (export default)
  *   ContentLine
  *   SeasonBox
+ *   [OfficeLinks is in its own file]
  *
  * Styles
  *
  */
 
-const Content = ({ commemorations, date, season }) => (
+const Content = ({ commemorations, date, season }) => {
   // if season => SeasonBox will be rendered
   // if date => OfficeLinks will be rendered
-  <View style={styles.container}>
-    {commemorations.map((commemoration, index) => (
-      <ContentLine
-        key={index}
-        type={index === 0 ? "primary" : "secondary"}
-        data={commemoration}
-      />
-    ))}
-    {season && <SeasonBox season={season} />}
-    {date && <OfficeLinks date={date} />}
-  </View>
-);
+  return (
+    <View style={styles.container}>
+      {commemorations.map((commemoration, index) => (
+        <ContentLine
+          key={index}
+          type={index === 0 ? "primary" : "secondary"}
+          data={commemoration}
+        />
+      ))}
+      {season && <SeasonBox season={season} />}
+      {date && <OfficeLinks date={date} />}
+    </View>
+  );
+};
 
 const ContentLine = ({ type, data: { colors, name, links } }) => {
   const typeCapitalized = type[0].toUpperCase() + type.slice(1);
 
+  /**
+   *
+   * For colorBoxes, words, and links to all wrap together in React Native,
+   *   the below is necessary. Each word is split into its own Text element.
+   *
+   */
+
+  const colorBoxes = colors.map((color, index) => (
+    <ColorBox
+      key={index}
+      color={color}
+      style={[styles.colorBox, styles[`colorBox${typeCapitalized}`]]}
+    />
+  ));
+
+  const words = name.split(" ").map((word, index, arr) => (
+    <Text key={word + index} style={styles[`text${typeCapitalized}`]}>
+      {index !== arr.length - 1 ? word + " " : word}
+    </Text>
+  ));
+
+  const linksDisplay =
+    links &&
+    links.map((link, index) => (
+      <Text key={link + index}>
+        {" "}
+        <ExternalLinkIcon
+          size={9}
+          color="black"
+          onPress={() => WebBrowser.openBrowserAsync(link)}
+        />
+      </Text>
+    ));
+
   return (
     <View style={[styles.contentLine, type !== "season" && { marginTop: 8 }]}>
-      {colors.map((color, index) => (
-        <ColorBox
-          key={index}
-          color={color}
-          style={[styles.colorBox, styles[`colorBox${typeCapitalized}`]]}
-        />
-      ))}
-      <Text style={styles[`text${typeCapitalized}`]}>
-        {name}
-        {links &&
-          links.map((link, index) => (
-            <Text key={index}>
-              {" "}
-              <ExternalLinkIcon
-                size={9}
-                color="black"
-                onPress={() => WebBrowser.openBrowserAsync(link)}
-              />
-            </Text>
-          ))}
-      </Text>
+      {[...colorBoxes, ...words, ...linksDisplay]}
     </View>
   );
 };
@@ -79,6 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     paddingBottom: 4,
+    flexWrap: "wrap",
   },
   colorBox: {
     marginRight: 5,
