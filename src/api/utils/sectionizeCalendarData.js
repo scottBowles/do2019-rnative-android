@@ -6,7 +6,7 @@ import { parseDate } from "common/utils";
  *
  *  Outputs an array where each element is an object with shape:
  *    {
- *      section: {
+ *      sectionData: {
  *        type: "month", "season", or "both" for which heading is needed,
  *        month,
  *        year,
@@ -23,9 +23,11 @@ export default sectionizeCalendarData = (calendarData) =>
     const { fullMonth: month, year } = parseDate(date);
 
     if (acc.length === 0)
-      return [{ section: { type: "both", month, year, season }, data: [cur] }];
+      return [
+        { sectionData: { type: "both", month, year, season }, data: [cur] },
+      ];
 
-    const currentSection = acc[acc.length - 1].section;
+    const currentSection = acc[acc.length - 1].sectionData;
     const {
       month: currentSectionMonth,
       year: currentSectionYear,
@@ -44,7 +46,7 @@ export default sectionizeCalendarData = (calendarData) =>
 
     if (newSectionType) {
       acc.push({
-        section: { type: newSectionType, month, year, season },
+        sectionData: { type: newSectionType, month, year, season },
         data: [cur],
       });
     } else {
