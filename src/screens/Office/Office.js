@@ -9,6 +9,7 @@ import {
   Content,
   DateBlock,
 } from "common/components/CalendarBlock";
+import { isFast } from "common/utils";
 import { Confession } from "./Confession";
 import Invitatory from "./Invitatory";
 import OpeningSentence from "./OpeningSentence";
@@ -44,6 +45,7 @@ const Office = () => {
   //   "https://data.dailyoffice2019.com/api/v1/calendar/2020-9-21?format=json"
   // );
   const officeData = dummyCalendarDayData;
+  const isFastDay = isFast(officeData);
   const isLoading = false;
 
   return !!isLoading ? (
@@ -56,7 +58,7 @@ const Office = () => {
         <Title frequency={frequency} office={office} />
         <CalendarBlock date={officeData.date}>
           <DateBlock
-            dateData={date}
+            isFastDay={isFastDay}
             date={officeData.date}
             primaryColor={officeData.commemorations[0].colors[0]}
           />

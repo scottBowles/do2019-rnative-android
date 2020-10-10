@@ -11,7 +11,7 @@ import {
   Content,
   DateBlock,
 } from "common/components/CalendarBlock";
-import { getValidStartYear } from "common/utils";
+import { getValidStartYear, isFast } from "common/utils";
 
 /**
  *
@@ -93,16 +93,21 @@ const Calendar = () => {
   );
 };
 
-const Item = React.memo(({ item: { commemorations, date, season } }) => (
-  <CalendarBlock date={date}>
-    <DateBlock
-      dateData={{ isFastDay: true }}
-      date={date}
-      primaryColor={commemorations[0].colors[0]}
-    />
-    <Content commemorations={commemorations} date={date} />
-  </CalendarBlock>
-));
+const Item = React.memo(({ item }) => {
+  const { commemorations, date } = item;
+  const isFastDay = isFast(item);
+
+  return (
+    <CalendarBlock date={date}>
+      <DateBlock
+        date={date}
+        isFastDay={isFastDay}
+        primaryColor={commemorations[0].colors[0]}
+      />
+      <Content commemorations={commemorations} date={date} />
+    </CalendarBlock>
+  );
+});
 
 const SectionHeader = React.memo(
   ({
