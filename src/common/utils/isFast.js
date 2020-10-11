@@ -1,4 +1,4 @@
-import { parseDate } from "common/utils";
+import parseDate from "./parseDate";
 
 const isFast = ({ date, season, commemorations: [{ rank }] }) => {
   const { weekday } = parseDate(date);

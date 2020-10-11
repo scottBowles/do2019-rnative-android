@@ -4,12 +4,10 @@ import { useParams } from "react-router-native";
 
 import { useCalendarData } from "api/apiHooks";
 import { getValidStartYear } from "common/utils";
-import {
-  DateDisplay,
-  ListFooter,
-  ListHeader,
-  SectionHeader,
-} from "screens/Calendar";
+import DateDisplay from "./DateDisplay";
+import ListFooter from "./ListFooter";
+import ListHeader from "./ListHeader";
+import SectionHeader from "./SectionHeader";
 
 /**
  *

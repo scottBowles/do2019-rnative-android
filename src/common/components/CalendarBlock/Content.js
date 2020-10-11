@@ -4,7 +4,7 @@ import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
-import { OfficeLinks } from "common/components/calendarBlock";
+import OfficeLinks from "./OfficeLinks";
 
 /**
  *
