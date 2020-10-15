@@ -29,10 +29,30 @@ const Calendar = () => {
 
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
 
+  const flatListRef = useRef(null);
+
   return (
     <View>
-      <Button onPress={() => console.log("clicked!")} title={"jump!"} />
+      <Button
+        onPress={() => flatListRef.current.scrollToIndex({ index: 300 })}
+        title={"jump!"}
+      />
       <FlatList
+        ref={flatListRef}
+        onScrollToIndexFailed={(error) => {
+          flatListRef.current.scrollToOffset({
+            offset: error.averageItemLength * error.index,
+            animated: true,
+          });
+          setTimeout(() => {
+            if (dataSource.length !== 0 && flatListRef !== null) {
+              flatListRef.current.scrollToIndex({
+                index: error.index,
+                animated: true,
+              });
+            }
+          }, 100);
+        }}
         data={dataSource}
         ListHeaderComponent={<ListHeader startYear={startYear} />}
         ListFooterComponent={<ListFooter isLoading={isLoading} />}
@@ -53,19 +73,6 @@ const Calendar = () => {
             />
           )
         }
-        // onScrollToIndexFailed={(error) => {
-        //   const { section, index } = findLastLocation(
-        //     dataSource,
-        //     error.index - 1
-        //   );
-        //   sectionListRef.current.scrollToLocation({
-        //     sectionIndex: section,
-        //     itemIndex: index,
-        //   });
-        //   setTimeout(() => {
-        //     goToLocation();
-        //   }, 10000);
-        // }}
         onEndReachedThreshold={0.35}
         onEndReached={getData}
         keyExtractor={(item, index) => item + index}

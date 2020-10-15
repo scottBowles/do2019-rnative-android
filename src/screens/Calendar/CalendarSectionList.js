@@ -35,16 +35,6 @@ const Calendar = () => {
     sectionListRef.current.scrollToLocation({ sectionIndex: 4, itemIndex: 2 });
   };
 
-  const findLastLocation = (data, index) => {
-    let section = 0;
-    let indexTotal = 0;
-    while (data[section].data.length + indexTotal >= index) {
-      indexTotal += data[section].data.length;
-      section++;
-    }
-    return { section, index: index - indexTotal };
-  };
-
   return (
     <View>
       <Button onPress={goToLocation} title={"jump!"} />
@@ -69,19 +59,20 @@ const Calendar = () => {
             primaryColor={item.commemorations[0].colors[0]}
           />
         )}
-        onScrollToIndexFailed={(error) => {
-          const { section, index } = findLastLocation(
-            dataSource,
-            error.index - 1
-          );
-          sectionListRef.current.scrollToLocation({
-            sectionIndex: section,
-            itemIndex: index,
-          });
-          setTimeout(() => {
-            goToLocation();
-          }, 10000);
-        }}
+        // onScrollToIndexFailed={(error) => {
+        //   sectionListRef.current.scrollToOffset({
+        //     offset: error.averageItemLength * error.index,
+        //     animated: true,
+        //   });
+        //   setTimeout(() => {
+        //     if (dataSource.length !== 0 && scrollListRef !== null) {
+        //       sectionListRef.current.scrollToIndex({
+        //         index: error.index,
+        //         animated: true,
+        //       });
+        //     }
+        //   }, 100);
+        // }}
         onEndReachedThreshold={0.35}
         onEndReached={getData}
         keyExtractor={(item, index) => item + index}

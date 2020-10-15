@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FlatList, View, Button } from "react-native";
+import { FlatList, View, Button, ScrollView } from "react-native";
 import { useParams } from "react-router-native";
 
 import { useCalendarData } from "api/apiHooks";
@@ -29,48 +29,44 @@ const Calendar = () => {
 
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
 
-  return (
+  const flatListRef = useRef(null);
+
+  const HeadersAndDates = () => (
     <View>
-      <Button onPress={() => console.log("clicked!")} title={"jump!"} />
-      <FlatList
-        data={dataSource}
-        ListHeaderComponent={<ListHeader startYear={startYear} />}
-        ListFooterComponent={<ListFooter isLoading={isLoading} />}
-        renderItem={({ item }) =>
-          item.type ? (
-            <SectionHeader
-              type={item.type}
-              month={item.month}
-              year={item.year}
-              season={item.season}
-            />
-          ) : (
-            <DateDisplay
-              commemorations={item.commemorations}
-              date={item.date}
-              isFastDay={item.isFastDay}
-              primaryColor={item.commemorations[0].colors[0]}
-            />
-          )
-        }
-        // onScrollToIndexFailed={(error) => {
-        //   const { section, index } = findLastLocation(
-        //     dataSource,
-        //     error.index - 1
-        //   );
-        //   sectionListRef.current.scrollToLocation({
-        //     sectionIndex: section,
-        //     itemIndex: index,
-        //   });
-        //   setTimeout(() => {
-        //     goToLocation();
-        //   }, 10000);
-        // }}
-        onEndReachedThreshold={0.35}
-        onEndReached={getData}
-        keyExtractor={(item, index) => item + index}
-      />
+      {dataSource.map((item, index) =>
+        item.type ? (
+          <SectionHeader
+            key={item + index}
+            type={item.type}
+            month={item.month}
+            year={item.year}
+            season={item.season}
+          />
+        ) : (
+          <DateDisplay
+            key={item + index}
+            commemorations={item.commemorations}
+            date={item.date}
+            isFastDay={item.isFastDay}
+            primaryColor={item.commemorations[0].colors[0]}
+          />
+        )
+      )}
     </View>
+  );
+
+  return (
+    <ScrollView>
+      <View>
+        <Button
+          onPress={() => flatListRef.current.scrollToIndex({ index: 300 })}
+          title={"jump!"}
+        />
+        <ListHeader startYear={startYear} />
+        <HeadersAndDates />
+        <ListFooter isLoading={isLoading} />
+      </View>
+    </ScrollView>
   );
 };
 

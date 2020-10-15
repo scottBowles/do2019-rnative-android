@@ -5,9 +5,13 @@ import { colors } from "styles";
 
 // Expects DateBlock and Content children
 
-const CalendarBlock = ({ date, children }) => {
+const CalendarBlock = ({ date, children, ...props }) => {
   const { weekday } = parseDate(date);
-  return <View style={containerStyle(weekday)}>{children}</View>;
+  return (
+    <View style={containerStyle(weekday)} {...props}>
+      {children}
+    </View>
+  );
 };
 
 const containerStyle = (weekday) => {
