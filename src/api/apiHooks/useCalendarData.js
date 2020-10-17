@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  addIsFastDay,
-  flatListCalendarData,
-  sectionizeCalendarData,
-} from "api/utils";
+import { prepFlatListCalendarData, sectionizeCalendarData } from "api/utils";
 
 export default useCalendarData = (startYear) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,11 +16,10 @@ export default useCalendarData = (startYear) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          const dataWithIsFastDay = addIsFastDay(data);
           // sectionizeCalendarData for if Calendar winds up being a Section List
           // const sectionizedData = sectionizeCalendarData(dataWithIsFastDay);
           // flatListCalendarData for if Calendar winds up being a FlatList
-          const sectionizedData = flatListCalendarData(dataWithIsFastDay);
+          const sectionizedData = prepFlatListCalendarData(data);
           setNextYear(nextYear + 1);
           setDataSource([...dataSource, ...sectionizedData]);
           setIsLoading(false);

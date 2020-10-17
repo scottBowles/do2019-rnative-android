@@ -1,11 +1,12 @@
-import { parseDate } from "common/utils";
+import { withIsFastDay } from "./withIsFastDay";
+import { withParsedDate } from "./withParsedDate";
 
 /**
- *  Take calendar data and prepare it for a FlatList with
- *     section headers for each season and month.
+ *  Take calendar data and prepare it for a FlatList with section headers
+ *  for each season and month and a parsed day object added to each day
  *
  *  Outputs an array where each time the month and/or season changes,
- *  a section heading object is inserted. E.g.,
+ *  a section heading object is inserted. E.g.:
  *    [
  *      {
  *        type: "month", "season", or "both" for which heading is needed,
@@ -19,7 +20,9 @@ import { parseDate } from "common/utils";
  *    ]
  */
 
-export const flatListCalendarData = (calendarData) => {
+export const prepFlatListCalendarData = (calendarData) => {
+  const calendarWithAddedProps = withIsFastDay(withParsedDate(calendarData));
+
   let currentSection = {
     type: null,
     month: null,
@@ -27,10 +30,12 @@ export const flatListCalendarData = (calendarData) => {
     season: { name: null },
   };
 
-  return calendarData.reduce((acc, cur) => {
-    const { date, season } = cur;
-
-    const { fullMonth: month, year } = parseDate(date);
+  return calendarWithAddedProps.reduce((acc, cur) => {
+    const {
+      date,
+      day: { fullMonth: month, year },
+      season,
+    } = cur;
 
     if (
       month === currentSection.month &&

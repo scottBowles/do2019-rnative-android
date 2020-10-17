@@ -21,17 +21,16 @@ import { colors } from "styles";
  *
  */
 
-const DateBlock = ({ isFastDay, date, primaryColor }) => {
+const DateBlock = ({ isFastDay, day, primaryColor }) => {
   const textColor = getTextColor(primaryColor);
   const blockStyle = composeBlockStyle(primaryColor);
-  const parsedDate = parseDate(date);
   const datePropertiesInOrder = ["weekday", "dayOfMonth", "month", "year"];
 
   return (
     <View style={blockStyle}>
       {datePropertiesInOrder.map((property, index) => (
         <Text key={index} style={composeTextStyle(property, textColor)}>
-          {parsedDate[property]}
+          {day[property]}
         </Text>
       ))}
       {!!isFastDay && <FastDisplay textColor={textColor} />}

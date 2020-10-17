@@ -1,4 +1,5 @@
-import { parseDate } from "common/utils";
+import { withIsFastDay } from "./withIsFastDay";
+import { withParsedDate } from "./withParsedDate";
 
 /**
  *  Take calendar data and prepare it for a SectionList with
@@ -16,11 +17,15 @@ import { parseDate } from "common/utils";
  *    }
  */
 
-export default sectionizeCalendarData = (calendarData) =>
-  calendarData.reduce((acc, cur) => {
-    const { date, season } = cur;
+export const sectionizeCalendarData = (calendarData) => {
+  const calendarWithAddedProps = withIsFastDay(withParsedDate(calendarData));
 
-    const { fullMonth: month, year } = parseDate(date);
+  return calendarWithAddedProps.reduce((acc, cur) => {
+    const {
+      date,
+      day: { fullMonth: month, year },
+      season,
+    } = cur;
 
     if (acc.length === 0)
       return [
@@ -28,11 +33,6 @@ export default sectionizeCalendarData = (calendarData) =>
       ];
 
     const currentSection = acc[acc.length - 1].sectionData;
-    const {
-      month: currentSectionMonth,
-      year: currentSectionYear,
-      season: currentSectionSeason,
-    } = currentSection;
 
     const newSectionType =
       currentSection.month !== month &&
@@ -55,3 +55,4 @@ export default sectionizeCalendarData = (calendarData) =>
 
     return acc;
   }, []);
+};

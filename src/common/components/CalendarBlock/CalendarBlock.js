@@ -1,12 +1,10 @@
 import React from "react";
 import { View } from "react-native";
-import { parseDate } from "common/utils";
 import { colors } from "styles";
 
 // Expects DateBlock and Content children
 
-const CalendarBlock = ({ date, children, ...props }) => {
-  const { weekday } = parseDate(date);
+const CalendarBlock = ({ weekday, children, ...props }) => {
   return (
     <View style={containerStyle(weekday)} {...props}>
       {children}

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FlatList, View, Button, ScrollView } from "react-native";
+import { Button, ScrollView, View } from "react-native";
 import { useParams } from "react-router-native";
 
 import { useCalendarData } from "api/apiHooks";
@@ -31,30 +31,6 @@ const Calendar = () => {
 
   const flatListRef = useRef(null);
 
-  const HeadersAndDates = () => (
-    <View>
-      {dataSource.map((item, index) =>
-        item.type ? (
-          <SectionHeader
-            key={item + index}
-            type={item.type}
-            month={item.month}
-            year={item.year}
-            season={item.season}
-          />
-        ) : (
-          <DateDisplay
-            key={item + index}
-            commemorations={item.commemorations}
-            date={item.date}
-            isFastDay={item.isFastDay}
-            primaryColor={item.commemorations[0].colors[0]}
-          />
-        )
-      )}
-    </View>
-  );
-
   return (
     <ScrollView>
       <View>
@@ -63,11 +39,36 @@ const Calendar = () => {
           title={"jump!"}
         />
         <ListHeader startYear={startYear} />
-        <HeadersAndDates />
+        <HeadersAndDates data={dataSource} />
         <ListFooter isLoading={isLoading} />
       </View>
     </ScrollView>
   );
 };
+
+const HeadersAndDates = ({ data }) => (
+  <View>
+    {data.map((item, index) =>
+      item.type ? (
+        <SectionHeader
+          key={item + index}
+          type={item.type}
+          month={item.month}
+          year={item.year}
+          season={item.season}
+        />
+      ) : (
+        <DateDisplay
+          key={item + index}
+          commemorations={item.commemorations}
+          date={item.date}
+          day={item.day}
+          isFastDay={item.isFastDay}
+          primaryColor={item.commemorations[0].colors[0]}
+        />
+      )
+    )}
+  </View>
+);
 
 export default Calendar;

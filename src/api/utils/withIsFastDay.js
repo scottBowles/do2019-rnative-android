@@ -1,6 +1,6 @@
 import { isFast } from "common/utils";
 
-export default addIsFastDay = (data) =>
+export const withIsFastDay = (data) =>
   data.map((day) => {
     day.isFastDay = isFast(day);
     return day;

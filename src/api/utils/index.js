@@ -1,3 +1,4 @@
-export { default as addIsFastDay } from "./addIsFastDay";
-export { default as sectionizeCalendarData } from "./sectionizeCalendarData";
-export { flatListCalendarData } from "./flatListCalendarData";
+export { withIsFastDay } from "./withIsFastDay";
+export { withParsedDate } from "./withParsedDate";
+export { sectionizeCalendarData } from "./sectionizeCalendarData";
+export { prepFlatListCalendarData } from "./prepFlatListCalendarData";
