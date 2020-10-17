@@ -55,6 +55,7 @@ const Calendar = () => {
           <DateDisplay
             commemorations={item.commemorations}
             date={item.date}
+            day={item.day}
             isFastDay={item.isFastDay}
             primaryColor={item.commemorations[0].colors[0]}
           />
