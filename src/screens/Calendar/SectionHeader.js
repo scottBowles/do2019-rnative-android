@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   },
   sectionHeaderContainer: {
     alignItems: "center",
+    flex: 1,
   },
   sectionHeader: {
     flexDirection: "row",

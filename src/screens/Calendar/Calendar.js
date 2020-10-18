@@ -84,12 +84,8 @@ const Calendar = () => {
         dataProvider={dataProvider}
         layoutProvider={layoutProvider}
         rowRenderer={rowRenderer}
-        renderFooter={() => (
-          <ListFooter
-            isLoading={isLoading}
-            forceNonDeterministicRendering={true}
-          />
-        )}
+        renderFooter={() => <ListFooter isLoading={isLoading} />}
+        forceNonDeterministicRendering={true}
       />
     </View>
   );

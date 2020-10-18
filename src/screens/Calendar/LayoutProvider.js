@@ -16,9 +16,9 @@ export default class LayoutProvider extends GridLayoutProvider {
         const { type } = props.getDataForIndex(index);
         switch (type) {
           case "heading":
-            return 50;
+            return 42.5;
           case "date":
-            return 500;
+            return 300;
         }
       }
     );
