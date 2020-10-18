@@ -21,10 +21,16 @@ import { withParsedDate } from "./withParsedDate";
  */
 
 export const prepFlatListCalendarData = (calendarData) => {
-  const calendarWithAddedProps = withIsFastDay(withParsedDate(calendarData));
+  const calendarWithAddedProps = withIsFastDay(
+    withParsedDate(calendarData)
+  ).map((d) => {
+    d.type = "date";
+    return d;
+  });
 
   let currentSection = {
-    type: null,
+    type: "heading",
+    sectionType: null,
     month: null,
     year: null,
     season: { name: null },
@@ -55,7 +61,13 @@ export const prepFlatListCalendarData = (calendarData) => {
         ? "season"
         : undefined;
 
-    currentSection = { type: newSectionType, month, year, season };
+    currentSection = {
+      type: "heading",
+      sectionType: newSectionType,
+      month,
+      year,
+      season,
+    };
 
     return [...acc, currentSection, cur];
   }, []);

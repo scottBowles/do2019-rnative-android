@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
-import { FlatList, View, Button } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Button, View } from "react-native";
 import { useParams } from "react-router-native";
+import { DataProvider, RecyclerListView } from "recyclerlistview";
 
 import { useCalendarData } from "api/apiHooks";
 import { getValidStartYear } from "common/utils";
 import DateDisplay from "./DateDisplay";
+import LayoutProvider from "./LayoutProvider";
 import ListFooter from "./ListFooter";
 import ListHeader from "./ListHeader";
 import SectionHeader from "./SectionHeader";
@@ -23,61 +25,71 @@ import SectionHeader from "./SectionHeader";
  *
  */
 
+const createNewDataProvider = () =>
+  new DataProvider((r1, r2) => {
+    return r1 !== r2;
+  });
+
 const Calendar = () => {
   const { year } = useParams();
   const startYear = getValidStartYear(year);
-
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
+  const initialDataProvider = createNewDataProvider().cloneWithRows(dataSource);
+  const [dataProvider, setDataProvider] = useState(initialDataProvider);
+  const [heights, setHeights] = useState({ headings: [], dates: [] });
+
+  useEffect(() => {
+    if (dataProvider) {
+      setDataProvider(createNewDataProvider().cloneWithRows(dataSource));
+    }
+  }, [dataSource]);
 
   const flatListRef = useRef(null);
 
-  return (
-    <View>
+  const rowRenderer = (type, data, index) => {
+    switch (type) {
+      case "heading":
+        return (
+          <SectionHeader
+            key={data + index}
+            sectionType={data.sectionType}
+            month={data.month}
+            year={data.year}
+            season={data.season}
+          />
+        );
+      case "date":
+        return (
+          <DateDisplay
+            key={data + index}
+            commemorations={data.commemorations}
+            date={data.date}
+            day={data.day}
+            isFastDay={data.isFastDay}
+            primaryColor={data.commemorations[0].colors[0]}
+          />
+        );
+    }
+  };
+
+  const layoutProvider = new LayoutProvider(dataProvider);
+
+  return dataProvider.getSize() === 0 ? null : (
+    <View style={{ flex: 1 }}>
       <Button
         onPress={() => flatListRef.current.scrollToIndex({ index: 300 })}
         title={"jump!"}
       />
-      <FlatList
-        ref={flatListRef}
-        onScrollToIndexFailed={(error) => {
-          flatListRef.current.scrollToOffset({
-            offset: error.averageItemLength * error.index,
-            animated: true,
-          });
-          setTimeout(() => {
-            if (dataSource.length !== 0 && flatListRef !== null) {
-              flatListRef.current.scrollToIndex({
-                index: error.index,
-                animated: true,
-              });
-            }
-          }, 100);
-        }}
-        data={dataSource}
-        ListHeaderComponent={<ListHeader startYear={startYear} />}
-        ListFooterComponent={<ListFooter isLoading={isLoading} />}
-        renderItem={({ item }) =>
-          item.type ? (
-            <SectionHeader
-              type={item.type}
-              month={item.month}
-              year={item.year}
-              season={item.season}
-            />
-          ) : (
-            <DateDisplay
-              commemorations={item.commemorations}
-              date={item.date}
-              day={item.day}
-              isFastDay={item.isFastDay}
-              primaryColor={item.commemorations[0].colors[0]}
-            />
-          )
-        }
-        initialNumToRender={301}
-        onEndReachedThreshold={0.35}
-        onEndReached={getData}
-        keyExtractor={(item, index) => item + index}
+      <RecyclerListView
+        dataProvider={dataProvider}
+        layoutProvider={layoutProvider}
+        rowRenderer={rowRenderer}
+        renderFooter={() => (
+          <ListFooter
+            isLoading={isLoading}
+            forceNonDeterministicRendering={true}
+          />
+        )}
       />
     </View>
   );
