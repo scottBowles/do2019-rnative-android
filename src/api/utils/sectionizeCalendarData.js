@@ -1,9 +1,15 @@
-import { withIsFastDay } from "./withIsFastDay";
-import { withParsedDate } from "./withParsedDate";
+import { isFast, parseDate } from "common/utils";
 
 /**
  *  Take calendar data and prepare it for a SectionList with
  *     section headers for each season and month.
+ *
+ *  Takes each calendar day and adds the following properties:
+ *  {
+ *    day: { dayOfMonth, fullMonth, month, weekday, year },
+ *    isFastDay: Boolean,
+ *    type: "date" -- for RecylerListView,
+ *  }
  *
  *  Outputs an array where each element is an object with shape:
  *    {
@@ -18,7 +24,27 @@ import { withParsedDate } from "./withParsedDate";
  */
 
 export const sectionizeCalendarData = (calendarData) => {
-  const calendarWithAddedProps = withIsFastDay(withParsedDate(calendarData));
+  /**
+   *  To each calendar day, add:
+   *  {
+   *    day: { dayOfMonth, fullMonth, month, weekday, year },
+   *    isFastDay: Boolean,
+   *    type: "date" -- for RecylerListView,
+   *  }
+   */
+
+  const calendarWithAddedProps = calendarData.map((calendarDay) =>
+    Object.assign({}, calendarDay, {
+      day: parseDate(calendarDay.date),
+      isFastDay: isFast(day),
+      type: "date",
+    })
+  );
+
+  /**
+   *  To calendarData, add section heading objects whenever the
+   *  month and/or season changes.
+   */
 
   return calendarWithAddedProps.reduce((acc, cur) => {
     const {
