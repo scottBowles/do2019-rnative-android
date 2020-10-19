@@ -38,7 +38,7 @@ export const prepFlatListCalendarData = (calendarData) => {
   const calendarWithAddedProps = calendarData.map((calendarDay) =>
     Object.assign({}, calendarDay, {
       day: parseDate(calendarDay.date),
-      isFastDay: isFast(day),
+      isFastDay: isFast(calendarDay),
       type: "date",
     })
   );
