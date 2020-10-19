@@ -1,2 +1,1 @@
-export { sectionizeCalendarData } from "./sectionizeCalendarData";
-export { prepFlatListCalendarData } from "./prepFlatListCalendarData";
+export { prepCalendarData } from "./prepCalendarData";

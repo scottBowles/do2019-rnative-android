@@ -1,17 +1,36 @@
+/**
+ *  Take calendar data and prepare it for the RecyclerListView with section headers
+ *  for each season and month, and a parsed day object, isFastDay, and type added to
+ *  each day
+ */
+
 import { isFast, parseDate } from "common/utils";
 
+export const prepCalendarData = (calendarData) => {
+  const calendarDaysWithAddedProps = addPropertiesToCalendarDays(calendarData);
+  const sectionizedData = sectionizeCalendarData(calendarDaysWithAddedProps);
+  return sectionizedData;
+};
+
 /**
- *  Take calendar data and prepare it for a FlatList with section headers
- *  for each season and month and a parsed day object added to each day
- *
- *  Takes each calendar day and adds the following properties:
+ *  To each calendar day, add:
  *  {
  *    day: { dayOfMonth, fullMonth, month, weekday, year },
  *    isFastDay: Boolean,
  *    type: "date" -- for RecylerListView,
  *  }
- *
- *  Outputs an array where each time the month and/or season changes,
+ */
+const addPropertiesToCalendarDays = (calendarData) =>
+  calendarData.map((calendarDay) =>
+    Object.assign({}, calendarDay, {
+      day: parseDate(calendarDay.date),
+      isFastDay: isFast(calendarDay),
+      type: "date",
+    })
+  );
+
+/**
+ *  Output an array where each time the month and/or season changes,
  *  a section heading object is inserted. E.g.:
  *    [
  *      {
@@ -25,29 +44,7 @@ import { isFast, parseDate } from "common/utils";
  *      dateData...
  *    ]
  */
-
-export const prepFlatListCalendarData = (calendarData) => {
-  /**
-   *  To each calendar day, add:
-   *  {
-   *    day: { dayOfMonth, fullMonth, month, weekday, year },
-   *    isFastDay: Boolean,
-   *    type: "date" -- for RecylerListView,
-   *  }
-   */
-  const calendarWithAddedProps = calendarData.map((calendarDay) =>
-    Object.assign({}, calendarDay, {
-      day: parseDate(calendarDay.date),
-      isFastDay: isFast(calendarDay),
-      type: "date",
-    })
-  );
-
-  /**
-   *  To calendarData, add section heading objects whenever the
-   *  month and/or season changes.
-   */
-
+const sectionizeCalendarData = (calendarData) => {
   let currentSection = {
     type: "heading",
     sectionType: null,
@@ -56,7 +53,7 @@ export const prepFlatListCalendarData = (calendarData) => {
     season: { name: null },
   };
 
-  return calendarWithAddedProps.reduce((acc, cur) => {
+  return calendarData.reduce((acc, cur) => {
     const {
       date,
       day: { fullMonth: month, year },
