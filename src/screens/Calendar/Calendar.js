@@ -51,7 +51,6 @@ const Calendar = () => {
       case "heading":
         return (
           <SectionHeader
-            key={data + index}
             sectionType={data.sectionType}
             month={data.month}
             year={data.year}
@@ -61,7 +60,6 @@ const Calendar = () => {
       case "date":
         return (
           <DateDisplay
-            key={data + index}
             commemorations={data.commemorations}
             date={data.date}
             day={data.day}
