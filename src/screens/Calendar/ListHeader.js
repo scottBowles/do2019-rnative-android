@@ -11,10 +11,13 @@ import { OutlineBtn } from "common/components";
  *    ListHeader            Top material
  *    ListHeaderLink        Nav to prev & next years
  *
+ *    NOTE: Any changes to component height will need to be reflected in
+ *    LayoutProvider for proper rendering.
+ *
  */
 
-const ListHeader = React.memo(({ startYear }) => (
-  <View style={styles.listHeaderContainer}>
+const ListHeader = React.memo(({ startYear, ...props }) => (
+  <View style={styles.listHeaderContainer} {...props}>
     <View>
       <H1>The Church Year</H1>
       <H2>
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
   listHeaderContainer: {
     alignItems: "center",
     padding: 25,
+    flex: 1,
   },
   outlineBtn: {
     margin: 5,

@@ -25,29 +25,30 @@ import SectionHeader from "./SectionHeader";
  *
  */
 
-const createNewDataProvider = () =>
+const createDataProvider = (data) =>
   new DataProvider((r1, r2) => {
     return r1 !== r2;
-  });
+  }).cloneWithRows(data);
 
 const Calendar = () => {
   const { year } = useParams();
   const startYear = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
-  const initialDataProvider = createNewDataProvider().cloneWithRows(dataSource);
-  const [dataProvider, setDataProvider] = useState(initialDataProvider);
-  const [heights, setHeights] = useState({ headings: [], dates: [] });
+  const dataForHeader = { type: "listHeader", startYear };
+  const [dataProvider, setDataProvider] = useState(
+    createDataProvider([dataForHeader, ...dataSource])
+  );
 
   useEffect(() => {
-    if (dataProvider) {
-      setDataProvider(createNewDataProvider().cloneWithRows(dataSource));
-    }
+    setDataProvider(createDataProvider([dataForHeader, ...dataSource]));
   }, [dataSource]);
 
   const flatListRef = useRef(null);
 
-  const rowRenderer = (type, data, index) => {
+  const rowRenderer = (type, data) => {
     switch (type) {
+      case "listHeader":
+        return <ListHeader startYear={data.startYear} />;
       case "heading":
         return (
           <SectionHeader
