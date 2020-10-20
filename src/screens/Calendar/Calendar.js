@@ -43,7 +43,7 @@ const Calendar = () => {
     setDataProvider(createDataProvider([dataForHeader, ...dataSource]));
   }, [dataSource]);
 
-  const flatListRef = useRef(null);
+  const listRef = useRef(null);
 
   const rowRenderer = (type, data) => {
     switch (type) {
@@ -76,15 +76,21 @@ const Calendar = () => {
   return dataProvider.getSize() === 0 ? null : (
     <View style={{ flex: 1 }}>
       <Button
-        onPress={() => flatListRef.current.scrollToIndex({ index: 300 })}
+        onPress={() => {
+          console.log(dataProvider.getSize());
+          listRef.current.scrollToIndex(3);
+        }}
         title={"jump!"}
       />
       <RecyclerListView
+        ref={listRef}
         dataProvider={dataProvider}
         layoutProvider={layoutProvider}
         rowRenderer={rowRenderer}
         renderFooter={() => <ListFooter isLoading={isLoading} />}
         forceNonDeterministicRendering={true}
+        onEndReached={getData}
+        onEndReachedThreshold={2000}
       />
     </View>
   );
