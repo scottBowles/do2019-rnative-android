@@ -1,4 +1,5 @@
 export { default as Calendar } from "./Calendar";
+export { default as CalendarNavBar } from "./CalendarNavBar";
 export { default as DateDisplay } from "./DateDisplay";
 export { default as ListHeader } from "./ListHeader";
 export { default as ListFooter } from "./ListFooter";

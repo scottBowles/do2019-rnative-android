@@ -5,6 +5,7 @@ import { DataProvider, RecyclerListView } from "recyclerlistview";
 
 import { useCalendarData } from "api/apiHooks";
 import { getValidStartYear } from "common/utils";
+import CalendarNavBar from "./CalendarNavBar";
 import DateDisplay from "./DateDisplay";
 import LayoutProvider from "./LayoutProvider";
 import ListFooter from "./ListFooter";
@@ -30,7 +31,7 @@ const createDataProvider = (data) =>
     return r1 !== r2;
   }).cloneWithRows(data);
 
-const Calendar = () => {
+export default Calendar = () => {
   const { year } = useParams();
   const startYear = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
@@ -78,7 +79,7 @@ const Calendar = () => {
       <Button
         onPress={() => {
           console.log(dataProvider.getSize());
-          listRef.current.scrollToIndex(3);
+          listRef.current.scrollToIndex(350);
         }}
         title={"jump!"}
       />
@@ -92,8 +93,7 @@ const Calendar = () => {
         onEndReached={getData}
         onEndReachedThreshold={2000}
       />
+      <CalendarNavBar />
     </View>
   );
 };
-
-export default Calendar;

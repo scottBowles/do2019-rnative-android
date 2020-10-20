@@ -15,12 +15,25 @@ export const ArrowRight = ({ size = 14, color = "black", ...props }) => (
   <FontAwesome name="arrow-right" size={size} color={color} />
 );
 
-export const CrossIcon = ({ size = 14, color = "black", ...props }) => (
-  <FontAwesome5 name="cross" size={size} color={color} {...props} />
+export const ChurchIcon = ({ size = 14, color = "black", ...props }) => (
+  <FontAwesome5 name="church" size={size} color={color} {...props} />
 );
 
 export const ClockIcon = ({ size = 12, color = "black", ...props }) => (
   <Feather name="clock" size={size} color={color} {...props} />
+);
+
+export const CrossIcon = ({ size = 14, color = "black", ...props }) => (
+  <FontAwesome5 name="cross" size={size} color={color} {...props} />
+);
+
+export const CalendarDayIcon = ({ size = 12, color = "black", ...props }) => (
+  <MaterialCommunityIcons
+    name="calendar-today"
+    size={size}
+    color={color}
+    {...props}
+  />
 );
 
 export const CalendarIcon = ({ size = 12, color = "black", ...props }) => (
@@ -41,17 +54,26 @@ export const ExternalLinkIcon = ({ size = 9, color = "black", ...props }) => (
 );
 
 export const MoonIcon = ({ size = 12, color = "black", ...props }) => (
-  <Ionicons name="ios-moon" size={size} color={color} />
+  <Ionicons name="ios-moon" size={size} color={color} {...props} />
 );
 
 export const SunIcon = ({ size = 12, color = "black", ...props }) => (
-  <Feather name="sun" size={size} color={color} />
+  <Feather name="sun" size={size} color={color} {...props} />
 );
 
 export const SunriseIcon = ({ size = 12, color = "black", ...props }) => (
-  <Feather name="sunrise" size={size} color={color} />
+  <Feather name="sunrise" size={size} color={color} {...props} />
 );
 
 export const SunsetIcon = ({ size = 12, color = "black", ...props }) => (
-  <Feather name="sunset" size={size} color={color} />
+  <Feather name="sunset" size={size} color={color} {...props} />
+);
+
+export const ToTopIcon = ({ size = 12, color = "black", ...props }) => (
+  <MaterialCommunityIcons
+    name="arrow-collapse-up"
+    size={size}
+    color={color}
+    {...props}
+  />
 );
