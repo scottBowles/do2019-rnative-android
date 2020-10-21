@@ -1,10 +1,3 @@
-export { default as Calendar } from "./Calendar";
-export { default as CalendarNavBar } from "./CalendarNavBar";
-export { default as DateDisplay } from "./DateDisplay";
-export { default as ListHeader } from "./ListHeader";
-export { default as ListFooter } from "./ListFooter";
-export { default as SectionHeader } from "./SectionHeader";
-
 /**
  *
  *  IN THIS FOLDER
@@ -18,3 +11,10 @@ export { default as SectionHeader } from "./SectionHeader";
  *    DateDisplay           Invidual calendar date render component
  *
  */
+
+export { Calendar } from "./Calendar";
+export { CalendarNavBar } from "./CalendarNavBar";
+export { DateDisplay } from "./DateDisplay";
+export { ListHeader } from "./ListHeader";
+export { ListFooter } from "./ListFooter";
+export { SectionHeader } from "./SectionHeader";

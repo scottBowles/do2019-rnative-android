@@ -8,7 +8,7 @@ import {
 } from "@expo/vector-icons";
 
 // IF THIS ENDS UP BEING USED, ICONS SHOULD BE MOVED TO assets/icons AND
-//   IMPORTED FROM THERE
+// IMPORTED FROM THERE
 
 export const menuItems = [
   {

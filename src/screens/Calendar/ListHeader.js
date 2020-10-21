@@ -1,11 +1,3 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Link } from "react-router-native";
-
-import { ArrowLeft, ArrowRight } from "assets/icons";
-import { H1, H2, Text } from "styles/typography";
-import { OutlineBtn } from "common/components";
-
 /**
  *
  *    ListHeader            Top material
@@ -16,7 +8,15 @@ import { OutlineBtn } from "common/components";
  *
  */
 
-const ListHeader = React.memo(({ startYear, ...props }) => (
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Link } from "react-router-native";
+
+import { ArrowLeft, ArrowRight } from "assets/icons";
+import { H1, H2, Text } from "styles/typography";
+import { OutlineBtn } from "common/components";
+
+export const ListHeader = React.memo(({ startYear, ...props }) => (
   <View style={styles.listHeaderContainer} {...props}>
     <View>
       <H1>The Church Year</H1>
@@ -65,5 +65,3 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 });
-
-export default ListHeader;

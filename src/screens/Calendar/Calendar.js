@@ -1,17 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Button, View } from "react-native";
-import { useParams } from "react-router-native";
-import { DataProvider, RecyclerListView } from "recyclerlistview";
-
-import { useCalendarData } from "api/apiHooks";
-import { getValidStartYear } from "common/utils";
-import CalendarNavBar from "./CalendarNavBar";
-import DateDisplay from "./DateDisplay";
-import LayoutProvider from "./LayoutProvider";
-import ListFooter from "./ListFooter";
-import ListHeader from "./ListHeader";
-import SectionHeader from "./SectionHeader";
-
 /**
  *
  *  IN THIS FOLDER
@@ -26,12 +12,26 @@ import SectionHeader from "./SectionHeader";
  *
  */
 
+import React, { useEffect, useRef, useState } from "react";
+import { Button, View } from "react-native";
+import { useParams } from "react-router-native";
+import { DataProvider, RecyclerListView } from "recyclerlistview";
+
+import { useCalendarData } from "api/apiHooks";
+import { getValidStartYear } from "common/utils";
+import { CalendarNavBar } from "./CalendarNavBar";
+import { DateDisplay } from "./DateDisplay";
+import { LayoutProvider } from "./LayoutProvider";
+import { ListFooter } from "./ListFooter";
+import { ListHeader } from "./ListHeader";
+import { SectionHeader } from "./SectionHeader";
+
 const createDataProvider = (data) =>
   new DataProvider((r1, r2) => {
     return r1 !== r2;
   }).cloneWithRows(data);
 
-export default Calendar = () => {
+export const Calendar = () => {
   const { year } = useParams();
   const startYear = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);

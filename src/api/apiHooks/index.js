@@ -1,2 +1,2 @@
-export { default as useFetch } from "./useFetch";
-export { default as useCalendarData } from "./useCalendarData";
+export { useFetch } from "./useFetch";
+export { useCalendarData } from "./useCalendarData";

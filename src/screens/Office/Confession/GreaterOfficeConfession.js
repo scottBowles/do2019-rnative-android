@@ -2,6 +2,15 @@ import React from "react";
 import { Text, View } from "react-native";
 import { H2, P, People, Rubric } from "styles/typography";
 
+export const GreaterOfficeConfession = (props) => (
+  <View>
+    <H2>Confession of Sin</H2>
+    <Invitation useLongForm={props.useLongFormInvitation} />
+    <ConfessionOfSin />
+    <Absolution useDeaconOrLayAbsolution={props.useDeaconOrLayAbsolution} />
+  </View>
+);
+
 const longFormInvitation =
   "Dearly beloved, the Scriptures teach us to acknowledge our many sins and offenses, not concealing them from our heavenly Father, but confessing them with humble and obedient hearts that we may obtain forgiveness by his infinite goodness and mercy. We ought at all times humbly to acknowledge our sins before Almighty God, but especially when we come together in his presence to give thanks for the great benefits we have received at his hands, to declare his most worthy praise, to hear his holy Word, and to ask, for ourselves and on behalf of others, those things which are necessary for our life and our salvation. Therefore, draw near with me to the throne of heavenly grace.";
 
@@ -66,14 +75,3 @@ const Absolution = ({ useDeaconOrLayAbsolution = true }) =>
       </Text>
     </View>
   );
-
-const GreaterOfficeConfession = (props) => (
-  <View>
-    <H2>Confession of Sin</H2>
-    <Invitation useLongForm={props.useLongFormInvitation} />
-    <ConfessionOfSin />
-    <Absolution useDeaconOrLayAbsolution={props.useDeaconOrLayAbsolution} />
-  </View>
-);
-
-export default GreaterOfficeConfession;

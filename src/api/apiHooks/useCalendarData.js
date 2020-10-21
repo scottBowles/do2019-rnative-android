@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { prepCalendarData } from "api/utils";
 
-export default useCalendarData = (startYear) => {
+export const useCalendarData = (startYear) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [nextYear, setNextYear] = useState(startYear);

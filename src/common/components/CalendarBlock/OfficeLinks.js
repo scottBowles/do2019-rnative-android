@@ -5,7 +5,7 @@ import { MoonIcon, SunIcon, SunriseIcon, SunsetIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { OutlineBtn } from "common/components";
 
-const OfficeLinks = ({ date }) => {
+export const OfficeLinks = ({ date }) => {
   const iconSize = styles.outlineBtnText.fontSize;
   return (
     <View style={styles.officeLinksContainer}>
@@ -56,5 +56,3 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
   },
 });
-
-export default OfficeLinks;

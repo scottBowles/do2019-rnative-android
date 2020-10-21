@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { colors } from "styles";
 
-const OutlineBtn = ({ children, style }) => (
+export const OutlineBtn = ({ children, style }) => (
   <View style={[styles.itemContainer, style]}>{children}</View>
 );
 
@@ -15,5 +15,3 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 });
-
-export default OutlineBtn;

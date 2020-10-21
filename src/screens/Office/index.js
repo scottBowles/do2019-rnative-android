@@ -1,4 +1,4 @@
-export { default as Office } from "./Office";
-export { default as Invitatory } from "./Invitatory";
-export { default as OpeningSentence } from "./OpeningSentence";
+export { Office } from "./Office";
+export { Invitatory } from "./Invitatory";
+export { OpeningSentence } from "./OpeningSentence";
 export { Confession } from "./Confession";

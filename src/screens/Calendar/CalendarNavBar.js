@@ -11,7 +11,7 @@ import {
   ToTopIcon,
 } from "assets/icons";
 
-export default CalendarNavBar = () => {
+export const CalendarNavBar = () => {
   const ICON_SIZE = 23;
 
   const menuItems = [

@@ -1,6 +1,6 @@
-import parseDate from "./parseDate";
+import { parseDate } from "./parseDate";
 
-const isFast = ({ date, season, commemorations: [{ rank }] }) => {
+export const isFast = ({ date, season, commemorations: [{ rank }] }) => {
   const { weekday } = parseDate(date);
 
   if (weekday === "Sun") return false;
@@ -17,5 +17,3 @@ const isFast = ({ date, season, commemorations: [{ rank }] }) => {
 
   return false;
 };
-
-export default isFast;

@@ -14,7 +14,7 @@
 
 import React from "react";
 import { StyleSheet, Text as NativeText } from "react-native";
-import colors from "./colors";
+import { colors } from "./colors";
 
 const styles = StyleSheet.create({
   text: {

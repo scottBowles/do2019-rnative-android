@@ -12,7 +12,7 @@
 
 import { Text as NativeText } from "react-native";
 import styled from "styled-components/native";
-import colors from "./colors";
+import { colors } from "./colors";
 
 export const Text = styled(NativeText)`
   color: ${colors.fontGrey};

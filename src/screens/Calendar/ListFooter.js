@@ -3,7 +3,7 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 
 // Loading animation while fetching data
 
-const ListFooter = React.memo(({ isLoading }) => {
+export const ListFooter = React.memo(({ isLoading }) => {
   return (
     <View style={styles.footer}>
       {isLoading ? (
@@ -24,5 +24,3 @@ const styles = StyleSheet.create({
     margin: 15,
   },
 });
-
-export default ListFooter;

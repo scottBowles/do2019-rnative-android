@@ -1,8 +1,8 @@
 import React from "react";
-import ComplineConfession from "./ComplineConfession";
-import GreaterOfficeConfession from "./GreaterOfficeConfession";
+import { ComplineConfession } from "./ComplineConfession";
+import { GreaterOfficeConfession } from "./GreaterOfficeConfession";
 
-const Confession = (props) => {
+export const Confession = (props) => {
   switch (props.office) {
     case "morning":
     case "evening":
@@ -18,5 +18,3 @@ const Confession = (props) => {
       return null;
   }
 };
-
-export default Confession;

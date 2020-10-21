@@ -1,4 +1,4 @@
-const getValidStartYear = (year) => {
+export const getValidStartYear = (year) => {
   // Validate calendar start year
   // If invalid, return current liturgical year
 
@@ -13,5 +13,3 @@ const getValidStartYear = (year) => {
 
   return startYear;
 };
-
-export default getValidStartYear;

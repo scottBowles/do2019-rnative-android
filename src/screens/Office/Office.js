@@ -1,3 +1,19 @@
+/**
+ *
+ * IN THIS FILE
+ *
+ * parse dummyOffice data
+ *
+ * COMPONENTS
+ *   Title
+ *   Office (export default)
+ *
+ * Styles
+ *
+ */
+
+// TODO -- CONSIDER USING addIsFastDay API UTIL, IF IT PERFORMS BETTER THAN USING isFast HERE
+
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
@@ -14,22 +30,6 @@ import { Confession } from "./Confession";
 import Invitatory from "./Invitatory";
 import OpeningSentence from "./OpeningSentence";
 
-// TODO -- CONSIDER USING addIsFastDay API UTIL, IF IT PERFORMS BETTER THAN USING isFast HERE
-
-/**
- *
- * IN THIS FILE
- *
- * parse dummyOffice data
- *
- * COMPONENTS
- *   Title
- *   Office (export default)
- *
- * Styles
- *
- */
-
 const {
   office,
   frequency,
@@ -42,7 +42,7 @@ const Title = ({ frequency, office }) => (
   <H1 style={styles.title}>{frequency + "\n" + `${office} Prayer`}</H1>
 );
 
-const Office = () => {
+export const Office = () => {
   // const [officeData, isLoading] = useFetch(
   //   "https://data.dailyoffice2019.com/api/v1/calendar/2020-9-21?format=json"
   // );
@@ -92,5 +92,3 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-
-export default Office;

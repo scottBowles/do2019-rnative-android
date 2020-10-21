@@ -1,17 +1,9 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import * as WebBrowser from "expo-web-browser";
-import { ExternalLinkIcon } from "assets/icons";
-import { Text } from "styles/typography";
-import { ColorBox } from "common/components";
-import OfficeLinks from "./OfficeLinks";
-
 /**
  *
  * IN THIS FILE
  *
  * COMPONENTS
- *   Content (export default)
+ *   Content (export)
  *   ContentLine
  *   SeasonBox
  *   [OfficeLinks is in its own file]
@@ -20,7 +12,15 @@ import OfficeLinks from "./OfficeLinks";
  *
  */
 
-const Content = ({ commemorations, date, season }) => {
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import { ExternalLinkIcon } from "assets/icons";
+import { Text } from "styles/typography";
+import { ColorBox } from "common/components";
+import { OfficeLinks } from "./OfficeLinks";
+
+export const Content = ({ commemorations, date, season }) => {
   // if season => SeasonBox will be rendered
   // if date => OfficeLinks will be rendered
   return (
@@ -149,5 +149,3 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 });
-
-export default Content;

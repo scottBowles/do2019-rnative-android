@@ -1,7 +1,7 @@
 /* To Title Case © 2018 David Gouch | https://github.com/gouch/to-title-case */
 /* Modified as a standalone function rather than on String.prototype */
 
-const toTitleCase = (str) => {
+export const toTitleCase = (str) => {
   "use strict";
   var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|v.?|vs.?|via)$/i;
   var alphanumericPattern = /([A-Za-z0-9\u00C0-\u00FF])/;
@@ -43,5 +43,3 @@ const toTitleCase = (str) => {
     })
     .join("");
 };
-
-export default toTitleCase;

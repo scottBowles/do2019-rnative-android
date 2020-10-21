@@ -2,7 +2,7 @@ import { GridLayoutProvider } from "recyclerlistview";
 
 const MAX_SPAN = 1;
 
-export default class LayoutProvider extends GridLayoutProvider {
+export class LayoutProvider extends GridLayoutProvider {
   constructor(props) {
     super(
       MAX_SPAN,

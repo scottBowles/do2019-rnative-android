@@ -1,16 +1,9 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { CrossIcon } from "assets/icons";
-import { parseDate } from "common/utils";
-import { Text } from "styles/typography";
-import { colors } from "styles";
-
 /**
  *
  * IN THIS FILE
  *
  * COMPONENTS
- *   DateBlock (export default)
+ *   DateBlock (export)
  *   FastDisplay
  *
  * STYLES
@@ -21,7 +14,13 @@ import { colors } from "styles";
  *
  */
 
-const DateBlock = ({ isFastDay, day, primaryColor }) => {
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { CrossIcon } from "assets/icons";
+import { Text } from "styles/typography";
+import { colors } from "styles";
+
+export const DateBlock = ({ isFastDay, day, primaryColor }) => {
   const textColor = getTextColor(primaryColor);
   const blockStyle = composeBlockStyle(primaryColor);
   const datePropertiesInOrder = ["weekday", "dayOfMonth", "month", "year"];
@@ -85,5 +84,3 @@ const composeBlockStyle = (primaryColor) =>
   StyleSheet.compose(dateStyles.dateBlock, {
     backgroundColor: colors[primaryColor],
   });
-
-export default DateBlock;

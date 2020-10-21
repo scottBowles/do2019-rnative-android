@@ -2,6 +2,13 @@ import React from "react";
 import { View } from "react-native";
 import { H2, P, People, Rubric } from "styles/typography";
 
+export const Invitatory = ({ office = "morning" }) =>
+  ["morning", "evening"].includes(office) ? (
+    <GreaterInvitatory />
+  ) : (
+    <LesserInvitatory />
+  );
+
 const LesserInvitatory = () => (
   <View>
     <H2>The Invitatory</H2>
@@ -33,12 +40,3 @@ const GreaterInvitatory = () => (
     <People>The Lord’s Name be praised.</People>
   </View>
 );
-
-const Invitatory = ({ office = "morning" }) =>
-  ["morning", "evening"].includes(office) ? (
-    <GreaterInvitatory />
-  ) : (
-    <LesserInvitatory />
-  );
-
-export default Invitatory;

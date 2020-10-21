@@ -6,7 +6,7 @@ import { H3 } from "styles/typography";
 
 // Season & month section headers
 
-const SectionHeader = React.memo(
+export const SectionHeader = React.memo(
   ({ sectionType, month, year, season, ...props }) => {
     const seasonHeader = (
       <View style={styles.sectionHeader} key={season + month + year}>
@@ -51,5 +51,3 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
 });
-
-export default SectionHeader;

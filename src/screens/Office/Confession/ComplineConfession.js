@@ -2,6 +2,15 @@ import React from "react";
 import { Text, View } from "react-native";
 import { H2, P, People, Rubric } from "styles/typography";
 
+export const ComplineConfession = () => (
+  <View>
+    <H2>Confession of Sin</H2>
+    <Invitation />
+    <Confession />
+    <Absolution />
+  </View>
+);
+
 const Invitation = () => (
   <View>
     <Rubric>The Officiant continues</Rubric>
@@ -38,14 +47,3 @@ const Absolution = () => (
     </Text>
   </View>
 );
-
-const ComplineConfession = () => (
-  <View>
-    <H2>Confession of Sin</H2>
-    <Invitation />
-    <Confession />
-    <Absolution />
-  </View>
-);
-
-export default ComplineConfession;

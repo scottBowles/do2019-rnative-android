@@ -4,7 +4,7 @@ import { colors } from "styles";
 
 // Expects DateBlock and Content children
 
-const CalendarBlock = ({ weekday, children, ...props }) => {
+export const CalendarBlock = ({ weekday, children, ...props }) => {
   return (
     <View style={containerStyle(weekday)} {...props}>
       {children}
@@ -24,5 +24,3 @@ const containerStyle = (weekday) => {
       weekday.toLowerCase() === "sun" ? colors.lightGrey : "#ffffff",
   };
 };
-
-export default CalendarBlock;
