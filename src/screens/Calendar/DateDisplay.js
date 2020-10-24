@@ -9,10 +9,10 @@ import {
 // Invidual calendar date render component
 
 export const DateDisplay = React.memo(
-  ({ commemorations, date, day, isFastDay, primaryColor, ...props }) => (
+  ({ commemorations, day, isFastDay, primaryColor, ...props }) => (
     <CalendarBlock weekday={day.weekday} {...props}>
       <DateBlock day={day} isFastDay={isFastDay} primaryColor={primaryColor} />
-      <Content commemorations={commemorations} date={date} />
+      <Content commemorations={commemorations} date={day.date} />
     </CalendarBlock>
   )
 );

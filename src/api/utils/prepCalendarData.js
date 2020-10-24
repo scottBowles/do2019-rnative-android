@@ -1,33 +1,32 @@
 /**
- *  Take calendar data and prepare it for the RecyclerListView with section headers
- *  for each season and month, and a parsed day object, isFastDay, and type added to
- *  each day
+ *  Take calendar data and prepare it for the RecyclerListView with:
+ *  1. Section headers for each season and month, and
+ *  2. `Type`, `isFastDay`, and a parsed `day` object added to each day
  */
 
 import { isFast, parseDate } from "common/utils";
 
 export const prepCalendarData = (calendarData) => {
-  const calendarDaysWithAddedProps = addPropertiesToCalendarDays(calendarData);
-  const sectionizedData = sectionizeCalendarData(calendarDaysWithAddedProps);
+  const calendarDays = calendarData.map(createCalendarDay);
+  const sectionizedData = sectionizeCalendarData(calendarDays);
   return sectionizedData;
 };
 
 /**
- *  To each calendar day, add:
- *  {
- *    day: { dayOfMonth, fullMonth, month, weekday, year },
- *    isFastDay: Boolean,
- *    type: "date" -- for RecylerListView,
- *  }
+ *  Calendar Day Factory
  */
-const addPropertiesToCalendarDays = (calendarData) =>
-  calendarData.map((calendarDay) =>
-    Object.assign({}, calendarDay, {
-      day: parseDate(calendarDay.date),
-      isFastDay: isFast(calendarDay),
-      type: "date",
-    })
-  );
+
+const createCalendarDay = ({ date, season, commemorations }) => {
+  const { dayOfMonth, fullMonth, month, weekday, year } = parseDate(date);
+
+  return {
+    type: "date",
+    day: { date, dayOfMonth, fullMonth, month, weekday, year },
+    isFastDay: isFast({ date, season, commemorations }),
+    season,
+    commemorations,
+  };
+};
 
 /**
  *  Output an array where each time the month and/or season changes,
@@ -39,28 +38,22 @@ const addPropertiesToCalendarDays = (calendarData) =>
  *        year,
  *        season
  *      },
- *      dateData,
- *      dateData,
- *      dateData...
+ *      calendarDay,
+ *      calendarDay,
+ *      calendarDay...
  *    ]
  */
 const sectionizeCalendarData = (calendarData) => {
-  let currentSection = {
-    type: "heading",
-    sectionType: null,
-    month: null,
-    year: null,
-    season: { name: null },
-  };
+  let currentSection;
 
   return calendarData.reduce((acc, cur) => {
     const {
-      date,
       day: { fullMonth: month, year },
       season,
     } = cur;
 
     if (
+      currentSection &&
       month === currentSection.month &&
       year === currentSection.year &&
       season.name === currentSection.season.name
@@ -69,8 +62,9 @@ const sectionizeCalendarData = (calendarData) => {
     }
 
     const newSectionType =
-      currentSection.month !== month &&
-      currentSection.season.name !== season.name
+      !currentSection ||
+      (currentSection.month !== month &&
+        currentSection.season.name !== season.name)
         ? "both"
         : currentSection.month !== month
         ? "month"

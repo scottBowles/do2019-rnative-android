@@ -63,7 +63,6 @@ export const Calendar = () => {
         return (
           <DateDisplay
             commemorations={data.commemorations}
-            date={data.date}
             day={data.day}
             isFastDay={data.isFastDay}
             primaryColor={data.commemorations[0].colors[0]}
@@ -78,7 +77,6 @@ export const Calendar = () => {
     <View style={{ flex: 1 }}>
       <Button
         onPress={() => {
-          console.log(dataProvider.getSize());
           listRef.current.scrollToIndex(350);
         }}
         title={"jump!"}
