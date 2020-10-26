@@ -40,7 +40,12 @@ export const Content = ({ commemorations, date, season }) => {
   );
 };
 
-const ContentLine = ({ type, data: { colors, name, links } }) => {
+export const ContentLine = ({
+  type = "primary",
+  data: { colors, name, links },
+  style: incomingStyle,
+  ...props
+}) => {
   const typeCapitalized = type[0].toUpperCase() + type.slice(1);
 
   /**
@@ -64,22 +69,27 @@ const ContentLine = ({ type, data: { colors, name, links } }) => {
     </Text>
   ));
 
-  const linksDisplay =
-    links &&
-    links.map((link, index) => (
-      <Text key={link + index}>
-        {" "}
-        <ExternalLinkIcon
-          size={9}
-          color="black"
-          onPress={() => WebBrowser.openBrowserAsync(link)}
-        />
-      </Text>
-    ));
+  const linksDisplay = links
+    ? links.map((link, index) => (
+        <Text key={link + index}>
+          {" "}
+          <ExternalLinkIcon
+            size={9}
+            color="black"
+            onPress={() => WebBrowser.openBrowserAsync(link)}
+          />
+        </Text>
+      ))
+    : [];
 
   return (
     <View
-      style={[styles.contentLine, type !== "season" && { marginVertical: 4 }]}
+      style={[
+        styles.contentLine,
+        type !== "season" && { marginVertical: 4 },
+        { ...incomingStyle },
+      ]}
+      {...props}
     >
       {[...colorBoxes, ...words, ...linksDisplay]}
     </View>

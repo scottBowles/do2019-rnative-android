@@ -13,18 +13,19 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Button, View } from "react-native";
+import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { DataProvider, RecyclerListView } from "recyclerlistview";
 
 import { useCalendarData } from "api/apiHooks";
 import { getValidStartYear, parseDate } from "common/utils";
-import { CalendarNavBar } from "./CalendarNavBar";
+import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
 import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
+import { SeasonModal } from "./Navigation/SeasonModal";
 
 const createDataProvider = (data) =>
   new DataProvider((r1, r2) => {
@@ -93,6 +94,7 @@ export const Calendar = () => {
 
   return dataProvider.getSize() === 0 ? null : (
     <View style={{ flex: 1 }}>
+      <SeasonModal />
       <RecyclerListView
         ref={listRef}
         dataProvider={dataProvider}

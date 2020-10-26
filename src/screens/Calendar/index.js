@@ -9,11 +9,11 @@
  *    ListFooter            Loading animation while fetching data
  *    SectionHeader         Season & month section headers
  *    DateDisplay           Invidual calendar date render component
+ *    Navigation            Navbar and nav modals
  *
  */
 
 export { Calendar } from "./Calendar";
-export { CalendarNavBar } from "./CalendarNavBar";
 export { DateDisplay } from "./DateDisplay";
 export { ListHeader } from "./ListHeader";
 export { ListFooter } from "./ListFooter";
