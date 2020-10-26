@@ -1,7 +1,7 @@
 /**
  *  Take calendar data and prepare it for the RecyclerListView with:
  *  1. Section headers for each season and month, and
- *  2. `Type`, `isFastDay`, and a parsed `day` object added to each day
+ *  2. `type`, `isFastDay`, and a parsed `day` object added to each day
  */
 
 import { isFast, parseDate } from "common/utils";

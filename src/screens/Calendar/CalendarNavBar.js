@@ -11,7 +11,7 @@ import {
   ToTopIcon,
 } from "assets/icons";
 
-export const CalendarNavBar = () => {
+export const CalendarNavBar = ({ jumpToDate, jumpToTop }) => {
   const ICON_SIZE = 23;
 
   const menuItems = [
@@ -20,24 +20,27 @@ export const CalendarNavBar = () => {
         <CalendarDayIcon size={ICON_SIZE} color="black" style={styles.icons} />
       ),
       text: "Today",
-      route: "/office",
+      onPress: () => {
+        const today = new Date();
+        jumpToDate(today);
+      },
     },
     {
       icon: (
         <CalendarIcon size={ICON_SIZE} color="black" style={styles.icons} />
       ),
       text: "Jump to Date",
-      route: "/calendar",
+      onPress: () => console.log("clicked"),
     },
     {
       icon: <ChurchIcon size={ICON_SIZE} color="black" style={styles.icons} />,
       text: "Jump to Season",
-      route: "/settings",
+      onPress: () => console.log("clicked"),
     },
     {
       icon: <ToTopIcon size={ICON_SIZE} color="black" style={styles.icons} />,
       text: "Jump to Top",
-      route: "/about",
+      onPress: jumpToTop,
     },
   ];
 
@@ -45,7 +48,7 @@ export const CalendarNavBar = () => {
     <View style={styles.container}>
       {menuItems.map((menuItem, index) => (
         <TouchableHighlight
-          onPress={() => console.log("clicked")}
+          onPress={menuItem.onPress}
           style={styles.btn}
           key={index}
         >

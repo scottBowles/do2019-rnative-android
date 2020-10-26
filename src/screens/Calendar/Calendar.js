@@ -18,7 +18,7 @@ import { useParams } from "react-router-native";
 import { DataProvider, RecyclerListView } from "recyclerlistview";
 
 import { useCalendarData } from "api/apiHooks";
-import { getValidStartYear } from "common/utils";
+import { getValidStartYear, parseDate } from "common/utils";
 import { CalendarNavBar } from "./CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
@@ -73,14 +73,26 @@ export const Calendar = () => {
 
   const layoutProvider = new LayoutProvider(dataProvider);
 
+  const getDateData = (date) => {
+    const { dayOfMonth, month, year } = parseDate(date);
+    const data = dataSource.find(
+      (item) =>
+        item.type === "date" &&
+        item.day.dayOfMonth === dayOfMonth &&
+        item.day.month === month &&
+        item.day.year === year
+    );
+    return data;
+  };
+  const jumpToDate = (date) => {
+    const data = getDateData(date);
+    console.log({ date, data });
+    listRef.current.scrollToItem(data);
+  };
+  const jumpToTop = () => listRef.current.scrollToTop();
+
   return dataProvider.getSize() === 0 ? null : (
     <View style={{ flex: 1 }}>
-      <Button
-        onPress={() => {
-          listRef.current.scrollToIndex(350);
-        }}
-        title={"jump!"}
-      />
       <RecyclerListView
         ref={listRef}
         dataProvider={dataProvider}
@@ -91,7 +103,7 @@ export const Calendar = () => {
         onEndReached={getData}
         onEndReachedThreshold={2000}
       />
-      <CalendarNavBar />
+      <CalendarNavBar jumpToTop={jumpToTop} jumpToDate={jumpToDate} />
     </View>
   );
 };
