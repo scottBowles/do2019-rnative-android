@@ -13,54 +13,52 @@ import {
 
 export const CalendarNavBar = ({ jumpToDate, jumpToTop }) => {
   const ICON_SIZE = 23;
-
-  const menuItems = [
-    {
-      icon: (
-        <CalendarDayIcon size={ICON_SIZE} color="black" style={styles.icons} />
-      ),
-      text: "Today",
-      onPress: () => {
-        const today = new Date();
-        jumpToDate(today);
-      },
-    },
-    {
-      icon: (
-        <CalendarIcon size={ICON_SIZE} color="black" style={styles.icons} />
-      ),
-      text: "Jump to Date",
-      onPress: () => console.log("clicked"),
-    },
-    {
-      icon: <ChurchIcon size={ICON_SIZE} color="black" style={styles.icons} />,
-      text: "Jump to Season",
-      onPress: () => console.log("clicked"),
-    },
-    {
-      icon: <ToTopIcon size={ICON_SIZE} color="black" style={styles.icons} />,
-      text: "Jump to Top",
-      onPress: jumpToTop,
-    },
-  ];
+  const ICON_COLOR = colors.black;
+  const navItems = menuItems({ jumpToDate, jumpToTop });
 
   return (
     <View style={styles.container}>
-      {menuItems.map((menuItem, index) => (
-        <TouchableHighlight
-          onPress={menuItem.onPress}
-          style={styles.btn}
-          key={index}
-        >
+      {navItems.map(({ Icon, text, onPress, modal }, index) => (
+        <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
           <View style={styles.btnContent}>
-            {menuItem.icon}
-            <Text style={styles.item}>{toTitleCase(menuItem.text)}</Text>
+            <Icon size={ICON_SIZE} color={ICON_COLOR} style={styles.icons} />
+            <Text style={styles.item}>{toTitleCase(text)}</Text>
           </View>
         </TouchableHighlight>
       ))}
     </View>
   );
 };
+
+const menuItems = ({ jumpToDate, jumpToTop }) => [
+  {
+    Icon: CalendarDayIcon,
+    text: "Today",
+    onPress: () => {
+      const today = new Date();
+      jumpToDate(today);
+    },
+    modal: undefined,
+  },
+  {
+    Icon: CalendarIcon,
+    text: "Jump to Date",
+    onPress: () => console.log("clicked"),
+    modal: undefined,
+  },
+  {
+    Icon: ChurchIcon,
+    text: "Jump to Season",
+    onPress: () => console.log("clicked"),
+    modal: undefined,
+  },
+  {
+    Icon: ToTopIcon,
+    text: "Jump to Top",
+    onPress: jumpToTop,
+    modal: undefined,
+  },
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -81,7 +79,6 @@ const styles = StyleSheet.create({
   },
   item: {
     fontSize: 17,
-    textTransform: "capitalize",
     textAlign: "center",
   },
 });
