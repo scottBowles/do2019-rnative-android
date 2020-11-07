@@ -1,18 +1,22 @@
 import React from "react";
-import { View } from "react-native";
+import { Modal, StyleSheet, View } from "react-native";
 
+import { CloseIcon } from "assets/icons";
 import { ContentLine } from "common/components/calendarBlock/Content";
 import { colors } from "styles";
+import { H1 } from "styles/typography";
 
 // Figure out what to do with ContentLine (probably separate into own file)
 // Style SeasonModal - probably not here, but elsewhere, maybe in own styled
 // component for modals
-// Need to make this a modal, add an 'x' to close, make its display contingent on
-// state in Calendar, or in new Navigation component to hold state, etc.
 // Need to add actions here so clicking on one closes the modal and jumps to the
 // chosen season
 
-export const SeasonModal = ({ ...props }) => {
+export const SeasonModal = ({
+  seasonModalVisible,
+  closeSeasonModal,
+  ...props
+}) => {
   const seasons = [
     { season: "Advent", color: colors.purple },
     { season: "Christmastide", color: colors.white },
@@ -24,12 +28,57 @@ export const SeasonModal = ({ ...props }) => {
   ];
 
   return (
-    <View {...props}>
-      {seasons.map(({ season, color }) => (
-        <View key={season}>
-          <ContentLine data={{ name: season, colors: [color] }} />
+    <Modal
+      transparent={true}
+      animationType="fade"
+      onRequestClose={closeSeasonModal}
+      visible={seasonModalVisible}
+      {...props}
+    >
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <CloseIcon style={styles.closeIcon} onPress={closeSeasonModal} />
+          <H1 style={styles.title}>Seasons</H1>
+          {seasons.map(({ season, color }) => (
+            <View key={season} style={styles.seasonContainer}>
+              <ContentLine data={{ name: season, colors: [color] }} />
+            </View>
+          ))}
         </View>
-      ))}
-    </View>
+      </View>
+    </Modal>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flex: 1,
+    marginBottom: 100,
+  },
+  content: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    width: "100%",
+    flex: 1,
+    padding: "10%",
+  },
+  closeIcon: {
+    alignSelf: "flex-end",
+    margin: 10,
+  },
+  title: {
+    marginBottom: 10,
+  },
+  seasonContainer: {
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 15,
+    width: 250,
+    marginBottom: 13,
+    paddingHorizontal: 10,
+    alignItems: "center",
+  },
+});

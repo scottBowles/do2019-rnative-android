@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  AntDesign,
   Feather,
   FontAwesome,
   FontAwesome5,
@@ -21,6 +22,10 @@ export const ChurchIcon = ({ size = 14, color = "black", ...props }) => (
 
 export const ClockIcon = ({ size = 12, color = "black", ...props }) => (
   <Feather name="clock" size={size} color={color} {...props} />
+);
+
+export const CloseIcon = ({ size = 20, color = "black", ...props }) => (
+  <AntDesign name="closesquareo" size={size} color={color} {...props} />
 );
 
 export const CrossIcon = ({ size = 14, color = "black", ...props }) => (

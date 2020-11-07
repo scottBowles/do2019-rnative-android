@@ -94,7 +94,6 @@ export const Calendar = () => {
 
   return dataProvider.getSize() === 0 ? null : (
     <View style={{ flex: 1 }}>
-      <SeasonModal />
       <RecyclerListView
         ref={listRef}
         dataProvider={dataProvider}

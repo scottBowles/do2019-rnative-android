@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TouchableHighlight, View } from "react-native";
 
 import { toTitleCase } from "common/utils";
@@ -10,14 +10,22 @@ import {
   ChurchIcon,
   ToTopIcon,
 } from "assets/icons";
+import { SeasonModal } from "./SeasonModal";
 
 export const CalendarNavBar = ({ jumpToDate, jumpToTop }) => {
+  const [seasonModalVisible, setSeasonModalVisible] = useState(false);
+  const openSeasonModal = () => setSeasonModalVisible(true);
+
   const ICON_SIZE = 23;
   const ICON_COLOR = colors.black;
-  const navItems = menuItems({ jumpToDate, jumpToTop });
+  const navItems = menuItems({ jumpToDate, jumpToTop, openSeasonModal });
 
   return (
     <View style={styles.container}>
+      <SeasonModal
+        seasonModalVisible={seasonModalVisible}
+        closeSeasonModal={() => setSeasonModalVisible(false)}
+      />
       {navItems.map(({ Icon, text, onPress, modal }, index) => (
         <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
           <View style={styles.btnContent}>
@@ -30,7 +38,7 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop }) => {
   );
 };
 
-const menuItems = ({ jumpToDate, jumpToTop }) => [
+const menuItems = ({ jumpToDate, jumpToTop, openSeasonModal }) => [
   {
     Icon: CalendarDayIcon,
     text: "Today",
@@ -38,25 +46,21 @@ const menuItems = ({ jumpToDate, jumpToTop }) => [
       const today = new Date();
       jumpToDate(today);
     },
-    modal: undefined,
   },
   {
     Icon: CalendarIcon,
     text: "Jump to Date",
     onPress: () => console.log("clicked"),
-    modal: undefined,
   },
   {
     Icon: ChurchIcon,
     text: "Jump to Season",
-    onPress: () => console.log("clicked"),
-    modal: undefined,
+    onPress: openSeasonModal,
   },
   {
     Icon: ToTopIcon,
     text: "Jump to Top",
     onPress: jumpToTop,
-    modal: undefined,
   },
 ];
 
