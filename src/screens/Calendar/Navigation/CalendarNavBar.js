@@ -21,9 +21,11 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
 
   const onDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
+    if (selectedDate) {
+      setDate(currentDate);
+      jumpToDate(currentDate);
+    }
     setShowDatePicker(Platform.OS === "ios");
-    setDate(currentDate);
-    jumpToDate(selectedDate);
   };
 
   const ICON_SIZE = 23;
