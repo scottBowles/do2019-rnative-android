@@ -12,21 +12,26 @@ import {
 } from "assets/icons";
 import { SeasonModal } from "./SeasonModal";
 
-export const CalendarNavBar = ({ jumpToDate, jumpToTop }) => {
+export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
   const openSeasonModal = () => setSeasonModalVisible(true);
 
   const ICON_SIZE = 23;
   const ICON_COLOR = colors.black;
-  const navItems = menuItems({ jumpToDate, jumpToTop, openSeasonModal });
+  const navItems = menuItems({
+    jumpToDate,
+    jumpToTop,
+    openSeasonModal,
+  });
 
   return (
     <View style={styles.container}>
       <SeasonModal
         seasonModalVisible={seasonModalVisible}
         closeSeasonModal={() => setSeasonModalVisible(false)}
+        jumpToSeason={jumpToSeason}
       />
-      {navItems.map(({ Icon, text, onPress, modal }, index) => (
+      {navItems.map(({ Icon, text, onPress }, index) => (
         <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
           <View style={styles.btnContent}>
             <Icon size={ICON_SIZE} color={ICON_COLOR} style={styles.icons} />

@@ -25,7 +25,6 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
-import { SeasonModal } from "./Navigation/SeasonModal";
 
 const createDataProvider = (data) =>
   new DataProvider((r1, r2) => {
@@ -85,11 +84,28 @@ export const Calendar = () => {
     );
     return data;
   };
+
+  const getSeasonData = (season) => {
+    const data = dataSource.find(
+      (item) =>
+        item.type === "heading" &&
+        ["season", "both"].includes(item.sectionType) &&
+        item.season.name.toLowerCase() === season.toLowerCase()
+    );
+    console.log({ season, data });
+    return data;
+  };
+
   const jumpToDate = (date) => {
     const data = getDateData(date);
-    console.log({ date, data });
     listRef.current.scrollToItem(data);
   };
+
+  const jumpToSeason = (season) => {
+    const data = getSeasonData(season);
+    listRef.current.scrollToItem(data);
+  };
+
   const jumpToTop = () => listRef.current.scrollToTop();
 
   return dataProvider.getSize() === 0 ? null : (
@@ -104,7 +120,11 @@ export const Calendar = () => {
         onEndReached={getData}
         onEndReachedThreshold={2000}
       />
-      <CalendarNavBar jumpToTop={jumpToTop} jumpToDate={jumpToDate} />
+      <CalendarNavBar
+        jumpToTop={jumpToTop}
+        jumpToDate={jumpToDate}
+        jumpToSeason={jumpToSeason}
+      />
     </View>
   );
 };

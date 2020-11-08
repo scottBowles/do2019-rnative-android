@@ -33,7 +33,8 @@ const createCalendarDay = ({ date, season, commemorations }) => {
  *  a section heading object is inserted. E.g.:
  *    [
  *      {
- *        type: "month", "season", or "both" for which heading is needed,
+ *        type: "heading",
+ *        sectionType: "month", "season", or "both" for which heading is needed,
  *        month,
  *        year,
  *        season

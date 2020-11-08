@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, StyleSheet, View } from "react-native";
+import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
 
 import { CloseIcon } from "assets/icons";
 import { ContentLine } from "common/components/calendarBlock/Content";
@@ -15,6 +15,7 @@ import { H1 } from "styles/typography";
 export const SeasonModal = ({
   seasonModalVisible,
   closeSeasonModal,
+  jumpToSeason,
   ...props
 }) => {
   const seasons = [
@@ -24,7 +25,7 @@ export const SeasonModal = ({
     { season: "Lent", color: colors.purple },
     { season: "Holy Week", color: colors.purple },
     { season: "Eastertide", color: colors.white },
-    { season: "Season after Pentecost", color: colors.green },
+    { season: "Season After Pentecost", color: colors.green },
   ];
 
   return (
@@ -40,9 +41,16 @@ export const SeasonModal = ({
           <CloseIcon style={styles.closeIcon} onPress={closeSeasonModal} />
           <H1 style={styles.title}>Seasons</H1>
           {seasons.map(({ season, color }) => (
-            <View key={season} style={styles.seasonContainer}>
+            <TouchableHighlight
+              key={season}
+              style={styles.seasonContainer}
+              onPress={() => {
+                jumpToSeason(season);
+                closeSeasonModal();
+              }}
+            >
               <ContentLine data={{ name: season, colors: [color] }} />
-            </View>
+            </TouchableHighlight>
           ))}
         </View>
       </View>
