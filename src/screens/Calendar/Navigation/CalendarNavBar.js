@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, TouchableHighlight, View } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 import { toTitleCase } from "common/utils";
 import { colors } from "styles";
@@ -13,8 +14,17 @@ import {
 import { SeasonModal } from "./SeasonModal";
 
 export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
+  const [date, setDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
   const openSeasonModal = () => setSeasonModalVisible(true);
+
+  const onDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === "ios");
+    setDate(currentDate);
+    jumpToDate(selectedDate);
+  };
 
   const ICON_SIZE = 23;
   const ICON_COLOR = colors.black;
@@ -22,6 +32,7 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
     jumpToDate,
     jumpToTop,
     openSeasonModal,
+    setShowDatePicker,
   });
 
   return (
@@ -31,6 +42,16 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
         closeSeasonModal={() => setSeasonModalVisible(false)}
         jumpToSeason={jumpToSeason}
       />
+      {showDatePicker && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={"date"}
+          is24Hour={true}
+          display="default"
+          onChange={onDateChange}
+        />
+      )}
       {navItems.map(({ Icon, text, onPress }, index) => (
         <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
           <View style={styles.btnContent}>
@@ -43,7 +64,12 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
   );
 };
 
-const menuItems = ({ jumpToDate, jumpToTop, openSeasonModal }) => [
+const menuItems = ({
+  jumpToDate,
+  jumpToTop,
+  openSeasonModal,
+  setShowDatePicker,
+}) => [
   {
     Icon: CalendarDayIcon,
     text: "Today",
@@ -55,7 +81,7 @@ const menuItems = ({ jumpToDate, jumpToTop, openSeasonModal }) => [
   {
     Icon: CalendarIcon,
     text: "Jump to Date",
-    onPress: () => console.log("clicked"),
+    onPress: () => setShowDatePicker(true),
   },
   {
     Icon: ChurchIcon,
