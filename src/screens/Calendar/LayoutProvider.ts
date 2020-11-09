@@ -3,6 +3,8 @@ import { GridLayoutProvider } from "recyclerlistview";
 const MAX_SPAN = 1;
 
 export class LayoutProvider extends GridLayoutProvider {
+	public type: any;
+
   constructor(props) {
     super(
       MAX_SPAN,
