@@ -20,7 +20,13 @@ import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
 import { OfficeLinks } from "./OfficeLinks";
 
-export const Content = ({ commemorations, date, season }) => {
+interface Props {
+  commemorations: [];
+  date?: string;
+  season?: string;
+}
+
+export const Content: React.FC<Props> = ({ commemorations, date, season }) => {
   // if season => SeasonBox will be rendered
   // if date => OfficeLinks will be rendered
   return (
@@ -40,7 +46,13 @@ export const Content = ({ commemorations, date, season }) => {
   );
 };
 
-export const ContentLine = ({
+interface ContentLineProps {
+  type: string;
+  data: {};
+  style?: {};
+}
+
+export const ContentLine: React.FC<ContentLineProps> = ({
   type = "primary",
   data: { colors, name, links },
   style: incomingStyle,

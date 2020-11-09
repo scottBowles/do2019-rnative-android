@@ -1,6 +1,20 @@
 import { parseDate } from "./parseDate";
 
-export const isFast = ({ date, season, commemorations: [{ rank }] }) => {
+interface dateData {
+  date: number | string;
+  season: { name: string };
+  commemorations: { rank: { name: string } }[];
+}
+
+/**
+ * Determines whether a date is a fast day
+ */
+
+export const isFast = ({
+  date,
+  season,
+  commemorations: [{ rank }],
+}: dateData): boolean => {
   const { weekday } = parseDate(date);
 
   if (weekday === "Sun") return false;

@@ -1,8 +1,22 @@
-// Grab dayOfMonth, fullMonth, month (abbr), weekday, & year from a date
+interface ParsedDate {
+  dayOfMonth: number;
+  fullMonth: string;
+  month: string;
+  weekday: string;
+  year: number;
+}
 
-export const parseDate = (dateStr) => {
+interface Error {
+  error: string;
+}
+
+/**
+ * Parse date properties
+ * @param dateStr - date to be parsed
+ */
+export const parseDate = (dateStr: string | number): ParsedDate | Error => {
   const date = new Date(dateStr);
-  if (!date) return { error: "Invalid date provided" };
+  if (date.toString() === "Invalid Date") return { error: "Invalid Date" };
 
   const weekdayIndex = date.getDay();
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][

@@ -20,7 +20,24 @@ import { CrossIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { colors } from "styles";
 
-export const DateBlock = ({ isFastDay, day, primaryColor }) => {
+interface Props {
+  isFastDay: boolean;
+  day: {
+    date: string;
+    dayOfMonth: number;
+    fullMonth: string;
+    month: string;
+    weekday: string;
+    year: number;
+  };
+  primaryColor: string;
+}
+
+export const DateBlock: React.FC<Props> = ({
+  isFastDay,
+  day,
+  primaryColor,
+}) => {
   const textColor = getTextColor(primaryColor);
   const blockStyle = composeBlockStyle(primaryColor);
   const datePropertiesInOrder = ["weekday", "dayOfMonth", "month", "year"];
@@ -37,7 +54,7 @@ export const DateBlock = ({ isFastDay, day, primaryColor }) => {
   );
 };
 
-const FastDisplay = ({ textColor }) => (
+const FastDisplay: React.FC<{ textColor: string }> = ({ textColor }) => (
   <View style={dateStyles.fastDay}>
     <CrossIcon size={14} color={textColor} />
     <Text style={[dateStyles.dateBlockText, { color: textColor }]}> Fast</Text>
