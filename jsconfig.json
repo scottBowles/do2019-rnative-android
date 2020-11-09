@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
+    "jsx": "react",
+    "checkJs": true,
     "target": "es2020",
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
       "api/*": ["src/api/*"],

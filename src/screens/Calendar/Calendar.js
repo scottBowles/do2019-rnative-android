@@ -98,7 +98,11 @@ export const Calendar = () => {
 
   const jumpToDate = (date) => {
     const data = getDateData(date);
-    listRef.current.scrollToItem(data);
+    if (data) {
+      listRef.current.scrollToItem(data);
+    } else {
+      return;
+    }
   };
 
   const jumpToSeason = (season) => {

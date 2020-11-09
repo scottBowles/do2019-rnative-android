@@ -1,4 +1,9 @@
-/** Find the first day of Advent for a given year */
+/**
+ * Find the first day of Advent for a given year
+ * @param {number} year - the year in which the result will occur in Nov or Dec
+ * @return {Date} Date object for the first day of Advent
+ */
+
 export function getAdventOne(year) {
   const christmasEve = new Date(year, 11, 24, 0, 0, 0, 0).getTime();
   const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
