@@ -17,7 +17,14 @@ export const prepCalendarData = (calendarData) => {
  */
 
 const createCalendarDay = ({ date, season, commemorations }) => {
-  const { dayOfMonth, fullMonth, month, weekday, year } = parseDate(date);
+  console.log({ date, season });
+  const d = new Date(date);
+
+  if (d.toString() === "Invalid Date") {
+    return "bad";
+  }
+
+  const { dayOfMonth, fullMonth, month, weekday, year } = parseDate(d);
 
   return {
     type: "date",

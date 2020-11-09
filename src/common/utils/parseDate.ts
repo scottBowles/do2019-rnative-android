@@ -6,18 +6,11 @@ interface ParsedDate {
   year: number;
 }
 
-interface Error {
-  error: string;
-}
-
 /**
  * Parse date properties
- * @param dateStr - date to be parsed
+ * @param date - Date object to be parsed
  */
-export const parseDate = (dateStr: string | number): ParsedDate | Error => {
-  const date = new Date(dateStr);
-  if (date.toString() === "Invalid Date") return { error: "Invalid Date" };
-
+export const parseDate = (date: Date): ParsedDate => {
   const weekdayIndex = date.getDay();
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
     weekdayIndex
