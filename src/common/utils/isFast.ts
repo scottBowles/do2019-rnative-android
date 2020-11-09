@@ -16,6 +16,7 @@ export const isFast = ({
   commemorations: [{ rank }],
 }: dateData): boolean => {
   const d = new Date(date);
+
   const { weekday } = parseDate(d);
 
   if (weekday === "Sun") return false;
