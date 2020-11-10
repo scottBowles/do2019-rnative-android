@@ -14,6 +14,7 @@ module.exports = function (api) {
             common: "./src/common",
             screens: "./src/screens",
             styles: "./src/styles",
+            types: "./src/types",
           },
         },
       ],

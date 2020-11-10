@@ -1,10 +1,11 @@
+import { isFast, parseDate } from "common/utils";
+import { ApiCalendarDay, CalendarDay } from "types";
+
 /**
  *  Take calendar data and prepare it for the RecyclerListView with:
  *  1. Section headers for each season and month, and
  *  2. `type`, `isFastDay`, and a parsed `day` object added to each day
  */
-
-import { isFast, parseDate } from "common/utils";
 
 export const prepCalendarData = (calendarData) => {
   const calendarDays = calendarData.map(createCalendarDay);
@@ -13,15 +14,19 @@ export const prepCalendarData = (calendarData) => {
 };
 
 /**
- *  Calendar Day Factory
+ * Calendar Day Factory
+ * @param param0 incoming ApiCalendarDay
  */
 
-const createCalendarDay = ({ date, season, commemorations }) => {
-  console.log({ date, season });
+const createCalendarDay = ({
+  date,
+  season,
+  commemorations,
+}: ApiCalendarDay): CalendarDay => {
   const d = new Date(date);
 
   if (d.toString() === "Invalid Date") {
-    return "bad";
+    return;
   }
 
   const { dayOfMonth, fullMonth, month, weekday, year } = parseDate(d);

@@ -19,7 +19,8 @@
       "assets/*": ["src/assets/*"],
       "common/*": ["src/common/*"],
       "screens/*": ["src/screens/*"],
-      "styles/*": ["src/styles/*"]
+      "styles/*": ["src/styles/*"],
+      "types/*": ["src/types/*"]
     }
   },
   "exclude": [
