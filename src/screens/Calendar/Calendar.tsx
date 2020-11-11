@@ -17,7 +17,7 @@ import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { DataProvider, RecyclerListView } from "recyclerlistview";
 
-import { useCalendarData } from "api/apiHooks";
+import { useCalendarData } from "data/calendarData";
 import { getValidStartYear, parseDate } from "common/utils";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";

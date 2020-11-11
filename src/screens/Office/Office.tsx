@@ -17,7 +17,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
-import { dummyCalendarDayData, dummyOffice, useFetch } from "api";
+import { dummyCalendarDayData, dummyOffice, useFetch } from "data";
 import { H1 } from "styles/typography";
 import { Loading } from "common/components";
 import {
@@ -27,8 +27,8 @@ import {
 } from "common/components/calendarBlock";
 import { isFast } from "common/utils";
 import { Confession } from "./Confession";
-import Invitatory from "./Invitatory";
-import OpeningSentence from "./OpeningSentence";
+import { Invitatory } from "./Invitatory";
+import { OpeningSentence } from "./OpeningSentence";
 
 const {
   office,

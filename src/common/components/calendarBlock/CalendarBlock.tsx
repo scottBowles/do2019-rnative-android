@@ -12,7 +12,7 @@ export const CalendarBlock = ({ weekday, children, ...props }) => {
   );
 };
 
-const containerStyle = (weekday) => {
+const containerStyle = (weekday: string) => {
   return {
     marginVertical: 5,
     marginHorizontal: 25,

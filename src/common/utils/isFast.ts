@@ -1,7 +1,7 @@
 import { parseDate } from "./parseDate";
 
 interface dateData {
-  date: number | string;
+  day: { weekday: string };
   season: { name: string };
   commemorations: { rank: { name: string } }[];
 }
@@ -11,14 +11,10 @@ interface dateData {
  */
 
 export const isFast = ({
-  date,
+  day: { weekday },
   season,
   commemorations: [{ rank }],
 }: dateData): boolean => {
-  const d = new Date(date);
-
-  const { weekday } = parseDate(d);
-
   if (weekday === "Sun") return false;
 
   if (season.name === "Lent") return true;

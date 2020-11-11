@@ -15,12 +15,12 @@
     "noImplicitAny": false,
     "baseUrl": "./",
     "paths": {
-      "api/*": ["src/api/*"],
+      "data/*": ["src/data/*"],
       "assets/*": ["src/assets/*"],
       "common/*": ["src/common/*"],
       "screens/*": ["src/screens/*"],
       "styles/*": ["src/styles/*"],
-      "types/*": ["src/types/*"]
+      "models/*": ["src/models/*"]
     }
   },
   "exclude": [

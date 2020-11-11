@@ -48,7 +48,11 @@ export const Content: React.FC<Props> = ({ commemorations, date, season }) => {
 
 interface ContentLineProps {
   type: string;
-  data: {};
+  data: {
+    colors: string[];
+    name: string;
+    links: string[];
+  };
   style?: {};
 }
 
