@@ -16,17 +16,6 @@ export const prepCalendarData = (calendarData: ApiCalendarDay[]) => {
 };
 
 /**
- * Object to be inserted for section headers
- */
-interface SectionData {
-  type: "heading";
-  sectionType: "both" | "month" | "season";
-  month: string;
-  year: number;
-  season: { name: string };
-}
-
-/**
  * Inserts SectionData objects when month or season changes in an array of CalendarDay objects
  * @param calendarData Array of CalendarDay objects
  * @return Array with SectionData objects added

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableHighlight, View } from "react-native";
+import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import { toTitleCase } from "common/utils";
@@ -19,7 +19,7 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
   const openSeasonModal = () => setSeasonModalVisible(true);
 
-  const onDateChange = (event, selectedDate) => {
+  const onDateChange = (event, selectedDate: Date) => {
     const currentDate = selectedDate || date;
     if (selectedDate) {
       setDate(currentDate);

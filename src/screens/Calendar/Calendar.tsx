@@ -17,14 +17,21 @@ import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { DataProvider, RecyclerListView } from "recyclerlistview";
 
+import type { SectionData } from "data/calendarData/interfaces";
+import { CalendarDay, ParsedDate } from "data/calendarData/models";
 import { useCalendarData } from "data/calendarData";
-import { getValidStartYear, parseDate } from "common/utils";
+import { getValidStartYear } from "common/utils";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
 import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
+
+interface ListHeader {
+  type: "listHeader";
+  startYear: number;
+}
 
 const createDataProvider = (data) =>
   new DataProvider((r1, r2) => {
@@ -33,9 +40,9 @@ const createDataProvider = (data) =>
 
 export const Calendar = () => {
   const { year } = useParams();
-  const startYear = getValidStartYear(year);
+  const startYear: number = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
-  const dataForHeader = { type: "listHeader", startYear };
+  const dataForHeader: ListHeader = { type: "listHeader", startYear };
   const [dataProvider, setDataProvider] = useState(
     createDataProvider([dataForHeader, ...dataSource])
   );
@@ -46,8 +53,8 @@ export const Calendar = () => {
 
   const listRef = useRef(null);
 
-  const rowRenderer = (type, data) => {
-    switch (type) {
+  const rowRenderer = (_, data: ListHeader | SectionData | CalendarDay) => {
+    switch (data.type) {
       case "listHeader":
         return <ListHeader startYear={data.startYear} />;
       case "heading":
@@ -73,30 +80,30 @@ export const Calendar = () => {
 
   const layoutProvider = new LayoutProvider(dataProvider);
 
-  const getDateData = (date) => {
-    const { dayOfMonth, month, year } = parseDate(date);
+  // TODO: Check the output of this if no data is found. Same for getSeasonData below.
+  const getDateData = (date: Date) => {
+    const { dayOfMonth, month, year } = new ParsedDate(date);
     const data = dataSource.find(
-      (item) =>
+      (item: ListHeader | SectionData | CalendarDay) =>
         item.type === "date" &&
-        item.day.dayOfMonth === dayOfMonth &&
-        item.day.month === month &&
-        item.day.year === year
+        item.dayOfMonth === dayOfMonth &&
+        item.month === month &&
+        item.year === year
     );
     return data;
   };
 
-  const getSeasonData = (season) => {
+  const getSeasonData = (season: string) => {
     const data = dataSource.find(
-      (item) =>
+      (item: ListHeader | SectionData | CalendarDay) =>
         item.type === "heading" &&
         ["season", "both"].includes(item.sectionType) &&
         item.season.name.toLowerCase() === season.toLowerCase()
     );
-    console.log({ season, data });
     return data;
   };
 
-  const jumpToDate = (date) => {
+  const jumpToDate = (date: Date): void => {
     const data = getDateData(date);
     if (data) {
       listRef.current.scrollToItem(data);
@@ -105,7 +112,7 @@ export const Calendar = () => {
     }
   };
 
-  const jumpToSeason = (season) => {
+  const jumpToSeason = (season: string): void => {
     const data = getSeasonData(season);
     listRef.current.scrollToItem(data);
   };
