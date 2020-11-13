@@ -1,33 +1,24 @@
-import { isFast, parseDate } from "common/utils";
-import { ParsedDate } from "models/ParsedDate";
+import { isFast } from "common/utils";
+import { ParsedDate } from "./";
 
-export class CalendarDay {
+export class CalendarDay extends ParsedDate {
   constructor(
-    public date: string,
-
-    public season: {
-      name: string;
-      colors: string[];
-    },
-
+    public date: Date,
+    public season: { name: string; colors: string[] },
     public commemorations: {
       name: string;
-      rank: {
-        name: string;
-        formatted_name: string;
-        precedence: number;
-      };
+      rank: { name: string; formatted_name: string; precedence: number };
       colors: string[];
       links: string[];
       collects: {
         collect: string;
-        alternate_collect?: string;
-        vigil_collect?: string;
+        alternate_collect?: string | null;
+        vigil_collect?: string | null;
       };
     }[]
-  ) {}
-
-  day: ParsedDate = parseDate(new Date(this.date));
-
+  ) {
+    super(date);
+  }
+  type: "date" = "date";
   isFastDay: boolean = isFast(this);
 }

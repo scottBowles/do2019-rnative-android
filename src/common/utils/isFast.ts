@@ -1,7 +1,7 @@
 import { parseDate } from "./parseDate";
 
 interface dateData {
-  day: { weekday: string };
+  weekday: string;
   season: { name: string };
   commemorations: { rank: { name: string } }[];
 }
@@ -11,7 +11,7 @@ interface dateData {
  */
 
 export const isFast = ({
-  day: { weekday },
+  weekday,
   season,
   commemorations: [{ rank }],
 }: dateData): boolean => {

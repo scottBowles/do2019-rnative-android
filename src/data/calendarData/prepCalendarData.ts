@@ -1,98 +1,75 @@
-import { isFast, parseDate } from "common/utils";
-import { ApiCalendarDay, CalendarDay } from "types";
+import { CalendarDay } from "./models";
+import { ApiCalendarDay } from "./interfaces";
 
 /**
- *  Take calendar data and prepare it for the RecyclerListView with:
- *  1. Section headers for each season and month, and
- *  2. `type`, `isFastDay`, and a parsed `day` object added to each day
+ * Take calendar data and prepare it for the RecyclerListView with:
+ * 1. Section headers for each season and month, and
+ * 2. `type`, `isFastDay`, and ParsedDate properties added to each day with the CalendarDay class
  */
-
-export const prepCalendarData = (calendarData) => {
-  const calendarDays = calendarData.map(createCalendarDay);
+export const prepCalendarData = (calendarData: ApiCalendarDay[]) => {
+  const calendarDays = calendarData.map(
+    ({ date, season, commemorations }) =>
+      new CalendarDay(new Date(date), season, commemorations)
+  );
   const sectionizedData = sectionizeCalendarData(calendarDays);
   return sectionizedData;
 };
 
 /**
- * Calendar Day Factory
- * @param param0 incoming ApiCalendarDay
+ * Object to be inserted for section headers
  */
-
-const createCalendarDay = ({
-  date,
-  season,
-  commemorations,
-}: ApiCalendarDay): CalendarDay => {
-  const d = new Date(date);
-
-  if (d.toString() === "Invalid Date") {
-    return;
-  }
-
-  const { dayOfMonth, fullMonth, month, weekday, year } = parseDate(d);
-
-  return {
-    type: "date",
-    day: { date, dayOfMonth, fullMonth, month, weekday, year },
-    isFastDay: isFast({ date, season, commemorations }),
-    season,
-    commemorations,
-  };
-};
+interface SectionData {
+  type: "heading";
+  sectionType: "both" | "month" | "season";
+  month: string;
+  year: number;
+  season: { name: string };
+}
 
 /**
- *  Output an array where each time the month and/or season changes,
- *  a section heading object is inserted. E.g.:
- *    [
- *      {
- *        type: "heading",
- *        sectionType: "month", "season", or "both" for which heading is needed,
- *        month,
- *        year,
- *        season
- *      },
- *      calendarDay,
- *      calendarDay,
- *      calendarDay...
- *    ]
+ * Inserts SectionData objects when month or season changes in an array of CalendarDay objects
+ * @param calendarData Array of CalendarDay objects
+ * @return Array with SectionData objects added
  */
-const sectionizeCalendarData = (calendarData) => {
-  let currentSection;
+const sectionizeCalendarData = (
+  calendarData: CalendarDay[]
+): (SectionData | CalendarDay)[] => {
+  let currentSection: SectionData | undefined;
 
-  return calendarData.reduce((acc, cur) => {
-    const {
-      day: { fullMonth: month, year },
-      season,
-    } = cur;
+  return calendarData.reduce(
+    (acc: (SectionData | CalendarDay)[], cur: CalendarDay) => {
+      const { fullMonth: month, year, season } = cur;
 
-    if (
-      currentSection &&
-      month === currentSection.month &&
-      year === currentSection.year &&
-      season.name === currentSection.season.name
-    ) {
-      return [...acc, cur];
-    }
+      if (
+        currentSection &&
+        month === currentSection.month &&
+        year === currentSection.year &&
+        season.name === currentSection.season.name
+      ) {
+        return [...acc, cur];
+      }
 
-    const newSectionType =
-      !currentSection ||
-      (currentSection.month !== month &&
-        currentSection.season.name !== season.name)
-        ? "both"
-        : currentSection.month !== month
-        ? "month"
-        : currentSection.season.name !== season.name
-        ? "season"
-        : undefined;
+      const newSectionType =
+        !currentSection ||
+        (currentSection.month !== month &&
+          currentSection.season.name !== season.name)
+          ? "both"
+          : currentSection.month !== month
+          ? "month"
+          : currentSection.season.name !== season.name
+          ? "season"
+          : undefined;
 
-    currentSection = {
-      type: "heading",
-      sectionType: newSectionType,
-      month,
-      year,
-      season,
-    };
+      currentSection = {
+        type: "heading",
+        sectionType: newSectionType,
+        month,
+        year,
+        season,
+      };
 
-    return [...acc, currentSection, cur];
-  }, []);
+      return [...acc, currentSection, cur];
+    },
+    []
+  );
 };

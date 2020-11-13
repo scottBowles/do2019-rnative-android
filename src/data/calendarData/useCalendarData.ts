@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { prepCalendarData } from "data/utils";
+import { prepCalendarData } from "data/calendarData";
 
 interface ReturnData {
   dataSource: any;
