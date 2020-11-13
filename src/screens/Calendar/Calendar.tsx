@@ -38,7 +38,7 @@ const createDataProvider = (data) =>
     return r1 !== r2;
   }).cloneWithRows(data);
 
-export const Calendar = () => {
+export const Calendar: React.FC = () => {
   const { year } = useParams();
   const startYear: number = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
