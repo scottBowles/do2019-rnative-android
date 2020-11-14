@@ -6,10 +6,9 @@ import { getAdventOne } from "./getAdventOne";
  * @return the year of Advent one in which the given date falls
  */
 
-export function getLiturgicalYear(date: Date | string | number): number {
-  const d = new Date(date);
-  const year = d.getFullYear();
+export function getLiturgicalYear(date: Date): number {
+  const year = date.getFullYear();
   const adventOne = getAdventOne(year);
 
-  return d.getTime() < adventOne.getTime() ? year - 1 : year;
+  return date.getTime() < adventOne.getTime() ? year - 1 : year;
 }

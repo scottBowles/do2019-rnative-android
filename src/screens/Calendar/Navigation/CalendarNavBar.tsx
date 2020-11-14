@@ -3,7 +3,7 @@ import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import { toTitleCase } from "common/utils";
-import { colors } from "styles";
+import { colors } from "styles/colors";
 import { Text } from "styles/typography";
 import {
   CalendarDayIcon,
@@ -19,7 +19,7 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
   const openSeasonModal = () => setSeasonModalVisible(true);
 
-  const onDateChange = (event, selectedDate: Date) => {
+  const onDateChange = (event: any, selectedDate: Date) => {
     const currentDate = selectedDate || date;
     if (selectedDate) {
       setDate(currentDate);
@@ -57,7 +57,7 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
       {navItems.map(({ Icon, text, onPress }, index) => (
         <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
           <View style={styles.btnContent}>
-            <Icon size={ICON_SIZE} color={ICON_COLOR} style={styles.icons} />
+            <Icon size={ICON_SIZE} color={ICON_COLOR} />
             <Text style={styles.item}>{toTitleCase(text)}</Text>
           </View>
         </TouchableHighlight>

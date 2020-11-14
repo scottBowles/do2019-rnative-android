@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { prepCalendarData } from "data/calendarData";
+import { prepCalendarData } from "./prepCalendarData";
 import { ApiCalendarDay, SectionData } from "./interfaces";
 import { CalendarDay } from "./models";
 

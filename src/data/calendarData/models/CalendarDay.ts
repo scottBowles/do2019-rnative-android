@@ -1,5 +1,5 @@
 import { isFast } from "common/utils";
-import { ParsedDate } from "./";
+import { ParsedDate } from "./ParsedDate";
 
 export class CalendarDay extends ParsedDate {
   constructor(

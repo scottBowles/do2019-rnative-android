@@ -1,5 +1,3 @@
-import { parseDate } from "./parseDate";
-
 interface dateData {
   weekday: string;
   season: { name: string };

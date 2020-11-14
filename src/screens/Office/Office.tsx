@@ -17,7 +17,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
-import { dummyCalendarDayData, dummyOffice, useFetch } from "data";
+import { dummyCalendarDayData, dummyOffice } from "data/dummyData";
 import { H1 } from "styles/typography";
 import { Loading } from "common/components";
 import {
@@ -25,10 +25,10 @@ import {
   Content,
   DateBlock,
 } from "common/components/calendarBlock";
-import { isFast } from "common/utils";
 import { Confession } from "./Confession";
 import { Invitatory } from "./Invitatory";
 import { OpeningSentence } from "./OpeningSentence";
+import { CalendarDay } from "data/calendarData/models";
 
 const {
   office,
@@ -43,11 +43,14 @@ const Title = ({ frequency, office }) => (
 );
 
 export const Office = () => {
+  // need to change this hook to make officeData `CalendarDay`s
   // const [officeData, isLoading] = useFetch(
   //   "https://data.dailyoffice2019.com/api/v1/calendar/2020-9-21?format=json"
   // );
-  const officeData = dummyCalendarDayData;
-  const isFastDay = isFast(officeData);
+
+  // these three lines just for using dummy data
+  const { date, season, commemorations } = dummyCalendarDayData;
+  const officeDay = new CalendarDay(new Date(date), season, commemorations);
   const isLoading = false;
 
   return !!isLoading ? (
@@ -58,23 +61,16 @@ export const Office = () => {
     <ScrollView>
       <View style={styles.container}>
         <Title frequency={frequency} office={office} />
-        <CalendarBlock date={officeData.date}>
-          <DateBlock
-            isFastDay={isFastDay}
-            date={officeData.date}
-            primaryColor={officeData.commemorations[0].colors[0]}
-          />
-          <Content
-            season={officeData.season}
-            commemorations={officeData.commemorations}
-          />
+        <CalendarBlock weekday={officeDay.weekday}>
+          <DateBlock day={officeDay} />
+          <Content day={officeDay} />
         </CalendarBlock>
         <OpeningSentence
           text={openingSentence.text}
           citation={openingSentence.citation}
         />
         <Confession
-          office={office}
+          office={officeDay}
           useLongFormInvitation={useLongFormInvitation}
           useDeaconOrLayAbsolution={useDeaconOrLayAbsolution}
         />
