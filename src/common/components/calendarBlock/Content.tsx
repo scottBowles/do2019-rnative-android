@@ -19,14 +19,15 @@ import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
 import { OfficeLinks } from "./OfficeLinks";
+import { CalendarDay } from "data/calendarData/models";
 
 interface Props {
-  commemorations: [];
-  date?: string;
-  season?: string;
+  day: CalendarDay;
 }
 
-export const Content: React.FC<Props> = ({ commemorations, date, season }) => {
+export const Content: React.FC<Props> = ({
+  day: { commemorations, date, season },
+}) => {
   // if season => SeasonBox will be rendered
   // if date => OfficeLinks will be rendered
   return (
@@ -46,12 +47,22 @@ export const Content: React.FC<Props> = ({ commemorations, date, season }) => {
   );
 };
 
+interface SeasonBoxProps {
+  season: { name: string; colors: string[] };
+}
+
+const SeasonBox: React.FC<SeasonBoxProps> = ({ season }) => (
+  <View style={styles.seasonBlock}>
+    <ContentLine type="season" data={season} />
+  </View>
+);
+
 interface ContentLineProps {
   type: string;
   data: {
     colors: string[];
     name: string;
-    links: string[];
+    links?: string[];
   };
   style?: {};
 }
@@ -111,12 +122,6 @@ export const ContentLine: React.FC<ContentLineProps> = ({
     </View>
   );
 };
-
-const SeasonBox = ({ season }) => (
-  <View style={styles.seasonBlock}>
-    <ContentLine type="season" data={season} />
-  </View>
-);
 
 const styles = StyleSheet.create({
   container: {

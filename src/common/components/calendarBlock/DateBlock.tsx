@@ -19,25 +19,14 @@ import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { colors } from "styles";
+import { CalendarDay } from "data/calendarData/models";
 
 interface Props {
-  isFastDay: boolean;
-  day: {
-    date: string;
-    dayOfMonth: number;
-    fullMonth: string;
-    month: string;
-    weekday: string;
-    year: number;
-  };
-  primaryColor: string;
+  day: CalendarDay;
 }
 
-export const DateBlock: React.FC<Props> = ({
-  isFastDay,
-  day,
-  primaryColor,
-}) => {
+export const DateBlock: React.FC<Props> = ({ day }) => {
+  const primaryColor = day.commemorations[0].colors[0];
   const textColor = getTextColor(primaryColor);
   const blockStyle = composeBlockStyle(primaryColor);
   const datePropertiesInOrder = ["weekday", "dayOfMonth", "month", "year"];
@@ -49,7 +38,7 @@ export const DateBlock: React.FC<Props> = ({
           {day[property]}
         </Text>
       ))}
-      {!!isFastDay && <FastDisplay textColor={textColor} />}
+      {!!day.isFastDay && <FastDisplay textColor={textColor} />}
     </View>
   );
 };
@@ -90,14 +79,14 @@ const dateStyles = StyleSheet.create({
   },
 });
 
-const getTextColor = (backgroundColor) =>
+const getTextColor = (backgroundColor: string): string =>
   backgroundColor === "white" ? colors.fontGrey : colors.white;
 
-const composeTextStyle = (key, textColor) => {
+const composeTextStyle = (key: string, textColor: string) => {
   return [dateStyles.dateBlockText, dateStyles[key], { color: textColor }];
 };
 
-const composeBlockStyle = (primaryColor) =>
+const composeBlockStyle = (primaryColor: string) =>
   StyleSheet.compose(dateStyles.dateBlock, {
     backgroundColor: colors[primaryColor],
   });

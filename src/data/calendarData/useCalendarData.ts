@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { prepCalendarData } from "data/calendarData";
+import { ApiCalendarDay, SectionData } from "./interfaces";
+import { CalendarDay } from "./models";
 
 interface ReturnData {
-  dataSource: any;
+  dataSource: (SectionData | CalendarDay)[];
   isLoading: boolean;
   getData: () => void;
 }
 
 export const useCalendarData = (startYear: number | string): ReturnData => {
   const [isLoading, setIsLoading] = useState(false);
-  const [dataSource, setDataSource] = useState([]);
   const [nextYear, setNextYear] = useState(+startYear);
+  const [dataSource, setDataSource] = useState<(SectionData | CalendarDay)[]>(
+    []
+  );
 
   useEffect(() => getData(), []);
 
@@ -25,7 +29,7 @@ export const useCalendarData = (startYear: number | string): ReturnData => {
         `https://data.dailyoffice2019.com/api/v1/calendar/${nextYear}?format=json`
       )
         .then((res) => res.json())
-        .then((data) => {
+        .then((data: ApiCalendarDay[]) => {
           const preppedData = prepCalendarData(data);
           setNextYear(nextYear + 1);
           setDataSource([...dataSource, ...preppedData]);

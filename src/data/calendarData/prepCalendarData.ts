@@ -1,12 +1,14 @@
 import { CalendarDay } from "./models";
-import { ApiCalendarDay } from "./interfaces";
+import { ApiCalendarDay, SectionData } from "./interfaces";
 
 /**
  * Take calendar data and prepare it for the RecyclerListView with:
  * 1. Section headers for each season and month, and
  * 2. `type`, `isFastDay`, and ParsedDate properties added to each day with the CalendarDay class
  */
-export const prepCalendarData = (calendarData: ApiCalendarDay[]) => {
+export const prepCalendarData = (
+  calendarData: ApiCalendarDay[]
+): (SectionData | CalendarDay)[] => {
   const calendarDays = calendarData.map(
     ({ date, season, commemorations }) =>
       new CalendarDay(new Date(date), season, commemorations)
@@ -23,7 +25,7 @@ export const prepCalendarData = (calendarData: ApiCalendarDay[]) => {
 const sectionizeCalendarData = (
   calendarData: CalendarDay[]
 ): (SectionData | CalendarDay)[] => {
-  let currentSection: SectionData | undefined;
+  let currentSection: SectionData;
 
   return calendarData.reduce(
     (acc: (SectionData | CalendarDay)[], cur: CalendarDay) => {

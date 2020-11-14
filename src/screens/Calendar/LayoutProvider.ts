@@ -1,20 +1,24 @@
-import { GridLayoutProvider } from "recyclerlistview";
+import { DataProvider, GridLayoutProvider } from "recyclerlistview";
 
 const MAX_SPAN = 1;
 
+/**
+ * LayoutProvider for RecyclerListView
+ * See https://github.com/muskeinsingh/recyclerlistview-gridlayoutprovider
+ */
 export class LayoutProvider extends GridLayoutProvider {
-	public type: any;
+  public type: any;
 
-  constructor(props) {
+  constructor(props: DataProvider) {
     super(
       MAX_SPAN,
-      (index) => {
+      (index): number => {
         return props.getDataForIndex(index).type;
       },
       (index) => {
         return 1;
       },
-      (index) => {
+      (index): number => {
         const { type } = props.getDataForIndex(index);
         switch (type) {
           case "listHeader":

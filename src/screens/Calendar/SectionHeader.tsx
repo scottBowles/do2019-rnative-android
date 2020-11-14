@@ -3,10 +3,11 @@ import { StyleSheet, View } from "react-native";
 
 import { ColorBox } from "common/components";
 import { H3 } from "styles/typography";
+import { SectionData } from "data/calendarData/interfaces";
 
 // Season & month section headers
 
-export const SectionHeader = React.memo(
+export const SectionHeader: React.FC<SectionData> = React.memo(
   ({ sectionType, month, year, season, ...props }) => {
     const seasonHeader = (
       <View style={styles.sectionHeader} key={season + month + year}>
@@ -36,6 +37,7 @@ export const SectionHeader = React.memo(
     );
   }
 );
+
 const styles = StyleSheet.create({
   colorBox: {
     marginRight: 3,

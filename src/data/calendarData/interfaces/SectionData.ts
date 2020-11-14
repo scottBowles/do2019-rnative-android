@@ -6,5 +6,5 @@ export interface SectionData {
   sectionType: "both" | "month" | "season";
   month: string;
   year: number;
-  season: { name: string };
+  season: { name: string; colors: string[] };
 }

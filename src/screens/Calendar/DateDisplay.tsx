@@ -5,14 +5,19 @@ import {
   Content,
   DateBlock,
 } from "common/components/calendarBlock";
+import { CalendarDay } from "data/calendarData/models";
+
+interface DateDisplayProps {
+  day: CalendarDay;
+}
 
 // Invidual calendar date render component
 
-export const DateDisplay = React.memo(
-  ({ commemorations, day, isFastDay, primaryColor, ...props }) => (
+export const DateDisplay: React.FC<DateDisplayProps> = React.memo(
+  ({ day, ...props }) => (
     <CalendarBlock weekday={day.weekday} {...props}>
-      <DateBlock day={day} isFastDay={isFastDay} primaryColor={primaryColor} />
-      <Content commemorations={commemorations} date={day.date} />
+      <DateBlock day={day} />
+      <Content day={day} />
     </CalendarBlock>
   )
 );

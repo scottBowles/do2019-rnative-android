@@ -33,13 +33,17 @@ interface ListHeader {
   startYear: number;
 }
 
-const createDataProvider = (data) =>
+const createDataProvider = (data: (ListHeader | SectionData | CalendarDay)[]) =>
   new DataProvider((r1, r2) => {
     return r1 !== r2;
   }).cloneWithRows(data);
 
+/**
+ * Main component for Calendar screen -- primarily implements a RecyclerListView
+ * See: https://github.com/Flipkart/recyclerlistview
+ */
 export const Calendar: React.FC = () => {
-  const { year } = useParams();
+  const { year } = useParams<{ year: string }>();
   const startYear: number = getValidStartYear(year);
   const { dataSource, isLoading, getData } = useCalendarData(startYear);
   const dataForHeader: ListHeader = { type: "listHeader", startYear };
@@ -53,28 +57,17 @@ export const Calendar: React.FC = () => {
 
   const listRef = useRef(null);
 
-  const rowRenderer = (_, data: ListHeader | SectionData | CalendarDay) => {
+  const rowRenderer = (
+    _: string,
+    data: ListHeader | SectionData | CalendarDay
+  ) => {
     switch (data.type) {
       case "listHeader":
         return <ListHeader startYear={data.startYear} />;
       case "heading":
-        return (
-          <SectionHeader
-            sectionType={data.sectionType}
-            month={data.month}
-            year={data.year}
-            season={data.season}
-          />
-        );
+        return <SectionHeader {...data} />;
       case "date":
-        return (
-          <DateDisplay
-            commemorations={data.commemorations}
-            day={data.day}
-            isFastDay={data.isFastDay}
-            primaryColor={data.commemorations[0].colors[0]}
-          />
-        );
+        return <DateDisplay day={data} />;
     }
   };
 
@@ -107,8 +100,6 @@ export const Calendar: React.FC = () => {
     const data = getDateData(date);
     if (data) {
       listRef.current.scrollToItem(data);
-    } else {
-      return;
     }
   };
 
@@ -117,7 +108,7 @@ export const Calendar: React.FC = () => {
     listRef.current.scrollToItem(data);
   };
 
-  const jumpToTop = () => listRef.current.scrollToTop();
+  const jumpToTop = (): void => listRef.current.scrollToTop();
 
   return dataProvider.getSize() === 0 ? null : (
     <View style={{ flex: 1 }}>

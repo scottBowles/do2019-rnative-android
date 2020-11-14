@@ -16,35 +16,48 @@ import { ArrowLeft, ArrowRight } from "assets/icons";
 import { H1, H2, Text } from "styles/typography";
 import { OutlineBtn } from "common/components";
 
-export const ListHeader = React.memo(({ startYear, ...props }) => (
-  <View style={styles.listHeaderContainer} {...props}>
-    <View>
-      <H1>The Church Year</H1>
-      <H2>
-        {startYear} - {+startYear + 1}
-      </H2>
-    </View>
-    <View style={styles.yearNavContainer}>
-      <ListHeaderLink year={startYear - 1} direction={"past"} />
-      <ListHeaderLink year={startYear + 1} direction={"future"} />
-    </View>
-  </View>
-));
+interface ListHeaderProps {
+  startYear: number;
+}
 
-const ListHeaderLink = React.memo(({ direction, year, ...props }) => (
-  <Link to={`/calendar/${year}`} {...props}>
-    <OutlineBtn style={styles.outlineBtn}>
-      <Text style={styles.outlineBtnText}>
-        {year} - {year + 1}
-      </Text>
-      {direction === "past" ? (
-        <ArrowLeft size={12} />
-      ) : (
-        <ArrowRight size={12} />
-      )}
-    </OutlineBtn>
-  </Link>
-));
+export const ListHeader: React.FC<ListHeaderProps> = React.memo(
+  ({ startYear, ...props }) => (
+    <View style={styles.listHeaderContainer} {...props}>
+      <View>
+        <H1>The Church Year</H1>
+        <H2>
+          {startYear} - {+startYear + 1}
+        </H2>
+      </View>
+      <View style={styles.yearNavContainer}>
+        <ListHeaderLink year={startYear - 1} direction={"past"} />
+        <ListHeaderLink year={startYear + 1} direction={"future"} />
+      </View>
+    </View>
+  )
+);
+
+interface ListHeaderLinkProps {
+  direction: "past" | "future";
+  year: number;
+}
+
+const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
+  ({ direction, year, ...props }) => (
+    <Link to={`/calendar/${year}`} {...props}>
+      <OutlineBtn style={styles.outlineBtn}>
+        <Text style={styles.outlineBtnText}>
+          {year} - {year + 1}
+        </Text>
+        {direction === "past" ? (
+          <ArrowLeft size={12} />
+        ) : (
+          <ArrowRight size={12} />
+        )}
+      </OutlineBtn>
+    </Link>
+  )
+);
 
 const styles = StyleSheet.create({
   listHeaderContainer: {
