@@ -18,10 +18,14 @@ import { ContentLine } from "./ContentLine";
 
 interface Props {
   day: CalendarDay;
+  showSeason?: boolean;
+  showOfficeLinks?: boolean;
 }
 
 export const Content: React.FC<Props> = ({
   day: { commemorations, date, season },
+  showSeason = false,
+  showOfficeLinks = false,
 }) => {
   // if season => SeasonBox will be rendered
   // if date => OfficeLinks will be rendered
@@ -36,8 +40,8 @@ export const Content: React.FC<Props> = ({
           />
         ))}
       </View>
-      {season && <SeasonBox season={season} />}
-      {date && <OfficeLinks date={date} />}
+      {showSeason && <SeasonBox season={season} />}
+      {showOfficeLinks && <OfficeLinks date={date} />}
     </View>
   );
 };

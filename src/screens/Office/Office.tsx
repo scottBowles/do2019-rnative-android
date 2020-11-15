@@ -63,7 +63,7 @@ export const Office = () => {
         <Title frequency={frequency} office={office} />
         <CalendarBlock weekday={officeDay.weekday}>
           <DateBlock day={officeDay} />
-          <Content day={officeDay} />
+          <Content day={officeDay} showSeason={true} />
         </CalendarBlock>
         <OpeningSentence
           text={openingSentence.text}

@@ -27,10 +27,6 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
-import {
-  RecyclerListViewProps,
-  RecyclerListViewState,
-} from "recyclerlistview/dist/reactnative/core/RecyclerListView";
 
 interface ListHeader {
   type: "listHeader";

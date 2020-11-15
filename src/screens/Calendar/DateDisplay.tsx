@@ -17,7 +17,7 @@ export const DateDisplay: React.FC<DateDisplayProps> = React.memo(
   ({ day, ...props }) => (
     <CalendarBlock weekday={day.weekday} {...props}>
       <DateBlock day={day} />
-      <Content day={day} />
+      <Content day={day} showOfficeLinks={true} />
     </CalendarBlock>
   )
 );

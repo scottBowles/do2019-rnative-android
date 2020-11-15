@@ -21,6 +21,7 @@ export const CalendarBlock: React.FC<Props> = ({
 
 const containerStyle = (weekday: string): StyleProp<ViewStyle> => {
   return {
+    flex: 1,
     marginVertical: 5,
     marginHorizontal: 25,
     padding: 6,
