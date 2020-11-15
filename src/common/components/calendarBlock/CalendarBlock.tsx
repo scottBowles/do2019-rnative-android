@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleProp, View, ViewStyle } from "react-native";
 import { colors } from "styles/colors";
 
 interface Props {
@@ -19,7 +19,7 @@ export const CalendarBlock: React.FC<Props> = ({
   </View>
 );
 
-const containerStyle = (weekday: string) => {
+const containerStyle = (weekday: string): StyleProp<ViewStyle> => {
   return {
     marginVertical: 5,
     marginHorizontal: 25,

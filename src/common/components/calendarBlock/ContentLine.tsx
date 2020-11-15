@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
+  ViewStyle,
+} from "react-native";
 import WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { Text } from "styles/typography";
@@ -65,7 +71,9 @@ export const ContentLine: React.FC<ContentLineProps> = ({
   );
 };
 
-const getColorBoxStyle = (type: ContentLineProps["type"]) => {
+const getColorBoxStyle = (
+  type: ContentLineProps["type"]
+): StyleProp<ViewStyle> => {
   const colorBoxTypeStyle =
     type === "secondary"
       ? styles.colorBoxSecondary
@@ -75,13 +83,24 @@ const getColorBoxStyle = (type: ContentLineProps["type"]) => {
   return [styles.colorBox, colorBoxTypeStyle];
 };
 
-const getTextStyle = (type: ContentLineProps["type"]) => {
+const getTextStyle = (type: ContentLineProps["type"]): StyleProp<TextStyle> => {
   return type === "secondary"
     ? styles.textSecondary
     : type === "season"
     ? styles.textSeason
     : styles.textPrimary;
 };
+
+interface Styles {
+  contentLine: StyleProp<ViewStyle>;
+  colorBox: StyleProp<ViewStyle>;
+  colorBoxPrimary: StyleProp<ViewStyle>;
+  colorBoxSecondary: StyleProp<ViewStyle>;
+  colorBoxSeason: StyleProp<ViewStyle>;
+  textPrimary: StyleProp<TextStyle>;
+  textSecondary: StyleProp<TextStyle>;
+  textSeason: StyleProp<TextStyle>;
+}
 
 const styles = StyleSheet.create({
   contentLine: {

@@ -11,7 +11,7 @@
  */
 
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import { OfficeLinks } from "./OfficeLinks";
 import { CalendarDay } from "data/calendarData/models";
 import { ContentLine } from "./ContentLine";
@@ -52,7 +52,13 @@ const SeasonBox: React.FC<SeasonBoxProps> = ({ season }) => (
   </View>
 );
 
-const styles = StyleSheet.create({
+interface Styles {
+  container: StyleProp<ViewStyle>;
+  commemorationContainer: StyleProp<ViewStyle>;
+  seasonBlock: StyleProp<ViewStyle>;
+}
+
+const styles: Styles = StyleSheet.create({
   container: {
     paddingHorizontal: 14,
   },
