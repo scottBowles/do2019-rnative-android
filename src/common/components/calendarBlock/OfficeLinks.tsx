@@ -5,7 +5,11 @@ import { MoonIcon, SunIcon, SunriseIcon, SunsetIcon } from "assets/icons";
 import { Text } from "styles/typography";
 import { OutlineBtn } from "common/components";
 
-export const OfficeLinks = ({ date }) => {
+interface Props {
+  date: Date;
+}
+
+export const OfficeLinks: React.FC<Props> = ({ date }) => {
   const iconSize = styles.outlineBtnText.fontSize;
   return (
     <View style={styles.officeLinksContainer}>

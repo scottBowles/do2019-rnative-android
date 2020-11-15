@@ -2,8 +2,8 @@ import React from "react";
 import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
 
 import { CloseIcon } from "assets/icons";
-import { ContentLine } from "common/components/calendarBlock/Content";
-import { colors } from "styles";
+import { ContentLine } from "common/components/calendarBlock/ContentLine";
+import { colors } from "styles/colors";
 import { H1 } from "styles/typography";
 
 // Figure out what to do with ContentLine (probably separate into own file)
@@ -12,7 +12,13 @@ import { H1 } from "styles/typography";
 // Need to add actions here so clicking on one closes the modal and jumps to the
 // chosen season
 
-export const SeasonModal = ({
+interface Props {
+  seasonModalVisible: boolean;
+  closeSeasonModal: () => void;
+  jumpToSeason: (date: string) => void;
+}
+
+export const SeasonModal: React.FC<Props> = ({
   seasonModalVisible,
   closeSeasonModal,
   jumpToSeason,

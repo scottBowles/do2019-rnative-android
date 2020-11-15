@@ -47,9 +47,7 @@ const sectionizeCalendarData = (
           ? "both"
           : currentSection.month !== month
           ? "month"
-          : currentSection.season.name !== season.name
-          ? "season"
-          : undefined;
+          : "season";
 
       currentSection = {
         type: "heading",

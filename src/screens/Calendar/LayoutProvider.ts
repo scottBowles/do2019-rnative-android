@@ -28,6 +28,7 @@ export class LayoutProvider extends GridLayoutProvider {
           case "date":
             return 300;
         }
+        return 0;
       }
     );
   }

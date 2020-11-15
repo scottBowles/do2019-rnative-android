@@ -1,16 +1,23 @@
 import React from "react";
 import { View } from "react-native";
-import { colors } from "styles";
+import { colors } from "styles/colors";
+
+interface Props {
+  weekday: string;
+  children: React.ReactNode;
+}
 
 // Expects DateBlock and Content children
 
-export const CalendarBlock = ({ weekday, children, ...props }) => {
-  return (
-    <View style={containerStyle(weekday)} {...props}>
-      {children}
-    </View>
-  );
-};
+export const CalendarBlock: React.FC<Props> = ({
+  weekday,
+  children,
+  ...props
+}) => (
+  <View style={containerStyle(weekday)} {...props}>
+    {children}
+  </View>
+);
 
 const containerStyle = (weekday: string) => {
   return {

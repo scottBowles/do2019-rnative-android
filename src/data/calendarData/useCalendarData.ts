@@ -9,6 +9,8 @@ interface ReturnData {
   getData: () => void;
 }
 
+// TODO: Consider adding a second parameter here for the data pipeline -- here we can 'prepCalendarData' and do
+// anything else allowing us to move view-specific data processing nearer to its other code
 export const useCalendarData = (startYear: number | string): ReturnData => {
   const [isLoading, setIsLoading] = useState(false);
   const [nextYear, setNextYear] = useState(+startYear);

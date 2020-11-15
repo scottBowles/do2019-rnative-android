@@ -18,7 +18,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
 import { Text } from "styles/typography";
-import { colors } from "styles";
+import { colors } from "styles/colors";
 import { CalendarDay } from "data/calendarData/models";
 
 interface Props {
@@ -86,7 +86,9 @@ const composeTextStyle = (key: string, textColor: string) => {
   return [dateStyles.dateBlockText, dateStyles[key], { color: textColor }];
 };
 
-const composeBlockStyle = (primaryColor: string) =>
-  StyleSheet.compose(dateStyles.dateBlock, {
+const composeBlockStyle = (primaryColor: string) => [
+  dateStyles.dateBlock,
+  {
     backgroundColor: colors[primaryColor],
-  });
+  },
+];

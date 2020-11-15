@@ -27,6 +27,10 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
+import {
+  RecyclerListViewProps,
+  RecyclerListViewState,
+} from "recyclerlistview/dist/reactnative/core/RecyclerListView";
 
 interface ListHeader {
   type: "listHeader";
@@ -57,10 +61,7 @@ export const Calendar: React.FC = () => {
 
   const listRef = useRef(null);
 
-  const rowRenderer = (
-    _: string,
-    data: ListHeader | SectionData | CalendarDay
-  ) => {
+  const rowRenderer = (_: string | number, data: any) => {
     switch (data.type) {
       case "listHeader":
         return <ListHeader startYear={data.startYear} />;
@@ -69,6 +70,7 @@ export const Calendar: React.FC = () => {
       case "date":
         return <DateDisplay day={data} />;
     }
+    return null;
   };
 
   const layoutProvider = new LayoutProvider(dataProvider);

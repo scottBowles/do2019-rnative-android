@@ -1,11 +1,11 @@
 import React from "react";
-import { View } from "react-native";
-import { colors } from "styles";
+import { StyleProp, View, ViewStyle } from "react-native";
+import { colors } from "styles/colors";
 
 interface Props {
   color: string;
   dimension?: number; // should this be string?
-  style?; // need to figure out style types
+  style?: StyleProp<ViewStyle>; // need to figure out style types
 }
 
 /**
@@ -20,7 +20,7 @@ export const ColorBox: React.FC<Props> = ({
 
 interface StyleArgs {
   color: string;
-  dimension: number;
+  dimension?: number;
 }
 
 const colorBoxStyle = ({ color, dimension }: StyleArgs) => ({

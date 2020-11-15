@@ -13,13 +13,23 @@ import {
 } from "assets/icons";
 import { SeasonModal } from "./SeasonModal";
 
-export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
+interface Props {
+  jumpToDate: (date: Date) => void;
+  jumpToTop: () => void;
+  jumpToSeason: (date: string) => void;
+}
+
+export const CalendarNavBar: React.FC<Props> = ({
+  jumpToDate,
+  jumpToTop,
+  jumpToSeason,
+}) => {
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
   const openSeasonModal = () => setSeasonModalVisible(true);
 
-  const onDateChange = (event: any, selectedDate: Date) => {
+  const onDateChange = (event: any, selectedDate?: Date) => {
     const currentDate = selectedDate || date;
     if (selectedDate) {
       setDate(currentDate);
@@ -66,12 +76,19 @@ export const CalendarNavBar = ({ jumpToDate, jumpToTop, jumpToSeason }) => {
   );
 };
 
+interface MenuItems {
+  jumpToDate: (date: Date) => void;
+  jumpToTop: () => void;
+  openSeasonModal: () => void;
+  setShowDatePicker: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const menuItems = ({
   jumpToDate,
   jumpToTop,
   openSeasonModal,
   setShowDatePicker,
-}) => [
+}: MenuItems) => [
   {
     Icon: CalendarDayIcon,
     text: "Today",

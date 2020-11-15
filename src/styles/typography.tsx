@@ -13,7 +13,12 @@
  */
 
 import React from "react";
-import { StyleSheet, Text as NativeText } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  Text as NativeText,
+  TextStyle,
+} from "react-native";
 import { colors } from "./colors";
 
 const styles = StyleSheet.create({
@@ -87,72 +92,72 @@ const styles = StyleSheet.create({
 });
 
 interface TextProps {
-  style?: {};
+  style?: StyleProp<TextStyle>;
   children: any;
 }
 
 export const Text = ({ style, children, ...props }: TextProps) => (
-  <NativeText style={StyleSheet.compose(styles.text, style)} {...props}>
+  <NativeText style={[styles.text, style]} {...props}>
     {children}
   </NativeText>
 );
 
 export const H1 = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.h1, style)} {...props}>
+  <Text style={[styles.h1, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H2 = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.h2, style)} {...props}>
+  <Text style={[styles.h2, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H3 = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.h3, style)} {...props}>
+  <Text style={[styles.h3, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H4 = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.h4, style)} {...props}>
+  <Text style={[styles.h4, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H5 = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.h5, style)} {...props}>
+  <Text style={[styles.h5, style]} {...props}>
     {children}
   </Text>
 );
 
 export const P = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.p, style)} {...props}>
+  <Text style={[styles.p, style]} {...props}>
     {children}
   </Text>
 );
 
 export const People = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.people, style)} {...props}>
+  <Text style={[styles.people, style]} {...props}>
     {children}
   </Text>
 );
 
 export const Rubric = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.rubric, style)} {...props}>
+  <Text style={[styles.rubric, style]} {...props}>
     {children}
   </Text>
 );
 
 export const ChapterNumber = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.chapterNumber, style)} {...props}>
+  <Text style={[styles.chapterNumber, style]} {...props}>
     {children}
   </Text>
 );
 
 export const VerseNumber = ({ style, children, ...props }: TextProps) => (
-  <Text style={StyleSheet.compose(styles.verseNumber, style)} {...props}>
+  <Text style={[styles.verseNumber, style]} {...props}>
     {children}
   </Text>
 );

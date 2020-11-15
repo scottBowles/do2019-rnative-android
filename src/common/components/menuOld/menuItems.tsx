@@ -10,6 +10,13 @@ import {
 // IF THIS ENDS UP BEING USED, ICONS SHOULD BE MOVED TO assets/icons AND
 // IMPORTED FROM THERE
 
+const styles = StyleSheet.create({
+  icons: {
+    width: 15,
+    marginRight: 10,
+  },
+});
+
 export const menuItems = [
   {
     icon: <Feather name="clock" size={17} color="black" style={styles.icons} />,
@@ -41,10 +48,3 @@ export const menuItems = [
     text: "About",
   },
 ];
-
-const styles = StyleSheet.create({
-  icons: {
-    width: 15,
-    marginRight: 10,
-  },
-});

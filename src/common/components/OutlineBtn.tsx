@@ -1,8 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { colors } from "styles";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import { colors } from "styles/colors";
 
-export const OutlineBtn = ({ children, style }) => (
+interface Props {
+  children: React.ReactNode;
+  style: StyleProp<ViewStyle>;
+}
+
+export const OutlineBtn: React.FC<Props> = ({ children, style }) => (
   <View style={[styles.itemContainer, style]}>{children}</View>
 );
 

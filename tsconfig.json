@@ -12,7 +12,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "target": "esnext",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
     "baseUrl": "./",
     "paths": {
       "data/*": ["src/data/*"],

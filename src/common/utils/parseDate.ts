@@ -1,4 +1,4 @@
-import { ParsedDate } from "types/ParsedDate";
+import { ParsedDate } from "data/calendarData/models";
 
 /**
  * Parse date properties
@@ -30,5 +30,5 @@ export const parseDate = (date: Date): ParsedDate => {
   const month = fullMonth.slice(0, 3);
   const year = date.getFullYear();
 
-  return { dayOfMonth, fullMonth, month, weekday, year };
+  return { date, dayOfMonth, fullMonth, month, weekday, year };
 };
