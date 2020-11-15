@@ -1,7 +1,7 @@
 export class ParsedDate {
   constructor(public date: Date) {}
 
-  dayOfMonth: number = this.date.getDate();
+  dayOfMonth: number = this.date.getUTCDate();
 
   fullMonth: string = [
     "January",
@@ -16,13 +16,13 @@ export class ParsedDate {
     "October",
     "November",
     "December",
-  ][this.date.getMonth()];
+  ][this.date.getUTCMonth()];
 
   month: string = this.fullMonth.slice(0, 3);
 
   weekday: string = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
-    this.date.getDay()
+    this.date.getUTCDay()
   ];
 
-  year: number = this.date.getFullYear();
+  year: number = this.date.getUTCFullYear();
 }
