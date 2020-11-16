@@ -31,7 +31,7 @@ export default function App() {
             <Calendar />
           </Route>
           <Route
-            path="/calendar/:year"
+            path="/calendar/:date"
             render={({ location, ...rest }) => (
               <Calendar key={location.pathname} {...rest} />
             )}

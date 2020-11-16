@@ -1,44 +1,70 @@
 import { useEffect, useState } from "react";
-import { prepCalendarData } from "./prepCalendarData";
-import { ApiCalendarDay, SectionData } from "./interfaces";
+import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay } from "./models";
 
 interface ReturnData {
-  dataSource: (SectionData | CalendarDay)[];
+  dataSource: (HeaderData | SectionData | CalendarDay)[];
   isLoading: boolean;
-  getData: () => void;
+  getData: () => Promise<void>;
 }
 
-// TODO: Consider adding a second parameter here for the data pipeline -- here we can 'prepCalendarData' and do
-// anything else allowing us to move view-specific data processing nearer to its other code
-export const useCalendarData = (startYear: number | string): ReturnData => {
+/**
+ *
+ * @param startYear Year of Advent One for starting liturgical year
+ * @param prepData Function to prep
+ */
+export const useCalendarData = (
+  startYear: number,
+  prepData?: (
+    incomingData: CalendarDay[],
+    currentData: (HeaderData | SectionData | CalendarDay)[],
+    startYear: number
+  ) => (HeaderData | SectionData | CalendarDay)[]
+): ReturnData => {
   const [isLoading, setIsLoading] = useState(false);
   const [nextYear, setNextYear] = useState(+startYear);
-  const [dataSource, setDataSource] = useState<(SectionData | CalendarDay)[]>(
-    []
-  );
+  const [dataSource, setDataSource] = useState<
+    (HeaderData | SectionData | CalendarDay)[]
+  >([]);
 
-  useEffect(() => getData(), []);
+  /**
+   * Fetches the startYear's data, prepares it, and sets to dataSource
+   *
+   * Note: IIFE pattern necessary because the function passed to useEffect must return
+   * either void or a clean-up function (not a Promise as addNextYearData returns)
+   */
+  useEffect(() => {
+    (async () => getData())();
+  }, []);
+
+  const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
+    const res = await fetch(
+      `https://data.dailyoffice2019.com/api/v1/calendar/${year}`
+    );
+    const data = await res.json();
+    return data;
+  };
 
   /**
    * Fetches the startYear's data and prepares it and, on subsequent calls,
    * fetches, prepares, and appends the next year's worth of data
    */
-  const getData = () => {
+  const getData = async () => {
     if (!isLoading) {
       setIsLoading(true);
-      fetch(
-        `https://data.dailyoffice2019.com/api/v1/calendar/${nextYear}?format=json`
-      )
-        .then((res) => res.json())
-        .then((data: ApiCalendarDay[]) => {
-          const preppedData = prepCalendarData(data);
-          setNextYear(nextYear + 1);
-          setDataSource([...dataSource, ...preppedData]);
-          setIsLoading(false);
-        })
-        .catch((err) => console.error(err));
+      const apiCalendarData = await fetchCalendarData(nextYear);
+      const normalizedData = apiCalendarData.map(
+        ({ date, season, commemorations }) =>
+          new CalendarDay(new Date(date), season, commemorations)
+      );
+      const preppedData = prepData
+        ? prepData(normalizedData, dataSource, startYear)
+        : normalizedData;
+      setDataSource([...dataSource, ...preppedData]);
+      setNextYear(nextYear + 1);
+      setIsLoading(false);
     }
+    return;
   };
 
   return { dataSource, isLoading, getData };

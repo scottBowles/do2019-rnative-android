@@ -17,10 +17,10 @@ import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { DataProvider, RecyclerListView } from "recyclerlistview";
 
-import type { SectionData } from "data/calendarData/interfaces";
+import type { HeaderData, SectionData } from "data/calendarData/interfaces";
 import { CalendarDay, ParsedDate } from "data/calendarData/models";
-import { useCalendarData } from "data/calendarData";
-import { getValidStartYear } from "common/utils";
+import { prepCalendarData, useCalendarData } from "data/calendarData";
+import { getLiturgicalYear } from "common/utils";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
@@ -28,12 +28,7 @@ import { ListFooter } from "./ListFooter";
 import { ListHeader } from "./ListHeader";
 import { SectionHeader } from "./SectionHeader";
 
-interface ListHeader {
-  type: "listHeader";
-  startYear: number;
-}
-
-const createDataProvider = (data: (ListHeader | SectionData | CalendarDay)[]) =>
+const createDataProvider = (data: (HeaderData | SectionData | CalendarDay)[]) =>
   new DataProvider((r1, r2) => {
     return r1 !== r2;
   }).cloneWithRows(data);
@@ -42,17 +37,24 @@ const createDataProvider = (data: (ListHeader | SectionData | CalendarDay)[]) =>
  * Main component for Calendar screen -- primarily implements a RecyclerListView
  * See: https://github.com/Flipkart/recyclerlistview
  */
+
 export const Calendar: React.FC = () => {
-  const { year } = useParams<{ year: string }>();
-  const startYear: number = getValidStartYear(year);
-  const { dataSource, isLoading, getData } = useCalendarData(startYear);
-  const dataForHeader: ListHeader = { type: "listHeader", startYear };
+  const { date } = useParams<{ date: string }>();
+  const startDate = date ? new Date(date) : new Date();
+  const startYear: number = startDate
+    ? getLiturgicalYear(new Date(startDate))
+    : getLiturgicalYear(new Date());
+
+  const { dataSource, isLoading, getData } = useCalendarData(
+    startYear,
+    prepCalendarData
+  );
   const [dataProvider, setDataProvider] = useState(
-    createDataProvider([dataForHeader, ...dataSource])
+    createDataProvider(dataSource)
   );
 
   useEffect(() => {
-    setDataProvider(createDataProvider([dataForHeader, ...dataSource]));
+    setDataProvider(createDataProvider(dataSource));
   }, [dataSource]);
 
   const listRef = useRef(null);
@@ -71,11 +73,23 @@ export const Calendar: React.FC = () => {
 
   const layoutProvider = new LayoutProvider(dataProvider);
 
+  const getStartIndex = () => {
+    const { dayOfMonth, month, year } = new ParsedDate(startDate);
+    const startIndex = dataSource.findIndex(
+      (item: HeaderData | SectionData | CalendarDay) =>
+        item.type === "date" &&
+        item.dayOfMonth === dayOfMonth &&
+        item.month === month &&
+        item.year === year
+    );
+    return startIndex;
+  };
+
   // TODO: Check the output of this if no data is found. Same for getSeasonData below.
   const getDateData = (date: Date) => {
     const { dayOfMonth, month, year } = new ParsedDate(date);
     const data = dataSource.find(
-      (item: ListHeader | SectionData | CalendarDay) =>
+      (item: HeaderData | SectionData | CalendarDay) =>
         item.type === "date" &&
         item.dayOfMonth === dayOfMonth &&
         item.month === month &&
@@ -86,7 +100,7 @@ export const Calendar: React.FC = () => {
 
   const getSeasonData = (season: string) => {
     const data = dataSource.find(
-      (item: ListHeader | SectionData | CalendarDay) =>
+      (item: HeaderData | SectionData | CalendarDay) =>
         item.type === "heading" &&
         ["season", "both"].includes(item.sectionType) &&
         item.season.name.toLowerCase() === season.toLowerCase()
@@ -94,10 +108,12 @@ export const Calendar: React.FC = () => {
     return data;
   };
 
-  const jumpToDate = (date: Date): void => {
-    const data = getDateData(date);
+  const jumpToDate = async (date: Date): Promise<void> => {
+    // If date is in current data, jump to date
+    let data = getDateData(date);
     if (data) {
       listRef.current.scrollToItem(data);
+      return;
     }
   };
 
@@ -119,6 +135,7 @@ export const Calendar: React.FC = () => {
         forceNonDeterministicRendering={true}
         onEndReached={getData}
         onEndReachedThreshold={2000}
+        initialRenderIndex={getStartIndex()}
       />
       <CalendarNavBar
         jumpToTop={jumpToTop}

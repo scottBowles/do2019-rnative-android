@@ -1,5 +1,5 @@
 import { CalendarDay } from "./models";
-import { ApiCalendarDay, SectionData } from "./interfaces";
+import { HeaderData, SectionData } from "./interfaces";
 
 /**
  * Take calendar data and prepare it for the RecyclerListView with:
@@ -7,14 +7,17 @@ import { ApiCalendarDay, SectionData } from "./interfaces";
  * 2. `type`, `isFastDay`, and ParsedDate properties added to each day with the CalendarDay class
  */
 export const prepCalendarData = (
-  calendarData: ApiCalendarDay[]
-): (SectionData | CalendarDay)[] => {
-  const calendarDays = calendarData.map(
-    ({ date, season, commemorations }) =>
-      new CalendarDay(new Date(date), season, commemorations)
-  );
-  const sectionizedData = sectionizeCalendarData(calendarDays);
-  return sectionizedData;
+  incomingData: CalendarDay[],
+  currentData: (HeaderData | SectionData | CalendarDay)[],
+  startYear: number
+): (HeaderData | SectionData | CalendarDay)[] => {
+  const dataForHeader: HeaderData = { type: "listHeader", startYear };
+  const sectionizedData = sectionizeCalendarData(incomingData);
+  const data =
+    currentData.length > 0
+      ? [...currentData, ...sectionizedData]
+      : [dataForHeader, ...sectionizedData];
+  return data;
 };
 
 /**
