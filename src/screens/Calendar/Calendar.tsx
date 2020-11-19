@@ -40,10 +40,8 @@ const createDataProvider = (data: (HeaderData | SectionData | CalendarDay)[]) =>
 
 export const Calendar: React.FC = () => {
   const { date } = useParams<{ date: string }>();
-  const startDate = date ? new Date(date) : new Date();
-  const startYear: number = startDate
-    ? getLiturgicalYear(new Date(startDate))
-    : getLiturgicalYear(new Date());
+  const startDate: Date = date ? new Date(date) : new Date();
+  const startYear: number = getLiturgicalYear(startDate);
 
   const { dataSource, isLoading, getData } = useCalendarData(
     startYear,
