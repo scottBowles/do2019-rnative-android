@@ -1,2 +1,2 @@
-export { prepCalendarData } from "./prepCalendarData";
+export { sectionizeCalendarData } from "./sectionizeCalendarData";
 export { useCalendarData } from "./useCalendarData";

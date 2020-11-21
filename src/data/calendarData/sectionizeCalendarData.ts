@@ -1,31 +1,12 @@
 import { CalendarDay } from "./models";
-import { HeaderData, SectionData } from "./interfaces";
-
-/**
- * Take calendar data and prepare it for the RecyclerListView with:
- * 1. Section headers for each season and month, and
- * 2. `type`, `isFastDay`, and ParsedDate properties added to each day with the CalendarDay class
- */
-export const prepCalendarData = (
-  incomingData: CalendarDay[],
-  currentData: (HeaderData | SectionData | CalendarDay)[],
-  startYear: number
-): (HeaderData | SectionData | CalendarDay)[] => {
-  const dataForHeader: HeaderData = { type: "listHeader", startYear };
-  const sectionizedData = sectionizeCalendarData(incomingData);
-  const data =
-    currentData.length > 0
-      ? [...currentData, ...sectionizedData]
-      : [dataForHeader, ...sectionizedData];
-  return data;
-};
+import { SectionData } from "./interfaces";
 
 /**
  * Inserts SectionData objects when month or season changes in an array of CalendarDay objects
  * @param calendarData Array of CalendarDay objects
  * @return Array with SectionData objects added
  */
-const sectionizeCalendarData = (
+export const sectionizeCalendarData = (
   calendarData: CalendarDay[]
 ): (SectionData | CalendarDay)[] => {
   let currentSection: SectionData;

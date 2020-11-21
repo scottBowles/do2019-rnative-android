@@ -1,11 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { DataProvider } from "recyclerlistview";
 import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
-import { CalendarDay } from "./models";
+import { CalendarDay, ParsedDate } from "./models";
+import { sectionizeCalendarData } from "./sectionizeCalendarData";
+
+const createDataProvider = (data: (HeaderData | SectionData | CalendarDay)[]) =>
+  new DataProvider((r1, r2) => {
+    return r1 !== r2;
+  }).cloneWithRows(data);
 
 interface ReturnData {
-  dataSource: (HeaderData | SectionData | CalendarDay)[];
+  dataProvider: DataProvider;
   isLoading: boolean;
-  getData: () => Promise<void>;
+  getData: () => Promise<boolean>;
+  getDateIndex: (date: Date) => number;
+  getSeasonIndex: (season: string) => number;
 }
 
 /**
@@ -13,29 +22,14 @@ interface ReturnData {
  * @param startYear Year of Advent One for starting liturgical year
  * @param prepData Function to prep
  */
-export const useCalendarData = (
-  startYear: number,
-  prepData?: (
-    incomingData: CalendarDay[],
-    currentData: (HeaderData | SectionData | CalendarDay)[],
-    startYear: number
-  ) => (HeaderData | SectionData | CalendarDay)[]
-): ReturnData => {
+export const useCalendarData = (startYear: number): ReturnData => {
+  const dataForHeader: HeaderData = { type: "listHeader", startYear };
   const [isLoading, setIsLoading] = useState(false);
   const [nextYear, setNextYear] = useState(+startYear);
   const [dataSource, setDataSource] = useState<
     (HeaderData | SectionData | CalendarDay)[]
-  >([]);
-
-  /**
-   * Fetches the startYear's data, prepares it, and sets to dataSource
-   *
-   * Note: IIFE pattern necessary because the function passed to useEffect must return
-   * either void or a clean-up function (not a Promise as addNextYearData returns)
-   */
-  useEffect(() => {
-    (async () => getData())();
-  }, []);
+  >([dataForHeader]);
+  const [dataProvider, setDataProvider] = useState(createDataProvider([]));
 
   const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
     const res = await fetch(
@@ -51,21 +45,51 @@ export const useCalendarData = (
    */
   const getData = async () => {
     if (!isLoading) {
-      setIsLoading(true);
-      const apiCalendarData = await fetchCalendarData(nextYear);
-      const normalizedData = apiCalendarData.map(
-        ({ date, season, commemorations }) =>
-          new CalendarDay(new Date(date), season, commemorations)
-      );
-      const preppedData = prepData
-        ? prepData(normalizedData, dataSource, startYear)
-        : normalizedData;
-      setDataSource([...dataSource, ...preppedData]);
-      setNextYear(nextYear + 1);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const apiCalendarData = await fetchCalendarData(nextYear);
+        const calendarDays = apiCalendarData.map(
+          ({ date, season, commemorations }) =>
+            new CalendarDay(new Date(date), season, commemorations)
+        );
+        const sectionizedData = sectionizeCalendarData(calendarDays);
+
+        setDataSource([...dataSource, ...sectionizedData]);
+        setDataProvider(createDataProvider(dataSource));
+        setNextYear(nextYear + 1);
+        setIsLoading(false);
+        return true;
+      } catch (error) {
+        console.log(`getData error: ${error}`);
+      }
     }
-    return;
+    return true;
   };
 
-  return { dataSource, isLoading, getData };
+  const getDateIndex = (date: Date) => {
+    const { dayOfMonth, month, year } = new ParsedDate(date);
+    const index = dataSource.findIndex(
+      (item: HeaderData | SectionData | CalendarDay) =>
+        item.type === "date" &&
+        item.dayOfMonth === dayOfMonth &&
+        item.month === month &&
+        item.year === year
+    );
+    console.log(
+      `getDateIndex index: ${index}; dpLength: ${dataProvider.getSize()}`
+    );
+    return index;
+  };
+
+  const getSeasonIndex = (season: string): number => {
+    const index: number = dataSource.findIndex(
+      (item: HeaderData | SectionData | CalendarDay) =>
+        item.type === "heading" &&
+        ["season", "both"].includes(item.sectionType) &&
+        item.season.name.toLowerCase() === season.toLowerCase()
+    );
+    return index;
+  };
+
+  return { dataProvider, isLoading, getData, getDateIndex, getSeasonIndex };
 };
