@@ -1,6 +1,5 @@
-import { getLocalDate } from "common/utils/getLocalDate";
 import { useState } from "react";
-
+import { getLocalDate } from "common/utils/getLocalDate";
 import { HeaderData, SectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
@@ -12,7 +11,7 @@ interface Return {
   dataSource: SectionizedData;
   isLoading: boolean;
   getData: () => Promise<void>;
-  getDateIndex: (date: Date) => number;
+  getDateIndex: (date?: Date) => number;
   getSeasonIndex: (season: string) => number;
 }
 
@@ -54,7 +53,9 @@ export const useCalendarData = (startYear: number): Return => {
     }
   };
 
-  const getDateIndex = (date: Date) => {
+  const getDateIndex = (date?: Date) => {
+    if (!date) return -1;
+
     const { dayOfMonth, month, year } = new ParsedDate(date);
     const index = dataSource.findIndex(
       (item: HeaderData | SectionData | CalendarDay) =>

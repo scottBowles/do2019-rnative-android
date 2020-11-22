@@ -7,8 +7,10 @@ interface Props {
   style: StyleProp<ViewStyle>;
 }
 
-export const OutlineBtn: React.FC<Props> = ({ children, style }) => (
-  <View style={[styles.itemContainer, style]}>{children}</View>
+export const OutlineBtn: React.FC<Props> = ({ children, style, ...props }) => (
+  <View style={[styles.itemContainer, style]} {...props}>
+    {children}
+  </View>
 );
 
 const styles = StyleSheet.create({

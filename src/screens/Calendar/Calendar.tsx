@@ -26,15 +26,29 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListHeader } from "./ListHeader";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { SectionHeader } from "./SectionHeader";
+import { getLocalDate } from "common/utils/getLocalDate";
 
 /**
  * Main component for Calendar screen -- primarily implements a RecyclerListView
  * See: https://github.com/Flipkart/recyclerlistview
  */
 export const Calendar: React.FC = () => {
-  const { date } = useParams<{ date: string }>();
-  const startDate: Date = date ? new Date(date) : new Date();
-  const startYear: number = getLiturgicalYear(startDate);
+  console.log("calendar render");
+  const { year, date } = useParams<{ year: string; date: string }>();
+  console.log({ year, date });
+  useEffect(() => console.log({ year, date }), [year, date]);
+  let startDate;
+  let startYear;
+  if (date && year) {
+    const utcStartDate = new Date(date);
+    startDate = getLocalDate(utcStartDate);
+    startYear = getLiturgicalYear(startDate);
+  } else if (year) {
+    startYear = +year;
+  } else {
+    startDate = new Date();
+    startYear = getLiturgicalYear(startDate);
+  }
 
   const listRef = useRef(null);
 
@@ -66,6 +80,7 @@ export const Calendar: React.FC = () => {
   const rowRenderer = (_: string | number, data: any) => {
     switch (data.type) {
       case "listHeader":
+        console.log("lh", data.startYear, typeof data.startYear);
         return <ListHeader startYear={data.startYear} />;
       case "heading":
         return <SectionHeader {...data} />;
@@ -90,7 +105,7 @@ export const Calendar: React.FC = () => {
 
   const jumpToTop = (): void => listRef.current.scrollToTop();
 
-  if (dataSource.length < 5) {
+  if (dataSource.length < 2) {
     return <LoadingAnimation />;
   }
 

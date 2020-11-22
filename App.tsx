@@ -13,6 +13,7 @@ import { NativeRouter as Router, Route, Switch } from "react-router-native";
 import Constants from "expo-constants";
 import { Menu } from "common/components";
 import { Calendar, Office } from "screens";
+import { RedirectTo } from "common/components/RedirectTo";
 
 export default function App() {
   return (
@@ -27,15 +28,21 @@ export default function App() {
           <Route path="/office">
             <Office />
           </Route>
-          <Route exact path="/calendar">
-            <Calendar />
-          </Route>
           <Route
-            path="/calendar/:date"
+            path="/calendar/:year/:date"
             render={({ location, ...rest }) => (
               <Calendar key={location.pathname} {...rest} />
             )}
           />
+          <Route
+            path="/calendar/:year"
+            render={({ location, ...rest }) => (
+              <Calendar key={location.pathname} {...rest} />
+            )}
+          />
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
         </Switch>
       </SafeAreaView>
     </Router>

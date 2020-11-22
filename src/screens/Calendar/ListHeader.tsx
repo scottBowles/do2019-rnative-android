@@ -10,7 +10,7 @@
 
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Link } from "react-router-native";
+import { Link, useHistory } from "react-router-native";
 
 import { ArrowLeft, ArrowRight } from "assets/icons";
 import { H1, H2, Text } from "styles/typography";
@@ -43,20 +43,24 @@ interface ListHeaderLinkProps {
 }
 
 const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
-  ({ direction, year, ...props }) => (
-    <Link to={`/calendar/${year}`} {...props}>
-      <OutlineBtn style={styles.outlineBtn}>
-        <Text style={styles.outlineBtnText}>
-          {year} - {year + 1}
-        </Text>
-        {direction === "past" ? (
-          <ArrowLeft size={12} />
-        ) : (
-          <ArrowRight size={12} />
-        )}
-      </OutlineBtn>
-    </Link>
-  )
+  ({ direction, year, ...props }) => {
+    const history = useHistory();
+
+    return (
+      <Link to={`/calendar/${year}`} {...props}>
+        <OutlineBtn style={styles.outlineBtn}>
+          <Text style={styles.outlineBtnText}>
+            {year} - {year + 1}
+          </Text>
+          {direction === "past" ? (
+            <ArrowLeft size={12} />
+          ) : (
+            <ArrowRight size={12} />
+          )}
+        </OutlineBtn>
+      </Link>
+    );
+  }
 );
 
 const styles = StyleSheet.create({
