@@ -1,3 +1,4 @@
+import { getLocalDate } from "common/utils/getLocalDate";
 import { useState } from "react";
 
 import { HeaderData, SectionData } from "./interfaces";
@@ -39,8 +40,10 @@ export const useCalendarData = (startYear: number): Return => {
         setIsLoading(true);
         const apiCalendarData = (await dataGenerator.next()).value;
         const calendarDays = apiCalendarData.map(
-          ({ date, season, commemorations }) =>
-            new CalendarDay(new Date(date), season, commemorations)
+          ({ date, season, commemorations }) => {
+            const localDate = getLocalDate(new Date(date));
+            return new CalendarDay(localDate, season, commemorations);
+          }
         );
         const sectionizedData = sectionizeCalendarData(calendarDays);
         setDataSource([...dataSource, ...sectionizedData]);

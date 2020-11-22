@@ -5,12 +5,12 @@ import { ParsedDate } from "data/calendarData/models";
  * @param date - Date object to be parsed
  */
 export const parseDate = (date: Date): ParsedDate => {
-  const weekdayIndex = date.getUTCDay();
+  const weekdayIndex = date.getDay();
   const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
     weekdayIndex
   ];
 
-  const monthIndex = date.getUTCMonth();
+  const monthIndex = date.getMonth();
   const fullMonth = [
     "January",
     "February",
@@ -26,9 +26,9 @@ export const parseDate = (date: Date): ParsedDate => {
     "December",
   ][monthIndex];
 
-  const dayOfMonth = date.getUTCDate();
+  const dayOfMonth = date.getDate();
   const month = fullMonth.slice(0, 3);
-  const year = date.getUTCFullYear();
+  const year = date.getFullYear();
 
   return { date, dayOfMonth, fullMonth, month, weekday, year };
 };
