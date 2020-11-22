@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { DataProvider } from "recyclerlistview";
-import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
+
+import { HeaderData, SectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
+import { generateCalendarData } from "./utils";
 
-const createDataProvider = (data: (HeaderData | SectionData | CalendarDay)[]) =>
-  new DataProvider((r1, r2) => {
-    return r1 !== r2;
-  }).cloneWithRows(data);
+type SectionizedData = (HeaderData | SectionData | CalendarDay)[];
 
 interface ReturnData {
-  dataProvider: DataProvider;
+  dataSource: SectionizedData;
   isLoading: boolean;
   getData: () => Promise<boolean>;
   getDateIndex: (date: Date) => number;
@@ -18,26 +16,18 @@ interface ReturnData {
 }
 
 /**
- *
+ * Custom hook for supplying data for the Calendar screen
  * @param startYear Year of Advent One for starting liturgical year
- * @param prepData Function to prep
  */
 export const useCalendarData = (startYear: number): ReturnData => {
   const dataForHeader: HeaderData = { type: "listHeader", startYear };
-  const [isLoading, setIsLoading] = useState(false);
-  const [nextYear, setNextYear] = useState(+startYear);
-  const [dataSource, setDataSource] = useState<
-    (HeaderData | SectionData | CalendarDay)[]
-  >([dataForHeader]);
-  const [dataProvider, setDataProvider] = useState(createDataProvider([]));
 
-  const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
-    const res = await fetch(
-      `https://data.dailyoffice2019.com/api/v1/calendar/${year}`
-    );
-    const data = await res.json();
-    return data;
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [dataSource, setDataSource] = useState<SectionizedData>([
+    dataForHeader,
+  ]);
+
+  const dataGenerator = generateCalendarData(startYear);
 
   /**
    * Fetches the startYear's data and prepares it and, on subsequent calls,
@@ -47,7 +37,7 @@ export const useCalendarData = (startYear: number): ReturnData => {
     if (!isLoading) {
       try {
         setIsLoading(true);
-        const apiCalendarData = await fetchCalendarData(nextYear);
+        const apiCalendarData = (await dataGenerator.next()).value;
         const calendarDays = apiCalendarData.map(
           ({ date, season, commemorations }) =>
             new CalendarDay(new Date(date), season, commemorations)
@@ -55,8 +45,6 @@ export const useCalendarData = (startYear: number): ReturnData => {
         const sectionizedData = sectionizeCalendarData(calendarDays);
 
         setDataSource([...dataSource, ...sectionizedData]);
-        setDataProvider(createDataProvider(dataSource));
-        setNextYear(nextYear + 1);
         setIsLoading(false);
         return true;
       } catch (error) {
@@ -75,9 +63,6 @@ export const useCalendarData = (startYear: number): ReturnData => {
         item.month === month &&
         item.year === year
     );
-    console.log(
-      `getDateIndex index: ${index}; dpLength: ${dataProvider.getSize()}`
-    );
     return index;
   };
 
@@ -91,5 +76,11 @@ export const useCalendarData = (startYear: number): ReturnData => {
     return index;
   };
 
-  return { dataProvider, isLoading, getData, getDateIndex, getSeasonIndex };
+  return {
+    dataSource,
+    isLoading,
+    getData,
+    getDateIndex,
+    getSeasonIndex,
+  };
 };

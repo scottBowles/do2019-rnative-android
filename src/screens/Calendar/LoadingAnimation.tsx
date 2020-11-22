@@ -4,8 +4,8 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 /**
  * Loading animation while fetching data
  */
-export const ListFooter: React.FC<{ isLoading: boolean }> = React.memo(
-  ({ isLoading }) => {
+export const LoadingAnimation: React.FC<{ isLoading?: boolean }> = React.memo(
+  ({ isLoading = true }) => {
     return (
       <View style={styles.footer}>
         {isLoading ? (
