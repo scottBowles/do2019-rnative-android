@@ -12,7 +12,7 @@
  *
  */
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
@@ -33,10 +33,7 @@ import { getLocalDate } from "common/utils/getLocalDate";
  * See: https://github.com/Flipkart/recyclerlistview
  */
 export const Calendar: React.FC = () => {
-  console.log("calendar render");
   const { year, date } = useParams<{ year: string; date: string }>();
-  console.log({ year, date });
-  useEffect(() => console.log({ year, date }), [year, date]);
   let startDate;
   let startYear;
   if (date && year) {
@@ -76,11 +73,10 @@ export const Calendar: React.FC = () => {
     })();
   }, []);
 
-  /** Required by RecyclerListView */
+  /** Renders data according to type, provided by RecyclerListView */
   const rowRenderer = (_: string | number, data: any) => {
     switch (data.type) {
       case "listHeader":
-        console.log("lh", data.startYear, typeof data.startYear);
         return <ListHeader startYear={data.startYear} />;
       case "heading":
         return <SectionHeader {...data} />;
@@ -121,7 +117,10 @@ export const Calendar: React.FC = () => {
         rowRenderer={rowRenderer}
         renderFooter={() => <LoadingAnimation isLoading={isLoading} />}
         forceNonDeterministicRendering={true}
-        onEndReached={getData}
+        onEndReached={() => {
+          console.log("onEndReached called");
+          getData();
+        }}
         onEndReachedThreshold={200}
         initialRenderIndex={getDateIndex(startDate)}
       />

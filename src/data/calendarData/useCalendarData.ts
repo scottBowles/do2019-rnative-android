@@ -22,12 +22,11 @@ interface Return {
 export const useCalendarData = (startYear: number): Return => {
   const dataForHeader: HeaderData = { type: "listHeader", startYear };
 
+  const [dataGenerator] = useState(generateCalendarData(startYear));
   const [isLoading, setIsLoading] = useState(false);
   const [dataSource, setDataSource] = useState<SectionizedData>([
     dataForHeader,
   ]);
-
-  const dataGenerator = generateCalendarData(startYear);
 
   /**
    * Fetches the startYear's data and prepares it and, on subsequent calls,
