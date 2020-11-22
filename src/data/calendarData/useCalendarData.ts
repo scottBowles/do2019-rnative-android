@@ -7,10 +7,10 @@ import { generateCalendarData } from "./utils";
 
 type SectionizedData = (HeaderData | SectionData | CalendarDay)[];
 
-interface ReturnData {
+interface Return {
   dataSource: SectionizedData;
   isLoading: boolean;
-  getData: () => Promise<boolean>;
+  getData: () => Promise<void>;
   getDateIndex: (date: Date) => number;
   getSeasonIndex: (season: string) => number;
 }
@@ -19,7 +19,7 @@ interface ReturnData {
  * Custom hook for supplying data for the Calendar screen
  * @param startYear Year of Advent One for starting liturgical year
  */
-export const useCalendarData = (startYear: number): ReturnData => {
+export const useCalendarData = (startYear: number): Return => {
   const dataForHeader: HeaderData = { type: "listHeader", startYear };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,15 +43,12 @@ export const useCalendarData = (startYear: number): ReturnData => {
             new CalendarDay(new Date(date), season, commemorations)
         );
         const sectionizedData = sectionizeCalendarData(calendarDays);
-
         setDataSource([...dataSource, ...sectionizedData]);
         setIsLoading(false);
-        return true;
       } catch (error) {
         console.log(`getData error: ${error}`);
       }
     }
-    return true;
   };
 
   const getDateIndex = (date: Date) => {

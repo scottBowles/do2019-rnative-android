@@ -31,12 +31,14 @@ import { SectionHeader } from "./SectionHeader";
  * Main component for Calendar screen -- primarily implements a RecyclerListView
  * See: https://github.com/Flipkart/recyclerlistview
  */
-
 export const Calendar: React.FC = () => {
   const { date } = useParams<{ date: string }>();
   const startDate: Date = date ? new Date(date) : new Date();
   const startYear: number = getLiturgicalYear(startDate);
 
+  const listRef = useRef(null);
+
+  /** Custom hook data service */
   const {
     dataSource,
     isLoading,
@@ -47,8 +49,7 @@ export const Calendar: React.FC = () => {
 
   /**
    * Fetches the startYear's data, prepares it, and updates dataSource
-   *
-   * Note: IIFE pattern necessary because the function passed to useEffect must return
+   * IIFE pattern necessary because the function passed to useEffect must return
    * either void or a clean-up function (not a Promise as getData returns)
    */
   useEffect(() => {
@@ -61,8 +62,7 @@ export const Calendar: React.FC = () => {
     })();
   }, []);
 
-  const listRef = useRef(null);
-
+  /** Required by RecyclerListView */
   const rowRenderer = (_: string | number, data: any) => {
     switch (data.type) {
       case "listHeader":
