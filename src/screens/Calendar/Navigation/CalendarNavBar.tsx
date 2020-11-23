@@ -34,6 +34,7 @@ export const CalendarNavBar: React.FC<Props> = ({
     if (selectedDate) {
       setDate(currentDate);
       jumpToDate(currentDate);
+      return;
     }
     setShowDatePicker(Platform.OS === "ios");
   };

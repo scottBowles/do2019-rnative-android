@@ -12,9 +12,9 @@
  *
  */
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
-import { useParams } from "react-router-native";
+import { useHistory, useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
 
 import { getLiturgicalYear } from "common/utils";
@@ -30,9 +30,12 @@ import { getLocalDate } from "common/utils/getLocalDate";
 
 /**
  * Main component for Calendar screen -- primarily implements a RecyclerListView
- * See: https://github.com/Flipkart/recyclerlistview
+ * See https://github.com/Flipkart/recyclerlistview
+ * Incoming params optional. If date param is used, it should use toDateString or similar.
+ * getLocalDate will ensure no timezone issues.
  */
 export const Calendar: React.FC = () => {
+  const history = useHistory();
   const { year, date } = useParams<{ year: string; date: string }>();
   let startDate;
   let startYear;
@@ -87,10 +90,19 @@ export const Calendar: React.FC = () => {
   };
 
   const jumpToDate = (date: Date): void => {
-    // If date is in current data, jump to date
+    /** If date is in current data, scroll to date */
     const index = getDateIndex(date);
     const indexFound = index !== -1;
-    indexFound && listRef.current.scrollToIndex(index);
+    if (indexFound) {
+      return listRef.current.scrollToIndex(index);
+    }
+    /**
+     * If date is not in current data, route to /calendar/(liturgicalYear)/(dateString)
+     * toDateString is used to normalize date. getLocalDate in Calendar ensures no timezone issues.
+     */
+    const liturgicalYear = getLiturgicalYear(date);
+    const dateString = date.toDateString();
+    return history.push(`/calendar/${liturgicalYear}/${dateString}`);
   };
 
   const jumpToSeason = (season: string): void => {
@@ -117,10 +129,7 @@ export const Calendar: React.FC = () => {
         rowRenderer={rowRenderer}
         renderFooter={() => <LoadingAnimation isLoading={isLoading} />}
         forceNonDeterministicRendering={true}
-        onEndReached={() => {
-          console.log("onEndReached called");
-          getData();
-        }}
+        onEndReached={getData}
         onEndReachedThreshold={200}
         initialRenderIndex={getDateIndex(startDate)}
       />
