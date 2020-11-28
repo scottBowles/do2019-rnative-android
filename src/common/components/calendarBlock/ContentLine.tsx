@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
-import { Text } from "styles/typography";
 import { ColorBox } from "common/components";
+import { Text } from "styles/typography";
 
 interface ContentLineProps {
   type?: "primary" | "secondary" | "season";
@@ -28,12 +28,9 @@ export const ContentLine: React.FC<ContentLineProps> = ({
   ...props
 }) => {
   /**
-   *
    * For colorBoxes, words, and links to all wrap together in React Native,
-   *   the below is necessary. Each word is split into its own Text element.
-   *
+   * the following is necessary. Each word is split into its own Text element.
    */
-
   const colorBoxes = colors.map((color, index) => (
     <ColorBox key={index} color={color} style={getColorBoxStyle(type)} />
   ));
@@ -102,7 +99,7 @@ interface Styles {
   textSeason: StyleProp<TextStyle>;
 }
 
-const styles = StyleSheet.create({
+const styles: Styles = StyleSheet.create({
   contentLine: {
     flexDirection: "row",
     alignItems: "flex-start",

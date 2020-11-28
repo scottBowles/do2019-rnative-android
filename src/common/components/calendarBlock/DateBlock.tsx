@@ -17,9 +17,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
-import { Text } from "styles/typography";
-import { colors } from "styles/colors";
 import { CalendarDay } from "data/calendarData/models";
+import { colors } from "styles/colors";
+import { Text } from "styles/typography";
 
 interface Props {
   day: CalendarDay;

@@ -1,4 +1,5 @@
 import { ParsedDate } from "data/calendarData/models";
+import { getLocalDate } from "./getLocalDate";
 
 /**
  * Parse date properties
@@ -29,6 +30,9 @@ export const parseDate = (date: Date): ParsedDate => {
   const dayOfMonth = date.getDate();
   const month = fullMonth.slice(0, 3);
   const year = date.getFullYear();
+  const localDate = getLocalDate(
+    new Date(`${fullMonth} ${dayOfMonth}, ${year}`)
+  );
 
-  return { date, dayOfMonth, fullMonth, month, weekday, year };
+  return { date, dayOfMonth, fullMonth, month, weekday, year, localDate };
 };

@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import { ColorBox } from "common/components";
-import { H3 } from "styles/typography";
 import { SectionData } from "data/calendarData/interfaces";
+import { H3 } from "styles/typography";
 
 // Season & month section headers
 

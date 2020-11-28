@@ -1,9 +1,25 @@
-export const dummyCalendarData = [
+// url used: https://data.dailyoffice2019.com/api/v1/calendar/2020
+// on 11/27/20
+
+export const dummyCalendar = [
   {
     date: "2020-11-29",
+    date_description: {
+      date: "2020-11-29",
+      weekday: "Sunday",
+      month: "29",
+      month_name: "November",
+      day: "29",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -42,9 +58,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-11-30",
+    date_description: {
+      date: "2020-11-30",
+      weekday: "Monday",
+      month: "30",
+      month_name: "November",
+      day: "30",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -83,9 +112,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-01",
+    date_description: {
+      date: "2020-12-01",
+      weekday: "Tuesday",
+      month: "1",
+      month_name: "December",
+      day: "1",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -125,9 +167,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-02",
+    date_description: {
+      date: "2020-12-02",
+      weekday: "Wednesday",
+      month: "2",
+      month_name: "December",
+      day: "2",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -167,9 +222,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-03",
+    date_description: {
+      date: "2020-12-03",
+      weekday: "Thursday",
+      month: "3",
+      month_name: "December",
+      day: "3",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -192,9 +260,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-04",
+    date_description: {
+      date: "2020-12-04",
+      weekday: "Friday",
+      month: "4",
+      month_name: "December",
+      day: "4",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -233,9 +314,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-05",
+    date_description: {
+      date: "2020-12-05",
+      weekday: "Saturday",
+      month: "5",
+      month_name: "December",
+      day: "5",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -274,9 +368,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-06",
+    date_description: {
+      date: "2020-12-06",
+      weekday: "Sunday",
+      month: "6",
+      month_name: "December",
+      day: "6",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -315,9 +422,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-07",
+    date_description: {
+      date: "2020-12-07",
+      weekday: "Monday",
+      month: "7",
+      month_name: "December",
+      day: "7",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -356,9 +476,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-08",
+    date_description: {
+      date: "2020-12-08",
+      weekday: "Tuesday",
+      month: "8",
+      month_name: "December",
+      day: "8",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -397,9 +530,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-09",
+    date_description: {
+      date: "2020-12-09",
+      weekday: "Wednesday",
+      month: "9",
+      month_name: "December",
+      day: "9",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -422,9 +568,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-10",
+    date_description: {
+      date: "2020-12-10",
+      weekday: "Thursday",
+      month: "10",
+      month_name: "December",
+      day: "10",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -447,9 +606,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-11",
+    date_description: {
+      date: "2020-12-11",
+      weekday: "Friday",
+      month: "11",
+      month_name: "December",
+      day: "11",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -472,9 +644,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-12",
+    date_description: {
+      date: "2020-12-12",
+      weekday: "Saturday",
+      month: "12",
+      month_name: "December",
+      day: "12",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -497,9 +682,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-13",
+    date_description: {
+      date: "2020-12-13",
+      weekday: "Sunday",
+      month: "13",
+      month_name: "December",
+      day: "13",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -538,9 +736,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-14",
+    date_description: {
+      date: "2020-12-14",
+      weekday: "Monday",
+      month: "14",
+      month_name: "December",
+      day: "14",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -563,9 +774,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-15",
+    date_description: {
+      date: "2020-12-15",
+      weekday: "Tuesday",
+      month: "15",
+      month_name: "December",
+      day: "15",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -588,9 +812,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-16",
+    date_description: {
+      date: "2020-12-16",
+      weekday: "Wednesday",
+      month: "16",
+      month_name: "December",
+      day: "16",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -614,9 +851,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-17",
+    date_description: {
+      date: "2020-12-17",
+      weekday: "Thursday",
+      month: "17",
+      month_name: "December",
+      day: "17",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -640,9 +890,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-18",
+    date_description: {
+      date: "2020-12-18",
+      weekday: "Friday",
+      month: "18",
+      month_name: "December",
+      day: "18",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Friday"],
     },
     commemorations: [
       {
@@ -683,9 +946,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-19",
+    date_description: {
+      date: "2020-12-19",
+      weekday: "Saturday",
+      month: "19",
+      month_name: "December",
+      day: "19",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -726,9 +1002,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-20",
+    date_description: {
+      date: "2020-12-20",
+      weekday: "Sunday",
+      month: "20",
+      month_name: "December",
+      day: "20",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -751,9 +1040,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-21",
+    date_description: {
+      date: "2020-12-21",
+      weekday: "Monday",
+      month: "21",
+      month_name: "December",
+      day: "21",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -793,9 +1095,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-22",
+    date_description: {
+      date: "2020-12-22",
+      weekday: "Tuesday",
+      month: "22",
+      month_name: "December",
+      day: "22",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -819,9 +1134,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-23",
+    date_description: {
+      date: "2020-12-23",
+      weekday: "Wednesday",
+      month: "23",
+      month_name: "December",
+      day: "23",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -862,9 +1190,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-24",
+    date_description: {
+      date: "2020-12-24",
+      weekday: "Thursday",
+      month: "24",
+      month_name: "December",
+      day: "24",
+      year: "2020",
+    },
     season: {
       name: "Advent",
       colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -887,9 +1228,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-25",
+    date_description: {
+      date: "2020-12-25",
+      weekday: "Friday",
+      month: "25",
+      month_name: "December",
+      day: "25",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -913,9 +1267,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-26",
+    date_description: {
+      date: "2020-12-26",
+      weekday: "Saturday",
+      month: "26",
+      month_name: "December",
+      day: "26",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -955,9 +1322,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-27",
+    date_description: {
+      date: "2020-12-27",
+      weekday: "Sunday",
+      month: "27",
+      month_name: "December",
+      day: "27",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -996,9 +1376,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-28",
+    date_description: {
+      date: "2020-12-28",
+      weekday: "Monday",
+      month: "28",
+      month_name: "December",
+      day: "28",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1055,9 +1448,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-29",
+    date_description: {
+      date: "2020-12-29",
+      weekday: "Tuesday",
+      month: "29",
+      month_name: "December",
+      day: "29",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1114,9 +1520,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-30",
+    date_description: {
+      date: "2020-12-30",
+      weekday: "Wednesday",
+      month: "30",
+      month_name: "December",
+      day: "30",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1139,9 +1558,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2020-12-31",
+    date_description: {
+      date: "2020-12-31",
+      weekday: "Thursday",
+      month: "31",
+      month_name: "December",
+      day: "31",
+      year: "2020",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1181,9 +1613,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-01",
+    date_description: {
+      date: "2021-01-01",
+      weekday: "Friday",
+      month: "1",
+      month_name: "January",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1222,9 +1667,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-02",
+    date_description: {
+      date: "2021-01-02",
+      weekday: "Saturday",
+      month: "2",
+      month_name: "January",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1264,9 +1722,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-03",
+    date_description: {
+      date: "2021-01-03",
+      weekday: "Sunday",
+      month: "3",
+      month_name: "January",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1289,9 +1760,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-04",
+    date_description: {
+      date: "2021-01-04",
+      weekday: "Monday",
+      month: "4",
+      month_name: "January",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1314,9 +1798,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-05",
+    date_description: {
+      date: "2021-01-05",
+      weekday: "Tuesday",
+      month: "5",
+      month_name: "January",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Christmastide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1339,9 +1836,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-06",
+    date_description: {
+      date: "2021-01-06",
+      weekday: "Wednesday",
+      month: "6",
+      month_name: "January",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1364,9 +1874,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-07",
+    date_description: {
+      date: "2021-01-07",
+      weekday: "Thursday",
+      month: "7",
+      month_name: "January",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1390,9 +1913,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-08",
+    date_description: {
+      date: "2021-01-08",
+      weekday: "Friday",
+      month: "8",
+      month_name: "January",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -1416,9 +1952,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-09",
+    date_description: {
+      date: "2021-01-09",
+      weekday: "Saturday",
+      month: "9",
+      month_name: "January",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1442,9 +1991,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-10",
+    date_description: {
+      date: "2021-01-10",
+      weekday: "Sunday",
+      month: "10",
+      month_name: "January",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1483,9 +2045,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-11",
+    date_description: {
+      date: "2021-01-11",
+      weekday: "Monday",
+      month: "11",
+      month_name: "January",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1509,9 +2084,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-12",
+    date_description: {
+      date: "2021-01-12",
+      weekday: "Tuesday",
+      month: "12",
+      month_name: "January",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1535,9 +2123,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-13",
+    date_description: {
+      date: "2021-01-13",
+      weekday: "Wednesday",
+      month: "13",
+      month_name: "January",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1577,9 +2178,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-14",
+    date_description: {
+      date: "2021-01-14",
+      weekday: "Thursday",
+      month: "14",
+      month_name: "January",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1619,9 +2233,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-15",
+    date_description: {
+      date: "2021-01-15",
+      weekday: "Friday",
+      month: "15",
+      month_name: "January",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -1645,9 +2272,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-16",
+    date_description: {
+      date: "2021-01-16",
+      weekday: "Saturday",
+      month: "16",
+      month_name: "January",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1671,9 +2311,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-17",
+    date_description: {
+      date: "2021-01-17",
+      weekday: "Sunday",
+      month: "17",
+      month_name: "January",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1712,9 +2365,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-18",
+    date_description: {
+      date: "2021-01-18",
+      weekday: "Monday",
+      month: "18",
+      month_name: "January",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1753,9 +2419,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-19",
+    date_description: {
+      date: "2021-01-19",
+      weekday: "Tuesday",
+      month: "19",
+      month_name: "January",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1794,9 +2473,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-20",
+    date_description: {
+      date: "2021-01-20",
+      weekday: "Wednesday",
+      month: "20",
+      month_name: "January",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1835,9 +2527,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-21",
+    date_description: {
+      date: "2021-01-21",
+      weekday: "Thursday",
+      month: "21",
+      month_name: "January",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1876,9 +2581,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-22",
+    date_description: {
+      date: "2021-01-22",
+      weekday: "Friday",
+      month: "22",
+      month_name: "January",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -1917,9 +2635,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-23",
+    date_description: {
+      date: "2021-01-23",
+      weekday: "Saturday",
+      month: "23",
+      month_name: "January",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1942,9 +2673,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-24",
+    date_description: {
+      date: "2021-01-24",
+      weekday: "Sunday",
+      month: "24",
+      month_name: "January",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -1967,9 +2711,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-25",
+    date_description: {
+      date: "2021-01-25",
+      weekday: "Monday",
+      month: "25",
+      month_name: "January",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2008,9 +2765,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-26",
+    date_description: {
+      date: "2021-01-26",
+      weekday: "Tuesday",
+      month: "26",
+      month_name: "January",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2052,9 +2822,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-27",
+    date_description: {
+      date: "2021-01-27",
+      weekday: "Wednesday",
+      month: "27",
+      month_name: "January",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2096,9 +2879,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-28",
+    date_description: {
+      date: "2021-01-28",
+      weekday: "Thursday",
+      month: "28",
+      month_name: "January",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2137,9 +2933,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-29",
+    date_description: {
+      date: "2021-01-29",
+      weekday: "Friday",
+      month: "29",
+      month_name: "January",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -2162,9 +2971,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-30",
+    date_description: {
+      date: "2021-01-30",
+      weekday: "Saturday",
+      month: "30",
+      month_name: "January",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2203,9 +3025,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-01-31",
+    date_description: {
+      date: "2021-01-31",
+      weekday: "Sunday",
+      month: "31",
+      month_name: "January",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2244,9 +3079,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-01",
+    date_description: {
+      date: "2021-02-01",
+      weekday: "Monday",
+      month: "1",
+      month_name: "February",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2285,9 +3133,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-02",
+    date_description: {
+      date: "2021-02-02",
+      weekday: "Tuesday",
+      month: "2",
+      month_name: "February",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2326,9 +3187,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-03",
+    date_description: {
+      date: "2021-02-03",
+      weekday: "Wednesday",
+      month: "3",
+      month_name: "February",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2368,9 +3242,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-04",
+    date_description: {
+      date: "2021-02-04",
+      weekday: "Thursday",
+      month: "4",
+      month_name: "February",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2409,9 +3296,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-05",
+    date_description: {
+      date: "2021-02-05",
+      weekday: "Friday",
+      month: "5",
+      month_name: "February",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -2450,9 +3350,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-06",
+    date_description: {
+      date: "2021-02-06",
+      weekday: "Saturday",
+      month: "6",
+      month_name: "February",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2475,9 +3388,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-07",
+    date_description: {
+      date: "2021-02-07",
+      weekday: "Sunday",
+      month: "7",
+      month_name: "February",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2501,9 +3427,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-08",
+    date_description: {
+      date: "2021-02-08",
+      weekday: "Monday",
+      month: "8",
+      month_name: "February",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2527,9 +3466,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-09",
+    date_description: {
+      date: "2021-02-09",
+      weekday: "Tuesday",
+      month: "9",
+      month_name: "February",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2553,9 +3505,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-10",
+    date_description: {
+      date: "2021-02-10",
+      weekday: "Wednesday",
+      month: "10",
+      month_name: "February",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2595,9 +3560,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-11",
+    date_description: {
+      date: "2021-02-11",
+      weekday: "Thursday",
+      month: "11",
+      month_name: "February",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2621,9 +3599,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-12",
+    date_description: {
+      date: "2021-02-12",
+      weekday: "Friday",
+      month: "12",
+      month_name: "February",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -2647,9 +3638,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-13",
+    date_description: {
+      date: "2021-02-13",
+      weekday: "Saturday",
+      month: "13",
+      month_name: "February",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2689,9 +3693,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-14",
+    date_description: {
+      date: "2021-02-14",
+      weekday: "Sunday",
+      month: "14",
+      month_name: "February",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2730,9 +3747,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-15",
+    date_description: {
+      date: "2021-02-15",
+      weekday: "Monday",
+      month: "15",
+      month_name: "February",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2773,9 +3803,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-16",
+    date_description: {
+      date: "2021-02-16",
+      weekday: "Tuesday",
+      month: "16",
+      month_name: "February",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Epiphanytide",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -2799,9 +3842,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-17",
+    date_description: {
+      date: "2021-02-17",
+      weekday: "Wednesday",
+      month: "17",
+      month_name: "February",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 2,
+      fast_day_description: "Fast (Total abstinence)",
+      fast_day_reason: ["Ash Wednesday", "Lent"],
     },
     commemorations: [
       {
@@ -2840,9 +3896,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-18",
+    date_description: {
+      date: "2021-02-18",
+      weekday: "Thursday",
+      month: "18",
+      month_name: "February",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -2881,9 +3950,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-19",
+    date_description: {
+      date: "2021-02-19",
+      weekday: "Friday",
+      month: "19",
+      month_name: "February",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent", "Friday"],
     },
     commemorations: [
       {
@@ -2906,9 +3988,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-20",
+    date_description: {
+      date: "2021-02-20",
+      weekday: "Saturday",
+      month: "20",
+      month_name: "February",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -2931,9 +4026,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-21",
+    date_description: {
+      date: "2021-02-21",
+      weekday: "Sunday",
+      month: "21",
+      month_name: "February",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -2956,9 +4064,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-22",
+    date_description: {
+      date: "2021-02-22",
+      weekday: "Monday",
+      month: "22",
+      month_name: "February",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -2981,9 +4102,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-23",
+    date_description: {
+      date: "2021-02-23",
+      weekday: "Tuesday",
+      month: "23",
+      month_name: "February",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3022,9 +4156,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-24",
+    date_description: {
+      date: "2021-02-24",
+      weekday: "Wednesday",
+      month: "24",
+      month_name: "February",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Lent"],
     },
     commemorations: [
       {
@@ -3080,9 +4227,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-25",
+    date_description: {
+      date: "2021-02-25",
+      weekday: "Thursday",
+      month: "25",
+      month_name: "February",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3105,9 +4265,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-26",
+    date_description: {
+      date: "2021-02-26",
+      weekday: "Friday",
+      month: "26",
+      month_name: "February",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Lent", "Friday"],
     },
     commemorations: [
       {
@@ -3147,9 +4320,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-27",
+    date_description: {
+      date: "2021-02-27",
+      weekday: "Saturday",
+      month: "27",
+      month_name: "February",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Lent"],
     },
     commemorations: [
       {
@@ -3205,9 +4391,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-02-28",
+    date_description: {
+      date: "2021-02-28",
+      weekday: "Sunday",
+      month: "28",
+      month_name: "February",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3246,9 +4445,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-01",
+    date_description: {
+      date: "2021-03-01",
+      weekday: "Monday",
+      month: "1",
+      month_name: "March",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3287,9 +4499,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-02",
+    date_description: {
+      date: "2021-03-02",
+      weekday: "Tuesday",
+      month: "2",
+      month_name: "March",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3330,9 +4555,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-03",
+    date_description: {
+      date: "2021-03-03",
+      weekday: "Wednesday",
+      month: "3",
+      month_name: "March",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3375,9 +4613,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-04",
+    date_description: {
+      date: "2021-03-04",
+      weekday: "Thursday",
+      month: "4",
+      month_name: "March",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3400,9 +4651,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-05",
+    date_description: {
+      date: "2021-03-05",
+      weekday: "Friday",
+      month: "5",
+      month_name: "March",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent", "Friday"],
     },
     commemorations: [
       {
@@ -3425,9 +4689,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-06",
+    date_description: {
+      date: "2021-03-06",
+      weekday: "Saturday",
+      month: "6",
+      month_name: "March",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3450,9 +4727,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-07",
+    date_description: {
+      date: "2021-03-07",
+      weekday: "Sunday",
+      month: "7",
+      month_name: "March",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3493,9 +4783,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-08",
+    date_description: {
+      date: "2021-03-08",
+      weekday: "Monday",
+      month: "8",
+      month_name: "March",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3534,9 +4837,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-09",
+    date_description: {
+      date: "2021-03-09",
+      weekday: "Tuesday",
+      month: "9",
+      month_name: "March",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3559,9 +4875,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-10",
+    date_description: {
+      date: "2021-03-10",
+      weekday: "Wednesday",
+      month: "10",
+      month_name: "March",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3600,9 +4929,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-11",
+    date_description: {
+      date: "2021-03-11",
+      weekday: "Thursday",
+      month: "11",
+      month_name: "March",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3625,9 +4967,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-12",
+    date_description: {
+      date: "2021-03-12",
+      weekday: "Friday",
+      month: "12",
+      month_name: "March",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent", "Friday"],
     },
     commemorations: [
       {
@@ -3666,9 +5021,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-13",
+    date_description: {
+      date: "2021-03-13",
+      weekday: "Saturday",
+      month: "13",
+      month_name: "March",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3691,9 +5059,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-14",
+    date_description: {
+      date: "2021-03-14",
+      weekday: "Sunday",
+      month: "14",
+      month_name: "March",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3716,9 +5097,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-15",
+    date_description: {
+      date: "2021-03-15",
+      weekday: "Monday",
+      month: "15",
+      month_name: "March",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3741,9 +5135,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-16",
+    date_description: {
+      date: "2021-03-16",
+      weekday: "Tuesday",
+      month: "16",
+      month_name: "March",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3766,9 +5173,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-17",
+    date_description: {
+      date: "2021-03-17",
+      weekday: "Wednesday",
+      month: "17",
+      month_name: "March",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3807,9 +5227,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-18",
+    date_description: {
+      date: "2021-03-18",
+      weekday: "Thursday",
+      month: "18",
+      month_name: "March",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3848,9 +5281,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-19",
+    date_description: {
+      date: "2021-03-19",
+      weekday: "Friday",
+      month: "19",
+      month_name: "March",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent", "Friday"],
     },
     commemorations: [
       {
@@ -3889,9 +5335,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-20",
+    date_description: {
+      date: "2021-03-20",
+      weekday: "Saturday",
+      month: "20",
+      month_name: "March",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3930,9 +5389,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-21",
+    date_description: {
+      date: "2021-03-21",
+      weekday: "Sunday",
+      month: "21",
+      month_name: "March",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -3971,9 +5443,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-22",
+    date_description: {
+      date: "2021-03-22",
+      weekday: "Monday",
+      month: "22",
+      month_name: "March",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4012,9 +5497,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-23",
+    date_description: {
+      date: "2021-03-23",
+      weekday: "Tuesday",
+      month: "23",
+      month_name: "March",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4053,9 +5551,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-24",
+    date_description: {
+      date: "2021-03-24",
+      weekday: "Wednesday",
+      month: "24",
+      month_name: "March",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4078,9 +5589,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-25",
+    date_description: {
+      date: "2021-03-25",
+      weekday: "Thursday",
+      month: "25",
+      month_name: "March",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4119,9 +5643,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-26",
+    date_description: {
+      date: "2021-03-26",
+      weekday: "Friday",
+      month: "26",
+      month_name: "March",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent", "Friday"],
     },
     commemorations: [
       {
@@ -4144,9 +5681,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-27",
+    date_description: {
+      date: "2021-03-27",
+      weekday: "Saturday",
+      month: "27",
+      month_name: "March",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Lent",
       colors: ["purple", "lenten array"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4186,9 +5736,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-28",
+    date_description: {
+      date: "2021-03-28",
+      weekday: "Sunday",
+      month: "28",
+      month_name: "March",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4211,9 +5774,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-29",
+    date_description: {
+      date: "2021-03-29",
+      weekday: "Monday",
+      month: "29",
+      month_name: "March",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4252,9 +5828,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-30",
+    date_description: {
+      date: "2021-03-30",
+      weekday: "Tuesday",
+      month: "30",
+      month_name: "March",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4277,9 +5866,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-03-31",
+    date_description: {
+      date: "2021-03-31",
+      weekday: "Wednesday",
+      month: "31",
+      month_name: "March",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4318,9 +5920,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-01",
+    date_description: {
+      date: "2021-04-01",
+      weekday: "Thursday",
+      month: "1",
+      month_name: "April",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4359,9 +5974,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-02",
+    date_description: {
+      date: "2021-04-02",
+      weekday: "Friday",
+      month: "2",
+      month_name: "April",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 2,
+      fast_day_description: "Fast (Total abstinence)",
+      fast_day_reason: ["Good Friday", "Lent", "Friday"],
     },
     commemorations: [
       {
@@ -4400,9 +6028,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-03",
+    date_description: {
+      date: "2021-04-03",
+      weekday: "Saturday",
+      month: "3",
+      month_name: "April",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Holy Week",
       colors: ["purple", "red"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Lent"],
     },
     commemorations: [
       {
@@ -4442,9 +6083,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-04",
+    date_description: {
+      date: "2021-04-04",
+      weekday: "Sunday",
+      month: "4",
+      month_name: "April",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4485,9 +6139,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-05",
+    date_description: {
+      date: "2021-04-05",
+      weekday: "Monday",
+      month: "5",
+      month_name: "April",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4510,9 +6177,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-06",
+    date_description: {
+      date: "2021-04-06",
+      weekday: "Tuesday",
+      month: "6",
+      month_name: "April",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4535,9 +6215,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-07",
+    date_description: {
+      date: "2021-04-07",
+      weekday: "Wednesday",
+      month: "7",
+      month_name: "April",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4576,9 +6269,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-08",
+    date_description: {
+      date: "2021-04-08",
+      weekday: "Thursday",
+      month: "8",
+      month_name: "April",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4618,9 +6324,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-09",
+    date_description: {
+      date: "2021-04-09",
+      weekday: "Friday",
+      month: "9",
+      month_name: "April",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4643,9 +6362,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-10",
+    date_description: {
+      date: "2021-04-10",
+      weekday: "Saturday",
+      month: "10",
+      month_name: "April",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4684,9 +6416,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-11",
+    date_description: {
+      date: "2021-04-11",
+      weekday: "Sunday",
+      month: "11",
+      month_name: "April",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4728,9 +6473,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-12",
+    date_description: {
+      date: "2021-04-12",
+      weekday: "Monday",
+      month: "12",
+      month_name: "April",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4769,9 +6527,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-13",
+    date_description: {
+      date: "2021-04-13",
+      weekday: "Tuesday",
+      month: "13",
+      month_name: "April",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4794,9 +6565,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-14",
+    date_description: {
+      date: "2021-04-14",
+      weekday: "Wednesday",
+      month: "14",
+      month_name: "April",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4819,9 +6603,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-15",
+    date_description: {
+      date: "2021-04-15",
+      weekday: "Thursday",
+      month: "15",
+      month_name: "April",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4844,9 +6641,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-16",
+    date_description: {
+      date: "2021-04-16",
+      weekday: "Friday",
+      month: "16",
+      month_name: "April",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4869,9 +6679,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-17",
+    date_description: {
+      date: "2021-04-17",
+      weekday: "Saturday",
+      month: "17",
+      month_name: "April",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4894,9 +6717,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-18",
+    date_description: {
+      date: "2021-04-18",
+      weekday: "Sunday",
+      month: "18",
+      month_name: "April",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4919,9 +6755,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-19",
+    date_description: {
+      date: "2021-04-19",
+      weekday: "Monday",
+      month: "19",
+      month_name: "April",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4960,9 +6809,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-20",
+    date_description: {
+      date: "2021-04-20",
+      weekday: "Tuesday",
+      month: "20",
+      month_name: "April",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -4985,9 +6847,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-21",
+    date_description: {
+      date: "2021-04-21",
+      weekday: "Wednesday",
+      month: "21",
+      month_name: "April",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5026,9 +6901,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-22",
+    date_description: {
+      date: "2021-04-22",
+      weekday: "Thursday",
+      month: "22",
+      month_name: "April",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5051,9 +6939,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-23",
+    date_description: {
+      date: "2021-04-23",
+      weekday: "Friday",
+      month: "23",
+      month_name: "April",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5092,9 +6993,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-24",
+    date_description: {
+      date: "2021-04-24",
+      weekday: "Saturday",
+      month: "24",
+      month_name: "April",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5134,9 +7048,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-25",
+    date_description: {
+      date: "2021-04-25",
+      weekday: "Sunday",
+      month: "25",
+      month_name: "April",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5159,9 +7086,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-26",
+    date_description: {
+      date: "2021-04-26",
+      weekday: "Monday",
+      month: "26",
+      month_name: "April",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5200,9 +7140,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-27",
+    date_description: {
+      date: "2021-04-27",
+      weekday: "Tuesday",
+      month: "27",
+      month_name: "April",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5225,9 +7178,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-28",
+    date_description: {
+      date: "2021-04-28",
+      weekday: "Wednesday",
+      month: "28",
+      month_name: "April",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5250,9 +7216,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-29",
+    date_description: {
+      date: "2021-04-29",
+      weekday: "Thursday",
+      month: "29",
+      month_name: "April",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5291,9 +7270,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-04-30",
+    date_description: {
+      date: "2021-04-30",
+      weekday: "Friday",
+      month: "30",
+      month_name: "April",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5316,9 +7308,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-01",
+    date_description: {
+      date: "2021-05-01",
+      weekday: "Saturday",
+      month: "1",
+      month_name: "May",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5360,9 +7365,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-02",
+    date_description: {
+      date: "2021-05-02",
+      weekday: "Sunday",
+      month: "2",
+      month_name: "May",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5401,9 +7419,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-03",
+    date_description: {
+      date: "2021-05-03",
+      weekday: "Monday",
+      month: "3",
+      month_name: "May",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5426,9 +7457,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-04",
+    date_description: {
+      date: "2021-05-04",
+      weekday: "Tuesday",
+      month: "4",
+      month_name: "May",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5451,9 +7495,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-05",
+    date_description: {
+      date: "2021-05-05",
+      weekday: "Wednesday",
+      month: "5",
+      month_name: "May",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5476,9 +7533,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-06",
+    date_description: {
+      date: "2021-05-06",
+      weekday: "Thursday",
+      month: "6",
+      month_name: "May",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5501,9 +7571,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-07",
+    date_description: {
+      date: "2021-05-07",
+      weekday: "Friday",
+      month: "7",
+      month_name: "May",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5526,9 +7609,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-08",
+    date_description: {
+      date: "2021-05-08",
+      weekday: "Saturday",
+      month: "8",
+      month_name: "May",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5567,9 +7663,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-09",
+    date_description: {
+      date: "2021-05-09",
+      weekday: "Sunday",
+      month: "9",
+      month_name: "May",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5609,9 +7718,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-10",
+    date_description: {
+      date: "2021-05-10",
+      weekday: "Monday",
+      month: "10",
+      month_name: "May",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Rogation Day"],
     },
     commemorations: [
       {
@@ -5651,9 +7773,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-11",
+    date_description: {
+      date: "2021-05-11",
+      weekday: "Tuesday",
+      month: "11",
+      month_name: "May",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Rogation Day"],
     },
     commemorations: [
       {
@@ -5693,9 +7828,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-12",
+    date_description: {
+      date: "2021-05-12",
+      weekday: "Wednesday",
+      month: "12",
+      month_name: "May",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Rogation Day"],
     },
     commemorations: [
       {
@@ -5735,9 +7883,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-13",
+    date_description: {
+      date: "2021-05-13",
+      weekday: "Thursday",
+      month: "13",
+      month_name: "May",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5760,9 +7921,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-14",
+    date_description: {
+      date: "2021-05-14",
+      weekday: "Friday",
+      month: "14",
+      month_name: "May",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5785,9 +7959,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-15",
+    date_description: {
+      date: "2021-05-15",
+      weekday: "Saturday",
+      month: "15",
+      month_name: "May",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5826,9 +8013,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-16",
+    date_description: {
+      date: "2021-05-16",
+      weekday: "Sunday",
+      month: "16",
+      month_name: "May",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5867,9 +8067,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-17",
+    date_description: {
+      date: "2021-05-17",
+      weekday: "Monday",
+      month: "17",
+      month_name: "May",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5892,9 +8105,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-18",
+    date_description: {
+      date: "2021-05-18",
+      weekday: "Tuesday",
+      month: "18",
+      month_name: "May",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5917,9 +8143,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-19",
+    date_description: {
+      date: "2021-05-19",
+      weekday: "Wednesday",
+      month: "19",
+      month_name: "May",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -5959,9 +8198,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-20",
+    date_description: {
+      date: "2021-05-20",
+      weekday: "Thursday",
+      month: "20",
+      month_name: "May",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6000,9 +8252,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-21",
+    date_description: {
+      date: "2021-05-21",
+      weekday: "Friday",
+      month: "21",
+      month_name: "May",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6042,9 +8307,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-22",
+    date_description: {
+      date: "2021-05-22",
+      weekday: "Saturday",
+      month: "22",
+      month_name: "May",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6067,9 +8345,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-23",
+    date_description: {
+      date: "2021-05-23",
+      weekday: "Sunday",
+      month: "23",
+      month_name: "May",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Eastertide",
       colors: ["white"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6093,13 +8384,26 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-24",
+    date_description: {
+      date: "2021-05-24",
+      weekday: "Monday",
+      month: "24",
+      month_name: "May",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
     },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
+    },
     commemorations: [
       {
-        name: "Monday after the Day of Pentecost (Proper 3)",
+        name: "Monday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6135,13 +8439,26 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-25",
+    date_description: {
+      date: "2021-05-25",
+      weekday: "Tuesday",
+      month: "25",
+      month_name: "May",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
     },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
+    },
     commemorations: [
       {
-        name: "Tuesday after the Day of Pentecost (Proper 3)",
+        name: "Tuesday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6176,9 +8493,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-26",
+    date_description: {
+      date: "2021-05-26",
+      weekday: "Wednesday",
+      month: "26",
+      month_name: "May",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -6199,7 +8529,7 @@ export const dummyCalendarData = [
         },
       },
       {
-        name: "Wednesday after the Day of Pentecost (Proper 3)",
+        name: "Wednesday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6234,13 +8564,26 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-27",
+    date_description: {
+      date: "2021-05-27",
+      weekday: "Thursday",
+      month: "27",
+      month_name: "May",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
     },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
+    },
     commemorations: [
       {
-        name: "Thursday after the Day of Pentecost (Proper 3)",
+        name: "Thursday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6275,9 +8618,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-28",
+    date_description: {
+      date: "2021-05-28",
+      weekday: "Friday",
+      month: "28",
+      month_name: "May",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Friday"],
     },
     commemorations: [
       {
@@ -6298,7 +8654,7 @@ export const dummyCalendarData = [
         },
       },
       {
-        name: "Friday after the Day of Pentecost (Proper 3)",
+        name: "Friday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6317,9 +8673,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-29",
+    date_description: {
+      date: "2021-05-29",
+      weekday: "Saturday",
+      month: "29",
+      month_name: "May",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -6340,7 +8709,7 @@ export const dummyCalendarData = [
         },
       },
       {
-        name: "Saturday after the Day of Pentecost (Proper 3)",
+        name: "Saturday after the Day of Pentecost",
         rank: {
           name: "FERIA",
           formatted_name: "Feria",
@@ -6359,9 +8728,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-30",
+    date_description: {
+      date: "2021-05-30",
+      weekday: "Sunday",
+      month: "30",
+      month_name: "May",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6391,7 +8773,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/josephine_butler"],
         collects: {
           collect:
-            "Almighty and everlasting God, you kindled the flame of your love in the heart of your servant Josephine Butler to manifest your compassion and mercy to the poor and the persecuted: Grant to us, your humble servants, a like faith and power of love, that we who give thanks for her righteous zeal may profit by her example; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O God, the protector of all those who trust in you, without whom nothing is strong, nothing is holy: Increase and multiply upon us your mercy, that, with you as our ruler and guide, we may so pass through things temporal that we lose not the things eternal; grant this, heavenly Father, for the sake of your Son Jesus Christ, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -6400,9 +8782,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-05-31",
+    date_description: {
+      date: "2021-05-31",
+      weekday: "Monday",
+      month: "31",
+      month_name: "May",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6457,9 +8852,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-01",
+    date_description: {
+      date: "2021-06-01",
+      weekday: "Tuesday",
+      month: "1",
+      month_name: "June",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6498,9 +8906,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-02",
+    date_description: {
+      date: "2021-06-02",
+      weekday: "Wednesday",
+      month: "2",
+      month_name: "June",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6539,9 +8960,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-03",
+    date_description: {
+      date: "2021-06-03",
+      weekday: "Thursday",
+      month: "3",
+      month_name: "June",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6580,9 +9014,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-04",
+    date_description: {
+      date: "2021-06-04",
+      weekday: "Friday",
+      month: "4",
+      month_name: "June",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -6622,9 +9069,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-05",
+    date_description: {
+      date: "2021-06-05",
+      weekday: "Saturday",
+      month: "5",
+      month_name: "June",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6664,9 +9124,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-06",
+    date_description: {
+      date: "2021-06-06",
+      weekday: "Sunday",
+      month: "6",
+      month_name: "June",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6698,7 +9171,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/william_broughton_(bishop)"],
         collects: {
           collect:
-            "Almighty and everlasting God, you called your servant William Grant Broughton to preach the Gospel to the people of Australia: Raise up in this and every land evangelists and heralds of your kingdom, that your Church may proclaim the unsearchable riches of our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever.",
+            "Grant, O Lord, that the course of this world may be so peaceably ordered by your providence, that your Church may joyfully serve you in quiet confidence and godly peace; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -6707,9 +9180,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-07",
+    date_description: {
+      date: "2021-06-07",
+      weekday: "Monday",
+      month: "7",
+      month_name: "June",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6733,9 +9219,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-08",
+    date_description: {
+      date: "2021-06-08",
+      weekday: "Tuesday",
+      month: "8",
+      month_name: "June",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6775,9 +9274,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-09",
+    date_description: {
+      date: "2021-06-09",
+      weekday: "Wednesday",
+      month: "9",
+      month_name: "June",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6817,9 +9329,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-10",
+    date_description: {
+      date: "2021-06-10",
+      weekday: "Thursday",
+      month: "10",
+      month_name: "June",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6859,9 +9384,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-11",
+    date_description: {
+      date: "2021-06-11",
+      weekday: "Friday",
+      month: "11",
+      month_name: "June",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -6901,9 +9439,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-12",
+    date_description: {
+      date: "2021-06-12",
+      weekday: "Saturday",
+      month: "12",
+      month_name: "June",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6927,9 +9478,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-13",
+    date_description: {
+      date: "2021-06-13",
+      weekday: "Sunday",
+      month: "13",
+      month_name: "June",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6953,9 +9517,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-14",
+    date_description: {
+      date: "2021-06-14",
+      weekday: "Monday",
+      month: "14",
+      month_name: "June",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -6996,9 +9573,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-15",
+    date_description: {
+      date: "2021-06-15",
+      weekday: "Tuesday",
+      month: "15",
+      month_name: "June",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7038,9 +9628,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-16",
+    date_description: {
+      date: "2021-06-16",
+      weekday: "Wednesday",
+      month: "16",
+      month_name: "June",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7064,9 +9667,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-17",
+    date_description: {
+      date: "2021-06-17",
+      weekday: "Thursday",
+      month: "17",
+      month_name: "June",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7090,9 +9706,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-18",
+    date_description: {
+      date: "2021-06-18",
+      weekday: "Friday",
+      month: "18",
+      month_name: "June",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -7132,9 +9761,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-19",
+    date_description: {
+      date: "2021-06-19",
+      weekday: "Saturday",
+      month: "19",
+      month_name: "June",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7175,9 +9817,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-20",
+    date_description: {
+      date: "2021-06-20",
+      weekday: "Sunday",
+      month: "20",
+      month_name: "June",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7201,9 +9856,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-21",
+    date_description: {
+      date: "2021-06-21",
+      weekday: "Monday",
+      month: "21",
+      month_name: "June",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7227,9 +9895,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-22",
+    date_description: {
+      date: "2021-06-22",
+      weekday: "Tuesday",
+      month: "22",
+      month_name: "June",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7269,9 +9950,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-23",
+    date_description: {
+      date: "2021-06-23",
+      weekday: "Wednesday",
+      month: "23",
+      month_name: "June",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7295,9 +9989,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-24",
+    date_description: {
+      date: "2021-06-24",
+      weekday: "Thursday",
+      month: "24",
+      month_name: "June",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7337,9 +10044,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-25",
+    date_description: {
+      date: "2021-06-25",
+      weekday: "Friday",
+      month: "25",
+      month_name: "June",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -7363,9 +10083,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-26",
+    date_description: {
+      date: "2021-06-26",
+      weekday: "Saturday",
+      month: "26",
+      month_name: "June",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7389,9 +10122,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-27",
+    date_description: {
+      date: "2021-06-27",
+      weekday: "Sunday",
+      month: "27",
+      month_name: "June",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7422,7 +10168,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/cyril_of_alexandria"],
         collects: {
           collect:
-            "O God, our heavenly Father, you raised up your faithful servant Cyril of Alexandria to be a Bishop and pastor in your Church and to feed your flock: Give abundantly to all pastors the gifts of your Holy Spirit, that they may minister in your household as true servants of Christ and stewards of your divine mysteries; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O God, your never-failing providence sets in order all things both in heaven and on earth: Put away from us all hurtful things, and give us those things that are profitable for us; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -7431,9 +10177,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-28",
+    date_description: {
+      date: "2021-06-28",
+      weekday: "Monday",
+      month: "28",
+      month_name: "June",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7473,9 +10232,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-29",
+    date_description: {
+      date: "2021-06-29",
+      weekday: "Tuesday",
+      month: "29",
+      month_name: "June",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7518,9 +10290,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-06-30",
+    date_description: {
+      date: "2021-06-30",
+      weekday: "Wednesday",
+      month: "30",
+      month_name: "June",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7544,9 +10329,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-01",
+    date_description: {
+      date: "2021-07-01",
+      weekday: "Thursday",
+      month: "1",
+      month_name: "July",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7586,9 +10384,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-02",
+    date_description: {
+      date: "2021-07-02",
+      weekday: "Friday",
+      month: "2",
+      month_name: "July",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -7612,9 +10423,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-03",
+    date_description: {
+      date: "2021-07-03",
+      weekday: "Saturday",
+      month: "3",
+      month_name: "July",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7638,9 +10462,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-04",
+    date_description: {
+      date: "2021-07-04",
+      weekday: "Sunday",
+      month: "4",
+      month_name: "July",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7680,9 +10517,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-05",
+    date_description: {
+      date: "2021-07-05",
+      weekday: "Monday",
+      month: "5",
+      month_name: "July",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7706,9 +10556,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-06",
+    date_description: {
+      date: "2021-07-06",
+      weekday: "Tuesday",
+      month: "6",
+      month_name: "July",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7732,9 +10595,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-07",
+    date_description: {
+      date: "2021-07-07",
+      weekday: "Wednesday",
+      month: "7",
+      month_name: "July",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7758,9 +10634,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-08",
+    date_description: {
+      date: "2021-07-08",
+      weekday: "Thursday",
+      month: "8",
+      month_name: "July",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7784,9 +10673,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-09",
+    date_description: {
+      date: "2021-07-09",
+      weekday: "Friday",
+      month: "9",
+      month_name: "July",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -7810,9 +10712,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-10",
+    date_description: {
+      date: "2021-07-10",
+      weekday: "Saturday",
+      month: "10",
+      month_name: "July",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7836,9 +10751,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-11",
+    date_description: {
+      date: "2021-07-11",
+      weekday: "Sunday",
+      month: "11",
+      month_name: "July",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7869,7 +10797,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/benedict_of_nursia"],
         collects: {
           collect:
-            "O God, your blessed Son became poor for our sake, and chose the Cross over the kingdoms of this world: Deliver us from an inordinate love of worldly things, that we, inspired by the devotion of your servant Benedict, may seek you with singleness of heart, behold your glory by faith, and attain to the riches of your everlasting kingdom, where we shall be united with our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever. ",
+            "Let your merciful ears, O Lord, be open to the prayers of your humble servants; and, that we may receive what we ask, teach us by your Holy Spirit to ask only those things that are pleasing to you; through Jesus Christ our Lord, who with you and the same Spirit lives and reigns for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -7878,9 +10806,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-12",
+    date_description: {
+      date: "2021-07-12",
+      weekday: "Monday",
+      month: "12",
+      month_name: "July",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7920,9 +10861,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-13",
+    date_description: {
+      date: "2021-07-13",
+      weekday: "Tuesday",
+      month: "13",
+      month_name: "July",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7946,9 +10900,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-14",
+    date_description: {
+      date: "2021-07-14",
+      weekday: "Wednesday",
+      month: "14",
+      month_name: "July",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -7972,9 +10939,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-15",
+    date_description: {
+      date: "2021-07-15",
+      weekday: "Thursday",
+      month: "15",
+      month_name: "July",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8017,9 +10997,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-16",
+    date_description: {
+      date: "2021-07-16",
+      weekday: "Friday",
+      month: "16",
+      month_name: "July",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -8043,9 +11036,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-17",
+    date_description: {
+      date: "2021-07-17",
+      weekday: "Saturday",
+      month: "17",
+      month_name: "July",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8088,9 +11094,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-18",
+    date_description: {
+      date: "2021-07-18",
+      weekday: "Sunday",
+      month: "18",
+      month_name: "July",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8121,7 +11140,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/macrina_the_younger"],
         collects: {
           collect:
-            "O God, your blessed Son became poor for our sake, and chose the Cross over the kingdoms of this world: Deliver us from an inordinate love of worldly things, that we, inspired by the devotion of your servant Macrina, may seek you with singleness of heart, behold your glory by faith, and attain to the riches of your everlasting kingdom, where we shall be united with our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever. ",
+            "O God, you declare your almighty power chiefly in showing mercy and pity: Grant us the fullness of your grace, that we, running to obtain your promises, may become partakers of your heavenly treasure; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever. Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -8130,9 +11149,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-19",
+    date_description: {
+      date: "2021-07-19",
+      weekday: "Monday",
+      month: "19",
+      month_name: "July",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8172,9 +11204,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-20",
+    date_description: {
+      date: "2021-07-20",
+      weekday: "Tuesday",
+      month: "20",
+      month_name: "July",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8214,9 +11259,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-21",
+    date_description: {
+      date: "2021-07-21",
+      weekday: "Wednesday",
+      month: "21",
+      month_name: "July",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8240,9 +11298,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-22",
+    date_description: {
+      date: "2021-07-22",
+      weekday: "Thursday",
+      month: "22",
+      month_name: "July",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8282,9 +11353,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-23",
+    date_description: {
+      date: "2021-07-23",
+      weekday: "Friday",
+      month: "23",
+      month_name: "July",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -8308,9 +11392,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-24",
+    date_description: {
+      date: "2021-07-24",
+      weekday: "Saturday",
+      month: "24",
+      month_name: "July",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8350,9 +11447,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-25",
+    date_description: {
+      date: "2021-07-25",
+      weekday: "Sunday",
+      month: "25",
+      month_name: "July",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8392,9 +11502,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-26",
+    date_description: {
+      date: "2021-07-26",
+      weekday: "Monday",
+      month: "26",
+      month_name: "July",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8453,9 +11576,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-27",
+    date_description: {
+      date: "2021-07-27",
+      weekday: "Tuesday",
+      month: "27",
+      month_name: "July",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8495,9 +11631,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-28",
+    date_description: {
+      date: "2021-07-28",
+      weekday: "Wednesday",
+      month: "28",
+      month_name: "July",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8521,9 +11670,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-29",
+    date_description: {
+      date: "2021-07-29",
+      weekday: "Thursday",
+      month: "29",
+      month_name: "July",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8566,9 +11728,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-30",
+    date_description: {
+      date: "2021-07-30",
+      weekday: "Friday",
+      month: "30",
+      month_name: "July",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -8608,9 +11783,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-07-31",
+    date_description: {
+      date: "2021-07-31",
+      weekday: "Saturday",
+      month: "31",
+      month_name: "July",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8634,9 +11822,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-01",
+    date_description: {
+      date: "2021-08-01",
+      weekday: "Sunday",
+      month: "1",
+      month_name: "August",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8667,7 +11868,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/joseph_of_arimathea"],
         collects: {
           collect:
-            "Almighty God, you have surrounded us with a great cloud of witnesses: Grant that we, encouraged by the good example of your servant Joseph of Arimathea, may persevere in running the race that is set before us, until at last, with him, we attain to your eternal joy; through Jesus Christ, the pioneer and perfecter of our faith, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "Almighty and merciful God, it is only by your grace that your faithful people offer you true and laudable service: Grant that we may run without stumbling to obtain your heavenly promises; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -8676,9 +11877,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-02",
+    date_description: {
+      date: "2021-08-02",
+      weekday: "Monday",
+      month: "2",
+      month_name: "August",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8702,9 +11916,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-03",
+    date_description: {
+      date: "2021-08-03",
+      weekday: "Tuesday",
+      month: "3",
+      month_name: "August",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8728,9 +11955,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-04",
+    date_description: {
+      date: "2021-08-04",
+      weekday: "Wednesday",
+      month: "4",
+      month_name: "August",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8754,9 +11994,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-05",
+    date_description: {
+      date: "2021-08-05",
+      weekday: "Thursday",
+      month: "5",
+      month_name: "August",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8796,9 +12049,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-06",
+    date_description: {
+      date: "2021-08-06",
+      weekday: "Friday",
+      month: "6",
+      month_name: "August",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -8838,9 +12104,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-07",
+    date_description: {
+      date: "2021-08-07",
+      weekday: "Saturday",
+      month: "7",
+      month_name: "August",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8880,9 +12159,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-08",
+    date_description: {
+      date: "2021-08-08",
+      weekday: "Sunday",
+      month: "8",
+      month_name: "August",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8913,7 +12205,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/saint_dominic"],
         collects: {
           collect:
-            "O God, your blessed Son became poor for our sake, and chose the Cross over the kingdoms of this world: Deliver us from an inordinate love of worldly things, that we, inspired by the devotion of your servant Dominic, may seek you with singleness of heart, behold your glory by faith, and attain to the riches of your everlasting kingdom, where we shall be united with our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever. ",
+            "Almighty God, give us the increase of faith, hope, and love; and, that we may obtain what you have promised, make us love what you command; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -8922,9 +12214,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-09",
+    date_description: {
+      date: "2021-08-09",
+      weekday: "Monday",
+      month: "9",
+      month_name: "August",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -8964,9 +12269,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-10",
+    date_description: {
+      date: "2021-08-10",
+      weekday: "Tuesday",
+      month: "10",
+      month_name: "August",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9006,9 +12324,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-11",
+    date_description: {
+      date: "2021-08-11",
+      weekday: "Wednesday",
+      month: "11",
+      month_name: "August",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9048,9 +12379,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-12",
+    date_description: {
+      date: "2021-08-12",
+      weekday: "Thursday",
+      month: "12",
+      month_name: "August",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9090,9 +12434,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-13",
+    date_description: {
+      date: "2021-08-13",
+      weekday: "Friday",
+      month: "13",
+      month_name: "August",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -9133,9 +12490,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-14",
+    date_description: {
+      date: "2021-08-14",
+      weekday: "Saturday",
+      month: "14",
+      month_name: "August",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9175,9 +12545,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-15",
+    date_description: {
+      date: "2021-08-15",
+      weekday: "Sunday",
+      month: "15",
+      month_name: "August",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9217,9 +12600,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-16",
+    date_description: {
+      date: "2021-08-16",
+      weekday: "Monday",
+      month: "16",
+      month_name: "August",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9259,9 +12655,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-17",
+    date_description: {
+      date: "2021-08-17",
+      weekday: "Tuesday",
+      month: "17",
+      month_name: "August",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9285,9 +12694,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-18",
+    date_description: {
+      date: "2021-08-18",
+      weekday: "Wednesday",
+      month: "18",
+      month_name: "August",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9311,9 +12733,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-19",
+    date_description: {
+      date: "2021-08-19",
+      weekday: "Thursday",
+      month: "19",
+      month_name: "August",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9337,9 +12772,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-20",
+    date_description: {
+      date: "2021-08-20",
+      weekday: "Friday",
+      month: "20",
+      month_name: "August",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -9379,9 +12827,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-21",
+    date_description: {
+      date: "2021-08-21",
+      weekday: "Saturday",
+      month: "21",
+      month_name: "August",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9421,9 +12882,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-22",
+    date_description: {
+      date: "2021-08-22",
+      weekday: "Sunday",
+      month: "22",
+      month_name: "August",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9447,9 +12921,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-23",
+    date_description: {
+      date: "2021-08-23",
+      weekday: "Monday",
+      month: "23",
+      month_name: "August",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9473,9 +12960,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-24",
+    date_description: {
+      date: "2021-08-24",
+      weekday: "Tuesday",
+      month: "24",
+      month_name: "August",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9515,9 +13015,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-25",
+    date_description: {
+      date: "2021-08-25",
+      weekday: "Wednesday",
+      month: "25",
+      month_name: "August",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9557,9 +13070,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-26",
+    date_description: {
+      date: "2021-08-26",
+      weekday: "Thursday",
+      month: "26",
+      month_name: "August",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9583,9 +13109,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-27",
+    date_description: {
+      date: "2021-08-27",
+      weekday: "Friday",
+      month: "27",
+      month_name: "August",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -9625,9 +13164,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-28",
+    date_description: {
+      date: "2021-08-28",
+      weekday: "Saturday",
+      month: "28",
+      month_name: "August",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9667,9 +13219,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-29",
+    date_description: {
+      date: "2021-08-29",
+      weekday: "Sunday",
+      month: "29",
+      month_name: "August",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9700,7 +13265,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/beheading_of_john_the_baptist"],
         collects: {
           collect:
-            "Almighty God, you have surrounded us with a great cloud of witnesses: Grant that we, encouraged by the good example of your servant John the Baptist, may persevere in running the race that is set before us, until at last, with him, we attain to your eternal joy; through Jesus Christ, the pioneer and perfecter of our faith, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O Lord, we pray that your grace may always precede and follow after us, that we may continually be given to good works; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -9709,9 +13274,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-30",
+    date_description: {
+      date: "2021-08-30",
+      weekday: "Monday",
+      month: "30",
+      month_name: "August",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9752,9 +13330,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-08-31",
+    date_description: {
+      date: "2021-08-31",
+      weekday: "Tuesday",
+      month: "31",
+      month_name: "August",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9795,9 +13386,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-01",
+    date_description: {
+      date: "2021-09-01",
+      weekday: "Wednesday",
+      month: "1",
+      month_name: "September",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9821,9 +13425,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-02",
+    date_description: {
+      date: "2021-09-02",
+      weekday: "Thursday",
+      month: "2",
+      month_name: "September",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9865,9 +13482,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-03",
+    date_description: {
+      date: "2021-09-03",
+      weekday: "Friday",
+      month: "3",
+      month_name: "September",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -9891,9 +13521,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-04",
+    date_description: {
+      date: "2021-09-04",
+      weekday: "Saturday",
+      month: "4",
+      month_name: "September",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9933,9 +13576,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-05",
+    date_description: {
+      date: "2021-09-05",
+      weekday: "Sunday",
+      month: "5",
+      month_name: "September",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -9966,7 +13622,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/mother_teresa"],
         collects: {
           collect:
-            "Almighty and everlasting God, you kindled the flame of your love in the heart of your servant Mother Teresa to manifest your compassion and mercy to the poor and the persecuted: Grant to us, your humble servants, a like faith and power of love, that we who give thanks for her righteous zeal may profit by her example; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O Lord God, grant your people grace to withstand the temptations of the world, the flesh, and the devil, and with pure hearts and minds to follow you, the only God; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -9975,9 +13631,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-06",
+    date_description: {
+      date: "2021-09-06",
+      weekday: "Monday",
+      month: "6",
+      month_name: "September",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10017,9 +13686,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-07",
+    date_description: {
+      date: "2021-09-07",
+      weekday: "Tuesday",
+      month: "7",
+      month_name: "September",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10059,9 +13741,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-08",
+    date_description: {
+      date: "2021-09-08",
+      weekday: "Wednesday",
+      month: "8",
+      month_name: "September",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10085,9 +13780,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-09",
+    date_description: {
+      date: "2021-09-09",
+      weekday: "Thursday",
+      month: "9",
+      month_name: "September",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10129,9 +13837,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-10",
+    date_description: {
+      date: "2021-09-10",
+      weekday: "Friday",
+      month: "10",
+      month_name: "September",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -10171,9 +13892,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-11",
+    date_description: {
+      date: "2021-09-11",
+      weekday: "Saturday",
+      month: "11",
+      month_name: "September",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10197,9 +13931,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-12",
+    date_description: {
+      date: "2021-09-12",
+      weekday: "Sunday",
+      month: "12",
+      month_name: "September",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10231,7 +13978,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/john_henry_hobart"],
         collects: {
           collect:
-            "O God, our heavenly Father, you raised up your faithful servant John Henry Hobart to be a Bishop and pastor in your Church and to feed your flock: Give abundantly to all pastors the gifts of your Holy Spirit, that they may minister in your household as true servants of Christ and stewards of your divine mysteries; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O God, because without you we are not able to please you, mercifully grant that your Holy Spirit may in all things direct and rule our hearts; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -10240,9 +13987,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-13",
+    date_description: {
+      date: "2021-09-13",
+      weekday: "Monday",
+      month: "13",
+      month_name: "September",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10283,9 +14043,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-14",
+    date_description: {
+      date: "2021-09-14",
+      weekday: "Tuesday",
+      month: "14",
+      month_name: "September",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10325,9 +14098,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-15",
+    date_description: {
+      date: "2021-09-15",
+      weekday: "Wednesday",
+      month: "15",
+      month_name: "September",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -10384,9 +14170,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-16",
+    date_description: {
+      date: "2021-09-16",
+      weekday: "Thursday",
+      month: "16",
+      month_name: "September",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10426,9 +14225,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-17",
+    date_description: {
+      date: "2021-09-17",
+      weekday: "Friday",
+      month: "17",
+      month_name: "September",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day", "Friday"],
     },
     commemorations: [
       {
@@ -10485,9 +14297,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-18",
+    date_description: {
+      date: "2021-09-18",
+      weekday: "Saturday",
+      month: "18",
+      month_name: "September",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Ember Day"],
     },
     commemorations: [
       {
@@ -10528,9 +14353,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-19",
+    date_description: {
+      date: "2021-09-19",
+      weekday: "Sunday",
+      month: "19",
+      month_name: "September",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10561,7 +14399,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/theodore_of_tarsus"],
         collects: {
           collect:
-            "O God, our heavenly Father, you raised up your faithful servant Theodore of Tarsus to be a Bishop and pastor in your Church and to feed your flock: Give abundantly to all pastors the gifts of your Holy Spirit, that they may minister in your household as true servants of Christ and stewards of your divine mysteries; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O Lord, you have taught us that without love, all our deeds are worth nothing: Send your Holy Spirit and pour into our hearts that most excellent gift of charity, the true bond of peace and of all virtues, without which whoever lives is counted dead before you; grant this for the sake of your Son Jesus Christ, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -10570,9 +14408,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-20",
+    date_description: {
+      date: "2021-09-20",
+      weekday: "Monday",
+      month: "20",
+      month_name: "September",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10613,9 +14464,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-21",
+    date_description: {
+      date: "2021-09-21",
+      weekday: "Tuesday",
+      month: "21",
+      month_name: "September",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10655,9 +14519,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-22",
+    date_description: {
+      date: "2021-09-22",
+      weekday: "Wednesday",
+      month: "22",
+      month_name: "September",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10681,9 +14558,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-23",
+    date_description: {
+      date: "2021-09-23",
+      weekday: "Thursday",
+      month: "23",
+      month_name: "September",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10707,9 +14597,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-24",
+    date_description: {
+      date: "2021-09-24",
+      weekday: "Friday",
+      month: "24",
+      month_name: "September",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -10733,9 +14636,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-25",
+    date_description: {
+      date: "2021-09-25",
+      weekday: "Saturday",
+      month: "25",
+      month_name: "September",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10775,9 +14691,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-26",
+    date_description: {
+      date: "2021-09-26",
+      weekday: "Sunday",
+      month: "26",
+      month_name: "September",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10809,7 +14738,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/lancelot_andrewes"],
         collects: {
           collect:
-            "O God, our heavenly Father, you raised up your faithful servant Lancelot Andrewes to be a Bishop and pastor in your Church and to feed your flock: Give abundantly to all pastors the gifts of your Holy Spirit, that they may minister in your household as true servants of Christ and stewards of your divine mysteries; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "O merciful Lord, grant to your faithful people pardon and peace, that we may be cleansed from all our sins and serve you with a quiet mind; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever. Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -10818,9 +14747,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-27",
+    date_description: {
+      date: "2021-09-27",
+      weekday: "Monday",
+      month: "27",
+      month_name: "September",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10860,9 +14802,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-28",
+    date_description: {
+      date: "2021-09-28",
+      weekday: "Tuesday",
+      month: "28",
+      month_name: "September",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10886,9 +14841,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-29",
+    date_description: {
+      date: "2021-09-29",
+      weekday: "Wednesday",
+      month: "29",
+      month_name: "September",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10928,9 +14896,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-09-30",
+    date_description: {
+      date: "2021-09-30",
+      weekday: "Thursday",
+      month: "30",
+      month_name: "September",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -10970,9 +14951,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-01",
+    date_description: {
+      date: "2021-10-01",
+      weekday: "Friday",
+      month: "1",
+      month_name: "October",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -11012,9 +15006,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-02",
+    date_description: {
+      date: "2021-10-02",
+      weekday: "Saturday",
+      month: "2",
+      month_name: "October",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11038,9 +15045,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-03",
+    date_description: {
+      date: "2021-10-03",
+      weekday: "Sunday",
+      month: "3",
+      month_name: "October",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11064,9 +15084,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-04",
+    date_description: {
+      date: "2021-10-04",
+      weekday: "Monday",
+      month: "4",
+      month_name: "October",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11107,9 +15140,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-05",
+    date_description: {
+      date: "2021-10-05",
+      weekday: "Tuesday",
+      month: "5",
+      month_name: "October",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11133,9 +15179,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-06",
+    date_description: {
+      date: "2021-10-06",
+      weekday: "Wednesday",
+      month: "6",
+      month_name: "October",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11176,9 +15235,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-07",
+    date_description: {
+      date: "2021-10-07",
+      weekday: "Thursday",
+      month: "7",
+      month_name: "October",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11202,9 +15274,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-08",
+    date_description: {
+      date: "2021-10-08",
+      weekday: "Friday",
+      month: "8",
+      month_name: "October",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -11228,9 +15313,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-09",
+    date_description: {
+      date: "2021-10-09",
+      weekday: "Saturday",
+      month: "9",
+      month_name: "October",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11270,9 +15368,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-10",
+    date_description: {
+      date: "2021-10-10",
+      weekday: "Sunday",
+      month: "10",
+      month_name: "October",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11303,7 +15414,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/paulinus_of_york"],
         collects: {
           collect:
-            "Almighty and everlasting God, you called your servant Paulinus to preach the Gospel to the Anglo-Saxons: Raise up in this and every land evangelists and heralds of your kingdom, that your Church may proclaim the unsearchable riches of our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever.",
+            "O God, our refuge and strength, true source of all godliness: Graciously hear the devout prayers of your Church, and grant that those things which we ask faithfully, we may obtain effectually; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -11312,9 +15423,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-11",
+    date_description: {
+      date: "2021-10-11",
+      weekday: "Monday",
+      month: "11",
+      month_name: "October",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11370,9 +15494,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-12",
+    date_description: {
+      date: "2021-10-12",
+      weekday: "Tuesday",
+      month: "12",
+      month_name: "October",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11412,9 +15549,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-13",
+    date_description: {
+      date: "2021-10-13",
+      weekday: "Wednesday",
+      month: "13",
+      month_name: "October",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11454,9 +15604,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-14",
+    date_description: {
+      date: "2021-10-14",
+      weekday: "Thursday",
+      month: "14",
+      month_name: "October",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11498,9 +15661,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-15",
+    date_description: {
+      date: "2021-10-15",
+      weekday: "Friday",
+      month: "15",
+      month_name: "October",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -11540,9 +15716,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-16",
+    date_description: {
+      date: "2021-10-16",
+      weekday: "Saturday",
+      month: "16",
+      month_name: "October",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11585,9 +15774,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-17",
+    date_description: {
+      date: "2021-10-17",
+      weekday: "Sunday",
+      month: "17",
+      month_name: "October",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11618,7 +15820,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/ignatius_of_antioch"],
         collects: {
           collect:
-            "Almighty God, you gave your servant Ignatius of Antioch boldness to confess the Name of our Savior Jesus Christ before the rulers of this world, and courage to die for this faith: Grant that we may always be ready to give a reason for the hope that is in us, and to suffer gladly for the sake of our Lord Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, for ever and ever. ",
+            "Set us free, loving Father, from the bondage of our sins, and in your goodness and mercy give us the liberty of that abundant life which you have made known to us in our Savior Jesus Christ; who lives and reigns with you, in the unity of the Holy Spirit, one God, now and for ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -11627,9 +15829,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-18",
+    date_description: {
+      date: "2021-10-18",
+      weekday: "Monday",
+      month: "18",
+      month_name: "October",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11669,9 +15884,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-19",
+    date_description: {
+      date: "2021-10-19",
+      weekday: "Tuesday",
+      month: "19",
+      month_name: "October",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11711,9 +15939,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-20",
+    date_description: {
+      date: "2021-10-20",
+      weekday: "Wednesday",
+      month: "20",
+      month_name: "October",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11737,9 +15978,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-21",
+    date_description: {
+      date: "2021-10-21",
+      weekday: "Thursday",
+      month: "21",
+      month_name: "October",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11763,9 +16017,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-22",
+    date_description: {
+      date: "2021-10-22",
+      weekday: "Friday",
+      month: "22",
+      month_name: "October",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -11789,9 +16056,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-23",
+    date_description: {
+      date: "2021-10-23",
+      weekday: "Saturday",
+      month: "23",
+      month_name: "October",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11831,9 +16111,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-24",
+    date_description: {
+      date: "2021-10-24",
+      weekday: "Sunday",
+      month: "24",
+      month_name: "October",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11857,9 +16150,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-25",
+    date_description: {
+      date: "2021-10-25",
+      weekday: "Monday",
+      month: "25",
+      month_name: "October",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11883,9 +16189,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-26",
+    date_description: {
+      date: "2021-10-26",
+      weekday: "Tuesday",
+      month: "26",
+      month_name: "October",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11926,9 +16245,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-27",
+    date_description: {
+      date: "2021-10-27",
+      weekday: "Wednesday",
+      month: "27",
+      month_name: "October",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11952,9 +16284,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-28",
+    date_description: {
+      date: "2021-10-28",
+      weekday: "Thursday",
+      month: "28",
+      month_name: "October",
+      day: "28",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -11997,9 +16342,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-29",
+    date_description: {
+      date: "2021-10-29",
+      weekday: "Friday",
+      month: "29",
+      month_name: "October",
+      day: "29",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -12040,9 +16398,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-30",
+    date_description: {
+      date: "2021-10-30",
+      weekday: "Saturday",
+      month: "30",
+      month_name: "October",
+      day: "30",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12066,9 +16437,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-10-31",
+    date_description: {
+      date: "2021-10-31",
+      weekday: "Sunday",
+      month: "31",
+      month_name: "October",
+      day: "31",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12092,9 +16476,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-01",
+    date_description: {
+      date: "2021-11-01",
+      weekday: "Monday",
+      month: "1",
+      month_name: "November",
+      day: "1",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12134,9 +16531,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-02",
+    date_description: {
+      date: "2021-11-02",
+      weekday: "Tuesday",
+      month: "2",
+      month_name: "November",
+      day: "2",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12176,9 +16586,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-03",
+    date_description: {
+      date: "2021-11-03",
+      weekday: "Wednesday",
+      month: "3",
+      month_name: "November",
+      day: "3",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12218,9 +16641,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-04",
+    date_description: {
+      date: "2021-11-04",
+      weekday: "Thursday",
+      month: "4",
+      month_name: "November",
+      day: "4",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12244,9 +16680,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-05",
+    date_description: {
+      date: "2021-11-05",
+      weekday: "Friday",
+      month: "5",
+      month_name: "November",
+      day: "5",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -12289,9 +16738,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-06",
+    date_description: {
+      date: "2021-11-06",
+      weekday: "Saturday",
+      month: "6",
+      month_name: "November",
+      day: "6",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12332,9 +16794,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-07",
+    date_description: {
+      date: "2021-11-07",
+      weekday: "Sunday",
+      month: "7",
+      month_name: "November",
+      day: "7",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12381,7 +16856,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/willibrord"],
         collects: {
           collect:
-            "Almighty and everlasting God, you called your servant Willibrord to preach the Gospel to the people of Frisia: Raise up in this and every land evangelists and heralds of your kingdom, that your Church may proclaim the unsearchable riches of our Savior Jesus Christ; who lives and reigns with you and the Holy Spirit, one God, now and for ever.",
+            "O God, whose blessed Son came into the world that he might destroy the works of the devil and make us children of God and heirs of eternal life: Grant that, having this hope, we may purify ourselves as he is pure; that, when he comes again with power and great glory, we may be made like him in his eternal and glorious kingdom; where he lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -12390,9 +16865,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-08",
+    date_description: {
+      date: "2021-11-08",
+      weekday: "Monday",
+      month: "8",
+      month_name: "November",
+      day: "8",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12416,9 +16904,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-09",
+    date_description: {
+      date: "2021-11-09",
+      weekday: "Tuesday",
+      month: "9",
+      month_name: "November",
+      day: "9",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12442,9 +16943,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-10",
+    date_description: {
+      date: "2021-11-10",
+      weekday: "Wednesday",
+      month: "10",
+      month_name: "November",
+      day: "10",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12484,9 +16998,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-11",
+    date_description: {
+      date: "2021-11-11",
+      weekday: "Thursday",
+      month: "11",
+      month_name: "November",
+      day: "11",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12542,9 +17069,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-12",
+    date_description: {
+      date: "2021-11-12",
+      weekday: "Friday",
+      month: "12",
+      month_name: "November",
+      day: "12",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -12568,9 +17108,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-13",
+    date_description: {
+      date: "2021-11-13",
+      weekday: "Saturday",
+      month: "13",
+      month_name: "November",
+      day: "13",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12610,9 +17163,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-14",
+    date_description: {
+      date: "2021-11-14",
+      weekday: "Sunday",
+      month: "14",
+      month_name: "November",
+      day: "14",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12644,7 +17210,7 @@ export const dummyCalendarData = [
         links: ["https://en.wikipedia.org/wiki/samuel_seabury"],
         collects: {
           collect:
-            "O God, our heavenly Father, you raised up your faithful servant Samuel Seabury to be a Bishop and pastor in your Church and to feed your flock: Give abundantly to all pastors the gifts of your Holy Spirit, that they may minister in your household as true servants of Christ and stewards of your divine mysteries; through Jesus Christ our Lord, who lives and reigns with you and the Holy Spirit, one God, for ever and ever.",
+            "Stir up, O Lord, the wills of your faithful people, that bringing forth in abundance the fruit of good works, they may be abundantly rewarded when our Savior Jesus Christ comes to restore all things; who lives and reigns with you and the Holy Spirit, one God, for ever and ever.  Amen.",
           alternate_collect: null,
           vigil_collect: null,
         },
@@ -12653,9 +17219,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-15",
+    date_description: {
+      date: "2021-11-15",
+      weekday: "Monday",
+      month: "15",
+      month_name: "November",
+      day: "15",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12679,9 +17258,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-16",
+    date_description: {
+      date: "2021-11-16",
+      weekday: "Tuesday",
+      month: "16",
+      month_name: "November",
+      day: "16",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12722,9 +17314,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-17",
+    date_description: {
+      date: "2021-11-17",
+      weekday: "Wednesday",
+      month: "17",
+      month_name: "November",
+      day: "17",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12764,9 +17369,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-18",
+    date_description: {
+      date: "2021-11-18",
+      weekday: "Thursday",
+      month: "18",
+      month_name: "November",
+      day: "18",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12806,9 +17424,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-19",
+    date_description: {
+      date: "2021-11-19",
+      weekday: "Friday",
+      month: "19",
+      month_name: "November",
+      day: "19",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -12848,9 +17479,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-20",
+    date_description: {
+      date: "2021-11-20",
+      weekday: "Saturday",
+      month: "20",
+      month_name: "November",
+      day: "20",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12890,9 +17534,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-21",
+    date_description: {
+      date: "2021-11-21",
+      weekday: "Sunday",
+      month: "21",
+      month_name: "November",
+      day: "21",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12915,9 +17572,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-22",
+    date_description: {
+      date: "2021-11-22",
+      weekday: "Monday",
+      month: "22",
+      month_name: "November",
+      day: "22",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12956,9 +17626,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-23",
+    date_description: {
+      date: "2021-11-23",
+      weekday: "Tuesday",
+      month: "23",
+      month_name: "November",
+      day: "23",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -12997,9 +17680,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-24",
+    date_description: {
+      date: "2021-11-24",
+      weekday: "Wednesday",
+      month: "24",
+      month_name: "November",
+      day: "24",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -13023,9 +17719,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-25",
+    date_description: {
+      date: "2021-11-25",
+      weekday: "Thursday",
+      month: "25",
+      month_name: "November",
+      day: "25",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {
@@ -13080,9 +17789,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-26",
+    date_description: {
+      date: "2021-11-26",
+      weekday: "Friday",
+      month: "26",
+      month_name: "November",
+      day: "26",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 1,
+      fast_day_description: "Fast (Partial abstinence)",
+      fast_day_reason: ["Friday"],
     },
     commemorations: [
       {
@@ -13105,9 +17827,22 @@ export const dummyCalendarData = [
   },
   {
     date: "2021-11-27",
+    date_description: {
+      date: "2021-11-27",
+      weekday: "Saturday",
+      month: "27",
+      month_name: "November",
+      day: "27",
+      year: "2021",
+    },
     season: {
       name: "Season After Pentecost",
       colors: ["green"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
     },
     commemorations: [
       {

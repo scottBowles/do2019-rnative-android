@@ -10,11 +10,11 @@
 
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Link, useHistory } from "react-router-native";
+import { Link } from "react-router-native";
 
 import { ArrowLeft, ArrowRight } from "assets/icons";
-import { H1, H2, Text } from "styles/typography";
 import { OutlineBtn } from "common/components";
+import { H1, H2, Text } from "styles/typography";
 
 interface ListHeaderProps {
   startYear: number;
@@ -44,8 +44,6 @@ interface ListHeaderLinkProps {
 
 const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
   ({ direction, year, ...props }) => {
-    const history = useHistory();
-
     return (
       <Link to={`/calendar/${year}`} {...props}>
         <OutlineBtn style={styles.outlineBtn}>

@@ -1,3 +1,5 @@
+import { Season } from "./Season";
+
 /**
  * Object to be inserted for section headers
  */
@@ -6,5 +8,5 @@ export interface SectionData {
   sectionType: "both" | "month" | "season";
   month: string;
   year: number;
-  season: { name: string; colors: string[] };
+  season: Season;
 }

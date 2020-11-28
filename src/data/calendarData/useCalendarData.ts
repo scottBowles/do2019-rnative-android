@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { getLocalDate } from "common/utils/getLocalDate";
-import { HeaderData, SectionData } from "./interfaces";
+import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
 import { generateCalendarData } from "./utils";
@@ -36,12 +35,10 @@ export const useCalendarData = (startYear: number): Return => {
     if (!isLoading) {
       try {
         setIsLoading(true);
-        const apiCalendarData = (await dataGenerator.next()).value;
+        const apiCalendarData: ApiCalendarDay[] = (await dataGenerator.next())
+          .value;
         const calendarDays = apiCalendarData.map(
-          ({ date, season, commemorations }) => {
-            const localDate = getLocalDate(new Date(date));
-            return new CalendarDay(localDate, season, commemorations);
-          }
+          (calendarDay) => new CalendarDay(calendarDay)
         );
         const sectionizedData = sectionizeCalendarData(calendarDays);
         setDataSource([...dataSource, ...sectionizedData]);
@@ -63,15 +60,16 @@ export const useCalendarData = (startYear: number): Return => {
         item.month === month &&
         item.year === year
     );
+    console.log({ index });
     return index;
   };
 
-  const getSeasonIndex = (season: string): number => {
+  const getSeasonIndex = (seasonName: string): number => {
     const index: number = dataSource.findIndex(
       (item: HeaderData | SectionData | CalendarDay) =>
         item.type === "heading" &&
         ["season", "both"].includes(item.sectionType) &&
-        item.season.name.toLowerCase() === season.toLowerCase()
+        item.season.name.toLowerCase() === seasonName.toLowerCase()
     );
     return index;
   };

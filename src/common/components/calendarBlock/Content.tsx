@@ -12,9 +12,10 @@
 
 import React from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import { ContentLine } from "./ContentLine";
 import { OfficeLinks } from "./OfficeLinks";
 import { CalendarDay } from "data/calendarData/models";
-import { ContentLine } from "./ContentLine";
+import { Season } from "data/calendarData/interfaces";
 
 interface Props {
   day: CalendarDay;
@@ -23,7 +24,7 @@ interface Props {
 }
 
 export const Content: React.FC<Props> = ({
-  day: { commemorations, date, season },
+  day: { commemorations, localDate, season },
   showSeason = false,
   showOfficeLinks = false,
 }) => {
@@ -41,13 +42,13 @@ export const Content: React.FC<Props> = ({
         ))}
       </View>
       {showSeason && <SeasonBox season={season} />}
-      {showOfficeLinks && <OfficeLinks date={date} />}
+      {showOfficeLinks && <OfficeLinks date={localDate} />}
     </View>
   );
 };
 
 interface SeasonBoxProps {
-  season: { name: string; colors: string[] };
+  season: Season;
 }
 
 const SeasonBox: React.FC<SeasonBoxProps> = ({ season }) => (

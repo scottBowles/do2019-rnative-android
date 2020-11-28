@@ -17,7 +17,7 @@ import { View } from "react-native";
 import { useHistory, useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
 
-import { getLiturgicalYear } from "common/utils";
+import { getLiturgicalYear, getLocalDate } from "common/utils";
 import { useCalendarData } from "data/calendarData";
 import { createDataProvider } from "data/calendarData/utils";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
@@ -26,7 +26,6 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListHeader } from "./ListHeader";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { SectionHeader } from "./SectionHeader";
-import { getLocalDate } from "common/utils/getLocalDate";
 
 /**
  * Main component for Calendar screen -- primarily implements a RecyclerListView
@@ -37,6 +36,7 @@ import { getLocalDate } from "common/utils/getLocalDate";
 export const Calendar: React.FC = () => {
   const history = useHistory();
   const { year, date } = useParams<{ year: string; date: string }>();
+  // console.log({ year, date });
   let startDate;
   let startYear;
   if (date && year) {
@@ -49,6 +49,7 @@ export const Calendar: React.FC = () => {
     startDate = new Date();
     startYear = getLiturgicalYear(startDate);
   }
+  // console.log({ startDate, startYear });
 
   const listRef = useRef(null);
 
@@ -75,6 +76,8 @@ export const Calendar: React.FC = () => {
       }
     })();
   }, []);
+
+  // useEffect(() => console.log({ dataSource }), [dataSource]);
 
   /** Renders data according to type, provided by RecyclerListView */
   const rowRenderer = (_: string | number, data: any) => {
@@ -119,7 +122,7 @@ export const Calendar: React.FC = () => {
 
   const dataProvider = createDataProvider(dataSource);
   const layoutProvider = new LayoutProvider(dataProvider);
-
+  console.log(`ds length ${dataSource.length}`);
   return (
     <View style={{ flex: 1 }}>
       <RecyclerListView
@@ -130,8 +133,9 @@ export const Calendar: React.FC = () => {
         renderFooter={() => <LoadingAnimation isLoading={isLoading} />}
         forceNonDeterministicRendering={true}
         onEndReached={getData}
-        onEndReachedThreshold={200}
-        initialRenderIndex={getDateIndex(startDate)}
+        onEndReachedThreshold={0}
+        initialRenderIndex={381}
+        // initialRenderIndex={getDateIndex(startDate)}
       />
       <CalendarNavBar
         jumpToTop={jumpToTop}

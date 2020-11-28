@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-import { toTitleCase } from "common/utils";
-import { colors } from "styles/colors";
-import { Text } from "styles/typography";
 import {
   CalendarDayIcon,
   CalendarIcon,
   ChurchIcon,
   ToTopIcon,
 } from "assets/icons";
+import { toTitleCase } from "common/utils";
+import { colors } from "styles/colors";
+import { Text } from "styles/typography";
 import { SeasonModal } from "./SeasonModal";
 
 interface Props {

@@ -1,4 +1,7 @@
-export class ParsedDate {
+import { getLocalDate } from "common/utils/getLocalDate";
+import { IParsedDate } from "../interfaces/IParsedDate";
+
+export class ParsedDate implements IParsedDate {
   constructor(public date: Date) {}
 
   dayOfMonth: number = this.date.getDate();
@@ -25,4 +28,8 @@ export class ParsedDate {
   ];
 
   year: number = this.date.getFullYear();
+
+  localDate: Date = getLocalDate(
+    new Date(`${this.fullMonth} ${this.dayOfMonth}, ${this.year}`)
+  );
 }

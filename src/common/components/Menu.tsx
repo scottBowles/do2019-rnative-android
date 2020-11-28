@@ -15,7 +15,7 @@ import { Text } from "styles/typography";
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import { OutlineBtn } from "./OutlineBtn";
 
-export const Menu = () => {
+export const Menu: React.FC = () => {
   const menuItems = [
     {
       icon: <ClockIcon size={12} color="black" style={styles.icons} />,

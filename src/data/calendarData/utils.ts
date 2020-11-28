@@ -10,7 +10,7 @@ const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
   const res = await fetch(
     `https://data.dailyoffice2019.com/api/v1/calendar/${year}`
   );
-  const data = await res.json();
+  const data: ApiCalendarDay[] = await res.json();
   return data;
 };
 
@@ -23,7 +23,7 @@ type CalGenReturn = AsyncGenerator<ApiCalendarDay[], ApiCalendarDay[], number>;
 export async function* generateCalendarData(startYear: number): CalGenReturn {
   let year = startYear;
   while (0 < year && year < 10000) {
-    const data = await fetchCalendarData(year);
+    const data: ApiCalendarDay[] = await fetchCalendarData(year);
     const newStartYear: number = yield data;
     year = newStartYear || year + 1;
   }

@@ -1,22 +1,18 @@
+import { Commemoration, Season } from "../interfaces";
+
 export interface ApiCalendarDay {
   date: string;
-  season: {
-    name: string;
-    colors: string[];
+  date_description: {
+    date: string;
+    weekday: string;
+    month: string;
+    month_name: string;
+    day: string;
+    year: string;
   };
-  commemorations: {
-    name: string;
-    rank: {
-      name: string;
-      formatted_name: string;
-      precedence: number;
-    };
-    colors: string[];
-    links: string[];
-    collects: {
-      collect: string;
-      alternate_collect?: string;
-      vigil_collect?: string;
-    };
-  }[];
+  season: Season;
+  fast: {
+    fast_day: number;
+  };
+  commemorations: Commemoration[];
 }
