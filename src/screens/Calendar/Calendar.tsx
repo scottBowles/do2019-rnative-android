@@ -20,6 +20,7 @@ import { RecyclerListView } from "recyclerlistview";
 import { getLiturgicalYear, getLocalDate } from "common/utils";
 import { useCalendarData } from "data/calendarData";
 import { createDataProvider } from "data/calendarData/utils";
+import { useIsMountedRef } from "data/common/useIsMountedRef";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
@@ -34,9 +35,11 @@ import { SectionHeader } from "./SectionHeader";
  * getLocalDate will ensure no timezone issues.
  */
 export const Calendar: React.FC = () => {
+  const isMountedRef = useIsMountedRef();
   const history = useHistory();
+  const listRef = useRef(null);
   const { year, date } = useParams<{ year: string; date: string }>();
-  // console.log({ year, date });
+
   let startDate;
   let startYear;
   if (date && year) {
@@ -49,9 +52,6 @@ export const Calendar: React.FC = () => {
     startDate = new Date();
     startYear = getLiturgicalYear(startDate);
   }
-  // console.log({ startDate, startYear });
-
-  const listRef = useRef(null);
 
   /** Custom hook data service */
   const {
@@ -60,7 +60,7 @@ export const Calendar: React.FC = () => {
     getData,
     getDateIndex,
     getSeasonIndex,
-  } = useCalendarData(startYear);
+  } = useCalendarData(startYear, isMountedRef);
 
   /**
    * Fetches the startYear's data, prepares it, and updates dataSource
@@ -122,7 +122,7 @@ export const Calendar: React.FC = () => {
 
   const dataProvider = createDataProvider(dataSource);
   const layoutProvider = new LayoutProvider(dataProvider);
-  console.log(`ds length ${dataSource.length}`);
+
   return (
     <View style={{ flex: 1 }}>
       <RecyclerListView
@@ -134,8 +134,7 @@ export const Calendar: React.FC = () => {
         forceNonDeterministicRendering={true}
         onEndReached={getData}
         onEndReachedThreshold={0}
-        initialRenderIndex={381}
-        // initialRenderIndex={getDateIndex(startDate)}
+        initialRenderIndex={getDateIndex(startDate)}
       />
       <CalendarNavBar
         jumpToTop={jumpToTop}

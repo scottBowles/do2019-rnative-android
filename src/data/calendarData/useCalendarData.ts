@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MutableRefObject, useState } from "react";
 import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
@@ -17,8 +17,12 @@ interface Return {
 /**
  * Custom hook for supplying data for the Calendar screen
  * @param startYear Year of Advent One for starting liturgical year
+ * @param isMountedRef Ref indicating whether component is mounted, to abort async processes after unmounting
  */
-export const useCalendarData = (startYear: number): Return => {
+export const useCalendarData = (
+  startYear: number,
+  isMountedRef: MutableRefObject<boolean | null>
+): Return => {
   const dataForHeader: HeaderData = { type: "listHeader", startYear };
 
   const [dataGenerator] = useState(generateCalendarData(startYear));
@@ -37,12 +41,14 @@ export const useCalendarData = (startYear: number): Return => {
         setIsLoading(true);
         const apiCalendarData: ApiCalendarDay[] = (await dataGenerator.next())
           .value;
-        const calendarDays = apiCalendarData.map(
-          (calendarDay) => new CalendarDay(calendarDay)
-        );
-        const sectionizedData = sectionizeCalendarData(calendarDays);
-        setDataSource([...dataSource, ...sectionizedData]);
-        setIsLoading(false);
+        if (isMountedRef.current) {
+          const calendarDays = apiCalendarData.map(
+            (calendarDay) => new CalendarDay(calendarDay)
+          );
+          const sectionizedData = sectionizeCalendarData(calendarDays);
+          setDataSource([...dataSource, ...sectionizedData]);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log(`getData error: ${error}`);
       }
