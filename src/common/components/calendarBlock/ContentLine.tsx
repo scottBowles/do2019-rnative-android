@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import WebBrowser from "expo-web-browser";
+import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { ColorBox } from "common/components";
 import { Text } from "styles/typography";

@@ -18,13 +18,20 @@ import {
   StyleSheet,
   Text as NativeText,
   TextStyle,
+  View,
+  ViewStyle,
 } from "react-native";
 import { colors } from "./colors";
 
-const styles = StyleSheet.create({
+const textStyles = StyleSheet.create({
   text: {
     color: colors.fontGrey,
     fontFamily: "serif",
+  },
+  caption: {
+    fontSize: 13,
+    paddingTop: 12,
+    alignSelf: "flex-end",
   },
   h1: {
     fontSize: 20,
@@ -46,6 +53,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     letterSpacing: 1.6,
     textTransform: "uppercase",
+    textAlign: "center",
+    paddingTop: 36,
   },
   h4: {
     fontSize: 14.4,
@@ -62,9 +71,10 @@ const styles = StyleSheet.create({
   },
   p: {
     fontSize: 14,
-    lineHeight: 23,
+    lineHeight: 24,
     fontWeight: "300",
     letterSpacing: 0.3,
+    paddingTop: 12,
   },
   people: {
     fontSize: 14,
@@ -91,73 +101,94 @@ const styles = StyleSheet.create({
   },
 });
 
+const elementStyles = StyleSheet.create({
+  hr: {
+    borderBottomColor: "#aaa",
+    borderBottomWidth: 1,
+  },
+});
+
 interface TextProps {
   style?: StyleProp<TextStyle>;
   children: any;
 }
 
+interface ViewProps {
+  style?: StyleProp<ViewStyle>;
+}
+
 export const Text = ({ style, children, ...props }: TextProps) => (
-  <NativeText style={[styles.text, style]} {...props}>
+  <NativeText style={[textStyles.text, style]} {...props}>
     {children}
   </NativeText>
 );
 
+export const Caption = ({ style, children, ...props }: TextProps) => (
+  <Text style={[textStyles.caption, style]} {...props}>
+    {children}
+  </Text>
+);
+
 export const H1 = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.h1, style]} {...props}>
+  <Text style={[textStyles.h1, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H2 = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.h2, style]} {...props}>
+  <Text style={[textStyles.h2, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H3 = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.h3, style]} {...props}>
+  <Text style={[textStyles.h3, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H4 = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.h4, style]} {...props}>
+  <Text style={[textStyles.h4, style]} {...props}>
     {children}
   </Text>
 );
 
 export const H5 = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.h5, style]} {...props}>
+  <Text style={[textStyles.h5, style]} {...props}>
     {children}
   </Text>
 );
 
-export const P = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.p, style]} {...props}>
+export const P = ({ children, style = {}, ...props }) => (
+  <Text style={[textStyles.p, style]} {...props}>
     {children}
   </Text>
 );
 
 export const People = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.people, style]} {...props}>
+  <Text style={[textStyles.people, style]} {...props}>
     {children}
   </Text>
 );
 
 export const Rubric = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.rubric, style]} {...props}>
+  <Text style={[textStyles.rubric, style]} {...props}>
     {children}
   </Text>
 );
 
 export const ChapterNumber = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.chapterNumber, style]} {...props}>
+  <Text style={[textStyles.chapterNumber, style]} {...props}>
     {children}
   </Text>
 );
 
 export const VerseNumber = ({ style, children, ...props }: TextProps) => (
-  <Text style={[styles.verseNumber, style]} {...props}>
+  <Text style={[textStyles.verseNumber, style]} {...props}>
     {children}
   </Text>
+);
+
+export const HR = ({ style, ...props }: ViewProps) => (
+  <View style={[elementStyles.hr, style]} {...props} />
 );

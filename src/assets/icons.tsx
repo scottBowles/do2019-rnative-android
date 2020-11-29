@@ -9,11 +9,15 @@ import {
 } from "@expo/vector-icons";
 
 export const ArrowLeft = ({ size = 14, color = "black", ...props }) => (
-  <FontAwesome name="arrow-left" size={size} color={color} />
+  <FontAwesome name="arrow-left" size={size} color={color} {...props} />
 );
 
 export const ArrowRight = ({ size = 14, color = "black", ...props }) => (
-  <FontAwesome name="arrow-right" size={size} color={color} />
+  <FontAwesome name="arrow-right" size={size} color={color} {...props} />
+);
+
+export const BibleIcon = ({ size = 14, color = "black", ...props }) => (
+  <FontAwesome5 name="bible" size={size} color={color} {...props} />
 );
 
 export const ChurchIcon = ({ size = 14, color = "black", ...props }) => (
@@ -39,6 +43,10 @@ export const CalendarDayIcon = ({ size = 12, color = "black", ...props }) => (
     color={color}
     {...props}
   />
+);
+
+export const CalendarDarkIcon = ({ size = 12, color = "black", ...props }) => (
+  <FontAwesome5 name="calendar" size={size} color={color} {...props} />
 );
 
 export const CalendarIcon = ({ size = 12, color = "black", ...props }) => (
