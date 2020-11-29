@@ -14,12 +14,11 @@
 
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
-import { useHistory, useParams } from "react-router-native";
+import { useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
 
-import { getLiturgicalYear, getLocalDate } from "common/utils";
 import { useCalendarData } from "data/calendarData";
-import { createDataProvider } from "data/calendarData/utils";
+import { createDataProvider, getStartValues } from "data/calendarData/utils";
 import { useIsMountedRef } from "data/common/useIsMountedRef";
 import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
@@ -27,31 +26,19 @@ import { LayoutProvider } from "./LayoutProvider";
 import { ListHeader } from "./ListHeader";
 import { LoadingAnimation } from "./LoadingAnimation";
 import { SectionHeader } from "./SectionHeader";
+import { useCalendarActions } from "./useCalendarActions";
 
 /**
  * Main component for Calendar screen -- primarily implements a RecyclerListView
  * See https://github.com/Flipkart/recyclerlistview
  * Incoming params optional. If date param is used, it should use toDateString or similar.
- * getLocalDate will ensure no timezone issues.
+ * getLocalDate will ensure no timezone issues, used in getStartValues.
  */
 export const Calendar: React.FC = () => {
   const isMountedRef = useIsMountedRef();
-  const history = useHistory();
   const listRef = useRef(null);
   const { year, date } = useParams<{ year: string; date: string }>();
-
-  let startDate;
-  let startYear;
-  if (date && year) {
-    const utcStartDate = new Date(date);
-    startDate = getLocalDate(utcStartDate);
-    startYear = getLiturgicalYear(startDate);
-  } else if (year) {
-    startYear = +year;
-  } else {
-    startDate = new Date();
-    startYear = getLiturgicalYear(startDate);
-  }
+  const { startYear, startDate } = getStartValues(year, date);
 
   /** Custom hook data service */
   const {
@@ -62,10 +49,14 @@ export const Calendar: React.FC = () => {
     getSeasonIndex,
   } = useCalendarData(startYear, isMountedRef);
 
+  const { jumpToDate, jumpToSeason, jumpToTop } = useCalendarActions({
+    listRef,
+    getDateIndex,
+    getSeasonIndex,
+  });
+
   /**
    * Fetches the startYear's data, prepares it, and updates dataSource
-   * IIFE pattern necessary because the function passed to useEffect must return
-   * either void or a clean-up function (not a Promise as getData returns)
    */
   useEffect(() => {
     (async () => {
@@ -76,8 +67,6 @@ export const Calendar: React.FC = () => {
       }
     })();
   }, []);
-
-  // useEffect(() => console.log({ dataSource }), [dataSource]);
 
   /** Renders data according to type, provided by RecyclerListView */
   const rowRenderer = (_: string | number, data: any) => {
@@ -91,30 +80,6 @@ export const Calendar: React.FC = () => {
     }
     return null;
   };
-
-  const jumpToDate = (date: Date): void => {
-    /** If date is in current data, scroll to date */
-    const index = getDateIndex(date);
-    const indexFound = index !== -1;
-    if (indexFound) {
-      return listRef.current.scrollToIndex(index);
-    }
-    /**
-     * If date is not in current data, route to /calendar/(liturgicalYear)/(dateString)
-     * toDateString is used to normalize date. getLocalDate in Calendar ensures no timezone issues.
-     */
-    const liturgicalYear = getLiturgicalYear(date);
-    const dateString = date.toDateString();
-    return history.push(`/calendar/${liturgicalYear}/${dateString}`);
-  };
-
-  const jumpToSeason = (season: string): void => {
-    const index = getSeasonIndex(season);
-    const indexFound = index !== -1;
-    indexFound && listRef.current.scrollToIndex(index);
-  };
-
-  const jumpToTop = (): void => listRef.current.scrollToTop();
 
   if (dataSource.length < 2) {
     return <LoadingAnimation />;

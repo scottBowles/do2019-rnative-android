@@ -1,6 +1,32 @@
 import { DataProvider } from "recyclerlistview";
+import { getLiturgicalYear, getLocalDate } from "common/utils";
 import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay } from "./models";
+
+/**
+ * Get start values for calendar based on year and date in route
+ * @param year Calendar year requested
+ * @param date Starting date requested (optional)
+ */
+export const getStartValues = (year?: string, date?: string) => {
+  let startDate: Date | undefined;
+  let startYear: number;
+
+  if (date && year) {
+    // If a start date is requested, make sure it plays nice with the local timezone and render its year
+    const utcStartDate = new Date(date);
+    startDate = getLocalDate(utcStartDate);
+    startYear = getLiturgicalYear(startDate);
+  } else if (year) {
+    // If only a year is requested, render that year from the top (with no date to jump to)
+    startYear = +year;
+  } else {
+    // Otherwise, render the current liturgical year and provide the current date to jump to
+    startDate = new Date();
+    startYear = getLiturgicalYear(startDate);
+  }
+  return { startYear, startDate };
+};
 
 /**
  * Fetch calendar data from the api
