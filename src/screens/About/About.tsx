@@ -4,6 +4,7 @@ import * as WebBrowser from "expo-web-browser";
 import { BibleIcon, CalendarDarkIcon } from "assets/icons";
 import { OutlineBtn } from "common/components";
 import { Caption, H3, HR, P, Text } from "styles/typography";
+import { ExternalLinks } from "assets/externalLinks";
 
 export const About: React.FC = () => (
   <ScrollView>
@@ -40,9 +41,7 @@ export const About: React.FC = () => (
         on the{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://bcp2019.anglicanchurch.net/index.php/downloads/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.BcpOfficialText);
           }}
         >
           website of the Anglican Church in North America
@@ -68,9 +67,7 @@ export const About: React.FC = () => (
         You can buy the 2019 Book of Common Prayer directly from{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://anglicanhousepublishers.org/prayer-books/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePrayerBooks);
           }}
         >
           Anglican House Publishers
@@ -98,9 +95,7 @@ export const About: React.FC = () => (
         Yes, try out the{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://www.dailyoffice2019.com/family"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Family);
           }}
         >
           Family Prayer version
@@ -131,7 +126,7 @@ export const About: React.FC = () => (
         by{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("https://anglicanhousepublishers.org/");
+            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePublishers);
           }}
         >
           Anglican House Publishers
@@ -148,7 +143,7 @@ export const About: React.FC = () => (
         All that said, please use what works for you.{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("http://bcp2019.com/");
+            WebBrowser.openBrowserAsync(ExternalLinks.LegeremeBcp2019);
           }}
         >
           Legereme / BCP 2019
@@ -156,9 +151,7 @@ export const About: React.FC = () => (
         or{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://www.incarnationbcs.org/morning-and-evening-prayer"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.IncarnationBcsME);
           }}
         >
           Church of the Incarnation, Bryan/College Station
@@ -166,7 +159,7 @@ export const About: React.FC = () => (
         are other great options for the 2019 prayer book texts.{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("https://www.venite.app/");
+            WebBrowser.openBrowserAsync(ExternalLinks.VeniteApp);
           }}
         >
           Venite.app
@@ -174,9 +167,7 @@ export const About: React.FC = () => (
         ,{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "http://www.stbedeproductions.com/breviary/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.StBedesBreviary);
           }}
         >
           St. Bede's Breviary
@@ -184,9 +175,7 @@ export const About: React.FC = () => (
         ,{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://www.missionstclare.com/english/index.html"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.MissionStClare);
           }}
         >
           Mission St. Clare
@@ -194,7 +183,7 @@ export const About: React.FC = () => (
         , and{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("https://dailyoffice.app/");
+            WebBrowser.openBrowserAsync(ExternalLinks.DailyOfficeApp);
           }}
         >
           dailyoffice.app
@@ -228,7 +217,7 @@ export const About: React.FC = () => (
         Much more ... if you would like to request a feature, email us at
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("mailto:feedback@dailyoffice2019.com");
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
           }}
         >
           feedback@dailyoffice2019.com
@@ -240,7 +229,7 @@ export const About: React.FC = () => (
         Send an email to{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("mailto:feedback@dailyoffice2019.com");
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
           }}
         >
           feedback@dailyoffice2019.com
@@ -248,9 +237,7 @@ export const About: React.FC = () => (
         or post in our{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://www.facebook.com/groups/dailyoffice"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Facebook);
           }}
         >
           Facebook group
@@ -282,9 +269,7 @@ export const About: React.FC = () => (
         If you are a coder, go to the{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://github.com/blocher/dailyoffice2019"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019GitHub);
           }}
         >
           GitHub repo
@@ -298,7 +283,7 @@ export const About: React.FC = () => (
         at{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("mailto:feedback@dailyoffice2019.com");
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
           }}
         >
           feedback@dailyoffice2019.com
@@ -321,7 +306,7 @@ export const About: React.FC = () => (
         <P
           onPress={() => {
             WebBrowser.openBrowserAsync(
-              "https://anglicanpastor.com/heres-the-acnas-final-daily-office-lectionary-in-a-single-spreadsheet/"
+              ExternalLinks.AnglicanCompassLectionarySpreadsheet
             );
           }}
         >
@@ -334,9 +319,7 @@ export const About: React.FC = () => (
         -{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://anglicanpastor.com/designed-for-mission-the-typography-of-the-acnas-new-prayer-book/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanCompassBCPDesign);
           }}
         >
           Fr. Ben Jefferies
@@ -348,7 +331,7 @@ export const About: React.FC = () => (
         -{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("https://liturgical-calendar.com/");
+            WebBrowser.openBrowserAsync(ExternalLinks.LiturgicalCalendar);
           }}
         >
           liturgical-calendar.com
@@ -359,9 +342,7 @@ export const About: React.FC = () => (
         -{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://saint-aelfric-customary.org/2020/01/07/a-guide-to-choosing-the-supplemental-canticles/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.StAelfricCanticleGuide);
           }}
         >
           Fr. Matthew Brench at St. Aelfric's Customary
@@ -373,7 +354,7 @@ export const About: React.FC = () => (
         -{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("https://anglicanhousepublishers.org/");
+            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePublishers);
           }}
         >
           Anglican House Publishers
@@ -385,7 +366,7 @@ export const About: React.FC = () => (
         and bug reports via{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync("mailto:feedback@dailyoffice2019.com");
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
           }}
         >
           feedback@dailyoffice2019.com
@@ -393,9 +374,7 @@ export const About: React.FC = () => (
         or the{" "}
         <P
           onPress={() => {
-            WebBrowser.openBrowserAsync(
-              "https://www.facebook.com/groups/dailyoffice/"
-            );
+            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Facebook);
           }}
         >
           Facebook Group
@@ -424,7 +403,7 @@ export const About: React.FC = () => (
       <H3>WEB ADDRESS</H3>
       <P
         onPress={() => {
-          WebBrowser.openBrowserAsync("https://www.dailyoffice2019.com/");
+          WebBrowser.openBrowserAsync(ExternalLinks.DO2019);
         }}
       >
         https://www.dailyoffice2019.com/ TODO:LINK STYLE
