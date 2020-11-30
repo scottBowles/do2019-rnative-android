@@ -1,10 +1,9 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import * as WebBrowser from "expo-web-browser";
 import { BibleIcon, CalendarDarkIcon } from "assets/icons";
 import { OutlineBtn } from "common/components";
-import { Caption, H3, HR, P, Text } from "styles/typography";
-import { ExternalLinks } from "assets/externalLinks";
+import { Caption, H3, HR, P, PLink, Text } from "styles/typography";
+import { ExternalLinks } from "assets/ExternalLinks";
 
 export const About: React.FC = () => (
   <ScrollView>
@@ -39,13 +38,9 @@ export const About: React.FC = () => (
         <P style={{ fontStyle: "italic" }}>The Book of Common Prayer (2019)</P>{" "}
         of the Anglican Church in North America. The official texts can be found
         on the{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.BcpOfficialText);
-          }}
-        >
+        <PLink link={ExternalLinks.BcpOfficialText}>
           website of the Anglican Church in North America
-        </P>
+        </PLink>
         . // TODO: LINK STYLE
       </P>
       <H3>
@@ -65,13 +60,9 @@ export const About: React.FC = () => (
       </P>
       <P>
         You can buy the 2019 Book of Common Prayer directly from{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePrayerBooks);
-          }}
-        >
+        <PLink link={ExternalLinks.AnglicanHousePrayerBooks}>
           Anglican House Publishers
-        </P>
+        </PLink>
         , which graciously sponsors this site. //TODO: LINK STYLE
       </P>
       <H3>WHICH TRANSLATION OF THE BIBLE IS USED?</H3>
@@ -93,15 +84,9 @@ export const About: React.FC = () => (
       <H3>IS THERE A SHORTER VERSION?</H3>
       <P>
         Yes, try out the{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Family);
-          }}
-        >
-          Family Prayer version
-        </P>
-        , which follows the same basic pattern but is much shorter. It has its
-        own dedicated settings page. TODO: LINK STYLE
+        <PLink link={ExternalLinks.DO2019Family}>Family Prayer version</PLink>,
+        which follows the same basic pattern but is much shorter. It has its own
+        dedicated settings page. TODO: LINK STYLE
       </P>
       <H3>
         CAN I CUSTOMIZE THE PRAYERS TO THE WAY I USUALLY PRAY THE DAILY OFFICE?
@@ -124,11 +109,7 @@ export const About: React.FC = () => (
         <P style={{ fontStyle: "italic" }}>The Book of Common Prayer (2019)</P>{" "}
         of the Anglican Church in North America. It is now financially supported
         by{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePublishers);
-          }}
-        >
+        <P link={ExternalLinks.AnglicanHousePublishers}>
           Anglican House Publishers
         </P>
         , which prints the prayerbook. TODO: LINK STYLE
@@ -141,53 +122,16 @@ export const About: React.FC = () => (
         the text, rubrics, and calendar of{" "}
         <P style={{ fontStyle: "italic" }}>The Book of Common Prayer (2019)</P>.
         All that said, please use what works for you.{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.LegeremeBcp2019);
-          }}
-        >
-          Legereme / BCP 2019
-        </P>{" "}
+        <PLink link={ExternalLinks.LegeremeBcp2019}>Legereme / BCP 2019</PLink>{" "}
         or{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.IncarnationBcsME);
-          }}
-        >
+        <PLink link={ExternalLinks.IncarnationBcsME}>
           Church of the Incarnation, Bryan/College Station
-        </P>{" "}
+        </PLink>{" "}
         are other great options for the 2019 prayer book texts.{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.VeniteApp);
-          }}
-        >
-          Venite.app
-        </P>
-        ,{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.StBedesBreviary);
-          }}
-        >
-          St. Bede's Breviary
-        </P>
-        ,{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.MissionStClare);
-          }}
-        >
-          Mission St. Clare
-        </P>
-        , and{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DailyOfficeApp);
-          }}
-        >
-          dailyoffice.app
-        </P>{" "}
+        <PLink link={ExternalLinks.VeniteApp}>Venite.app</PLink>,{" "}
+        <PLink link={ExternalLinks.StBedesBreviary}>St. Bede's Breviary</PLink>,{" "}
+        <PLink link={ExternalLinks.MissionStClare}>Mission St. Clare</PLink>,
+        and <PLink link={ExternalLinks.DailyOfficeApp}>dailyoffice.app</PLink>{" "}
         are great options for the 1979 prayer book texts. TODO: 6 LINK STYLES
       </P>
       <H3>HOW CAN I USE THIS SITE TO PRAY IN A GROUP OR REMOTELY?</H3>
@@ -214,38 +158,23 @@ export const About: React.FC = () => (
       <P>An easier group-praying experience</P>
       <P>Biographies for individual saints</P>
       <P>
-        Much more ... if you would like to request a feature, email us at
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
-          }}
-        >
+        Much more ... if you would like to request a feature, email us at{" "}
+        <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
-        </P>
+        </PLink>
         . TODO: LINK STYLE
       </P>
       <H3>WHERE CAN I PROVIDE FEEDBACK?</H3>
       <P>
         Send an email to{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
-          }}
-        >
+        <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
-        </P>{" "}
+        </PLink>{" "}
         or post in our{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Facebook);
-          }}
-        >
-          Facebook group
-        </P>
-        . We welcome suggestions for new features or ways to make this site
-        easier to use. We especially appreciate corrections for errors in the
-        text, calendar, or rubrics. TODO: 2 LINK STYLES && OPEN FB LINK IN FB
-        APP?
+        <PLink link={ExternalLinks.DO2019Facebook}>Facebook group</PLink>. We
+        welcome suggestions for new features or ways to make this site easier to
+        use. We especially appreciate corrections for errors in the text,
+        calendar, or rubrics. TODO: 2 LINK STYLES && OPEN FB LINK IN FB APP?
       </P>
       <H3>HOW MUCH OF SCRIPTURE IS READ?</H3>
       <P>
@@ -267,27 +196,17 @@ export const About: React.FC = () => (
       <P>Yes!</P>
       <P>
         If you are a coder, go to the{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019GitHub);
-          }}
-        >
-          GitHub repo
-        </P>
-        , look at the issues list, and consider contributing to the code base.
-        If you have an idea that isn't listed, just submit it as an issue and we
-        can discuss. TODO: LINK STYLE
+        <PLink link={ExternalLinks.DO2019GitHub}>GitHub repo</PLink>, look at
+        the issues list, and consider contributing to the code base. If you have
+        an idea that isn't listed, just submit it as an issue and we can
+        discuss. TODO: LINK STYLE
       </P>
       <P>
         If you aren't a coder, there are many other ways to help. Get in touch
         at{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
-          }}
-        >
+        <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
-        </P>
+        </PLink>
         . TODO: LINK STYLE
       </P>
       <H3>WHY HASN'T THE ADDRESS BEEN UPDATED TO DAILYOFFICE2020.COM?</H3>
@@ -303,82 +222,49 @@ export const About: React.FC = () => (
       </P>
       <P>
         -{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(
-              ExternalLinks.AnglicanCompassLectionarySpreadsheet
-            );
-          }}
-        >
+        <PLink link={ExternalLinks.AnglicanCompassLectionarySpreadsheet}>
           Fr. Joshua Steele at Anglican Compass
-        </P>{" "}
+        </PLink>{" "}
         for his spreadsheet of readings and ongoing advice and publicity TODO:
         LINK STYLE
       </P>
       <P>
         -{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanCompassBCPDesign);
-          }}
-        >
+        <PLink link={ExternalLinks.AnglicanCompassBCPDesign}>
           Fr. Ben Jefferies
-        </P>{" "}
+        </PLink>{" "}
         for his design inspiration, advice, and coordination with Anglican House
         Publishers (the publisher of the prayerbook) TODO: LINK STYLE
       </P>
       <P>
         -{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.LiturgicalCalendar);
-          }}
-        >
+        <PLink link={ExternalLinks.LiturgicalCalendar}>
           liturgical-calendar.com
-        </P>{" "}
+        </PLink>{" "}
         for providing the Sunday and holy day lectionary TODO: LINK STYLE
       </P>
       <P>
         -{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.StAelfricCanticleGuide);
-          }}
-        >
+        <PLink link={ExternalLinks.StAelfricCanticleGuide}>
           Fr. Matthew Brench at St. Aelfric's Customary
-        </P>{" "}
+        </PLink>{" "}
         for his work on the canticle schedule and other parts of the site TODO:
         LINK STYLE
       </P>
       <P>
         -{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.AnglicanHousePublishers);
-          }}
-        >
+        <PLink link={ExternalLinks.AnglicanHousePublishers}>
           Anglican House Publishers
-        </P>{" "}
+        </PLink>{" "}
         for financial support TODO: LINK STYLE
       </P>
       <P>
         Thanks also to the many users who have provided feedback, suggestions,
         and bug reports via{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019MailTo);
-          }}
-        >
+        <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
-        </P>{" "}
-        or the{" "}
-        <P
-          onPress={() => {
-            WebBrowser.openBrowserAsync(ExternalLinks.DO2019Facebook);
-          }}
-        >
-          Facebook Group
-        </P>
+        </PLink>{" "}
+        or the <PLink link={ExternalLinks.DO2019Facebook}>Facebook Group</PLink>
         . TODO: 2 LINK STYLES -- OPEN FB IN FB APP?
       </P>
       <HR />
@@ -401,13 +287,9 @@ export const About: React.FC = () => (
         </OutlineBtn>
       </View>
       <H3>WEB ADDRESS</H3>
-      <P
-        onPress={() => {
-          WebBrowser.openBrowserAsync(ExternalLinks.DO2019);
-        }}
-      >
+      <PLink link={ExternalLinks.DO2019}>
         https://www.dailyoffice2019.com/ TODO:LINK STYLE
-      </P>
+      </PLink>
     </View>
   </ScrollView>
 );

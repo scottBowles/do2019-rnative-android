@@ -21,6 +21,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
+import * as WebBrowser from "expo-web-browser";
 import { colors } from "./colors";
 
 const textStyles = StyleSheet.create({
@@ -76,6 +77,10 @@ const textStyles = StyleSheet.create({
     letterSpacing: 0.3,
     paddingTop: 12,
   },
+  pLink: {
+    color: colors.linkBlue,
+    textDecorationLine: "underline",
+  },
   people: {
     fontSize: 14,
     lineHeight: 24,
@@ -105,6 +110,7 @@ const elementStyles = StyleSheet.create({
   hr: {
     borderBottomColor: "#aaa",
     borderBottomWidth: 1,
+    width: "100%",
   },
 });
 
@@ -192,3 +198,17 @@ export const VerseNumber = ({ style, children, ...props }: TextProps) => (
 export const HR = ({ style, ...props }: ViewProps) => (
   <View style={[elementStyles.hr, style]} {...props} />
 );
+
+export const withLink = (Component) => ({ link, ...props }) => (
+  <Component
+    onPress={() => {
+      WebBrowser.openBrowserAsync(link);
+    }}
+    {...props}
+  />
+);
+
+export const PLink = ({ link, style, ...props }) => {
+  const C = withLink(P);
+  return <C link={link} style={[textStyles.pLink, style]} {...props} />;
+};
