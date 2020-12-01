@@ -41,7 +41,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.BcpOfficialText}>
           website of the Anglican Church in North America
         </PLink>
-        . // TODO: LINK STYLE
+        .
       </P>
       <H3>
         IS THIS SITE A COMPLETE SUBSTITUTE FOR THE PAPER BOOK OF COMMON PRAYER?
@@ -63,7 +63,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.AnglicanHousePrayerBooks}>
           Anglican House Publishers
         </PLink>
-        , which graciously sponsors this site. //TODO: LINK STYLE
+        , which graciously sponsors this site.
       </P>
       <H3>WHICH TRANSLATION OF THE BIBLE IS USED?</H3>
       <P>
@@ -86,7 +86,7 @@ export const About: React.FC = () => (
         Yes, try out the{" "}
         <PLink link={ExternalLinks.DO2019Family}>Family Prayer version</PLink>,
         which follows the same basic pattern but is much shorter. It has its own
-        dedicated settings page. TODO: LINK STYLE
+        dedicated settings page.
       </P>
       <H3>
         CAN I CUSTOMIZE THE PRAYERS TO THE WAY I USUALLY PRAY THE DAILY OFFICE?
@@ -109,10 +109,10 @@ export const About: React.FC = () => (
         <P style={{ fontStyle: "italic" }}>The Book of Common Prayer (2019)</P>{" "}
         of the Anglican Church in North America. It is now financially supported
         by{" "}
-        <P link={ExternalLinks.AnglicanHousePublishers}>
+        <PLink link={ExternalLinks.AnglicanHousePublishers}>
           Anglican House Publishers
-        </P>
-        , which prints the prayerbook. TODO: LINK STYLE
+        </PLink>
+        , which prints the prayerbook.
       </P>
       <H3>WHY SHOULD I USE THIS SITE INSTEAD OF THE OTHERS ALSO AVAILABLE?</H3>
       <P>
@@ -132,7 +132,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.StBedesBreviary}>St. Bede's Breviary</PLink>,{" "}
         <PLink link={ExternalLinks.MissionStClare}>Mission St. Clare</PLink>,
         and <PLink link={ExternalLinks.DailyOfficeApp}>dailyoffice.app</PLink>{" "}
-        are great options for the 1979 prayer book texts. TODO: 6 LINK STYLES
+        are great options for the 1979 prayer book texts.
       </P>
       <H3>HOW CAN I USE THIS SITE TO PRAY IN A GROUP OR REMOTELY?</H3>
       <P>
@@ -162,7 +162,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
         </PLink>
-        . TODO: LINK STYLE
+        .
       </P>
       <H3>WHERE CAN I PROVIDE FEEDBACK?</H3>
       <P>
@@ -174,7 +174,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.DO2019Facebook}>Facebook group</PLink>. We
         welcome suggestions for new features or ways to make this site easier to
         use. We especially appreciate corrections for errors in the text,
-        calendar, or rubrics. TODO: 2 LINK STYLES && OPEN FB LINK IN FB APP?
+        calendar, or rubrics. TODO: OPEN FB LINK IN FB APP?
       </P>
       <H3>HOW MUCH OF SCRIPTURE IS READ?</H3>
       <P>
@@ -199,7 +199,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.DO2019GitHub}>GitHub repo</PLink>, look at
         the issues list, and consider contributing to the code base. If you have
         an idea that isn't listed, just submit it as an issue and we can
-        discuss. TODO: LINK STYLE
+        discuss.
       </P>
       <P>
         If you aren't a coder, there are many other ways to help. Get in touch
@@ -207,7 +207,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.DO2019MailTo}>
           feedback@dailyoffice2019.com
         </PLink>
-        . TODO: LINK STYLE
+        .
       </P>
       <H3>WHY HASN'T THE ADDRESS BEEN UPDATED TO DAILYOFFICE2020.COM?</H3>
       <P>
@@ -225,8 +225,7 @@ export const About: React.FC = () => (
         <PLink link={ExternalLinks.AnglicanCompassLectionarySpreadsheet}>
           Fr. Joshua Steele at Anglican Compass
         </PLink>{" "}
-        for his spreadsheet of readings and ongoing advice and publicity TODO:
-        LINK STYLE
+        for his spreadsheet of readings and ongoing advice and publicity
       </P>
       <P>
         -{" "}
@@ -234,29 +233,28 @@ export const About: React.FC = () => (
           Fr. Ben Jefferies
         </PLink>{" "}
         for his design inspiration, advice, and coordination with Anglican House
-        Publishers (the publisher of the prayerbook) TODO: LINK STYLE
+        Publishers (the publisher of the prayerbook)
       </P>
       <P>
         -{" "}
         <PLink link={ExternalLinks.LiturgicalCalendar}>
           liturgical-calendar.com
         </PLink>{" "}
-        for providing the Sunday and holy day lectionary TODO: LINK STYLE
+        for providing the Sunday and holy day lectionary
       </P>
       <P>
         -{" "}
         <PLink link={ExternalLinks.StAelfricCanticleGuide}>
           Fr. Matthew Brench at St. Aelfric's Customary
         </PLink>{" "}
-        for his work on the canticle schedule and other parts of the site TODO:
-        LINK STYLE
+        for his work on the canticle schedule and other parts of the site
       </P>
       <P>
         -{" "}
         <PLink link={ExternalLinks.AnglicanHousePublishers}>
           Anglican House Publishers
         </PLink>{" "}
-        for financial support TODO: LINK STYLE
+        for financial support
       </P>
       <P>
         Thanks also to the many users who have provided feedback, suggestions,
@@ -265,7 +263,7 @@ export const About: React.FC = () => (
           feedback@dailyoffice2019.com
         </PLink>{" "}
         or the <PLink link={ExternalLinks.DO2019Facebook}>Facebook Group</PLink>
-        . TODO: 2 LINK STYLES -- OPEN FB IN FB APP?
+        . TODO: OPEN FB IN FB APP?
       </P>
       <HR />
       <P>testtesttest</P>
@@ -288,7 +286,7 @@ export const About: React.FC = () => (
       </View>
       <H3>WEB ADDRESS</H3>
       <PLink link={ExternalLinks.DO2019}>
-        https://www.dailyoffice2019.com/ TODO:LINK STYLE
+        https://www.dailyoffice2019.com/
       </PLink>
     </View>
   </ScrollView>
