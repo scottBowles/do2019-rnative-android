@@ -108,7 +108,16 @@ const pLinkStyle = styled(P)`
   text-decoration-line: underline;
 `;
 
-export const PLink = ({ link, ...props }: { link: string }) => {
+interface IPLink {
+  link: string;
+  children: React.ReactNode;
+}
+
+export const PLink = ({ link, children, ...props }: IPLink) => {
   const C = withLink(pLinkStyle);
-  return <C link={link} {...props} />;
+  return (
+    <C link={link} {...props}>
+      {children}
+    </C>
+  );
 };

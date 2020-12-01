@@ -7,15 +7,16 @@ interface WithLinkTypes {
 
 /**
  * Allows a url to be passed to a `link` prop for external links
- * @param Component Component to be made an external link
+ * @param Co Component to be made an external link
  */
-export const withLink = <P extends object>(
-  Component: React.ComponentType<P>
-): React.ComponentType<P & WithLinkTypes> => ({ link, ...props }) => (
-  <Component
-    onPress={() => {
-      WebBrowser.openBrowserAsync(link);
-    }}
-    {...(props as P)}
-  />
-);
+export function withLink<P extends {}>(Component: React.ComponentType<P>) {
+  const C = (props: WithLinkTypes & P) => (
+    <Component
+      onPress={() => {
+        WebBrowser.openBrowserAsync(props.link);
+      }}
+      {...(props as P)}
+    />
+  );
+  return C;
+}
