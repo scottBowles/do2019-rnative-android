@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import { NativeRouter as Router, Route, Switch } from "react-router-native";
 import Constants from "expo-constants";
 import { Menu } from "common/components";
-import { About, Calendar, Office, Settings } from "screens";
+import { About, Calendar, Office, PrivacyPolicy, Settings } from "screens";
 
 export default function App() {
   return (
@@ -14,22 +14,18 @@ export default function App() {
         <Menu />
         <Switch>
           <Route exact path="/">
-            <About />
+            <PrivacyPolicy />
           </Route>
           {/* <Route path="/office">
             <Office />
           </Route> */}
           <Route
             path="/calendar/:year/:date"
-            render={({ location, ...rest }) => (
-              <Calendar key={location.pathname} {...rest} />
-            )}
+            render={({ location, ...rest }) => <Calendar key={location.pathname} {...rest} />}
           />
           <Route
             path="/calendar/:year"
-            render={({ location, ...rest }) => (
-              <Calendar key={location.pathname} {...rest} />
-            )}
+            render={({ location, ...rest }) => <Calendar key={location.pathname} {...rest} />}
           />
           <Route path="/calendar">
             <Calendar />
@@ -39,6 +35,9 @@ export default function App() {
           </Route>
           <Route path="/settings">
             <Settings />
+          </Route>
+          <Route path="/privacy">
+            <PrivacyPolicy />
           </Route>
         </Switch>
       </SafeAreaView>
