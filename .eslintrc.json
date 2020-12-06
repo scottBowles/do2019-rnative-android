@@ -1,0 +1,11 @@
+{
+  "extends": "universe/native",
+  "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ]
+  }
+}
