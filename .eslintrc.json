@@ -4,7 +4,8 @@
     "sort-imports": [
       "error",
       {
-        "ignoreDeclarationSort": true
+        "ignoreDeclarationSort": true,
+        "allowSeparatedGroups": true
       }
     ]
   }
