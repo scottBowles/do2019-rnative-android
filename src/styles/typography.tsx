@@ -7,9 +7,24 @@
 import { withLink } from "common/components/HOCs/withLink";
 import React from "react";
 import { Text as NativeText, View } from "react-native";
+import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
 import { colors } from "./colors";
+
+type TStyledComponent = StyledComponent<any, any, object, never>;
+
+type TTextStyledComponent = StyledComponent<
+  typeof NativeText,
+  any,
+  object,
+  never
+>;
+
+interface ILink {
+  link: string;
+  children: React.ReactNode;
+}
 
 export const Text = styled(NativeText)`
   color: ${colors.fontGrey};
@@ -109,21 +124,36 @@ export const HR = styled(View)`
   width: 100%;
 `;
 
-const pLinkStyle = styled(P)`
+/**
+ * Adds generic link styles to the given component
+ * @param base Base styled component to add link styles to
+ */
+const addLinkStylesTo = (base: TTextStyledComponent) => styled(base)`
   color: ${colors.linkBlue};
   text-decoration-line: underline;
 `;
 
-interface IPLink {
-  link: string;
-  children: React.ReactNode;
-}
-
-export const PLink = ({ link, children, ...props }: IPLink) => {
-  const C = withLink(pLinkStyle);
+/**
+ * Creates a component that turns content into an external link to the link given
+ * to the `link` prop
+ * @param base Base styled component to turn into an external link. User is responsible
+ * for using appropriate styles for a link.
+ */
+const createStyledLink = (base: TStyledComponent) => ({
+  link,
+  children,
+  ...props
+}: ILink) => {
+  const C = withLink(base);
   return (
     <C link={link} {...props}>
       {children}
     </C>
   );
 };
+
+const PWithLinkStyles = addLinkStylesTo(P);
+export const PLink = createStyledLink(PWithLinkStyles);
+
+const SmallItalicsWithLinkStyles = addLinkStylesTo(SmallItalics);
+export const SmallItalicsLink = createStyledLink(SmallItalicsWithLinkStyles);
