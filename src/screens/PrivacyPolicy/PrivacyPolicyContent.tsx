@@ -1,6 +1,14 @@
+/**
+ * This page contains the content for the Privacy Policy page, with styling
+ * primarily determined by incoming styled component props. To change content,
+ * change here. To change styling, either change the styled component (to change
+ * everywhere in the app) or give an incoming prop a different styled component
+ * to use (to change only here).
+ */
+
 import { ExternalLinks } from "assets/ExternalLinks";
 import React from "react";
-import { Text as NativeText, StyleSheet } from "react-native";
+import { Text as NativeText, StyleSheet, View } from "react-native";
 import { StyledComponent } from "styled-components";
 
 const styles = StyleSheet.create({
@@ -29,7 +37,7 @@ export const PrivacyPolicyContent = ({
   Para,
   ParaLink,
 }: IProps) => (
-  <>
+  <View>
     <Title>Privacy Policy</Title>
     <Para>
       This policy applies to all information collected or submitted on{" "}
@@ -141,5 +149,5 @@ export const PrivacyPolicyContent = ({
       </ParaLink>
       .
     </Para>
-  </>
+  </View>
 );

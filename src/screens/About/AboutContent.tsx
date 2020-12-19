@@ -1,6 +1,6 @@
 import { ExternalLinks } from "assets/ExternalLinks";
 import React from "react";
-import { Text as NativeText } from "react-native";
+import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
 
 interface IProps {
@@ -24,7 +24,7 @@ export const AboutContent = ({
   Caption,
   ParaLink,
 }: IProps) => (
-  <>
+  <View>
     <Title>About</Title>
     <Heading>WHAT IS THIS SITE FOR?</Heading>
     <Para>
@@ -307,5 +307,5 @@ export const AboutContent = ({
       <ParaLink link={ExternalLinks.DO2019Facebook}>Facebook Group</ParaLink>.
       TODO: OPEN FB IN FB APP?
     </Para>
-  </>
+  </View>
 );
