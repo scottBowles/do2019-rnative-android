@@ -8,6 +8,7 @@ import { withLink } from "common/components/HOCs/withLink";
 import React from "react";
 import { Text as NativeText, View } from "react-native";
 import styled from "styled-components/native";
+
 import { colors } from "./colors";
 
 export const Text = styled(NativeText)`
@@ -68,6 +69,11 @@ export const P = styled(Text)`
   font-weight: 300;
   letter-spacing: 0.3px;
   padding-top: 12px;
+`;
+
+export const SmallItalics = styled(P)`
+  font-size: 12.8px;
+  font-style: italic;
 `;
 
 export const People = styled(Text)`

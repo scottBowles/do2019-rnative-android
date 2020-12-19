@@ -7,6 +7,7 @@ interface IProps {
   Title: StyledComponent<typeof NativeText, any, object, never>;
   Heading: StyledComponent<typeof NativeText, any, object, never>;
   Para: StyledComponent<typeof NativeText, any, object, never>;
+  ParaItalic: StyledComponent<typeof NativeText, any, object, never>;
   Caption: StyledComponent<typeof NativeText, any, object, never>;
   ParaLink: ({
     link,
@@ -21,6 +22,7 @@ export const AboutContent = ({
   Title,
   Heading,
   Para,
+  ParaItalic,
   Caption,
   ParaLink,
 }: IProps) => (
@@ -33,12 +35,9 @@ export const AboutContent = ({
       makes it easy to pray daily morning, midday, evening, and compline
       (bedtime) prayer without flipping pages, searching for scripture readings
       or calendars, or interpreting rubrics. The prayers are presented from{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>{" "}
-      of the Anglican Church in North America and reflect the ancient patterns
-      of daily prayer Christians have used since the earliest days of the
-      church.
+      <ParaItalic>The Book of Common Prayer (2019)</ParaItalic> of the Anglican
+      Church in North America and reflect the ancient patterns of daily prayer
+      Christians have used since the earliest days of the church.
     </Para>
     <Heading>WHAT IS THE DAILY OFFICE?</Heading>
     <Para>
@@ -53,12 +52,9 @@ export const AboutContent = ({
     <Para>
       These prayers are excellent for use by Christians of any tradition, but
       this site is intended to accurately reflect the liturgy, calendar, and
-      rubrics of{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>{" "}
-      of the Anglican Church in North America. The official texts can be found
-      on the{" "}
+      rubrics of <ParaItalic>The Book of Common Prayer (2019)</ParaItalic> of
+      the Anglican Church in North America. The official texts can be found on
+      the{" "}
       <ParaLink link={ExternalLinks.BcpOfficialText}>
         website of the Anglican Church in North America
       </ParaLink>
@@ -91,12 +87,9 @@ export const AboutContent = ({
       Scripture readings are taken from the English Standard Version. Readings
       from the Deuterocanon (Apocrypha) are taken from the Revised Standard
       Version. The Psalter is the New Coverdale Psalter from{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>
-      .
+      <ParaItalic>The Book of Common Prayer (2019)</ParaItalic>.
     </Para>
-    <Para style={{ fontStyle: "italic" }}>
+    <ParaItalic>
       Scripture quotations are from the ESV® Bible (The Holy Bible, English
       Standard Version®), copyright © 2001 by Crossway Bibles, a publishing
       ministry of Good News Publishers. Used by permission. All rights reserved.
@@ -104,7 +97,7 @@ export const AboutContent = ({
       the Division of Christian Education of the National Council of the
       Churches of Christ in the United States of America. Used by permission.
       All rights reserved.
-    </Para>
+    </ParaItalic>
     <Heading>IS THERE A SHORTER VERSION?</Heading>
     <Para>
       Yes, try out the{" "}
@@ -123,22 +116,16 @@ export const AboutContent = ({
       "Settings". Currently, it is possible to change from a one-year to a
       two-year cycle of scripture readings, switch from a sixty-day cycle to a
       thirty-day cycle of psalms, and make other choices as permitted in the
-      rubrics of{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>
-      . More options are coming soon. Your settings will be saved the next time
-      you pray on the same computer/phone/device and browser.
+      rubrics of <ParaItalic>The Book of Common Prayer (2019)</ParaItalic>. More
+      options are coming soon. Your settings will be saved the next time you
+      pray on the same computer/phone/device and browser.
     </Para>
     <Heading>IS THIS AN OFFICIAL PROJECT?</Heading>
     <Para>
       This site and app were built as a personal project. They intend, as much
       as possible, to accurately reflect{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>{" "}
-      of the Anglican Church in North America. It is now financially supported
-      by{" "}
+      <ParaItalic>The Book of Common Prayer (2019)</ParaItalic> of the Anglican
+      Church in North America. It is now financially supported by{" "}
       <ParaLink link={ExternalLinks.AnglicanHousePublishers}>
         Anglican House Publishers
       </ParaLink>
@@ -152,10 +139,8 @@ export const AboutContent = ({
       while being extremely flexible for those who want a greater level of
       control over how they pray. They are also very accurate and faithful to
       the text, rubrics, and calendar of{" "}
-      <Para style={{ fontStyle: "italic" }}>
-        The Book of Common Prayer (2019)
-      </Para>
-      . All that said, please use what works for you.{" "}
+      <ParaItalic>The Book of Common Prayer (2019)</ParaItalic>. All that said,
+      please use what works for you.{" "}
       <ParaLink link={ExternalLinks.LegeremeBcp2019}>
         Legereme / BCP 2019
       </ParaLink>{" "}

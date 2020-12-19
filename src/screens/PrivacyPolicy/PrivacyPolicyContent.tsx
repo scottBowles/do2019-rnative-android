@@ -8,20 +8,14 @@
 
 import { ExternalLinks } from "assets/ExternalLinks";
 import React from "react";
-import { Text as NativeText, StyleSheet, View } from "react-native";
+import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
-
-const styles = StyleSheet.create({
-  smallItalic: {
-    fontSize: 12.8,
-    fontStyle: "italic",
-  },
-});
 
 interface IProps {
   Title: StyledComponent<typeof NativeText, any, object, never>;
   Heading: StyledComponent<typeof NativeText, any, object, never>;
   Para: StyledComponent<typeof NativeText, any, object, never>;
+  ParaItalic: StyledComponent<typeof NativeText, any, object, never>;
   ParaLink: ({
     link,
     children,
@@ -35,16 +29,17 @@ export const PrivacyPolicyContent = ({
   Title,
   Heading,
   Para,
+  ParaItalic,
   ParaLink,
 }: IProps) => (
   <View>
     <Title>Privacy Policy</Title>
     <Para>
       This policy applies to all information collected or submitted on{" "}
-      <Para style={styles.smallItalic}>
+      <ParaItalic>
         The Daily Office, Morning and Evening Prayer according to the Book of
         Common Prayer, 2019, Anglican Church in North America
-      </Para>{" "}
+      </ParaItalic>{" "}
       website and apps for iOS, Android, and any other devices and platforms.
     </Para>
     <Heading>INFORMATION WE COLLECT</Heading>
