@@ -13,14 +13,14 @@ export const Footer: React.FC = () => (
     <H3>RESOURCES</H3>
     <View style={styles.buttonsContainer}>
       <OutlineBtn style={styles.outlineBtn}>
-        <BibleIcon />
+        <BibleIcon size={12} style={styles.icon} />
         <Text>
           <Text style={styles.firstLetter}>P</Text>
           <Text style={styles.item}>salter</Text>
         </Text>
       </OutlineBtn>
       <OutlineBtn style={styles.outlineBtn}>
-        <CalendarDarkIcon />
+        <CalendarDarkIcon style={styles.icon} />
         <Text>
           <Text style={styles.firstLetter}>C</Text>
           <Text style={styles.item}>alendar (ical file)</Text>
@@ -36,11 +36,17 @@ export const Footer: React.FC = () => (
 const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 8,
+    justifyContent: "center",
+    marginTop: 15,
+    width: "100%",
   },
   outlineBtn: {
     flexDirection: "row",
+    paddingVertical: 6,
+    marginHorizontal: 3,
+  },
+  icon: {
+    marginRight: 4,
   },
   item: {
     fontSize: 11,

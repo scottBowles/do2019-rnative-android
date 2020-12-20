@@ -1,4 +1,3 @@
-import React from "react";
 import {
   AntDesign,
   Feather,
@@ -7,6 +6,7 @@ import {
   Ionicons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import React from "react";
 
 export const ArrowLeft = ({ size = 14, color = "black", ...props }) => (
   <FontAwesome name="arrow-left" size={size} color={color} {...props} />
