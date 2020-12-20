@@ -1,4 +1,5 @@
 import { MutableRefObject, useState } from "react";
+
 import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
@@ -66,7 +67,6 @@ export const useCalendarData = (
         item.month === month &&
         item.year === year
     );
-    console.log({ index });
     return index;
   };
 

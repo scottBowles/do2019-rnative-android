@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-
 import {
   CalendarDayIcon,
   CalendarIcon,
@@ -9,8 +6,11 @@ import {
   ToTopIcon,
 } from "assets/icons";
 import { toTitleCase } from "common/utils";
+import React, { useState } from "react";
+import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
 import { colors } from "styles/colors";
 import { Text } from "styles/typography";
+
 import { SeasonModal } from "./SeasonModal";
 
 interface Props {
@@ -59,8 +59,8 @@ export const CalendarNavBar: React.FC<Props> = ({
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
-          mode={"date"}
-          is24Hour={true}
+          mode="date"
+          is24Hour
           display="default"
           onChange={onDateChange}
         />

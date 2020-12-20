@@ -1,9 +1,9 @@
-import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
-import { NativeRouter as Router, Route, Switch } from "react-router-native";
-import Constants from "expo-constants";
 import { Menu } from "common/components";
+import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { Route, NativeRouter as Router, Switch } from "react-router-native";
 import { About, Calendar, Office, PrivacyPolicy, Settings } from "screens";
 
 export default function App() {
@@ -21,11 +21,15 @@ export default function App() {
           </Route> */}
           <Route
             path="/calendar/:year/:date"
-            render={({ location, ...rest }) => <Calendar key={location.pathname} {...rest} />}
+            render={({ location, ...rest }) => (
+              <Calendar key={location.pathname} {...rest} />
+            )}
           />
           <Route
             path="/calendar/:year"
-            render={({ location, ...rest }) => <Calendar key={location.pathname} {...rest} />}
+            render={({ location, ...rest }) => (
+              <Calendar key={location.pathname} {...rest} />
+            )}
           />
           <Route path="/calendar">
             <Calendar />
