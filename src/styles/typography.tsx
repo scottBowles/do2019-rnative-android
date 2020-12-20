@@ -139,7 +139,7 @@ const addLinkStylesTo = (base: TTextStyledComponent) => styled(base)`
  * @param base Base styled component to turn into an external link. User is responsible
  * for using appropriate styles for a link.
  */
-const createStyledLink = (base: TStyledComponent) => ({
+export const createStyledLink = (base: TStyledComponent) => ({
   link,
   children,
   ...props

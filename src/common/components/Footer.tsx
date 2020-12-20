@@ -4,6 +4,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { H3, HR, PLink, Text } from "styles/typography";
 
+import { AnglicanHousePublishers } from "./AnglicanHousePublishers";
 import { OutlineBtn } from "./OutlineBtn";
 
 export const Footer: React.FC = () => (
@@ -26,8 +27,9 @@ export const Footer: React.FC = () => (
         </Text>
       </OutlineBtn>
     </View>
-    <H3>WEB ADDRESS</H3>
+    <H3>Find us on the web</H3>
     <PLink link={ExternalLinks.DO2019}>https://www.dailyoffice2019.com/</PLink>
+    <AnglicanHousePublishers />
   </>
 );
 

@@ -1,6 +1,8 @@
 export enum ExternalLinks {
   AnglicanCompassBCPDesign = "https://anglicanpastor.com/designed-for-mission-the-typography-of-the-acnas-new-prayer-book/",
   AnglicanCompassLectionarySpreadsheet = "https://anglicanpastor.com/heres-the-acnas-final-daily-office-lectionary-in-a-single-spreadsheet/",
+  AnglicanHouseChurchPage = "https://anglicanhousepublishers.org/church/",
+  AnglicanHouseESV = "https://anglicanhousepublishers.org/shop/the-esv-bible-with-apocrypha/",
   AnglicanHousePrayerBooks = "https://anglicanhousepublishers.org/prayer-books/",
   AnglicanHousePublishers = "https://anglicanhousepublishers.org/",
   BcpOfficialText = "https://bcp2019.anglicanchurch.net/index.php/downloads/",
