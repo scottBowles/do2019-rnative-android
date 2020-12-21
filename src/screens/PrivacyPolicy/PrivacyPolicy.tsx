@@ -23,6 +23,6 @@ export const PrivacyPolicy: React.FC = () => (
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    margin: 22,
+    padding: 22.4,
   },
 });
