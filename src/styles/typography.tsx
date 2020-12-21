@@ -11,6 +11,7 @@ import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
 import { colors } from "./colors";
+import { fonts } from "./fonts";
 
 type TStyledComponent = StyledComponent<any, any, object, never>;
 
@@ -28,7 +29,7 @@ interface ILink {
 
 export const Text = styled(NativeText)`
   color: ${colors.fontGrey};
-  font-family: serif;
+  font-family: ${fonts.primary.regular};
 `;
 
 export const Caption = styled(Text)`
@@ -40,14 +41,12 @@ export const Caption = styled(Text)`
 export const H1 = styled(Text)`
   font-size: 20px;
   line-height: 20px;
-  font-weight: 500;
   text-transform: uppercase;
   text-align: center;
 `;
 
 export const H2 = styled(Text)`
   font-size: 16.3px;
-  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
@@ -56,7 +55,6 @@ export const H2 = styled(Text)`
 export const H3 = styled(Text)`
   font-size: 16px;
   line-height: 22.4px;
-  font-weight: 600;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   text-align: center;
@@ -66,55 +64,48 @@ export const H3 = styled(Text)`
 export const H4 = styled(Text)`
   font-size: 14.4px;
   line-height: 16px;
-  font-weight: 600;
   letter-spacing: 1.6px;
-  font-style: italic;
+  font-family: ${fonts.primary.semiboldItalic};
 `;
 
 export const H5 = styled(Text)`
   font-size: 13px;
-  font-weight: 300;
   text-transform: uppercase;
-  font-family: serif;
 `;
 
 export const P = styled(Text)`
   font-size: 14px;
   line-height: 24px;
-  font-weight: 300;
   letter-spacing: 0.3px;
   padding-top: 12px;
 `;
 
 export const SmallItalics = styled(P)`
-  font-size: 12.8px;
-  font-style: italic;
+  /* font-size: 12.8px; */
+  font-family: ${fonts.primary.italic};
 `;
 
 export const People = styled(Text)`
   font-size: 14px;
   line-height: 24px;
-  font-weight: 700;
+  font-family: ${fonts.primary.semibold};
 `;
 
 export const Rubric = styled(Text)`
   font-size: 10.75px;
-  font-weight: 300;
-  font-style: italic;
+  font-family: ${fonts.primary.italic};
   margin-vertical: 10px;
 `;
 
 export const ChapterNumber = styled(Text)`
   font-size: 24px;
   line-height: 25.6px;
-  font-weight: 300;
   letter-spacing: 1px;
 `;
 
 export const VerseNumber = styled(Text)`
   font-size: 9.6px;
   line-height: 25.6px;
-  font-weight: 300;
   letter-spacing: 1px;
 `;
 
