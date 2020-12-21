@@ -1,4 +1,5 @@
 import { getLocalDate } from "common/utils/getLocalDate";
+
 import {
   ApiCalendarDay,
   Commemoration,
@@ -21,9 +22,10 @@ export class CalendarDay implements IParsedDate {
     const {
       date_description: { day, month_name, weekday, year },
       season,
-      fast: fast_day,
+      fast: { fast_day },
       commemorations,
     } = apiDay;
+
     this.dayOfMonth = +day;
     this.fullMonth = month_name;
     this.month = month_name.slice(0, 3);

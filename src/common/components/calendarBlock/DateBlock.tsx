@@ -14,10 +14,10 @@
  *
  */
 
-import React from "react";
-import { StyleSheet, View } from "react-native";
 import { CrossIcon } from "assets/icons";
 import { CalendarDay } from "data/calendarData/models";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import { colors } from "styles/colors";
 import { Text } from "styles/typography";
 
