@@ -7,12 +7,12 @@
  *
  */
 
+import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Link } from "react-router-native";
-
 import { Text } from "styles/typography";
-import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
+
 import { OutlineBtn } from "./OutlineBtn";
 
 export const Menu: React.FC = () => {
@@ -40,7 +40,7 @@ export const Menu: React.FC = () => {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={styles.menuContainer}>
       {menuItems.map((item, index) => (
         <Link
           to={item.route}
@@ -49,11 +49,13 @@ export const Menu: React.FC = () => {
           key={index}
         >
           <OutlineBtn style={styles.outlineBtn}>
-            {item.icon}
-            <Text>
-              <Text style={styles.firstLetter}>{item.text[0]}</Text>
-              <Text style={styles.item}>{item.text.slice(1)}</Text>
-            </Text>
+            <View style={styles.btnContent}>
+              {item.icon}
+              <Text style={styles.textContainer}>
+                <Text style={styles.firstLetter}>{item.text[0]}</Text>
+                <Text style={styles.text}>{item.text.slice(1)}</Text>
+              </Text>
+            </View>
           </OutlineBtn>
         </Link>
       ))}
@@ -62,26 +64,39 @@ export const Menu: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  menuContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 8,
   },
+  linkItem: {
+    borderRadius: 11,
+  },
   outlineBtn: {
     flexDirection: "row",
+    padding: 6.6,
+    margin: 3.3,
   },
-  linkItem: {
-    borderRadius: 10,
+  btnContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    height: 16,
   },
-  item: {
-    fontSize: 11,
-    textTransform: "uppercase",
-  },
-  firstLetter: {
-    fontSize: 15,
-    textTransform: "uppercase",
+  textContainer: {
+    alignItems: "baseline",
+    top: 3,
   },
   icons: {
-    marginRight: 4,
+    marginRight: 2,
+  },
+  firstLetter: {
+    fontSize: 16,
+    letterSpacing: 0.66,
+    textTransform: "uppercase",
+  },
+  text: {
+    fontSize: 11,
+    textTransform: "uppercase",
+    textAlignVertical: "center",
   },
 });

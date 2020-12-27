@@ -15,10 +15,8 @@ export const OutlineBtn: React.FC<Props> = ({ children, style, ...props }) => (
 
 const styles = StyleSheet.create({
   itemContainer: {
-    alignItems: "center",
-    padding: 8,
     borderColor: colors.fontGrey,
-    borderRadius: 10,
     borderWidth: 1,
+    borderRadius: 11,
   },
 });
