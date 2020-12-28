@@ -1,32 +1,17 @@
-import React from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
+import styled from "styled-components/native";
 import { colors } from "styles/colors";
 
-interface Props {
+interface IProps {
   color: string;
-  dimension?: number; // should this be string?
-  style?: StyleProp<ViewStyle>; // need to figure out style types
+  dimension?: number;
 }
 
 /**
  * Creates a colored box
  */
-export const ColorBox: React.FC<Props> = ({
-  color,
-  dimension,
-  style,
-  ...props
-}) => <View style={[colorBoxStyle({ color, dimension }), style]} {...props} />;
-
-interface StyleArgs {
-  color: string;
-  dimension?: number;
-}
-
-const colorBoxStyle = ({ color, dimension }: StyleArgs) => ({
-  borderColor: "black",
-  borderWidth: 1,
-  height: dimension,
-  width: dimension,
-  backgroundColor: colors[color] || color,
-});
+export const ColorBox = styled.View<IProps>`
+  border: 1px black;
+  height: ${(props) => props.dimension || 10} px;
+  width: ${(props) => props.dimension || 10} px;
+  background-color: ${(props) => colors[props.color] || props.color};
+`;
