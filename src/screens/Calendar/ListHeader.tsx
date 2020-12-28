@@ -8,75 +8,85 @@
  *
  */
 
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Link } from "react-router-native";
-
 import { ArrowLeft, ArrowRight } from "assets/icons";
 import { OutlineBtn } from "common/components";
+import React from "react";
+import { View } from "react-native";
+import { Link } from "react-router-native";
+import styled from "styled-components/native";
 import { H1, H2, Text } from "styles/typography";
 
 interface ListHeaderProps {
   startYear: number;
 }
-
-export const ListHeader: React.FC<ListHeaderProps> = React.memo(
-  ({ startYear, ...props }) => (
-    <View style={styles.listHeaderContainer} {...props}>
-      <View>
-        <H1>The Church Year</H1>
-        <H2>
-          {startYear} - {+startYear + 1}
-        </H2>
-      </View>
-      <View style={styles.yearNavContainer}>
-        <ListHeaderLink year={startYear - 1} direction={"past"} />
-        <ListHeaderLink year={startYear + 1} direction={"future"} />
-      </View>
-    </View>
-  )
-);
-
 interface ListHeaderLinkProps {
   direction: "past" | "future";
   year: number;
 }
 
-const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
-  ({ direction, year, ...props }) => {
+export const ListHeader: React.FC<ListHeaderProps> = React.memo(
+  ({ startYear, ...props }) => {
+    const endYear = +startYear + 1;
     return (
-      <Link to={`/calendar/${year}`} {...props}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <Text style={styles.outlineBtnText}>
-            {year} - {year + 1}
-          </Text>
-          {direction === "past" ? (
-            <ArrowLeft size={12} />
-          ) : (
-            <ArrowRight size={12} />
-          )}
-        </OutlineBtn>
-      </Link>
+      <Container {...props}>
+        <View>
+          <H1 mb={-14} pt={20}>
+            The Church Year
+          </H1>
+          <H2>
+            {startYear} - {endYear}
+          </H2>
+        </View>
+        <YearNavWrapper>
+          <ListHeaderLink year={+startYear - 1} direction="past" />
+          <ListHeaderLink year={+startYear + 1} direction="future" />
+        </YearNavWrapper>
+      </Container>
     );
   }
 );
 
-const styles = StyleSheet.create({
-  listHeaderContainer: {
-    alignItems: "center",
-    padding: 25,
-    flex: 1,
-  },
-  outlineBtn: {
-    margin: 5,
-  },
-  outlineBtnText: {
-    fontSize: 12,
-  },
-  yearNavContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: 5,
-    width: "100%",
-  },
-});
+const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
+  ({ direction, year, ...props }) => {
+    const Arrow = direction === "past" ? ArrowLeft : ArrowRight;
+    return (
+      <StyledLink to={`/calendar/${year}`} {...props}>
+        <OutlineBtn>
+          <NavTextWrapper>
+            <NavText style={{ lineHeight: 18 }}>
+              {year} - {year + 1}
+            </NavText>
+            <Arrow size={12} />
+          </NavTextWrapper>
+        </OutlineBtn>
+      </StyledLink>
+    );
+  }
+);
+
+const Container = styled.View`
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+`;
+
+const YearNavWrapper = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 5px;
+  width: 100%;
+`;
+
+const StyledLink = styled(Link)`
+  border-radius: 11px;
+  margin: 0 6px;
+`;
+
+const NavTextWrapper = styled.View`
+  align-items: center;
+`;
+
+const NavText = styled(Text)`
+  font-size: 12px;
+  margin-bottom: -6px;
+`;
