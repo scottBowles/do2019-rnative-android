@@ -1,62 +1,51 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Link } from "react-router-native";
 import { MoonIcon, SunIcon, SunriseIcon, SunsetIcon } from "assets/icons";
-import { Text } from "styles/typography";
 import { OutlineBtn } from "common/components";
+import React from "react";
+import { Link } from "react-router-native";
+import styled from "styled-components/native";
+import { Text } from "styles/typography";
 
 interface Props {
   date: Date;
 }
 
+const officeLinks = (date: Date) => [
+  { key: 1, to: `/morningprayer/${date}`, Icon: SunriseIcon, text: "Morning" },
+  { key: 2, to: `/middayprayer/${date}`, Icon: SunIcon, text: "Midday" },
+  { key: 3, to: `/eveningprayer/${date}`, Icon: SunsetIcon, text: "Evening" },
+  { key: 4, to: `/compline/${date}`, Icon: MoonIcon, text: "Compline" },
+];
+
 export const OfficeLinks: React.FC<Props> = ({ date }) => {
-  const iconSize = styles.outlineBtnText.fontSize;
+  const links = officeLinks(date);
   return (
-    <View style={styles.officeLinksContainer}>
-      <Link style={styles.link} to={`/morningprayer/${date}`}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <SunriseIcon size={iconSize} />
-          <Text style={styles.outlineBtnText}>Morning</Text>
-        </OutlineBtn>
-      </Link>
-      <Link style={styles.link} to={`/middayprayer/${date}`}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <SunIcon size={iconSize} />
-          <Text style={styles.outlineBtnText}>Midday</Text>
-        </OutlineBtn>
-      </Link>
-      <Link style={styles.link} to={`/eveningprayer/${date}`}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <SunsetIcon size={iconSize} />
-          <Text style={styles.outlineBtnText}>Evening</Text>
-        </OutlineBtn>
-      </Link>
-      <Link style={styles.link} to={`/compline/${date}`}>
-        <OutlineBtn style={styles.outlineBtn}>
-          <MoonIcon size={iconSize} />
-          <Text style={styles.outlineBtnText}>Compline</Text>
-        </OutlineBtn>
-      </Link>
-    </View>
+    <Container>
+      {links.map(({ key, to, Icon, text }) => (
+        <StyledLink to={to} key={key}>
+          <OutlineBtn>
+            <Icon iconSize={11} />
+            <StyledText>{text}</StyledText>
+          </OutlineBtn>
+        </StyledLink>
+      ))}
+    </Container>
   );
 };
-const styles = StyleSheet.create({
-  link: {
-    width: "46%",
-  },
-  officeLinksContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-  },
-  outlineBtn: {
-    marginVertical: 3,
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  outlineBtnText: {
-    fontSize: 11,
-    textTransform: "uppercase",
-    paddingLeft: 4,
-  },
-});
+
+const Container = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`;
+
+const StyledLink = styled(Link)`
+  width: 46%;
+  border-radius: 11px;
+`;
+
+const StyledText = styled(Text)`
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: 5px;
+  top: 2px;
+`;
