@@ -1,22 +1,13 @@
-import React from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import styled from "styled-components/native";
 import { colors } from "styles/colors";
 
-interface Props {
-  children: React.ReactNode;
-  style: StyleProp<ViewStyle>;
-}
-
-export const OutlineBtn: React.FC<Props> = ({ children, style, ...props }) => (
-  <View style={[styles.itemContainer, style]} {...props}>
-    {children}
-  </View>
-);
-
-const styles = StyleSheet.create({
-  itemContainer: {
-    borderColor: colors.fontGrey,
-    borderWidth: 1,
-    borderRadius: 11,
-  },
-});
+export const OutlineBtn = styled.View`
+  border-color: ${colors.fontGrey};
+  border-width: 1px;
+  border-radius: 11px;
+  align-items: center;
+  padding: 7px;
+  margin: 3px 0;
+  flex-direction: row;
+  justify-content: center;
+`;
