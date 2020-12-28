@@ -24,7 +24,7 @@ export const OfficeLinks: React.FC<Props> = ({ date }) => {
         <StyledLink to={to} key={key}>
           <OutlineBtn>
             <Icon iconSize={11} />
-            <StyledText>{text}</StyledText>
+            <LinkText>{text}</LinkText>
           </OutlineBtn>
         </StyledLink>
       ))}
@@ -43,7 +43,7 @@ const StyledLink = styled(Link)`
   border-radius: 11px;
 `;
 
-const StyledText = styled(Text)`
+const LinkText = styled(Text)`
   font-size: 11px;
   text-transform: uppercase;
   padding-left: 5px;
