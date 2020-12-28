@@ -18,6 +18,11 @@
       "supportsTablet": true
     },
     "web": {
+      "build": {
+        "babel": {
+          "include": ["react-router-native"]
+        }
+      },
       "favicon": "./favicon-32x32.png"
     },
     "hooks": {

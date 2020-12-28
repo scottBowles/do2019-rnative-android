@@ -30,6 +30,7 @@ interface ILink {
 export const Text = styled(NativeText)`
   color: ${colors.fontGrey};
   font-family: ${fonts.primary.regular};
+  font-size: 16px;
 `;
 
 export const Caption = styled(Text)`

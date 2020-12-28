@@ -17,8 +17,10 @@
 import { CrossIcon } from "assets/icons";
 import { CalendarDay } from "data/calendarData/models";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+import styled from "styled-components/native";
 import { colors } from "styles/colors";
+import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
 interface Props {
@@ -27,68 +29,77 @@ interface Props {
 
 export const DateBlock: React.FC<Props> = ({ day }) => {
   const primaryColor = day.commemorations[0].colors[0];
-  const textColor = getTextColor(primaryColor);
-  const blockStyle = composeBlockStyle(primaryColor);
-  const datePropertiesInOrder = ["weekday", "dayOfMonth", "month", "year"];
+  const textColor = primaryColor === "white" ? colors.fontGrey : colors.white;
 
   return (
-    <View style={blockStyle}>
-      {datePropertiesInOrder.map((property, index) => (
-        <Text key={index} style={composeTextStyle(property, textColor)}>
-          {day[property]}
-        </Text>
-      ))}
+    <DateBlockContainer primaryColor={primaryColor}>
+      <DateTextContainer>
+        <Weekday textColor={textColor}>{day.weekday.slice(0, 3)}</Weekday>
+      </DateTextContainer>
+      <DateTextContainer large>
+        <DayOfMonth textColor={textColor}>{day.dayOfMonth}</DayOfMonth>
+      </DateTextContainer>
+      <DateTextContainer>
+        <DateText textColor={textColor}>{day.month}</DateText>
+      </DateTextContainer>
+      <DateTextContainer>
+        <DateText textColor={textColor}>{day.year}</DateText>
+      </DateTextContainer>
       {!!day.isFastDay && <FastDisplay textColor={textColor} />}
-    </View>
+    </DateBlockContainer>
   );
 };
 
 const FastDisplay: React.FC<{ textColor: string }> = ({ textColor }) => (
-  <View style={dateStyles.fastDay}>
-    <CrossIcon size={14} color={textColor} />
-    <Text style={[dateStyles.dateBlockText, { color: textColor }]}> Fast</Text>
-  </View>
+  <FastDisplayContainer>
+    <CrossIcon size={18} color={textColor} />
+    <FastText textColor={textColor}>Fast</FastText>
+  </FastDisplayContainer>
 );
 
-const dateStyles = StyleSheet.create({
-  dateBlock: {
-    borderRadius: 4,
-    paddingTop: 9,
-    paddingBottom: 8,
-    alignItems: "center",
-    borderColor: "black",
-    borderWidth: 1,
-  },
-  dateBlockText: {
-    textTransform: "uppercase",
-    lineHeight: 14,
-    fontSize: 14,
-  },
-  weekday: {
-    fontWeight: "600",
-  },
-  dayOfMonth: {
-    fontSize: 28,
-    lineHeight: 28,
-    fontWeight: "400",
-  },
-  fastDay: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 28,
-  },
-});
+const FastDisplayContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-top: 32px;
+`;
 
-const getTextColor = (backgroundColor: string): string =>
-  backgroundColor === "white" ? colors.fontGrey : colors.white;
+const FastText = styled(Text)`
+  color: ${(props) => props.textColor};
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: ${fonts.primary.bold};
+  top: 3px;
+  margin-left: 4px;
+`;
 
-const composeTextStyle = (key: string, textColor: string) => {
-  return [dateStyles.dateBlockText, dateStyles[key], { color: textColor }];
-};
+const DateText = styled(Text)`
+  color: ${(props) => props.textColor};
+  text-transform: uppercase;
+  font-size: 16px;
+  bottom: 5px;
+  font-family: ${fonts.primary.semibold};
+`;
 
-const composeBlockStyle = (primaryColor: string) => [
-  dateStyles.dateBlock,
-  {
-    backgroundColor: colors[primaryColor],
-  },
-];
+const Weekday = styled(DateText)`
+  font-family: ${fonts.primary.bold};
+`;
+
+const DayOfMonth = styled(DateText)`
+  font-family: ${fonts.primary.semibold};
+  font-size: 32px;
+  bottom: 8px;
+`;
+
+const DateTextContainer = styled.View`
+  height: ${(props) => (props.large ? "35.2px" : "17.6px")};
+`;
+
+const DateBlockContainer = styled.View`
+  background-color: ${(props) => colors[props.primaryColor]};
+  border-radius: 4px;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  align-items: center;
+  border-color: black;
+  border-width: 1px;
+`;

@@ -1,11 +1,10 @@
-import React from "react";
-
 import {
   CalendarBlock,
   Content,
   DateBlock,
 } from "common/components/calendarBlock";
 import { CalendarDay } from "data/calendarData/models";
+import React from "react";
 
 interface DateDisplayProps {
   day: CalendarDay;
@@ -17,7 +16,7 @@ export const DateDisplay: React.FC<DateDisplayProps> = React.memo(
   ({ day, ...props }) => (
     <CalendarBlock weekday={day.weekday} {...props}>
       <DateBlock day={day} />
-      <Content day={day} showOfficeLinks={true} />
+      <Content day={day} showOfficeLinks />
     </CalendarBlock>
   )
 );
