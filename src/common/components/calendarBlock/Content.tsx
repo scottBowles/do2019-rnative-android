@@ -6,81 +6,65 @@
  *   Content (export)
  *   SeasonBox
  *
- * Styles
- *
  */
 
+import { Season } from "data/calendarData/interfaces";
+import { CalendarDay } from "data/calendarData/models";
 import React from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import styled from "styled-components/native";
+
 import { ContentLine } from "./ContentLine";
 import { OfficeLinks } from "./OfficeLinks";
-import { CalendarDay } from "data/calendarData/models";
-import { Season } from "data/calendarData/interfaces";
 
-interface Props {
+interface IContentProps {
   day: CalendarDay;
   showSeason?: boolean;
   showOfficeLinks?: boolean;
 }
-
-export const Content: React.FC<Props> = ({
-  day: { commemorations, localDate, season },
-  showSeason = false,
-  showOfficeLinks = false,
-}) => {
-  // if season => SeasonBox will be rendered
-  // if date => OfficeLinks will be rendered
-  return (
-    <View style={styles.container}>
-      <View style={styles.commemorationContainer}>
-        {commemorations.map((commemoration, index) => (
-          <ContentLine
-            key={index}
-            type={index === 0 ? "primary" : "secondary"}
-            data={commemoration}
-          />
-        ))}
-      </View>
-      {showSeason && <SeasonBox season={season} />}
-      {showOfficeLinks && <OfficeLinks date={localDate} />}
-    </View>
-  );
-};
-
-interface SeasonBoxProps {
+interface ISeasonBoxProps {
   season: Season;
 }
 
-const SeasonBox: React.FC<SeasonBoxProps> = ({ season }) => (
-  <View style={styles.seasonBlock}>
-    <ContentLine type="season" data={season} />
-  </View>
+export const Content: React.FC<IContentProps> = ({
+  day: { commemorations, localDate, season },
+  showSeason = false,
+  showOfficeLinks = false,
+}) => (
+  <Container>
+    <CommemorationsWrapper>
+      {commemorations.map((commemoration, index) => (
+        <ContentLine
+          key={index}
+          type={index === 0 ? "primary" : "secondary"}
+          data={commemoration}
+        />
+      ))}
+    </CommemorationsWrapper>
+    {showSeason && <SeasonBox season={season} />}
+    {showOfficeLinks && <OfficeLinks date={localDate} />}
+  </Container>
 );
 
-interface Styles {
-  container: StyleProp<ViewStyle>;
-  commemorationContainer: StyleProp<ViewStyle>;
-  seasonBlock: StyleProp<ViewStyle>;
-}
+const SeasonBox: React.FC<ISeasonBoxProps> = ({ season }) => (
+  <SeasonWrapper>
+    <ContentLine type="season" data={season} />
+  </SeasonWrapper>
+);
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 14,
-  },
-  commemorationContainer: {
-    paddingTop: 4,
-    paddingBottom: 8,
-  },
-  seasonBlock: {
-    backgroundColor: "#ffffff",
-    borderColor: "black",
-    borderWidth: 1,
-    alignSelf: "flex-end",
-    justifyContent: "flex-start",
-    paddingHorizontal: 4,
-    paddingTop: 4,
-    paddingBottom: 5,
-    marginTop: 12,
-    marginBottom: 8,
-  },
-});
+const Container = styled.View`
+  padding: 0 14px;
+`;
+
+const CommemorationsWrapper = styled.View`
+  padding-top: 4px;
+  padding-bottom: 8px;
+`;
+
+const SeasonWrapper = styled.View`
+  background-color: #ffffff;
+  border: 1px black;
+  align-self: flex-end;
+  justify-content: flex-start;
+  padding: 4px 4px 5px;
+  margin: 12px 0 8px;
+`;

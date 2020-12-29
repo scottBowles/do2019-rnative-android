@@ -1,14 +1,8 @@
-import React from "react";
-import {
-  StyleProp,
-  StyleSheet,
-  TextStyle,
-  View,
-  ViewStyle,
-} from "react-native";
-import * as WebBrowser from "expo-web-browser";
 import { ExternalLinkIcon } from "assets/icons";
 import { ColorBox } from "common/components";
+import * as WebBrowser from "expo-web-browser";
+import React from "react";
+import styled, { css } from "styled-components/native";
 import { Text } from "styles/typography";
 
 interface ContentLineProps {
@@ -18,7 +12,7 @@ interface ContentLineProps {
     name: string;
     links?: string[];
   };
-  style?: {};
+  style?: object;
 }
 
 export const ContentLine: React.FC<ContentLineProps> = ({
@@ -32,13 +26,13 @@ export const ContentLine: React.FC<ContentLineProps> = ({
    * the following is necessary. Each word is split into its own Text element.
    */
   const colorBoxes = colors.map((color, index) => (
-    <ColorBox key={index} color={color} style={getColorBoxStyle(type)} />
+    <StyledColorBox key={index} color={color} type={type} />
   ));
 
   const words = name.split(" ").map((word, index, arr) => (
-    <Text key={word + index} style={getTextStyle(type)}>
+    <StyledText key={word + index} type={type}>
       {index !== arr.length - 1 ? word + " " : word}
-    </Text>
+    </StyledText>
   ));
 
   const linksDisplay = links
@@ -55,85 +49,68 @@ export const ContentLine: React.FC<ContentLineProps> = ({
     : [];
 
   return (
-    <View
-      style={[
-        styles.contentLine,
-        type !== "season" && { marginVertical: 4 },
-        { ...incomingStyle },
-      ]}
-      {...props}
-    >
+    <Container {...props}>
       {[...colorBoxes, ...words, ...linksDisplay]}
-    </View>
+    </Container>
   );
 };
 
-const getColorBoxStyle = (
-  type: ContentLineProps["type"]
-): StyleProp<ViewStyle> => {
-  const colorBoxTypeStyle =
-    type === "secondary"
-      ? styles.colorBoxSecondary
-      : type === "season"
-      ? styles.colorBoxSeason
-      : styles.colorBoxPrimary;
-  return [styles.colorBox, colorBoxTypeStyle];
-};
-
-const getTextStyle = (type: ContentLineProps["type"]): StyleProp<TextStyle> => {
-  return type === "secondary"
-    ? styles.textSecondary
-    : type === "season"
-    ? styles.textSeason
-    : styles.textPrimary;
-};
-
-interface Styles {
-  contentLine: StyleProp<ViewStyle>;
-  colorBox: StyleProp<ViewStyle>;
-  colorBoxPrimary: StyleProp<ViewStyle>;
-  colorBoxSecondary: StyleProp<ViewStyle>;
-  colorBoxSeason: StyleProp<ViewStyle>;
-  textPrimary: StyleProp<TextStyle>;
-  textSecondary: StyleProp<TextStyle>;
-  textSeason: StyleProp<TextStyle>;
+interface IContainerProps {
+  seasonLine?: boolean;
 }
+const Container = styled.View<IContainerProps>`
+  flex-direction: row;
+  align-items: flex-start;
+  padding-bottom: 4px;
+  flex-wrap: wrap;
+  margin: ${(props) => (props.seasonLine ? "4px 0" : "0")};
+`;
 
-const styles: Styles = StyleSheet.create({
-  contentLine: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    paddingBottom: 4,
-    flexWrap: "wrap",
-  },
-  colorBox: {
-    marginRight: 5,
-  },
-  colorBoxPrimary: {
-    marginTop: 5,
-    height: 11,
-    width: 11,
-  },
-  colorBoxSecondary: {
-    marginTop: 5,
-    height: 9,
-    width: 9,
-  },
-  colorBoxSeason: {
-    marginTop: 3,
-    height: 7,
-    width: 7,
-  },
-  textPrimary: {
-    fontSize: 16,
-    letterSpacing: -0.5,
-  },
-  textSecondary: {
-    fontSize: 13,
-    lineHeight: 19,
-    letterSpacing: -0.5,
-  },
-  textSeason: {
-    fontSize: 9,
-  },
-});
+interface ITyped {
+  type: string;
+}
+const StyledColorBox = styled(ColorBox)<ITyped>`
+  margin-right: 5px;
+  ${(props) =>
+    props.type === "primary" &&
+    css`
+      margin-top: 5px;
+      height: 11px;
+      width: 11px;
+    `}
+  ${(props) =>
+    props.type === "secondary" &&
+    css`
+      margin-top: 5px;
+      height: 9px;
+      width: 9px;
+    `}
+${(props) =>
+    props.type === "season" &&
+    css`
+      margin-top: 3px;
+      height: 7px;
+      width: 7px;
+    `}
+`;
+
+const StyledText = styled(Text)<ITyped>`
+  ${(props) =>
+    props.type === "primary" &&
+    css`
+      font-size: 16px;
+      letter-spacing: -0.5px;
+    `}
+  ${(props) =>
+    props.type === "secondary" &&
+    css`
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: -0.5px;
+    `}
+${(props) =>
+    props.type === "season" &&
+    css`
+      font-size: 9px;
+    `}
+`;
