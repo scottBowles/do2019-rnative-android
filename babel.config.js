@@ -18,6 +18,7 @@ module.exports = function (api) {
           },
         },
       ],
+      "babel-plugin-styled-components",
     ],
   };
 };
