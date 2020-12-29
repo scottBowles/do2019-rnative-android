@@ -44,13 +44,14 @@ const HeadingBase = styled(Text)`
   letter-spacing: 1.6px;
   text-align: center;
   margin: 3.2px;
-  padding-top: 32px;
+  margin-bottom: 3.2px;
 `;
 
 export const H1 = styled(HeadingBase)`
   font-size: 20.8px;
   line-height: 24px;
   text-transform: uppercase;
+  padding-top: 32px;
 `;
 
 export const H2 = styled(HeadingBase)`
