@@ -1,55 +1,62 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-
 import { ColorBox } from "common/components";
-import { SectionData } from "data/calendarData/interfaces";
+import { Season, SectionData } from "data/calendarData/interfaces";
+import React from "react";
+import styled from "styled-components/native";
 import { H3 } from "styles/typography";
 
-// Season & month section headers
+interface ISeasonHeader {
+  season: Season;
+}
+interface IMonthHeader {
+  month: string;
+  year: number;
+}
 
+/* Season & month section headers */
 export const SectionHeader: React.FC<SectionData> = React.memo(
-  ({ sectionType, month, year, season, ...props }) => {
-    const seasonHeader = (
-      <View style={styles.sectionHeader} key={season + month + year}>
-        <ColorBox
-          color={season.colors[0]}
-          dimension={9}
-          style={styles.colorBox}
-        />
-        <H3>{season.name}</H3>
-      </View>
-    );
-
-    const monthHeader = (
-      <H3 style={styles.sectionHeader} key={month + year + season}>
-        {month} {year}
-      </H3>
-    );
-
-    return (
-      <View style={styles.sectionHeaderContainer} {...props}>
-        {sectionType === "both"
-          ? [seasonHeader, monthHeader]
-          : sectionType === "month"
-          ? monthHeader
-          : seasonHeader}
-      </View>
-    );
-  }
+  ({ sectionType, month, year, season, ...props }) => (
+    <Container {...props}>
+      {["season", "both"].includes(sectionType) && (
+        <SeasonHeader season={season} />
+      )}
+      {["month", "both"].includes(sectionType) && (
+        <MonthHeader month={month} year={year} />
+      )}
+    </Container>
+  )
 );
 
-const styles = StyleSheet.create({
-  colorBox: {
-    marginRight: 3,
-  },
-  sectionHeaderContainer: {
-    alignItems: "center",
-    flex: 1,
-  },
-  sectionHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 6,
-    marginTop: 14,
-  },
-});
+const SeasonHeader: React.FC<ISeasonHeader> = ({ season }) => (
+  <HeaderWrapper>
+    <ColorBox color={season.colors[0]} dimension={9} />
+    <HeaderText>{season.name}</HeaderText>
+  </HeaderWrapper>
+);
+
+const MonthHeader: React.FC<IMonthHeader> = ({ month, year }) => (
+  <HeaderWrapper>
+    <HeaderText>
+      {month} {year}
+    </HeaderText>
+  </HeaderWrapper>
+);
+
+const Container = styled.View`
+  align-items: center;
+  flex: 1;
+  margin-top: 20px;
+`;
+
+const HeaderWrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 6px;
+  margin-top: 10px;
+`;
+
+const HeaderText = styled(H3)`
+  padding-top: 0;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: -8px;
+`;
