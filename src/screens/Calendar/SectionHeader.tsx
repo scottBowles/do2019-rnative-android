@@ -28,7 +28,7 @@ export const SectionHeader: React.FC<SectionData> = React.memo(
 
 const SeasonHeader: React.FC<ISeasonHeader> = ({ season }) => (
   <HeaderWrapper>
-    <ColorBox color={season.colors[0]} dimension={9} />
+    <ColorBox color={season.colors[0]} dimension={10} />
     <HeaderText>{season.name}</HeaderText>
   </HeaderWrapper>
 );
