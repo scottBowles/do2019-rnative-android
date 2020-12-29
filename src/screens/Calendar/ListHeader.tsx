@@ -19,7 +19,7 @@ import { H1, H2, Text } from "styles/typography";
 interface ListHeaderProps {
   startYear: number;
 }
-interface ListHeaderLinkProps {
+interface NextYearProps {
   direction: "past" | "future";
   year: number;
 }
@@ -30,23 +30,21 @@ export const ListHeader: React.FC<ListHeaderProps> = React.memo(
     return (
       <Container {...props}>
         <View>
-          <H1 mb={-14} pt={20}>
-            The Church Year
-          </H1>
+          <StyledH1>The Church Year</StyledH1>
           <H2>
             {startYear} - {endYear}
           </H2>
         </View>
         <YearNavWrapper>
-          <ListHeaderLink year={+startYear - 1} direction="past" />
-          <ListHeaderLink year={+startYear + 1} direction="future" />
+          <NextYearLink year={+startYear - 1} direction="past" />
+          <NextYearLink year={+startYear + 1} direction="future" />
         </YearNavWrapper>
       </Container>
     );
   }
 );
 
-const ListHeaderLink: React.FC<ListHeaderLinkProps> = React.memo(
+const NextYearLink: React.FC<NextYearProps> = React.memo(
   ({ direction, year, ...props }) => {
     const Arrow = direction === "past" ? ArrowLeft : ArrowRight;
     return (
@@ -68,6 +66,11 @@ const Container = styled.View`
   justify-content: center;
   padding-top: 20px;
   width: 100%;
+`;
+
+const StyledH1 = styled(H1)`
+  margin-bottom: -14px;
+  padding-top: 20px;
 `;
 
 const YearNavWrapper = styled.View`
