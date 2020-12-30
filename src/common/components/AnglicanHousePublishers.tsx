@@ -1,44 +1,46 @@
 import { ExternalLinks } from "assets/ExternalLinks";
+import { withLink } from "common/components/HOCs";
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable } from "react-native";
+import styled from "styled-components/native";
 import { OutlinedContainer } from "styles/containers";
-import { SmallItalics, SmallItalicsLink } from "styles/typography";
+import { SmallItalics, SmallItalicsLink, Text } from "styles/typography";
 
 export const AnglicanHousePublishers = () => (
   <OutlinedContainer>
-    <Image
-      style={styles.ahpLogo}
-      source={require("assets/images/AHP-LOGO.png")}
-    />
-    <View style={styles.ahpText}>
+    <ImageLink link={ExternalLinks.AnglicanHousePublishers}>
+      <SizedImage source={require("assets/images/AHP-LOGO.png")} />
+    </ImageLink>
+    <TextWrapper>
+      <SmallItalics>This site is generously supported by </SmallItalics>
+      <SmallItalicsLink link={ExternalLinks.AnglicanHousePublishers}>
+        AnglicanHousePublishers.org
+      </SmallItalicsLink>
       <SmallItalics>
-        This site is generously supported by{" "}
-        <SmallItalicsLink link={ExternalLinks.AnglicanHousePublishers}>
-          AnglicanHousePublishers.org
-        </SmallItalicsLink>
         , publisher of the 2019 Book of Common Prayer, the English Standard
         Version: Anglican Edition, and many other excellent books. Consider
         purchasing paper copy of the{" "}
-        <SmallItalicsLink link={ExternalLinks.AnglicanHouseChurchPage}>
-          Book of Common Prayer
-        </SmallItalicsLink>{" "}
-        or the{" "}
-        <SmallItalicsLink link={ExternalLinks.AnglicanHouseESV}>
-          ESV Anglican Edition
-        </SmallItalicsLink>{" "}
-        to complement this site.
       </SmallItalics>
-    </View>
+      <SmallItalicsLink link={ExternalLinks.AnglicanHouseChurchPage}>
+        Book of Common Prayer
+      </SmallItalicsLink>
+      <SmallItalics> or the </SmallItalics>
+      <SmallItalicsLink link={ExternalLinks.AnglicanHouseESV}>
+        ESV Anglican Edition
+      </SmallItalicsLink>
+      <SmallItalics> to complement this site.</SmallItalics>
+    </TextWrapper>
   </OutlinedContainer>
 );
 
-const styles = StyleSheet.create({
-  ahpLogo: {
-    width: 140,
-    height: 70,
-    margin: 10,
-  },
-  ahpText: {
-    marginBottom: 14,
-  },
-});
+const SizedImage = styled(Image)`
+  width: 140px;
+  height: 70px;
+  margin: 10px;
+`;
+
+const ImageLink = withLink(Pressable);
+
+const TextWrapper = styled(Text)`
+  margin-bottom: 14px;
+`;
