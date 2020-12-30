@@ -5,7 +5,7 @@
  */
 
 import { withLink } from "common/components/HOCs/withLink";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
@@ -27,10 +27,32 @@ interface ILink {
   children: React.ReactNode;
 }
 
-export const Text = styled(NativeText)`
-  color: ${colors.fontGrey};
-  font-family: ${fonts.primary.regular};
-  font-size: 16px;
+interface ITextProps {
+  bold?: boolean;
+  boldItalic?: boolean;
+  italic?: boolean;
+  semibold?: boolean;
+  semiboldItalic?: boolean;
+  size?: number;
+  color?: string;
+  children?: ReactNode;
+}
+
+export const Text = styled(NativeText)<ITextProps>`
+  font-family: ${(props) =>
+    props.bold
+      ? fonts.primary.bold
+      : props.boldItalic
+      ? fonts.primary.boldItalic
+      : props.italic
+      ? fonts.primary.italic
+      : props.semibold
+      ? fonts.primary.semibold
+      : props.semiboldItalic
+      ? fonts.primary.semiboldItalic
+      : fonts.primary.regular};
+  font-size: ${(props) => props.size || 16}px;
+  color: ${(props) => props.color || colors.fontGrey};
 `;
 
 export const Caption = styled(Text)`
@@ -81,7 +103,7 @@ export const H5 = styled(Text)`
 `;
 
 export const P = styled(Text)`
-  font-size: 16px;
+  font-size: ${(props) => props.size || 16}px;
   line-height: 25.6px;
   margin: 10px 0;
 `;
@@ -123,9 +145,11 @@ export const HR = styled(View)`
 
 /**
  * Adds generic link styles to the given component
- * @param base Base styled component to add link styles to
+ * @param Base Base styled component to add link styles to
  */
-const addLinkStylesTo = (base: TTextStyledComponent) => styled(base)`
+const addLinkStylesTo = (Base: TTextStyledComponent) => styled(
+  Base
+)<ITextProps>`
   color: ${colors.linkBlue};
   text-decoration-line: underline;
 `;
@@ -149,8 +173,8 @@ export const createStyledLink = (base: TStyledComponent) => ({
   );
 };
 
-const PWithLinkStyles = addLinkStylesTo(P);
+export const PWithLinkStyles = addLinkStylesTo(P);
 export const PLink = createStyledLink(PWithLinkStyles);
 
-const SmallItalicsWithLinkStyles = addLinkStylesTo(SmallItalics);
+export const SmallItalicsWithLinkStyles = addLinkStylesTo(SmallItalics);
 export const SmallItalicsLink = createStyledLink(SmallItalicsWithLinkStyles);
