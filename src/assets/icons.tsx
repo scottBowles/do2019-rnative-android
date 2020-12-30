@@ -32,6 +32,10 @@ export const CloseIcon = ({ size = 20, color = "black", ...props }) => (
   <AntDesign name="closesquareo" size={size} color={color} {...props} />
 );
 
+export const CopyIcon = ({ size = 12, color = "black", ...props }) => (
+  <FontAwesome5 name="copy" size={size} color={color} {...props} />
+);
+
 export const CrossIcon = ({ size = 14, color = "black", ...props }) => (
   <FontAwesome5 name="cross" size={size} color={color} {...props} />
 );
@@ -62,8 +66,16 @@ export const CogIcon = ({ size = 12, color = "black", ...props }) => (
   <FontAwesome name="cog" size={size} color={color} {...props} />
 );
 
+export const EnvelopeIcon = ({ size = 12, color = "black", ...props }) => (
+  <FontAwesome5 name="envelope" size={size} color={color} {...props} />
+);
+
 export const ExternalLinkIcon = ({ size = 9, color = "black", ...props }) => (
   <FontAwesome5 name="external-link-alt" size={size} color={color} {...props} />
+);
+
+export const FacebookIcon = ({ size = 12, color = "black", ...props }) => (
+  <FontAwesome5 name="facebook" size={size} color={color} {...props} />
 );
 
 export const MoonIcon = ({ size = 12, color = "black", ...props }) => (

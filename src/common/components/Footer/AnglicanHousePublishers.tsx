@@ -7,7 +7,7 @@ import { OutlinedContainer } from "styles/containers";
 import { SmallItalics, SmallItalicsLink, Text } from "styles/typography";
 
 export const AnglicanHousePublishers = () => (
-  <OutlinedContainer>
+  <OutlinedContainer style={{ marginTop: 50 }}>
     <ImageLink link={ExternalLinks.AnglicanHousePublishers}>
       <SizedImage source={require("assets/images/AHP-LOGO.png")} />
     </ImageLink>
