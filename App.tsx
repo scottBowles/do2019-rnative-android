@@ -34,7 +34,7 @@ export default function App() {
         <Menu />
         <Switch>
           <Route exact path="/">
-            <PrivacyPolicy />
+            <Psalter />
           </Route>
           {/* <Route path="/office">
             <Office />
