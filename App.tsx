@@ -6,7 +6,14 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { Route, NativeRouter as Router, Switch } from "react-router-native";
-import { About, Calendar, Office, PrivacyPolicy, Settings } from "screens";
+import {
+  About,
+  Calendar,
+  Office,
+  PrivacyPolicy,
+  Psalter,
+  Settings,
+} from "screens";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -55,6 +62,9 @@ export default function App() {
           </Route>
           <Route path="/privacy">
             <PrivacyPolicy />
+          </Route>
+          <Route path="/psalter">
+            <Psalter />
           </Route>
         </Switch>
       </SafeAreaView>

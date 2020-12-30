@@ -1,6 +1,7 @@
 import { BibleIcon, CalendarDarkIcon } from "assets/icons";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { Link } from "react-router-native";
 import styled from "styled-components/native";
 import { H3, Text } from "styles/typography";
 
@@ -11,13 +12,15 @@ export const FooterResources = () => (
   <Container style={{ marginTop: 15 }}>
     <H3>RESOURCES</H3>
     <ButtonsWrapper>
-      <StyledOutlineBtn>
-        <BibleIcon size={12} style={{ marginRight: 4 }} />
-        <TextWrapper>
-          <FirstLetter>P</FirstLetter>
-          <StyledText>salter</StyledText>
-        </TextWrapper>
-      </StyledOutlineBtn>
+      <Link to="/psalter" component={TouchableOpacity} activeOpacity={0.5}>
+        <StyledOutlineBtn>
+          <BibleIcon size={12} style={{ marginRight: 4 }} />
+          <TextWrapper>
+            <FirstLetter>P</FirstLetter>
+            <StyledText>salter</StyledText>
+          </TextWrapper>
+        </StyledOutlineBtn>
+      </Link>
       <TouchableOpacityLink
         link="https://www.dailyoffice2019.com/dailyoffice.ics"
         activeOpacity={0.5}
