@@ -1,15 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import styled from "styled-components/native";
 import { H1 } from "styles/typography";
 
 export const Loading: React.FC = () => (
-  <View style={styles.container}>
+  <Container>
     <H1>Loading...</H1>
-  </View>
+  </Container>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    margin: 25,
-  },
-});
+const Container = styled.View`
+  margin: 25px;
+`;
