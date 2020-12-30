@@ -7,5 +7,4 @@ export const OutlinedContainer = styled(View)`
   border-width: 1px;
   padding: 20px;
   width: 100%;
-  margin-top: 54px;
 `;
