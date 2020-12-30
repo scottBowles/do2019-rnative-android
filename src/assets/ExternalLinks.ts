@@ -11,6 +11,7 @@ export enum ExternalLinks {
   DO2019Facebook = "https://www.facebook.com/groups/dailyoffice",
   DO2019Family = "https://www.dailyoffice2019.com/family",
   DO2019GitHub = "https://github.com/blocher/dailyoffice2019",
+  DO2019ICalFile = "https://www.dailyoffice2019.com/dailyoffice.ics",
   DO2019MailTo = "mailto:feedback@dailyoffice2019.com",
   FirebaseAnalyticsPrivacy = "https://policies.google.com/privacy",
   GoogleAnalyticsPrivacy = "https://policies.google.com/privacy",
