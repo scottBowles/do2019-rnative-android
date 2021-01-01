@@ -1,5 +1,6 @@
-import { DataProvider } from "recyclerlistview";
 import { getLiturgicalYear, getLocalDate } from "common/utils";
+import { DataProvider } from "recyclerlistview";
+
 import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
 import { CalendarDay } from "./models";
 
@@ -34,7 +35,7 @@ export const getStartValues = (year?: string, date?: string) => {
  */
 const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
   const res = await fetch(
-    `https://data.dailyoffice2019.com/api/v1/calendar/${year}`
+    `https://api.dailyoffice2019.com/api/v1/calendar/${year}`
   );
   const data: ApiCalendarDay[] = await res.json();
   return data;
