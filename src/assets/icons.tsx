@@ -62,6 +62,10 @@ export const CalendarIcon = ({ size = 12, color = "black", ...props }) => (
   />
 );
 
+export const CheckmarkIcon = ({ size = 12, color = "black", ...props }) => (
+  <Ionicons name="md-checkmark" size={size} color={color} {...props} />
+);
+
 export const CogIcon = ({ size = 12, color = "black", ...props }) => (
   <FontAwesome name="cog" size={size} color={color} {...props} />
 );
