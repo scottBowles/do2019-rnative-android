@@ -20,7 +20,7 @@ const setToStorage = async (setting: string, value: string) => {
 
 export const useLocalStorageWithState = (
   storageKey: string,
-  defaultSetting: number
+  defaultSetting: string
 ) => {
   const [currentSetting, setCurrentSetting] = useState(defaultSetting);
 
@@ -29,7 +29,7 @@ export const useLocalStorageWithState = (
     (async () => {
       try {
         const value = (await getFromStorage(storageKey)) ?? defaultSetting;
-        setCurrentSetting(+value);
+        setCurrentSetting(value);
       } catch (e) {
         // TODO - Handle rejected promise, probably with a temporary message
         // letting the user know thier settings have failed to load.
@@ -44,7 +44,7 @@ export const useLocalStorageWithState = (
   useEffect(() => {
     (async () => {
       try {
-        await setToStorage(storageKey, currentSetting.toString());
+        await setToStorage(storageKey, currentSetting);
       } catch (e) {
         // TODO - Handle rejected promise
         console.log(

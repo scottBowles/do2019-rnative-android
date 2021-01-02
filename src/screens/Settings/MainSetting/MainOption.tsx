@@ -1,4 +1,5 @@
 import { CheckmarkIcon } from "assets/icons";
+import { IDescriptionPart, IOption } from "data/settingsData/mainSettings";
 import React from "react";
 import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
@@ -6,31 +7,19 @@ import { colors } from "styles/colors";
 import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
-export interface IOption {
-  title: string;
-  description: IDescriptionPart[];
-}
-
-export interface IDescriptionPart {
-  content: string;
-  type: string;
-}
-
 interface IMainOptionProps {
   option: IOption;
-  index: number;
-  handlePress: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentSetting: React.Dispatch<React.SetStateAction<string>>;
   selected?: boolean;
 }
 
 export const MainOption: React.FC<IMainOptionProps> = ({
   option,
-  index,
-  handlePress,
+  setCurrentSetting,
   selected = false,
 }) => {
   return (
-    <Pressable onPress={() => handlePress(index)}>
+    <Pressable onPress={() => setCurrentSetting(option.title)}>
       <OptionBox selected={selected}>
         {selected && <Checkmark size={35} />}
         <Title selected={selected}>{option.title}</Title>

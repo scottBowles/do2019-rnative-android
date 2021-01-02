@@ -1,9 +1,9 @@
+import { mainSettings } from "data/settingsData";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { H1, P, SmallItalics } from "styles/typography";
 
 import { MainSetting } from "./MainSetting";
-import { mainSettings } from "./mainSettings";
 
 export const Settings = () => {
   return (

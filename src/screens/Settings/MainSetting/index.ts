@@ -1,0 +1,1 @@
+export { MainSetting } from "./MainSetting";

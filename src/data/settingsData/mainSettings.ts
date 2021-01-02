@@ -1,7 +1,27 @@
+export interface IMainSetting {
+  setting: {
+    name: string;
+    storageKey: string;
+    default: string;
+    options: IOption[];
+  };
+}
+
+export interface IOption {
+  title: string;
+  description: IDescriptionPart[];
+}
+
+export interface IDescriptionPart {
+  content: string;
+  type: string;
+}
+
 export const mainSettings = [
   {
     name: "Psalter Cycle",
     storageKey: "psalterCycle",
+    default: "60 Day",
     options: [
       {
         title: "60 Day",
@@ -26,6 +46,7 @@ export const mainSettings = [
   {
     name: "Reading Cycle",
     storageKey: "readingCycle",
+    default: "One Year",
     options: [
       {
         title: "One Year",
@@ -58,6 +79,7 @@ export const mainSettings = [
   {
     name: "Reading Length",
     storageKey: "readingLength",
+    default: "Full",
     options: [
       {
         title: "Full",
@@ -82,6 +104,7 @@ export const mainSettings = [
   {
     name: "Reading Audio",
     storageKey: "readingAudio",
+    default: "Disable Audio",
     options: [
       {
         title: "Disable Audio",
@@ -106,6 +129,7 @@ export const mainSettings = [
   {
     name: "Canticle Rotation",
     storageKey: "canticleRotation",
+    default: "Traditional",
     options: [
       {
         title: "Traditional",

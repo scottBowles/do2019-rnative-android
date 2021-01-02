@@ -1,3 +1,4 @@
+import { IMainSetting } from "data/settingsData/mainSettings";
 import { useLocalStorageWithState } from "data/useLocalStorageWithState";
 import React from "react";
 import { View } from "react-native";
@@ -5,20 +6,12 @@ import styled from "styled-components/native";
 import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
-import { IOption, MainOption } from "./MainOption";
-
-interface IMainSetting {
-  setting: {
-    name: string;
-    storageKey: string;
-    options: IOption[];
-  };
-}
+import { MainOption } from "./MainOption";
 
 export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
   const [currentSetting, setCurrentSetting] = useLocalStorageWithState(
     setting.storageKey,
-    0
+    setting.default
   );
   return (
     <View style={{ width: "100%", alignItems: "center" }}>
@@ -27,9 +20,8 @@ export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
         <MainOption
           key={option.title}
           option={option}
-          index={index}
-          handlePress={setCurrentSetting}
-          selected={currentSetting === index}
+          setCurrentSetting={setCurrentSetting}
+          selected={currentSetting === option.title}
         />
       ))}
     </View>
