@@ -5,7 +5,7 @@ import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
 import { colors } from "styles/colors";
 import { fonts } from "styles/fonts";
-import { Text } from "styles/typography";
+import { Text, Title } from "styles/typography";
 
 interface IMainOptionProps {
   option: IOption;
@@ -22,7 +22,7 @@ export const MainOption: React.FC<IMainOptionProps> = ({
     <Pressable onPress={() => setCurrentSetting(option.title)}>
       <OptionBox selected={selected}>
         {selected && <Checkmark size={35} />}
-        <Title selected={selected}>{option.title}</Title>
+        <OptionTitle selected={selected}>{option.title}</OptionTitle>
         <Description description={option.description} selected={selected} />
       </OptionBox>
     </Pressable>
@@ -85,11 +85,7 @@ const Checkmark = styled(CheckmarkIcon)`
   text-align: center;
 `;
 
-const Title = styled(Text)<{ selected: boolean }>`
-  text-transform: uppercase;
-  font-family: ${fonts.primary.semibold};
-  font-size: 16px;
-  letter-spacing: 1.6px;
+const OptionTitle = styled(Title)<{ selected: boolean }>`
   margin: 4.8px;
   ${({ selected }) => selected && `color: ${colors.white}`}
 `;
