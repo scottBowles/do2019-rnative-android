@@ -16,7 +16,7 @@ export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
   return (
     <View style={{ width: "100%", alignItems: "center" }}>
       <SettingName>{setting.name}</SettingName>
-      {setting.options.map((option, index) => (
+      {setting.options.map((option) => (
         <MainOption
           key={option.title}
           option={option}
