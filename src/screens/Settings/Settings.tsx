@@ -1,8 +1,11 @@
 import { mainSettings } from "data/settingsData";
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { H1, P, SmallItalics } from "styles/typography";
+import { ScrollView, StyleSheet, View } from "react-native";
+import styled from "styled-components/native";
+import { colors } from "styles/";
+import { H1, P, SmallItalics, Title } from "styles/typography";
 
+import { AdvancedSetting } from "./AdvancedSetting";
 import { MainSetting } from "./MainSetting";
 
 export const Settings = () => {
@@ -12,6 +15,10 @@ export const Settings = () => {
       {mainSettings.map((mainSetting) => (
         <MainSetting key={mainSetting.storageKey} setting={mainSetting} />
       ))}
+      <AdvancedSettingsWrapper>
+        <AdvancedSettingsTitle>Advanced Settings</AdvancedSettingsTitle>
+        <AdvancedSetting />
+      </AdvancedSettingsWrapper>
     </ScrollView>
   );
 };
@@ -29,6 +36,17 @@ const TopMaterial = () => (
     </SmallItalics>
   </>
 );
+
+const AdvancedSettingsWrapper = styled.View`
+  width: 100%;
+  background-color: ${colors.lightGrey};
+  border: 1px ${colors.black};
+  padding: 8px;
+`;
+
+const AdvancedSettingsTitle = styled(Title)`
+  text-align: center;
+`;
 
 const styles = StyleSheet.create({
   container: {
