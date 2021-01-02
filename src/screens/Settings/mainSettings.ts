@@ -1,6 +1,7 @@
 export const mainSettings = [
   {
     name: "Psalter Cycle",
+    storageKey: "psalterCycle",
     options: [
       {
         title: "60 Day",
@@ -24,6 +25,7 @@ export const mainSettings = [
   },
   {
     name: "Reading Cycle",
+    storageKey: "readingCycle",
     options: [
       {
         title: "One Year",
@@ -55,6 +57,7 @@ export const mainSettings = [
   },
   {
     name: "Reading Length",
+    storageKey: "readingLength",
     options: [
       {
         title: "Full",
@@ -78,6 +81,7 @@ export const mainSettings = [
   },
   {
     name: "Reading Audio",
+    storageKey: "readingAudio",
     options: [
       {
         title: "Disable Audio",
@@ -101,6 +105,7 @@ export const mainSettings = [
   },
   {
     name: "Canticle Rotation",
+    storageKey: "canticleRotation",
     options: [
       {
         title: "Traditional",
