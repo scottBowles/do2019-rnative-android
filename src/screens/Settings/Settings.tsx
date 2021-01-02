@@ -9,8 +9,8 @@ export const Settings = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <TopMaterial />
-      {mainSettings.map((mainSetting, index) => (
-        <MainSetting key={index} setting={mainSetting} />
+      {mainSettings.map((mainSetting) => (
+        <MainSetting key={mainSetting.storageKey} setting={mainSetting} />
       ))}
     </ScrollView>
   );
