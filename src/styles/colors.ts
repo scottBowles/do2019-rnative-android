@@ -4,11 +4,13 @@ export const colors = {
   fontGrey: "#333333",
   green: "#077339",
   grey: "#808080",
+  lightBlue: "#428bca",
   lightGrey: "#d3d3d3",
   linkBlue: "#8c8cfa",
   purple: "#64147d",
   red: "#c21c13",
   rose: "#ffc0cb",
   white: "#ffffff",
+  veryLightGrey: "#bfc4c8",
   "lenten array": "#fce8e9",
 };
