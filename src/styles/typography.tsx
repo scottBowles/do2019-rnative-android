@@ -81,6 +81,13 @@ export const H2 = styled(HeadingBase)`
   text-transform: uppercase;
 `;
 
+export const Title = styled(Text)`
+  text-transform: uppercase;
+  font-family: ${fonts.primary.semibold};
+  font-size: 16px;
+  letter-spacing: 1.6px;
+`;
+
 export const H3 = styled(HeadingBase)`
   padding-top: 30px;
   margin-bottom: 5px;
