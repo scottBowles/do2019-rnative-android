@@ -1,5 +1,6 @@
 import { CheckmarkIcon } from "assets/icons";
 import React from "react";
+import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
 import { colors } from "styles/colors";
 import { fonts } from "styles/fonts";
@@ -15,21 +16,39 @@ export interface IDescriptionPart {
   type: string;
 }
 
-export const MainOption: React.FC<{ option: IOption; selected?: boolean }> = ({
-  option,
-  selected = false,
-}) => (
-  <OptionBox selected={selected}>
-    {selected && <Check size={35} />}
-    <Title selected={selected}>{option.title}</Title>
-    <Description description={option.description} selected={selected} />
-  </OptionBox>
-);
+interface IMainOptionProps {
+  option: IOption;
+  index: number;
+  handlePress: React.Dispatch<React.SetStateAction<number>>;
+  selected?: boolean;
+}
 
-const Description: React.FC<{
+export const MainOption: React.FC<IMainOptionProps> = ({
+  option,
+  index,
+  handlePress,
+  selected = false,
+}) => {
+  return (
+    <Pressable onPress={() => handlePress(index)}>
+      <OptionBox selected={selected}>
+        {selected && <Checkmark size={35} />}
+        <Title selected={selected}>{option.title}</Title>
+        <Description description={option.description} selected={selected} />
+      </OptionBox>
+    </Pressable>
+  );
+};
+
+interface IDescriptionProps {
   description: IDescriptionPart[];
   selected: boolean;
-}> = ({ description, selected }) => (
+}
+
+const Description: React.FC<IDescriptionProps> = ({
+  description,
+  selected,
+}) => (
   <DescriptionWrapper>
     {description.map((words) => (
       <DescriptionPart
@@ -65,7 +84,7 @@ const OptionBox = styled.View<{ selected: boolean }>`
         `}
 `;
 
-const Check = styled(CheckmarkIcon)`
+const Checkmark = styled(CheckmarkIcon)`
   position: absolute;
   top: -29px;
   background-color: ${colors.white};
