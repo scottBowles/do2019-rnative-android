@@ -1,12 +1,19 @@
+import { mainSettings } from "data/settingsData";
 import { IMainSetting } from "data/settingsData/mainSettings";
 import { useLocalStorageWithState } from "data/useLocalStorageWithState";
 import React from "react";
 import { View } from "react-native";
-import styled from "styled-components/native";
-import { fonts } from "styles/fonts";
-import { Text } from "styles/typography";
+import { MainSettingName } from "styles/typography";
 
 import { MainOption } from "./MainOption";
+
+export const MainSettings: React.FC = () => (
+  <>
+    {mainSettings.map((mainSetting) => (
+      <MainSetting key={mainSetting.storageKey} setting={mainSetting} />
+    ))}
+  </>
+);
 
 export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
   const [currentSetting, setCurrentSetting] = useLocalStorageWithState(
@@ -15,7 +22,7 @@ export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
   );
   return (
     <View style={{ width: "100%", alignItems: "center" }}>
-      <SettingName>{setting.name}</SettingName>
+      <MainSettingName>{setting.name}</MainSettingName>
       {setting.options.map((option) => (
         <MainOption
           key={option.title}
@@ -27,12 +34,3 @@ export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
     </View>
   );
 };
-
-const SettingName = styled(Text)`
-  text-transform: uppercase;
-  font-family: ${fonts.primary.semibold};
-  letter-spacing: 1.6px;
-  font-size: 24px;
-  margin: 32px 32px 8px;
-  text-align: center;
-`;
