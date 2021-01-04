@@ -38,6 +38,9 @@ interface ITextProps {
   children?: ReactNode;
 }
 
+// To avoid cutting off the type of the Adobe Caslon Pro font, it is necessary
+// to add top padding under a certain line height. E.g., for 16px font, line-height
+// plus padding-top must add to at least 24.
 export const Text = styled(NativeText)<ITextProps>`
   font-family: ${(props) =>
     props.bold
@@ -86,6 +89,15 @@ export const Title = styled(Text)`
   font-family: ${fonts.primary.semibold};
   font-size: 16px;
   letter-spacing: 1.6px;
+`;
+
+export const MainSettingName = styled(Text)`
+  text-transform: uppercase;
+  font-family: ${fonts.primary.semibold};
+  letter-spacing: 1.6px;
+  font-size: 24px;
+  margin: 32px 32px 8px;
+  text-align: center;
 `;
 
 export const H3 = styled(HeadingBase)`
