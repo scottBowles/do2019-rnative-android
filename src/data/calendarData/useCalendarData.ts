@@ -1,11 +1,12 @@
+import { IApiCalendarDay } from "data/interfaces";
 import { MutableRefObject, useState } from "react";
 
-import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
+import { IHeaderData, ISectionData } from "./interfaces";
 import { CalendarDay, ParsedDate } from "./models";
 import { sectionizeCalendarData } from "./sectionizeCalendarData";
 import { generateCalendarData } from "./utils";
 
-type SectionizedData = (HeaderData | SectionData | CalendarDay)[];
+type SectionizedData = (IHeaderData | ISectionData | CalendarDay)[];
 
 interface Return {
   dataSource: SectionizedData;
@@ -24,7 +25,7 @@ export const useCalendarData = (
   startYear: number,
   isMountedRef: MutableRefObject<boolean | null>
 ): Return => {
-  const dataForHeader: HeaderData = { type: "listHeader", startYear };
+  const dataForHeader: IHeaderData = { type: "listHeader", startYear };
 
   const [dataGenerator] = useState(generateCalendarData(startYear));
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,7 @@ export const useCalendarData = (
     if (!isLoading) {
       try {
         setIsLoading(true);
-        const apiCalendarData: ApiCalendarDay[] = (await dataGenerator.next())
+        const apiCalendarData: IApiCalendarDay[] = (await dataGenerator.next())
           .value;
         if (isMountedRef.current) {
           const calendarDays = apiCalendarData.map(
@@ -61,7 +62,7 @@ export const useCalendarData = (
 
     const { dayOfMonth, month, year } = new ParsedDate(date);
     const index = dataSource.findIndex(
-      (item: HeaderData | SectionData | CalendarDay) =>
+      (item: IHeaderData | ISectionData | CalendarDay) =>
         item.type === "date" &&
         item.dayOfMonth === dayOfMonth &&
         item.month === month &&
@@ -72,7 +73,7 @@ export const useCalendarData = (
 
   const getSeasonIndex = (seasonName: string): number => {
     const index: number = dataSource.findIndex(
-      (item: HeaderData | SectionData | CalendarDay) =>
+      (item: IHeaderData | ISectionData | CalendarDay) =>
         item.type === "heading" &&
         ["season", "both"].includes(item.sectionType) &&
         item.season.name.toLowerCase() === seasonName.toLowerCase()

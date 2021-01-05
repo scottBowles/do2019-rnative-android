@@ -1,11 +1,7 @@
 import { getLocalDate } from "common/utils/getLocalDate";
+import { IApiCalendarDay, ICommemoration, ISeason } from "data/interfaces";
 
-import {
-  ApiCalendarDay,
-  Commemoration,
-  IParsedDate,
-  Season,
-} from "../interfaces";
+import { IParsedDate } from "../interfaces";
 
 export class CalendarDay implements IParsedDate {
   localDate: Date;
@@ -14,11 +10,11 @@ export class CalendarDay implements IParsedDate {
   month: string;
   weekday: string;
   year: number;
-  season: Season;
+  season: ISeason;
   isFastDay: boolean;
-  commemorations: Commemoration[];
+  commemorations: ICommemoration[];
 
-  constructor(apiDay: ApiCalendarDay) {
+  constructor(apiDay: IApiCalendarDay) {
     const {
       date_description: { day, month_name, weekday, year },
       season,

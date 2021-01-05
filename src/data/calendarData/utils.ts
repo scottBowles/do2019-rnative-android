@@ -1,7 +1,8 @@
 import { getLiturgicalYear, getLocalDate } from "common/utils";
+import { IApiCalendarDay } from "data/interfaces";
 import { DataProvider } from "recyclerlistview";
 
-import { ApiCalendarDay, HeaderData, SectionData } from "./interfaces";
+import { IHeaderData, ISectionData } from "./interfaces";
 import { CalendarDay } from "./models";
 
 /**
@@ -33,15 +34,19 @@ export const getStartValues = (year?: string, date?: string) => {
  * Fetch calendar data from the api
  * @param year Year to pass to the fetch url
  */
-const fetchCalendarData = async (year: number): Promise<ApiCalendarDay[]> => {
+const fetchCalendarData = async (year: number): Promise<IApiCalendarDay[]> => {
   const res = await fetch(
     `https://api.dailyoffice2019.com/api/v1/calendar/${year}`
   );
-  const data: ApiCalendarDay[] = await res.json();
+  const data: IApiCalendarDay[] = await res.json();
   return data;
 };
 
-type CalGenReturn = AsyncGenerator<ApiCalendarDay[], ApiCalendarDay[], number>;
+type CalGenReturn = AsyncGenerator<
+  IApiCalendarDay[],
+  IApiCalendarDay[],
+  number
+>;
 
 /**
  * Generator function to fetch subsequent years' data starting with startYear
@@ -50,7 +55,7 @@ type CalGenReturn = AsyncGenerator<ApiCalendarDay[], ApiCalendarDay[], number>;
 export async function* generateCalendarData(startYear: number): CalGenReturn {
   let year = startYear;
   while (0 < year && year < 10000) {
-    const data: ApiCalendarDay[] = await fetchCalendarData(year);
+    const data: IApiCalendarDay[] = await fetchCalendarData(year);
     const newStartYear: number = yield data;
     year = newStartYear || year + 1;
   }
@@ -63,7 +68,7 @@ export async function* generateCalendarData(startYear: number): CalGenReturn {
  * @param data Data for RecyclerListView
  */
 export const createDataProvider = (
-  data: (HeaderData | SectionData | CalendarDay)[]
+  data: (IHeaderData | ISectionData | CalendarDay)[]
 ) =>
   new DataProvider((r1, r2) => {
     return r1 !== r2;

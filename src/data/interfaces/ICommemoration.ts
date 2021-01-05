@@ -1,4 +1,4 @@
-export interface Commemoration {
+export interface ICommemoration {
   name: string;
   rank: { name: string; formatted_name: string; precedence: number };
   colors: string[];

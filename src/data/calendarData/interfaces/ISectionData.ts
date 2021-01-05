@@ -1,12 +1,12 @@
-import { Season } from "./Season";
+import { ISeason } from "data/interfaces";
 
 /**
  * Object to be inserted for section headers
  */
-export interface SectionData {
+export interface ISectionData {
   type: "heading";
   sectionType: "both" | "month" | "season";
   month: string;
   year: number;
-  season: Season;
+  season: ISeason;
 }

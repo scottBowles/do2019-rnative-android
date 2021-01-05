@@ -1,5 +1,5 @@
+import { ISectionData } from "./interfaces";
 import { CalendarDay } from "./models";
-import { SectionData } from "./interfaces";
 
 /**
  * Inserts SectionData objects when month or season changes in an array of CalendarDay objects
@@ -8,11 +8,11 @@ import { SectionData } from "./interfaces";
  */
 export const sectionizeCalendarData = (
   calendarData: CalendarDay[]
-): (SectionData | CalendarDay)[] => {
-  let currentSection: SectionData;
+): (ISectionData | CalendarDay)[] => {
+  let currentSection: ISectionData;
 
   return calendarData.reduce(
-    (acc: (SectionData | CalendarDay)[], cur: CalendarDay) => {
+    (acc: (ISectionData | CalendarDay)[], cur: CalendarDay) => {
       const { fullMonth: month, year, season } = cur;
 
       if (

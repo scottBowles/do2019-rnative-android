@@ -1,4 +1,4 @@
-export interface Season {
+export interface ISeason {
   name: string;
   colors: string[];
 }
