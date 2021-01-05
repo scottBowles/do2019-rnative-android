@@ -15,7 +15,9 @@ export const MainSettings: React.FC = () => (
   </>
 );
 
-export const MainSetting: React.FC<IMainSetting> = ({ setting }) => {
+export const MainSetting: React.FC<{ setting: IMainSetting }> = ({
+  setting,
+}) => {
   const [currentSetting, setCurrentSetting] = useLocalStorageWithState(
     setting.storageKey,
     setting.default

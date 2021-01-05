@@ -1,10 +1,8 @@
 export interface IMainSetting {
-  setting: {
-    name: string;
-    storageKey: string;
-    default: string;
-    options: IOption[];
-  };
+  name: string;
+  storageKey: string;
+  default: string;
+  options: IOption[];
 }
 
 export interface IOption {
