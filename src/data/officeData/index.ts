@@ -1,0 +1,1 @@
+export { dummyOffice } from "./dummyOffice";
