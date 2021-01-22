@@ -22,9 +22,7 @@ import {
 } from "common/components/calendarBlock";
 import { isEmptyObject } from "common/utils";
 import { useDummyFetch } from "data/common";
-import { dummyOffice } from "data/officeData";
-import { IApiOfficeData } from "data/officeData/IApiOfficeData";
-import { OfficeData } from "data/officeData/OfficeData";
+import { IApiOfficeData, OfficeData, dummyOffice } from "data/officeData";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { H1 } from "styles/typography";

@@ -8,6 +8,5 @@ export class OfficeData extends CalendarDay {
   constructor(apiOffice: IApiOfficeData) {
     super(apiOffice.calendar_day);
     this.data = apiOffice.modules.data;
-    console.log(this.weekday);
   }
 }
