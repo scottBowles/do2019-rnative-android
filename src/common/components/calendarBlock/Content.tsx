@@ -8,8 +8,8 @@
  *
  */
 
-import { Season } from "data/calendarData/interfaces";
 import { CalendarDay } from "data/calendarData/models";
+import { ISeason } from "data/interfaces";
 import React from "react";
 import styled from "styled-components/native";
 
@@ -22,7 +22,7 @@ interface IContentProps {
   showOfficeLinks?: boolean;
 }
 interface ISeasonBoxProps {
-  season: Season;
+  season: ISeason;
 }
 
 export const Content: React.FC<IContentProps> = ({
