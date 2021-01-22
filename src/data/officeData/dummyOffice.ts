@@ -1,23 +1,9 @@
 // url used: https://data.dailyoffice2019.com/api/v1/office/morning_prayer/2020-12-10?confession=lonf&absolution=priest
 // on 1/4/21
 
-import { IApiCalendarDay } from "data/interfaces";
+import { IApiOfficeData } from "./IApiOfficeData";
 
-interface IDummyOffice {
-  calendar_day: IApiCalendarDay;
-  modules: {
-    data: {
-      name: string;
-      lines: {
-        content: string;
-        line_type: string;
-        indented: boolean;
-      }[];
-    }[];
-  };
-}
-
-export const dummyOffice: IDummyOffice = {
+export const dummyOffice: IApiOfficeData = {
   calendar_day: {
     date: "2020-12-10",
     date_description: {
