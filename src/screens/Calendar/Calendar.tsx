@@ -12,19 +12,19 @@
  *
  */
 
+import { useCalendarData } from "data/calendarData";
+import { createDataProvider, getStartValues } from "data/calendarData/utils";
+import { useIsMountedRef } from "data/common/useIsMountedRef";
 import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
 
-import { useCalendarData } from "data/calendarData";
-import { createDataProvider, getStartValues } from "data/calendarData/utils";
-import { useIsMountedRef } from "data/common/useIsMountedRef";
-import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
 import { ListHeader } from "./ListHeader";
 import { LoadingAnimation } from "./LoadingAnimation";
+import { CalendarNavBar } from "./Navigation/CalendarNavBar";
 import { SectionHeader } from "./SectionHeader";
 import { useCalendarActions } from "./useCalendarActions";
 
@@ -49,6 +49,7 @@ export const Calendar: React.FC = () => {
     getSeasonIndex,
   } = useCalendarData(startYear, isMountedRef);
 
+  /** Calendar actions functions */
   const { jumpToDate, jumpToSeason, jumpToTop } = useCalendarActions({
     listRef,
     getDateIndex,
@@ -96,7 +97,7 @@ export const Calendar: React.FC = () => {
         layoutProvider={layoutProvider}
         rowRenderer={rowRenderer}
         renderFooter={() => <LoadingAnimation isLoading={isLoading} />}
-        forceNonDeterministicRendering={true}
+        forceNonDeterministicRendering
         onEndReached={getData}
         onEndReachedThreshold={0}
         initialRenderIndex={getDateIndex(startDate)}
