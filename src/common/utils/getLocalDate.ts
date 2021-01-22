@@ -6,3 +6,6 @@ export const getLocalDate = (utcDate: Date): Date => {
   const time = utcDate.getTime() + utcDate.getTimezoneOffset() * 60 * 1000;
   return new Date(time);
 };
+
+// The above might be called something like toLocalFromDateParser
+// Another function may be needed like toLocalFromDateConstructor
