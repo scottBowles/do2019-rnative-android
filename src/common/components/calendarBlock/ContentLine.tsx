@@ -6,25 +6,24 @@ import styled, { css } from "styled-components/native";
 import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
-interface ContentLineProps {
-  type?: "primary" | "secondary" | "season";
+interface ContentLineProps<T extends "primary" | "secondary" | "season"> {
+  type?: T;
   data: {
     colors: string[];
     name: string;
-    links?: string[];
-    rank: { precedence: string };
+    links: T extends "primary" | "secondary" ? string[] : undefined;
+    rank?: T extends "primary" | "secondary"
+      ? { precedence: number }
+      : undefined;
   };
   style?: object;
 }
 
-export const ContentLine: React.FC<ContentLineProps> = ({
+export const ContentLine: React.FC<
+  ContentLineProps<"primary" | "secondary" | "season">
+> = ({
   type = "primary",
-  data: {
-    colors,
-    name,
-    links,
-    rank: { precedence },
-  },
+  data: { colors, name, links, rank },
   style: incomingStyle,
   ...props
 }) => {
@@ -41,7 +40,7 @@ export const ContentLine: React.FC<ContentLineProps> = ({
   ));
 
   const words = name.split(" ").map((word, index, arr) => (
-    <StyledText key={word + index} type={type} precedence={precedence}>
+    <StyledText key={word + index} type={type} precedence={rank?.precedence}>
       {index !== arr.length - 1 ? word + " " : word}
     </StyledText>
   ));
@@ -81,12 +80,13 @@ const StyledColorBox = styled(ColorBox)`
  * Padding and negative margin present to account for Adobe Caslon Pro's
  * significant bottom padding, which throws off alignment
  */
-const StyledText = styled(Text)<{ type: string; precedence: string }>`
+const StyledText = styled(Text)<{ type: string; precedence?: number }>`
   ${(props) =>
     props.type === "primary" &&
     css`
-      font-family: ${(props) =>
-        +props.precedence < 4 ? fonts.primary.bold : fonts.primary.regular};
+      font-family: ${props.precedence! < 4
+        ? fonts.primary.bold
+        : fonts.primary.regular};
       font-size: 16px;
       padding-top: 8px;
       margin-bottom: -16px;
