@@ -1,6 +1,4 @@
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
-import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
 interface IContainerProps {
@@ -14,7 +12,7 @@ interface TextColor {
 }
 
 const DateBlockContainer = styled.View<IContainerProps>`
-  background-color: ${(props) => colors[props.primaryColor]};
+  background-color: ${(props) => props.theme.colors[props.primaryColor]};
   border-radius: 4px;
   padding-top: 9px;
   padding-bottom: 8px;
@@ -32,15 +30,15 @@ const DateText = styled(Text)<TextColor>`
   text-transform: uppercase;
   font-size: 16px;
   bottom: 5px;
-  font-family: ${fonts.primary.semibold};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
 const Weekday = styled(DateText)`
-  font-family: ${fonts.primary.bold};
+  font-family: ${({ theme }) => theme.fonts.primary.bold};
 `;
 
 const DayOfMonth = styled(DateText)`
-  font-family: ${fonts.primary.semibold};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
   font-size: 32px;
   bottom: 8px;
 `;
@@ -55,7 +53,7 @@ const FastText = styled(Text)<TextColor>`
   color: ${(props) => props.textColor};
   text-transform: uppercase;
   font-size: 16px;
-  font-family: ${fonts.primary.bold};
+  font-family: ${({ theme }) => theme.fonts.primary.bold};
   top: 3px;
   margin-left: 4px;
 `;

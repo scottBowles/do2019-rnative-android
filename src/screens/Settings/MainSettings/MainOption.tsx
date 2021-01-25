@@ -3,8 +3,6 @@ import { IDescriptionPart, IOption } from "data/settingsData/mainSettings";
 import React from "react";
 import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
-import { colors } from "styles/colors";
-import { fonts } from "styles/fonts";
 import { Text, Title } from "styles/typography";
 
 interface IMainOptionProps {
@@ -60,15 +58,15 @@ const OptionBox = styled.View<{ selected: boolean }>`
   border-radius: 20px;
   padding: 32px;
   margin: 32px 14.4px 14.4px;
-  border: 2px solid ${colors.grey};
-  ${({ selected }) =>
+  border: 2px solid ${({ theme }) => theme.colors.grey};
+  ${({ selected, theme }) =>
     selected
       ? css`
-          background-color: ${colors.grey};
+          background-color: ${theme.colors.grey};
           elevation: 15;
         `
       : css`
-          background-color: ${colors.white};
+          background-color: ${theme.colors.white};
           elevation: 2;
         `}
 `;
@@ -76,8 +74,8 @@ const OptionBox = styled.View<{ selected: boolean }>`
 const Checkmark = styled(CheckmarkIcon)`
   position: absolute;
   top: -29px;
-  background-color: ${colors.white};
-  border: 2px ${colors.grey};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px ${({ theme }) => theme.colors.grey};
   border-radius: 50px;
   height: 56px;
   width: 56px;
@@ -87,7 +85,7 @@ const Checkmark = styled(CheckmarkIcon)`
 
 const OptionTitle = styled(Title)<{ selected: boolean }>`
   margin: 4.8px;
-  ${({ selected }) => selected && `color: ${colors.white}`}
+  ${({ selected, theme }) => selected && `color: ${theme.colors.white}`}
 `;
 
 const DescriptionWrapper = styled(Text)`
@@ -98,6 +96,7 @@ const DescriptionPart = styled(Text)<{ type: string; selected: boolean }>`
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  ${({ selected }) => selected && `color: ${colors.white}`}
-  ${({ type }) => type === "bold" && `font-family: ${fonts.primary.bold}`}
+  ${({ selected, theme }) => selected && `color: ${theme.colors.white}`}
+  ${({ type, theme }) =>
+    type === "bold" && `font-family: ${theme.fonts.primary.bold}`}
 `;

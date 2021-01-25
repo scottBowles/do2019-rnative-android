@@ -10,9 +10,6 @@ import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
-import { colors } from "./colors";
-import { fonts } from "./fonts";
-
 type TStyledComponent = StyledComponent<any, any, object, never>;
 
 type TTextStyledComponent = StyledComponent<
@@ -42,7 +39,7 @@ interface ITextProps {
 // to add top padding under a certain line height. E.g., for 16px font, line-height
 // plus padding-top must add to at least 24.
 export const Text = styled(NativeText)<ITextProps>`
-  font-family: ${(props) =>
+  font-family: ${({ theme: { fonts }, ...props }) =>
     props.bold
       ? fonts.primary.bold
       : props.boldItalic
@@ -55,7 +52,7 @@ export const Text = styled(NativeText)<ITextProps>`
       ? fonts.primary.semiboldItalic
       : fonts.primary.regular};
   font-size: ${(props) => props.size || 16}px;
-  color: ${(props) => props.color || colors.fontGrey};
+  color: ${(props) => props.color || props.theme.colors.fontGrey};
 `;
 
 export const Caption = styled(Text)`
@@ -65,7 +62,7 @@ export const Caption = styled(Text)`
 `;
 
 const HeadingBase = styled(Text)`
-  font-family: ${fonts.primary.semibold};
+  font-family: ${(props) => props.theme.fonts.primary.semibold};
   letter-spacing: 1.6px;
   text-align: center;
   margin: 3.2px;
@@ -86,14 +83,14 @@ export const H2 = styled(HeadingBase)`
 
 export const Title = styled(Text)`
   text-transform: uppercase;
-  font-family: ${fonts.primary.semibold};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
   font-size: 16px;
   letter-spacing: 1.6px;
 `;
 
 export const MainSettingName = styled(Text)`
   text-transform: uppercase;
-  font-family: ${fonts.primary.semibold};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
   letter-spacing: 1.6px;
   font-size: 24px;
   margin: 32px 32px 8px;
@@ -128,19 +125,19 @@ export const P = styled(Text)`
 `;
 
 export const SmallItalics = styled(P)`
-  font-family: ${fonts.primary.italic};
+  font-family: ${({ theme }) => theme.fonts.primary.italic};
   font-size: 12.8px;
 `;
 
 export const People = styled(Text)`
   font-size: 14px;
   line-height: 24px;
-  font-family: ${fonts.primary.semibold};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
 export const Rubric = styled(Text)`
   font-size: 10.75px;
-  font-family: ${fonts.primary.italic};
+  font-family: ${({ theme }) => theme.fonts.primary.italic};
   /* margin-vertical: 10px; */
 `;
 
@@ -169,7 +166,7 @@ export const HR = styled(View)`
 const addLinkStylesTo = (Base: TTextStyledComponent) => styled(
   Base
 )<ITextProps>`
-  color: ${colors.linkBlue};
+  color: ${({ theme }) => theme.colors.linkBlue};
   text-decoration-line: underline;
 `;
 

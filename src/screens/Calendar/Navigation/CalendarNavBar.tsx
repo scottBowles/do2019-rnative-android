@@ -6,9 +6,10 @@ import {
   ToTopIcon,
 } from "assets/icons";
 import { toTitleCase } from "common/utils";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
-import { colors } from "styles/colors";
+import { ThemeContext } from "styled-components";
+import styled from "styled-components/native";
 import { Text } from "styles/typography";
 
 import { SeasonModal } from "./SeasonModal";
@@ -24,6 +25,7 @@ export const CalendarNavBar: React.FC<Props> = ({
   jumpToTop,
   jumpToSeason,
 }) => {
+  const theme = useContext(ThemeContext);
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [seasonModalVisible, setSeasonModalVisible] = useState(false);
@@ -40,7 +42,7 @@ export const CalendarNavBar: React.FC<Props> = ({
   };
 
   const ICON_SIZE = 23;
-  const ICON_COLOR = colors.black;
+  const ICON_COLOR = theme.colors.black;
   const navItems = menuItems({
     jumpToDate,
     jumpToTop,
@@ -49,7 +51,7 @@ export const CalendarNavBar: React.FC<Props> = ({
   });
 
   return (
-    <View style={styles.container}>
+    <Container>
       <SeasonModal
         seasonModalVisible={seasonModalVisible}
         closeSeasonModal={() => setSeasonModalVisible(false)}
@@ -66,14 +68,14 @@ export const CalendarNavBar: React.FC<Props> = ({
         />
       )}
       {navItems.map(({ Icon, text, onPress }, index) => (
-        <TouchableHighlight onPress={onPress} style={styles.btn} key={index}>
-          <View style={styles.btnContent}>
+        <StyledTouchableHighlight onPress={onPress} key={index}>
+          <BtnContent>
             <Icon size={ICON_SIZE} color={ICON_COLOR} />
-            <Text style={styles.item}>{toTitleCase(text)}</Text>
-          </View>
-        </TouchableHighlight>
+            <BtnText>{toTitleCase(text)}</BtnText>
+          </BtnContent>
+        </StyledTouchableHighlight>
       ))}
-    </View>
+    </Container>
   );
 };
 
@@ -115,25 +117,26 @@ const menuItems = ({
   },
 ];
 
-const styles = StyleSheet.create({
-  container: {
-    borderColor: colors.black,
-    borderTopWidth: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    height: 100,
-  },
-  btn: {
-    flex: 1,
-  },
-  btnContent: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.lightGrey,
-  },
-  item: {
-    fontSize: 17,
-    textAlign: "center",
-  },
-});
+const Container = styled(View)`
+  border-color: ${({ theme }) => theme.colors.black};
+  border-top-width: 1px;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100px;
+`;
+
+const StyledTouchableHighlight = styled(TouchableHighlight)`
+  flex: 1;
+`;
+
+const BtnContent = styled(View)`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+`;
+
+const BtnText = styled(Text)`
+  font-size: 17px;
+  text-align: center;
+`;

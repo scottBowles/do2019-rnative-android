@@ -1,8 +1,7 @@
-import React from "react";
-import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
-
 import { CloseIcon } from "assets/icons";
 import { ContentLine } from "common/components/calendarBlock/ContentLine";
+import React from "react";
+import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
 import { colors } from "styles/colors";
 import { H1 } from "styles/typography";
 
@@ -36,7 +35,7 @@ export const SeasonModal: React.FC<Props> = ({
 
   return (
     <Modal
-      transparent={true}
+      transparent
       animationType="fade"
       onRequestClose={closeSeasonModal}
       visible={seasonModalVisible}

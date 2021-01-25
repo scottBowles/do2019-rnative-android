@@ -16,6 +16,8 @@ import {
   Settings,
 } from "screens";
 import { TestingGrounds } from "screens/TestingGrounds";
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "styles/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts(fontRequires);
@@ -23,47 +25,49 @@ export default function App() {
   if (!fontsLoaded) return <AppLoading />;
 
   return (
-    <Router>
-      <SafeAreaView style={styles.container}>
-        <StatusBar />
-        <Menu />
-        <Switch>
-          <Route exact path="/">
-            <TestingGrounds />
-          </Route>
-          <Route path="/office">
-            <Office />
-          </Route>
-          <Route
-            path="/calendar/:year/:date"
-            render={({ location, ...rest }) => (
-              <Calendar key={location.pathname} {...rest} />
-            )}
-          />
-          <Route
-            path="/calendar/:year"
-            render={({ location, ...rest }) => (
-              <Calendar key={location.pathname} {...rest} />
-            )}
-          />
-          <Route path="/calendar">
-            <Calendar />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/settings">
-            <Settings />
-          </Route>
-          <Route path="/privacy">
-            <PrivacyPolicy />
-          </Route>
-          <Route path="/psalter">
-            <Psalter />
-          </Route>
-        </Switch>
-      </SafeAreaView>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <SafeAreaView style={styles.container}>
+          <StatusBar />
+          <Menu />
+          <Switch>
+            <Route exact path="/">
+              <TestingGrounds />
+            </Route>
+            <Route path="/office">
+              <Office />
+            </Route>
+            <Route
+              path="/calendar/:year/:date"
+              render={({ location, ...rest }) => (
+                <Calendar key={location.pathname} {...rest} />
+              )}
+            />
+            <Route
+              path="/calendar/:year"
+              render={({ location, ...rest }) => (
+                <Calendar key={location.pathname} {...rest} />
+              )}
+            />
+            <Route path="/calendar">
+              <Calendar />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/settings">
+              <Settings />
+            </Route>
+            <Route path="/privacy">
+              <PrivacyPolicy />
+            </Route>
+            <Route path="/psalter">
+              <Psalter />
+            </Route>
+          </Switch>
+        </SafeAreaView>
+      </Router>
+    </ThemeProvider>
   );
 }
 

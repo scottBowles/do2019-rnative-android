@@ -3,7 +3,6 @@ import { ColorBox } from "common/components";
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import styled, { css } from "styled-components/native";
-import { fonts } from "styles/fonts";
 import { Text } from "styles/typography";
 
 interface ContentLineProps<T extends "primary" | "secondary" | "season"> {
@@ -85,8 +84,8 @@ const StyledText = styled(Text)<{ type: string; precedence?: number }>`
     props.type === "primary" &&
     css`
       font-family: ${props.precedence! < 4
-        ? fonts.primary.bold
-        : fonts.primary.regular};
+        ? props.theme.fonts.primary.bold
+        : props.theme.fonts.primary.regular};
       font-size: 16px;
       padding-top: 8px;
       margin-bottom: -16px;

@@ -1,8 +1,7 @@
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
 
 export const OutlineBtn = styled.View`
-  border-color: ${colors.fontGrey};
+  border-color: ${({ theme }) => theme.colors.fontGrey};
   border-width: 1px;
   border-radius: 11px;
   align-items: center;

@@ -1,9 +1,10 @@
 import { View } from "react-native";
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
+
+import { theme } from "./theme";
 
 export const OutlinedContainer = styled(View)`
-  border-color: ${colors.fontGrey};
+  border-color: ${theme.colors.fontGrey};
   border-width: 1px;
   padding: 20px;
   width: 100%;

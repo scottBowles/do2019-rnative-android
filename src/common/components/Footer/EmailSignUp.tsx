@@ -1,9 +1,7 @@
 import React from "react";
 import { Image, TextInput, View } from "react-native";
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
 import { OutlinedContainer } from "styles/containers";
-import { fonts } from "styles/fonts";
 import { SmallItalics, Text } from "styles/typography";
 
 import { OutlineBtn } from "../OutlineBtn";
@@ -40,17 +38,17 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledTextInput = styled(TextInput)`
-  border: 1px ${colors.fontGrey};
+  border: 1px ${({ theme }) => theme.colors.fontGrey};
   border-radius: 11px;
-  color: ${colors.fontGrey};
-  font-family: ${fonts.primary.regular};
+  color: ${({ theme }) => theme.colors.fontGrey};
+  font-family: ${({ theme }) => theme.fonts.primary.regular};
   padding: 6px 10px 0;
   height: 35px;
   margin: 3.3px 0;
 `;
 
 const StyledOutlineBtn = styled(OutlineBtn)`
-  background-color: ${colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   height: 35px;
   margin: 3.3px 0;
 `;
