@@ -6,7 +6,6 @@ import { useLocalStorageWithState } from "data/useLocalStorageWithState";
 import React from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
 import { SmallItalics, Text, Title } from "styles/typography";
 
 export const AdvancedSettings: React.FC = () => (
@@ -43,8 +42,8 @@ const RadioButton: React.FC<{ selected: boolean }> = ({ selected }) => (
 
 const Wrapper = styled.View`
   width: 100%;
-  background-color: ${colors.lightGrey};
-  border: 1px ${colors.black};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
+  border: 1px ${({ theme }) => theme.colors.black};
   padding: 10px;
   margin-bottom: 10px;
 `;
@@ -73,7 +72,7 @@ const DescriptionText = styled(SmallItalics)`
 
 const RadioButtonRing = styled.View`
   border-radius: 50px;
-  border: 1px ${colors.veryLightGrey};
+  border: 1px ${({ theme }) => theme.colors.veryLightGrey};
   height: 20px;
   width: 20px;
   justify-content: center;
@@ -83,7 +82,7 @@ const RadioButtonRing = styled.View`
 
 const RadioButtonDot = styled.View`
   border-radius: 50px;
-  background-color: ${colors.lightBlue};
+  background-color: ${({ theme }) => theme.colors.lightBlue};
   height: 65%;
   width: 65%;
 `;

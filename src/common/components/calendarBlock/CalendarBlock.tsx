@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { colors } from "styles/colors";
 
 interface IProps {
   weekday: string;
@@ -14,5 +13,7 @@ export const CalendarBlock = styled.View<IProps>`
   border-width: 1px;
   border-radius: 4px;
   background-color: ${(props) =>
-    props.weekday.toLowerCase() === "sunday" ? colors.lightGrey : "#ffffff"};
+    props.weekday.toLowerCase() === "sunday"
+      ? props.theme.colors.lightGrey
+      : "#ffffff"};
 `;

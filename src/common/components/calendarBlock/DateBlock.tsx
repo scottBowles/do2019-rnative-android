@@ -10,8 +10,8 @@
 
 import { CrossIcon } from "assets/icons";
 import { CalendarDay } from "data/calendarData/models";
-import React from "react";
-import { colors } from "styles/colors";
+import React, { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 import {
   DateBlockContainer,
@@ -28,8 +28,11 @@ interface Props {
 }
 
 export const DateBlock: React.FC<Props> = ({ day }) => {
+  const theme = useContext(ThemeContext);
+
   const primaryColor = day.commemorations[0].colors[0];
-  const textColor = primaryColor === "white" ? colors.fontGrey : colors.white;
+  const textColor =
+    primaryColor === "white" ? theme.colors.fontGrey : theme.colors.white;
 
   return (
     <DateBlockContainer primaryColor={primaryColor}>

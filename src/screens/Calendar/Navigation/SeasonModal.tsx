@@ -1,8 +1,8 @@
 import { CloseIcon } from "assets/icons";
 import { ContentLine } from "common/components/calendarBlock/ContentLine";
-import React from "react";
+import React, { useContext } from "react";
 import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
-import { colors } from "styles/colors";
+import { ThemeContext } from "styled-components";
 import { H1 } from "styles/typography";
 
 // Figure out what to do with ContentLine (probably separate into own file)
@@ -23,14 +23,16 @@ export const SeasonModal: React.FC<Props> = ({
   jumpToSeason,
   ...props
 }) => {
+  const theme = useContext(ThemeContext);
+
   const seasons = [
-    { season: "Advent", color: colors.purple },
-    { season: "Christmastide", color: colors.white },
-    { season: "Epiphanytide", color: colors.green },
-    { season: "Lent", color: colors.purple },
-    { season: "Holy Week", color: colors.purple },
-    { season: "Eastertide", color: colors.white },
-    { season: "Season After Pentecost", color: colors.green },
+    { season: "Advent", color: theme.colors.purple },
+    { season: "Christmastide", color: theme.colors.white },
+    { season: "Epiphanytide", color: theme.colors.green },
+    { season: "Lent", color: theme.colors.purple },
+    { season: "Holy Week", color: theme.colors.purple },
+    { season: "Eastertide", color: theme.colors.white },
+    { season: "Season After Pentecost", color: theme.colors.green },
   ];
 
   return (
