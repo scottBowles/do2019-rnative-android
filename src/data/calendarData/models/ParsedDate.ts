@@ -3,34 +3,44 @@ import { getLocalDate } from "common/utils/getLocalDate";
 import { IParsedDate } from "../interfaces/IParsedDate";
 
 export class ParsedDate implements IParsedDate {
-  constructor(public date: Date) {}
+  date: Date;
+  dayOfMonth: number;
+  fullMonth: string;
+  month: string;
+  weekday: string;
+  year: number;
+  localDate: Date;
 
-  dayOfMonth: number = this.date.getDate();
+  constructor(date: Date) {
+    this.date = date;
 
-  fullMonth: string = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ][this.date.getMonth()];
+    this.dayOfMonth = this.date.getDate();
 
-  month: string = this.fullMonth.slice(0, 3);
+    this.fullMonth = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ][this.date.getMonth()];
 
-  weekday: string = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
-    this.date.getDay()
-  ];
+    this.month = this.fullMonth.slice(0, 3);
 
-  year: number = this.date.getFullYear();
+    this.weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+      this.date.getDay()
+    ];
 
-  localDate: Date = getLocalDate(
-    new Date(`${this.fullMonth} ${this.dayOfMonth}, ${this.year}`)
-  );
+    this.year = this.date.getFullYear();
+
+    this.localDate = getLocalDate(
+      new Date(`${this.fullMonth} ${this.dayOfMonth}, ${this.year}`)
+    );
+  }
 }
