@@ -30,3 +30,5 @@ export const theme = {
     },
   },
 };
+
+export type TTheme = typeof theme;
