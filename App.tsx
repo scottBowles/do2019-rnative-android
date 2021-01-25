@@ -15,6 +15,7 @@ import {
   Psalter,
   Settings,
 } from "screens";
+import { TestingGrounds } from "screens/TestingGrounds";
 
 export default function App() {
   const [fontsLoaded] = useFonts(fontRequires);
@@ -28,7 +29,7 @@ export default function App() {
         <Menu />
         <Switch>
           <Route exact path="/">
-            <Settings />
+            <TestingGrounds />
           </Route>
           <Route path="/office">
             <Office />
