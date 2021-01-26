@@ -1,3 +1,7 @@
+const REM = 16;
+const TYPE_SCALE = 1.125;
+const RHYTHM_UNIT = REM * 1.6;
+
 export const theme = {
   colors: {
     black: "#000000",
@@ -28,6 +32,24 @@ export const theme = {
       semibold: "ACaslonPro-Semibold",
       semiboldItalic: "ACaslonPro-SemiboldItalic",
     },
+  },
+  fontSize: {
+    xxxs: REM / TYPE_SCALE ** 4,
+    xxs: REM / TYPE_SCALE ** 3,
+    xs: REM / TYPE_SCALE ** 2,
+    sm: REM / TYPE_SCALE,
+    base: REM,
+    lg: REM * TYPE_SCALE,
+    xl: REM * TYPE_SCALE ** 2,
+    xxl: REM * TYPE_SCALE ** 3,
+    xxxl: REM * TYPE_SCALE ** 4,
+  },
+  spacing: {
+    baseHalf: RHYTHM_UNIT * 0.5,
+    base: RHYTHM_UNIT,
+    basex2: RHYTHM_UNIT * 2,
+    basex3: RHYTHM_UNIT * 3,
+    basex4: RHYTHM_UNIT * 4,
   },
 };
 
