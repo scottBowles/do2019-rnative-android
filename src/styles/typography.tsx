@@ -32,6 +32,7 @@ interface ITextProps {
   semiboldItalic?: boolean;
   size?: number;
   color?: string;
+  indented?: boolean;
   children?: ReactNode;
 }
 
@@ -52,11 +53,12 @@ export const Text = styled(NativeText)<ITextProps>`
       ? fonts.primary.semiboldItalic
       : fonts.primary.regular};
   font-size: ${(props) => props.size || 16}px;
+  margin-left: ${(props) => (props.indented ? 16 : 0)}px;
   color: ${(props) => props.color || props.theme.colors.fontGrey};
 `;
 
 export const Caption = styled(Text)`
-  font-size: 13px;
+  font-size: 14.4px;
   padding-top: 12px;
   align-self: flex-end;
 `;
@@ -121,7 +123,12 @@ export const H5 = styled(Text)`
 export const P = styled(Text)`
   font-size: ${(props) => props.size || 16}px;
   line-height: 25.6px;
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const Congregation = styled(P)`
+  font-family: ${({ theme }) => theme.fonts.primary.bold};
 `;
 
 export const SmallItalics = styled(P)`
@@ -136,7 +143,7 @@ export const People = styled(Text)`
 `;
 
 export const Rubric = styled(Text)`
-  font-size: 10.75px;
+  font-size: 12.8px;
   font-family: ${({ theme }) => theme.fonts.primary.italic};
   /* margin-vertical: 10px; */
 `;
