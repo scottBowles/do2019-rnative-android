@@ -1,5 +1,5 @@
-// url used: https://data.dailyoffice2019.com/api/v1/office/morning_prayer/2020-12-10?confession=lonf&absolution=priest
-// on 1/4/21
+// url used: https://api.dailyoffice2019.com/api/v1/office/morning_prayer/2020-12-10?confession=lonf&absolution=priest
+// on 1/25/21
 
 import { IApiOfficeData } from "./IApiOfficeData";
 
@@ -9,13 +9,20 @@ export const dummyOffice: IApiOfficeData = {
     date_description: {
       date: "2020-12-10",
       weekday: "Thursday",
-      month: "10",
+      month: "12",
       month_name: "December",
       day: "10",
       year: "2020",
     },
-    season: { name: "Advent", colors: ["purple", "blue"] },
-    fast: { fast_day: 0, fast_day_description: "", fast_day_reason: [] },
+    season: {
+      name: "Advent",
+      colors: ["purple", "blue"],
+    },
+    fast: {
+      fast_day: 0,
+      fast_day_description: "",
+      fast_day_reason: [],
+    },
     commemorations: [
       {
         name: "Thursday after the Second Sunday in Advent",
@@ -32,8 +39,11 @@ export const dummyOffice: IApiOfficeData = {
           alternate_collect: null,
           vigil_collect: null,
         },
+        biography: null,
+        image_link: null,
       },
     ],
+    mass_readings: [],
   },
   modules: {
     data: [
@@ -51,7 +61,11 @@ export const dummyOffice: IApiOfficeData = {
             line_type: "leader",
             indented: false,
           },
-          { content: "ISAIAH 40:3", line_type: "citation", indented: false },
+          {
+            content: "ISAIAH 40:3",
+            line_type: "citation",
+            indented: false,
+          },
         ],
       },
       {
@@ -166,14 +180,26 @@ export const dummyOffice: IApiOfficeData = {
             line_type: "leader",
             indented: false,
           },
-          { content: "Amen.", line_type: "congregation", indented: false },
+          {
+            content: "Amen.",
+            line_type: "congregation",
+            indented: false,
+          },
         ],
       },
       {
         name: "Preces",
         lines: [
-          { content: "The Preces", line_type: "heading", indented: false },
-          { content: "All stand.", line_type: "rubric", indented: false },
+          {
+            content: "The Preces",
+            line_type: "heading",
+            indented: false,
+          },
+          {
+            content: "All stand.",
+            line_type: "rubric",
+            indented: false,
+          },
           {
             content: "O Lord, open our lips;",
             line_type: "leader",
@@ -206,7 +232,11 @@ export const dummyOffice: IApiOfficeData = {
             line_type: "congregation",
             indented: false,
           },
-          { content: "Praise the Lord.", line_type: "leader", indented: false },
+          {
+            content: "Praise the Lord.",
+            line_type: "leader",
+            indented: false,
+          },
           {
             content: "The Lord’s Name be praised.",
             line_type: "congregation",
@@ -227,8 +257,16 @@ export const dummyOffice: IApiOfficeData = {
             line_type: "congregation",
             indented: false,
           },
-          { content: "Venite", line_type: "heading", indented: false },
-          { content: "O Come", line_type: "subheading", indented: false },
+          {
+            content: "Venite",
+            line_type: "heading",
+            indented: false,
+          },
+          {
+            content: "O Come",
+            line_type: "subheading",
+            indented: false,
+          },
           {
             content: "Officiant and People, all standing",
             line_type: "rubric",
