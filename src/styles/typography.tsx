@@ -5,12 +5,13 @@
  */
 
 import { withLink } from "common/components/HOCs/withLink";
-import React, { ReactNode } from "react";
+import React from "react";
 import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
 import { theme } from "./theme";
+import { withTextUtilityProps } from "./withTextUtilityProps";
 
 type TStyledComponent = StyledComponent<any, any, object, never>;
 
@@ -26,37 +27,11 @@ interface ILink {
   children: React.ReactNode;
 }
 
-interface ITextProps {
-  bold?: boolean;
-  boldItalic?: boolean;
-  italic?: boolean;
-  semibold?: boolean;
-  semiboldItalic?: boolean;
-  size?: number;
-  color?: string;
-  indented?: boolean;
-  children?: ReactNode;
-}
-
 // To avoid cutting off the type of the Adobe Caslon Pro font, it is necessary
 // to add top padding under a certain line height. E.g., for 16px font, line-height
 // plus padding-top must add to at least 24.
-export const Text = styled(NativeText)<ITextProps>`
-  font-family: ${({ theme: { fonts }, ...props }) =>
-    props.bold
-      ? fonts.primary.bold
-      : props.boldItalic
-      ? fonts.primary.boldItalic
-      : props.italic
-      ? fonts.primary.italic
-      : props.semibold
-      ? fonts.primary.semibold
-      : props.semiboldItalic
-      ? fonts.primary.semiboldItalic
-      : fonts.primary.regular};
-  font-size: ${(props) => props.size || props.theme.fontSize.body}px;
-  margin-left: ${(props) => (props.indented ? 16 : 0)}px;
-  color: ${(props) => props.color || props.theme.colors.fontGrey};
+const Text = styled(NativeText)`
+  font-family: ${({ theme }) => theme.fonts.primary.regular};
   padding-top: 6px;
   margin-bottom: -6px;
   /* border: 1px red solid; */
@@ -73,37 +48,36 @@ const heading = ({ fontSize, letterSpacingRatio = 0 }) =>
     margin-top: ${fontSize}px;
     padding-bottom: ${fontSize}px;
     letter-spacing: ${fontSize * letterSpacingRatio}px;
-    /* include-font-padding: false;
-    text-align-vertical: center; */
+    include-font-padding: false;
+    text-align-vertical: center;
   `;
 
-export const SectionTitle = heading({
+const SectionTitle = heading({
   fontSize: theme.fontSize.sectionTitle,
   letterSpacingRatio: 0.2,
 });
 
-export const RiteTitle = heading({
+const RiteTitle = heading({
   fontSize: theme.fontSize.riteTitle,
   letterSpacingRatio: 0.2,
 });
 
-export const RiteSubtitle = heading({
+const RiteSubtitle = heading({
   fontSize: theme.fontSize.riteSubtitle,
   letterSpacingRatio: 0.1,
 });
 
-export const ParagraphTitleBase = heading({
+const ParagraphTitleBase = heading({
   fontSize: theme.fontSize.paragraphTitle,
   letterSpacingRatio: 0.1,
 });
-export const ParagraphTitle = styled(ParagraphTitleBase)`
-  /* padding-bottom: 0px; */
-  /* margin-top: 10px;
-  padding-bottom: 10px; */
+
+const ParagraphTitle = styled(ParagraphTitleBase)`
+  padding-bottom: 10px;
   /* border: 1px solid blue; */
 `;
 
-export const FooterTitle = heading({
+const FooterTitle = heading({
   fontSize: theme.fontSize.footer,
   letterSpacingRatio: 0.1,
 });
@@ -113,31 +87,28 @@ const CitationBase = heading({
   letterSpacingRatio: 0.05,
 });
 
-export const Citation = styled(CitationBase)`
+const Citation = styled(CitationBase)`
   margin-top: 0px;
   padding-bottom: 0px;
   align-self: flex-end;
 `;
 
-export const Body = styled(Text)`
+const Body = styled(Text)`
   font-size: ${({ theme }) => theme.fontSize.body}px;
   line-height: ${({ theme }) => (theme.fontSize.body * 13) / 11.5}px;
   /* border: 1px solid green; */
-  /* padding-top: 6px;
-  margin-top: -6px; */
 `;
 
-export const Congregation = styled(Body)`
+const Congregation = styled(Body)`
   font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
-export const Rubric = styled(Text)`
+const Rubric = styled(Text)`
   font-family: ${({ theme }) => theme.fonts.primary.italic};
   font-size: ${({ theme }) => theme.fontSize.rubric}px;
   line-height: ${({ theme }) => (theme.fontSize.rubric * 10.75) / 9.75}px;
-  /* padding-top: 6px;
-  margin-top: 14px; */
-  margin-bottom: 20px;
+  padding-top: ${({ theme }) => theme.fontSize.rubric}px;
+  margin-bottom: ${({ theme }) => theme.fontSize.rubric}px;
   /* border: 1px solid red; */
 `;
 
@@ -298,20 +269,20 @@ export const HR = styled(View)`
   width: 100%;
 `;
 
-export const Title = styled(Text)`
+const Title = styled(Text)`
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.fonts.primary.semibold};
   font-size: ${({ theme }) => theme.fontSize.paragraphTitle}px;
   letter-spacing: 1.6px;
 `;
 
-export const MainSettingName = styled(SectionTitle)`
+const MainSettingName = styled(SectionTitle)`
   margin-top: 32px;
   /* margin-bottom: 8px; */
   /* line-height: ${({ theme }) => theme.spacing.basex2}px; // NEW */
 `;
 
-export const SmallItalics = styled(Body)`
+const SmallItalics = styled(Body)`
   font-family: ${({ theme }) => theme.fonts.primary.italic};
   font-size: ${({ theme }) => theme.fontSize.rubric}px;
 `;
@@ -320,9 +291,7 @@ export const SmallItalics = styled(Body)`
  * Adds generic link styles to the given component
  * @param Base Base styled component to add link styles to
  */
-const addLinkStylesTo = (Base: TTextStyledComponent) => styled(
-  Base
-)<ITextProps>`
+const addLinkStylesTo = (Base: TTextStyledComponent) => styled(Base)`
   color: ${({ theme }) => theme.colors.linkBlue};
   text-decoration-line: underline;
 `;
@@ -350,7 +319,44 @@ export const createStyledLink = (base: TStyledComponent) => ({
 // export const PLink = createStyledLink(PWithLinkStyles);
 
 export const BodyWithLinkStyles = addLinkStylesTo(Body);
-export const BodyLink = createStyledLink(BodyWithLinkStyles);
+const BodyLink = createStyledLink(BodyWithLinkStyles);
 
 export const SmallItalicsWithLinkStyles = addLinkStylesTo(SmallItalics);
-export const SmallItalicsLink = createStyledLink(SmallItalicsWithLinkStyles);
+const SmallItalicsLink = createStyledLink(SmallItalicsWithLinkStyles);
+
+// Add Text Utilities to each exported Text component then export with original name
+const TextWithUtils = withTextUtilityProps(Text);
+const SectionTitleWithUtils = withTextUtilityProps(SectionTitle);
+const RiteTitleWithUtils = withTextUtilityProps(RiteTitle);
+const RiteSubtitleWithUtils = withTextUtilityProps(RiteSubtitle);
+const ParagraphTitleBaseWithUtils = withTextUtilityProps(ParagraphTitleBase);
+const ParagraphTitleWithUtils = withTextUtilityProps(ParagraphTitle);
+const FooterTitleWithUtils = withTextUtilityProps(FooterTitle);
+const CitationWithUtils = withTextUtilityProps(Citation);
+const BodyWithUtils = withTextUtilityProps(Body);
+const CongregationWithUtils = withTextUtilityProps(Congregation);
+const RubricWithUtils = withTextUtilityProps(Rubric);
+const TitleWithUtils = withTextUtilityProps(Title);
+const MainSettingNameWithUtils = withTextUtilityProps(MainSettingName);
+const SmallItalicsWithUtils = withTextUtilityProps(SmallItalics);
+const BodyLinkWithUtils = withTextUtilityProps(BodyLink);
+const SmallItalicsLinkWithUtils = withTextUtilityProps(SmallItalicsLink);
+
+export {
+  TextWithUtils as Text,
+  SectionTitleWithUtils as SectionTitle,
+  RiteTitleWithUtils as RiteTitle,
+  RiteSubtitleWithUtils as RiteSubtitle,
+  ParagraphTitleBaseWithUtils as ParagraphTitleBase,
+  ParagraphTitleWithUtils as ParagraphTitle,
+  FooterTitleWithUtils as FooterTitle,
+  CitationWithUtils as Citation,
+  BodyWithUtils as Body,
+  CongregationWithUtils as Congregation,
+  RubricWithUtils as Rubric,
+  TitleWithUtils as Title,
+  MainSettingNameWithUtils as MainSettingName,
+  SmallItalicsWithUtils as SmallItalics,
+  BodyLinkWithUtils as BodyLink,
+  SmallItalicsLinkWithUtils as SmallItalicsLink,
+};
