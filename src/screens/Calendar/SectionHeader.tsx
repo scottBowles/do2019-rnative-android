@@ -2,7 +2,7 @@ import { ColorBox } from "common/components";
 import { Season, SectionData } from "data/calendarData/interfaces";
 import React from "react";
 import styled from "styled-components/native";
-import { H3 } from "styles/typography";
+import { ParagraphTitle } from "styles/typography";
 
 interface ISeasonHeader {
   season: Season;
@@ -54,7 +54,7 @@ const HeaderWrapper = styled.View`
   margin-top: 10px;
 `;
 
-const HeaderText = styled(H3)`
+const HeaderText = styled(ParagraphTitle)`
   padding-top: 0;
   margin-left: 6px;
   margin-right: 6px;

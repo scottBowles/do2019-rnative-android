@@ -1,19 +1,26 @@
 import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import { Caption, H1, H3, P, PLink, SmallItalics } from "styles/typography";
+import {
+  Body,
+  BodyLink,
+  Citation,
+  ParagraphTitle,
+  SectionTitle,
+  SmallItalics,
+} from "styles/typography";
 
 import { AboutContent } from "./AboutContent";
 
 export const About: React.FC = () => (
   <ScrollView contentContainerStyle={styles.container}>
     <AboutContent
-      Title={H1}
-      Heading={H3}
-      Para={P}
+      Title={SectionTitle}
+      Heading={ParagraphTitle}
+      Para={Body}
       ParaItalic={SmallItalics}
-      Caption={Caption}
-      ParaLink={PLink}
+      Caption={Citation}
+      ParaLink={BodyLink}
     />
     <Footer />
   </ScrollView>

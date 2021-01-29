@@ -3,14 +3,14 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { H3, Text } from "styles/typography";
+import { ParagraphTitle, Text } from "styles/typography";
 
 import { withLink } from "../HOCs";
 import { OutlineBtn } from "../OutlineBtn";
 
 export const FooterResources = () => (
   <Container style={{ marginTop: 15 }}>
-    <H3>RESOURCES</H3>
+    <ParagraphTitle>RESOURCES</ParagraphTitle>
     <ButtonsWrapper>
       <Link to="/psalter" component={TouchableOpacity} activeOpacity={0.5}>
         <StyledOutlineBtn>

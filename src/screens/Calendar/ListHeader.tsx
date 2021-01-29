@@ -14,7 +14,7 @@ import React from "react";
 import { View } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { H1, H2, Text } from "styles/typography";
+import { RiteTitle, SectionTitle, Text } from "styles/typography";
 
 interface ListHeaderProps {
   startYear: number;
@@ -31,9 +31,9 @@ export const ListHeader: React.FC<ListHeaderProps> = React.memo(
       <Container {...props}>
         <View>
           <StyledH1>The Church Year</StyledH1>
-          <H2>
+          <RiteTitle>
             {startYear} - {endYear}
-          </H2>
+          </RiteTitle>
         </View>
         <YearNavWrapper>
           <NextYearLink year={+startYear - 1} direction="past" />
@@ -68,7 +68,7 @@ const Container = styled.View`
   width: 100%;
 `;
 
-const StyledH1 = styled(H1)`
+const StyledH1 = styled(SectionTitle)`
   margin-bottom: -14px;
   padding-top: 20px;
 `;

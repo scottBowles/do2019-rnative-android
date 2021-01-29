@@ -1,5 +1,4 @@
-const REM = 16;
-const TYPE_SCALE = 1.125;
+const REM = 20;
 const RHYTHM_UNIT = REM * 1.6;
 
 export const theme = {
@@ -34,15 +33,18 @@ export const theme = {
     },
   },
   fontSize: {
-    xxxs: REM / TYPE_SCALE ** 4,
-    xxs: REM / TYPE_SCALE ** 3,
-    xs: REM / TYPE_SCALE ** 2,
-    sm: REM / TYPE_SCALE,
-    base: REM,
-    lg: REM * TYPE_SCALE,
-    xl: REM * TYPE_SCALE ** 2,
-    xxl: REM * TYPE_SCALE ** 3,
-    xxxl: REM * TYPE_SCALE ** 4,
+    // E.g., "Daily Office"
+    sectionTitle: 2.09 * REM,
+    // E.g., "Morning Prayer"
+    riteTitle: 1.57 * REM,
+    // E.g., "In the Morning" (in rite: Family Prayer)
+    riteSubtitle: 1.3 * REM,
+    // E.g., "The Kyrie", "The Readings"
+    paragraphTitle: 1.04 * REM,
+    body: REM,
+    footer: 0.96 * REM,
+    biblicalCitation: 0.87 * REM,
+    rubric: 0.85 * REM,
   },
   spacing: {
     baseHalf: RHYTHM_UNIT * 0.5,

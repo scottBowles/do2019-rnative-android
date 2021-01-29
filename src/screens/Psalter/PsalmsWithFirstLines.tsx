@@ -3,11 +3,11 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { H3, P, PWithLinkStyles } from "styles/typography";
+import { Body, BodyWithLinkStyles, ParagraphTitle } from "styles/typography";
 
 export const PsalmsWithFirstLines: React.FC = () => (
   <>
-    <StyledH3>Psalms with First Line</StyledH3>
+    <StyledParaTitle>Psalms with First Line</StyledParaTitle>
     <Wrapper>
       {psalmsWithFirstLines.map(({ psalm, latin, english }) => (
         <PsWithFirstLines
@@ -40,15 +40,15 @@ const PsWithFirstLines: React.FC<{
   </View>
 );
 
-const StyledH3 = styled(H3)`
+const StyledParaTitle = styled(ParagraphTitle)`
   margin-bottom: 20px;
 `;
 
-const FirstLineEnglish = styled(P)`
+const FirstLineEnglish = styled(Body)`
   margin-bottom: 20px;
 `;
 
-const PsalmWithLatin = styled(PWithLinkStyles)`
+const PsalmWithLatin = styled(BodyWithLinkStyles)`
   margin-top: -8px;
   margin-bottom: -10px;
 `;

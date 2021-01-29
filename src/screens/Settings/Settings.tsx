@@ -1,7 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import { H1, P, SmallItalics } from "styles/typography";
+import { Body, SectionTitle, SmallItalics } from "styles/typography";
 
 import { AdvancedSettings } from "./AdvancedSettings";
 import { MainSettings } from "./MainSettings";
@@ -19,11 +19,11 @@ export const Settings = () => {
 
 const TopMaterial = () => (
   <>
-    <H1>Daily Office Settings</H1>
-    <P>
+    <SectionTitle>Daily Office Settings</SectionTitle>
+    <Body>
       Your settings will be saved the next time you pray on the same
       computer/phone/device and browser.
-    </P>
+    </Body>
     <SmallItalics>
       Setting changes take effect immediately. You do not need to save settings
       after you have updated them.

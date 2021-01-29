@@ -2,11 +2,11 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { PWithLinkStyles } from "styles/typography";
+import { BodyWithLinkStyles } from "styles/typography";
 
 export const PrivacyPolicyLink = () => (
   <StyledLink to="/privacy" component={TouchableOpacity} activeOpacity={0.5}>
-    <PWithLinkStyles>Privacy Policy</PWithLinkStyles>
+    <BodyWithLinkStyles>Privacy Policy</BodyWithLinkStyles>
   </StyledLink>
 );
 

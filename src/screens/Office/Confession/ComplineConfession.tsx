@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { H2, P, People, Rubric } from "styles/typography";
+import { Body, Congregation, RiteTitle, Rubric } from "styles/typography";
 
 export const ComplineConfession = () => (
   <View>
-    <H2>Confession of Sin</H2>
+    <RiteTitle>Confession of Sin</RiteTitle>
     <Invitation />
     <Confession />
     <Absolution />
@@ -14,24 +14,28 @@ export const ComplineConfession = () => (
 const Invitation = () => (
   <View>
     <Rubric>The Officiant continues</Rubric>
-    <P>Let us humbly confess our sins to Almighty God.</P>
+    <Body>Let us humbly confess our sins to Almighty God.</Body>
   </View>
 );
 
 const Confession = () => (
   <View>
-    <Rubric>Silence may be kept. The Officiant and People then say</Rubric>
-    <People>Almighty God and Father, we confess to you,</People>
-    <People>to one another, and to the whole company of heaven,</People>
-    <People>that we have sinned, through our own fault,</People>
-    <People>
+    <Rubric>
+      Silence may be kept. The Officiant and Congregation then say
+    </Rubric>
+    <Congregation>Almighty God and Father, we confess to you,</Congregation>
+    <Congregation>
+      to one another, and to the whole company of heaven,
+    </Congregation>
+    <Congregation>that we have sinned, through our own fault,</Congregation>
+    <Congregation>
       in thought, and word, and deed, and in what we have left undone.
-    </People>
-    <People>For the sake of your Son our Lord Jesus Christ,</People>
-    <People>have mercy upon us, forgive us our sins,</People>
-    <People>and by the power of your Holy Spirit,</People>
-    <People>raise us up to serve you in newness of life,</People>
-    <People>to the glory of your Name. Amen.</People>
+    </Congregation>
+    <Congregation>For the sake of your Son our Lord Jesus Christ,</Congregation>
+    <Congregation>have mercy upon us, forgive us our sins,</Congregation>
+    <Congregation>and by the power of your Holy Spirit,</Congregation>
+    <Congregation>raise us up to serve you in newness of life,</Congregation>
+    <Congregation>to the glory of your Name. Amen.</Congregation>
   </View>
 );
 
@@ -39,11 +43,11 @@ const Absolution = () => (
   <View>
     <Rubric>The Officiant alone says</Rubric>
     <Text>
-      <P>
+      <Body>
         Almighty God grant us forgiveness of all our sins, and the grace and
         comfort of the Holy Spirit.{" "}
-      </P>
-      <People>Amen.</People>
+      </Body>
+      <Congregation>Amen.</Congregation>
     </Text>
   </View>
 );

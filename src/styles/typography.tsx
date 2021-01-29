@@ -10,6 +10,8 @@ import { Text as NativeText, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
+import { theme } from "./theme";
+
 type TStyledComponent = StyledComponent<any, any, object, never>;
 
 type TTextStyledComponent = StyledComponent<
@@ -52,118 +54,266 @@ export const Text = styled(NativeText)<ITextProps>`
       : props.semiboldItalic
       ? fonts.primary.semiboldItalic
       : fonts.primary.regular};
-  font-size: ${(props) => props.size || 16}px;
+  font-size: ${(props) => props.size || props.theme.fontSize.body}px;
   margin-left: ${(props) => (props.indented ? 16 : 0)}px;
   color: ${(props) => props.color || props.theme.colors.fontGrey};
+  padding-top: 6px;
+  margin-bottom: -6px;
+  /* border: 1px red solid; */
 `;
 
-export const Caption = styled(Text)`
-  font-size: 14.4px;
-  padding-top: 12px;
+const heading = ({ fontSize, letterSpacingRatio = 0 }) =>
+  styled(Text)`
+    font-family: ${(props) => props.theme.fonts.primary.regular};
+    font-variant: small-caps;
+    text-transform: lowercase;
+    text-align: center;
+    font-size: ${fontSize}px;
+    line-height: ${fontSize}px;
+    margin-top: ${fontSize}px;
+    padding-bottom: ${fontSize}px;
+    letter-spacing: ${fontSize * letterSpacingRatio}px;
+    /* include-font-padding: false;
+    text-align-vertical: center; */
+  `;
+
+export const SectionTitle = heading({
+  fontSize: theme.fontSize.sectionTitle,
+  letterSpacingRatio: 0.2,
+});
+
+export const RiteTitle = heading({
+  fontSize: theme.fontSize.riteTitle,
+  letterSpacingRatio: 0.2,
+});
+
+export const RiteSubtitle = heading({
+  fontSize: theme.fontSize.riteSubtitle,
+  letterSpacingRatio: 0.1,
+});
+
+export const ParagraphTitleBase = heading({
+  fontSize: theme.fontSize.paragraphTitle,
+  letterSpacingRatio: 0.1,
+});
+export const ParagraphTitle = styled(ParagraphTitleBase)`
+  /* padding-bottom: 0px; */
+  /* margin-top: 10px;
+  padding-bottom: 10px; */
+  /* border: 1px solid blue; */
+`;
+
+export const FooterTitle = heading({
+  fontSize: theme.fontSize.footer,
+  letterSpacingRatio: 0.1,
+});
+
+const CitationBase = heading({
+  fontSize: theme.fontSize.biblicalCitation,
+  letterSpacingRatio: 0.05,
+});
+
+export const Citation = styled(CitationBase)`
+  margin-top: 0px;
+  padding-bottom: 0px;
   align-self: flex-end;
 `;
 
-const HeadingBase = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.primary.semibold};
-  letter-spacing: 1.6px;
-  text-align: center;
-  margin: 3.2px;
-  margin-bottom: 3.2px;
+export const Body = styled(Text)`
+  font-size: ${({ theme }) => theme.fontSize.body}px;
+  line-height: ${({ theme }) => (theme.fontSize.body * 13) / 11.5}px;
+  /* border: 1px solid green; */
+  /* padding-top: 6px;
+  margin-top: -6px; */
 `;
 
-export const H1 = styled(HeadingBase)`
-  font-size: 20.8px;
-  line-height: 24px;
-  text-transform: uppercase;
-  padding-top: 32px;
-`;
-
-export const H2 = styled(HeadingBase)`
-  font-size: 16px;
-  text-transform: uppercase;
-`;
-
-export const Title = styled(Text)`
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.primary.semibold};
-  font-size: 16px;
-  letter-spacing: 1.6px;
-`;
-
-export const MainSettingName = styled(Text)`
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.primary.semibold};
-  letter-spacing: 1.6px;
-  font-size: 24px;
-  margin: 32px 32px 8px;
-  text-align: center;
-`;
-
-export const H3 = styled(HeadingBase)`
-  padding-top: 30px;
-  margin-bottom: 5px;
-  font-size: 16px;
-  line-height: 22.4px;
-  text-transform: uppercase;
-`;
-
-export const H4 = styled(HeadingBase)`
-  margin-top: 0;
-  padding-top: 0;
-  font-size: 14.4px;
-  line-height: 16px;
-`;
-
-export const H5 = styled(Text)`
-  text-align: right;
-  font-size: 14.4px;
-  margin: 10px 0;
-`;
-
-export const P = styled(Text)`
-  font-size: ${(props) => props.size || 16}px;
-  line-height: 25.6px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-export const Congregation = styled(P)`
-  font-family: ${({ theme }) => theme.fonts.primary.bold};
-`;
-
-export const SmallItalics = styled(P)`
-  font-family: ${({ theme }) => theme.fonts.primary.italic};
-  font-size: 12.8px;
-`;
-
-export const People = styled(Text)`
-  font-size: 14px;
-  line-height: 24px;
+export const Congregation = styled(Body)`
   font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
 export const Rubric = styled(Text)`
-  font-size: 12.8px;
   font-family: ${({ theme }) => theme.fonts.primary.italic};
-  /* margin-vertical: 10px; */
+  font-size: ${({ theme }) => theme.fontSize.rubric}px;
+  line-height: ${({ theme }) => (theme.fontSize.rubric * 10.75) / 9.75}px;
+  /* padding-top: 6px;
+  margin-top: 14px; */
+  margin-bottom: 20px;
+  /* border: 1px solid red; */
 `;
 
-export const ChapterNumber = styled(Text)`
-  font-size: 24px;
-  line-height: 25.6px;
-  letter-spacing: 1px;
-`;
+// const SectionTitleBase = Heading(theme.fontSize.sectionTitle);
+// export const SectionTitle = styled(SectionTitleBase)`
+//   letter-spacing: ${({ theme }) => theme.fontSize.sectionTitle * 0.2}px;
+// `;
 
-export const VerseNumber = styled(Text)`
-  font-size: 9.6px;
-  line-height: 25.6px;
-  letter-spacing: 1px;
-`;
+// const RiteTitleBase = Heading(theme.fontSize.riteTitle);
+// export const RiteTitle = styled(RiteTitleBase)`
+//   letter-spacing: ${({ theme }) => theme.fontSize.riteTitle * 0.2}px;
+// `;
+
+// const RiteSubtitleBase = Heading(theme.fontSize.riteSubtitle);
+// export const RiteSubtitle = styled(RiteSubtitleBase)`
+//   font-size: ${({ theme }) => theme.fontSize.riteSubtitle}px;
+//   letter-spacing: ${({ theme }) => theme.fontSize.riteSubtitle * 0.1}px;
+//   padding-top: ${({ theme }) => theme.fontSize.riteSubtitle}px;
+//   padding-bottom: ${({ theme }) => theme.fontSize.riteSubtitle}px;
+// `;
+
+// const ParagraphTitleBase = heading({ fontSize: theme.fontSize.paragraphTitle });
+// export const ParagraphTitle = styled(ParagraphTitleBase)`
+//   font-size: ${({ theme }) => theme.fontSize.paragraphTitle}px;
+//   letter-spacing: ${({ theme }) => theme.fontSize.paragraphTitle * 0.1}px;
+//   padding-top: ${({ theme }) => theme.fontSize.paragraphTitle}px;
+//   margin-bottom: ${({ theme }) => theme.fontSize.paragraphTitle}px;
+//   border: 1px solid red;
+//   /* margin-bottom: 0px; */
+//   line-height: ${({ theme }) => theme.fontSize.paragraphTitle}px;
+// `;
+
+// const FooterTitleBase = Heading(theme.fontSize.footer);
+// export const FooterTitle = styled(FooterTitleBase)`
+//   ${({ theme }) => `
+//     font-size: ${theme.fontSize.footer}px;
+//     letter-spacing: ${theme.fontSize.footer * 0.1}px;
+//     padding-top: ${theme.fontSize.footer}px;
+//     padding-bottom: ${theme.fontSize.footer}px;
+//   `}
+// `;
+
+// const CitationBase = Heading(theme.fontSize.biblicalCitation);
+// export const Citation = styled(CitationBase)`
+//   font-size: ${({ theme }) => theme.fontSize.biblicalCitation}px;
+//   letter-spacing: ${({ theme }) => theme.fontSize.biblicalCitation * 0.05}px;
+//   /* padding-top: ${({ theme }) => theme.fontSize.biblicalCitation}px;
+//   padding-bottom: ${({ theme }) => theme.fontSize.biblicalCitation}px; */
+//   align-self: flex-end;
+// `;
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// export const Caption = styled(Text)`
+//   font-size: ${({ theme }) => theme.fontSize.biblicalCitation}px;
+//   align-self: flex-end;
+// `;
+
+// export const H1 = styled(HeadingBase)`
+//   font-size: ${({ theme }) => theme.fontSize.sectionTitle}px;
+//   line-height: 24px;
+//   text-transform: uppercase;
+//   /* padding-top: 32px; */
+//   padding-top: ${({ theme }) => theme.spacing.base}px;
+// `;
+
+// export const H2 = styled(HeadingBase)`
+//   font-size: ${({ theme }) => theme.fontSize.base}px;
+//   text-transform: uppercase;
+// `;
+
+// export const Title = styled(Text)`
+//   text-transform: uppercase;
+//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
+//   font-size: ${({ theme }) => theme.fontSize.base}px;
+//   letter-spacing: 1.6px;
+// `;
+
+// export const MainSettingName = styled(Text)`
+//   text-transform: uppercase;
+//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
+//   letter-spacing: 1.6px;
+//   font-size: ${({ theme }) => theme.fontSize.xxxl}px;
+//   margin-top: 32px;
+//   /* margin-bottom: 8px; */
+//   line-height: ${({ theme }) => theme.spacing.basex2}px; // NEW
+//   text-align: center;
+// `;
+
+// export const H3 = styled(HeadingBase)`
+//   padding-top: ${({ theme }) => theme.spacing.base}px;
+//   /* margin-bottom: 5px; */
+//   font-size: ${({ theme }) => theme.fontSize.base}px;
+//   line-height: ${({ theme }) => theme.spacing.base}px;
+//   text-transform: uppercase;
+// `;
+
+// // H4 is currently not used anywhere.
+// // I'm assuming it shows up somewhere in the Office?
+// export const H4 = styled(HeadingBase)`
+//   margin-top: 0;
+//   padding-top: 0;
+//   font-size: ${({ theme }) => theme.fontSize.sm}px;
+//   /* line-height: 16px; */
+// `;
+
+// // H5 likely won't be used. Was used for the caption/citation.
+// export const H5 = styled(Text)`
+//   text-align: right;
+//   font-size: ${({ theme }) => theme.fontSize.sm}px;
+//   /* margin: 10px 0; */
+// `;
+
+// export const P = styled(Text)`
+//   font-size: ${(props) => props.size || props.theme.fontSize.base}px;
+//   line-height: ${({ theme }) => theme.spacing.base}px;
+//   margin-top: ${({ theme }) => theme.spacing.baseHalf}px;
+//   /* margin-bottom: 10px; */
+// `;
+
+// // export const Congregation = styled(P)`
+// //   font-family: ${({ theme }) => theme.fonts.primary.bold};
+// // `;
+
+// export const SmallItalics = styled(P)`
+//   font-family: ${({ theme }) => theme.fonts.primary.italic};
+//   font-size: ${({ theme }) => theme.fontSize.xs}px;
+// `;
+
+// export const People = styled(Text)`
+//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
+//   font-size: ${({ theme }) => theme.fontSize.sm}px;
+//   line-height: ${({ theme }) => theme.spacing.base}px;
+// `;
+
+// // export const Rubric = styled(Text)`
+// //   font-family: ${({ theme }) => theme.fonts.primary.italic};
+// //   font-size: ${({ theme }) => theme.fontSize.xs}px;
+// //   /* margin-vertical: 10px; */
+// // `;
+
+// export const ChapterNumber = styled(Text)`
+//   font-size: ${({ theme }) => theme.fontSize.xxxl}px;
+//   line-height: ${({ theme }) => theme.spacing.base}px;
+//   letter-spacing: 1px;
+// `;
+
+// export const VerseNumber = styled(Text)`
+//   font-size: ${({ theme }) => theme.fontSize.xxxs}px;
+//   line-height: ${({ theme }) => theme.spacing.base}px;
+//   letter-spacing: 1px;
+// `;
 
 export const HR = styled(View)`
   border-bottom-color: #aaa;
   border-bottom-width: 1px;
   width: 100%;
+`;
+
+export const Title = styled(Text)`
+  text-transform: uppercase;
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
+  font-size: ${({ theme }) => theme.fontSize.paragraphTitle}px;
+  letter-spacing: 1.6px;
+`;
+
+export const MainSettingName = styled(SectionTitle)`
+  margin-top: 32px;
+  /* margin-bottom: 8px; */
+  /* line-height: ${({ theme }) => theme.spacing.basex2}px; // NEW */
+`;
+
+export const SmallItalics = styled(Body)`
+  font-family: ${({ theme }) => theme.fonts.primary.italic};
+  font-size: ${({ theme }) => theme.fontSize.rubric}px;
 `;
 
 /**
@@ -196,8 +346,11 @@ export const createStyledLink = (base: TStyledComponent) => ({
   );
 };
 
-export const PWithLinkStyles = addLinkStylesTo(P);
-export const PLink = createStyledLink(PWithLinkStyles);
+// export const PWithLinkStyles = addLinkStylesTo(P);
+// export const PLink = createStyledLink(PWithLinkStyles);
+
+export const BodyWithLinkStyles = addLinkStylesTo(Body);
+export const BodyLink = createStyledLink(BodyWithLinkStyles);
 
 export const SmallItalicsWithLinkStyles = addLinkStylesTo(SmallItalics);
 export const SmallItalicsLink = createStyledLink(SmallItalicsWithLinkStyles);

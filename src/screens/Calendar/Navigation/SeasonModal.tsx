@@ -3,7 +3,7 @@ import { ContentLine } from "common/components/calendarBlock/ContentLine";
 import React, { useContext } from "react";
 import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
 import { ThemeContext } from "styled-components";
-import { H1 } from "styles/typography";
+import { SectionTitle } from "styles/typography";
 
 // Figure out what to do with ContentLine (probably separate into own file)
 // Style SeasonModal - probably not here, but elsewhere, maybe in own styled
@@ -46,7 +46,7 @@ export const SeasonModal: React.FC<Props> = ({
       <View style={styles.container}>
         <View style={styles.content}>
           <CloseIcon style={styles.closeIcon} onPress={closeSeasonModal} />
-          <H1 style={styles.title}>Seasons</H1>
+          <SectionTitle style={styles.title}>Seasons</SectionTitle>
           {seasons.map(({ season, color }) => (
             <TouchableHighlight
               key={season}

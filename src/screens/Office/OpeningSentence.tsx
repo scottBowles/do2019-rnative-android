@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import { P, H2, H5 } from "styles/typography";
+import { Body, Citation, RiteTitle } from "styles/typography";
 
 export const OpeningSentence = ({ text, citation }) => (
   <View>
-    <H2>Opening Sentence</H2>
-    <P>{text}</P>
-    <H5 style={{ alignSelf: "flex-end" }}>{citation}</H5>
+    <RiteTitle>Opening Sentence</RiteTitle>
+    <Body>{text}</Body>
+    <Citation style={{ alignSelf: "flex-end" }}>{citation}</Citation>
   </View>
 );
