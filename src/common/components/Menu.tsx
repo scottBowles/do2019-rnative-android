@@ -11,7 +11,7 @@ import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import React from "react";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { Text } from "styles/typography";
+import { Body, Text } from "styles/typography";
 
 import { OutlineBtn } from "./OutlineBtn";
 
@@ -45,10 +45,10 @@ export const Menu: React.FC = () => {
         <StyledLink to={item.route} underlayColor="#f0f4f7" key={index}>
           <StyledOutlineBtn>
             {item.icon}
-            <TextWrapper>
+            <Text>
               <FirstLetter>{item.text[0]}</FirstLetter>
               <StyledText>{item.text.slice(1)}</StyledText>
-            </TextWrapper>
+            </Text>
           </StyledOutlineBtn>
         </StyledLink>
       ))}
@@ -70,12 +70,7 @@ const StyledOutlineBtn = styled(OutlineBtn)`
   height: 32px;
 `;
 
-const TextWrapper = styled(Text)`
-  align-items: baseline;
-  top: 3px;
-`;
-
-const StyledText = styled(Text)`
+const StyledText = styled(Body)`
   font-size: 11px;
   text-transform: uppercase;
 `;
