@@ -40,9 +40,13 @@ const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData }) => (
   <>
     {officeData.modules.data.map((section) => (
       <SectionWrapper key={section.name}>
-        {section.lines.map(({ content, line_type, indented }) => {
+        {section.lines.map(({ content, line_type, indented }, index) => {
           const Line = officeComponents[line_type] || Body;
-          return <Line indented={indented}>{content}</Line>;
+          return (
+            <Line key={content + index} indented={indented}>
+              {content}
+            </Line>
+          );
         })}
       </SectionWrapper>
     ))}
