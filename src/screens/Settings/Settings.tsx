@@ -1,6 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
+import { theme } from "styles";
 import { Body, SectionTitle, SmallItalics } from "styles/typography";
 
 import { AdvancedSettings } from "./AdvancedSettings";
@@ -34,6 +35,6 @@ const TopMaterial = () => (
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    padding: 22,
+    padding: theme.spacing.outerPadding,
   },
 });

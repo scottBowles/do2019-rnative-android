@@ -65,6 +65,8 @@ const NextYearLink: React.FC<NextYearProps> = React.memo(
 const Container = styled.View`
   justify-content: center;
   padding-top: 20px;
+  padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
   width: 100%;
 `;
 

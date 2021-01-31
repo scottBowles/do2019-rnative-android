@@ -47,6 +47,7 @@ export const theme = {
     rubric: 0.85 * REM,
   },
   spacing: {
+    outerPadding: 22,
     baseHalf: RHYTHM_UNIT * 0.5,
     base: RHYTHM_UNIT,
     basex2: RHYTHM_UNIT * 2,

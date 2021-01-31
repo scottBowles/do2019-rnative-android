@@ -36,10 +36,10 @@ const officeComponents = {
   rubric: Rubric,
 };
 
-const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData }) => (
-  <>
+const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData, ...props }) => (
+  <View>
     {officeData.modules.data.map((section) => (
-      <SectionWrapper key={section.name}>
+      <View key={section.name}>
         {section.lines.map(({ content, line_type, indented }, index) => {
           const Line = officeComponents[line_type] || Body;
           return (
@@ -48,9 +48,9 @@ const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData }) => (
             </Line>
           );
         })}
-      </SectionWrapper>
+      </View>
     ))}
-  </>
+  </View>
 );
 
 export const Office: React.FC<IOfficeProps> = ({
@@ -72,8 +72,10 @@ export const Office: React.FC<IOfficeProps> = ({
   const officeData = new OfficeData(data as IApiOfficeData);
 
   return (
-    <Container>
-      <Title>{`Daily\n${office} Prayer`}</Title>
+    <ScrollContainer>
+      <Title>
+        <RiteTitle>{`Daily\n${office} Prayer`}</RiteTitle>
+      </Title>
 
       <CalendarBlock weekday={officeData.weekday}>
         <DateBlock day={officeData} />
@@ -81,16 +83,17 @@ export const Office: React.FC<IOfficeProps> = ({
       </CalendarBlock>
 
       <OfficePrayers officeData={officeData} />
-    </Container>
+    </ScrollContainer>
   );
 };
 
-const Container = styled(ScrollView)`
-  padding: 25px;
+const ScrollContainer = styled(ScrollView)`
+  padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
 `;
 
-const Title = styled(RiteTitle)`
-  margin-bottom: 10px;
+const Title = styled(View)`
+  /* Remove vertical margins provided by the sectionTitle for normal text flow and add desired margin */
+  /* margin-top: ${({ theme }) => theme.fontSize.sectionTitle * -1 + 0}px; */
+  margin-bottom: ${({ theme }) => theme.fontSize.sectionTitle * -1 + 10}px;
 `;
-
-const SectionWrapper = styled(View)``;

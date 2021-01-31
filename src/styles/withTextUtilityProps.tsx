@@ -30,7 +30,7 @@ export const withTextUtilityProps = (
       ${props.semiboldItalic &&
       `font-family: ${theme.fonts.primary.semiboldItalic};`}
       ${props.regular && `font-family: ${theme.fonts.primary.regular};`}
-      ${props.size && `font-size: ${props.size};`}
+      ${props.size && `font-size: ${props.size}px;`}
       ${props.indented && `margin-left: 16px;`}
       ${props.color && `color: ${props.color};`}
     `}

@@ -1,6 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
+import { theme } from "styles";
 import {
   Body,
   BodyLink,
@@ -27,6 +28,6 @@ export const PrivacyPolicy: React.FC = () => (
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    margin: 22,
+    padding: theme.spacing.outerPadding,
   },
 });

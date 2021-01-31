@@ -32,7 +32,7 @@ export default function App() {
           <Menu />
           <Switch>
             <Route exact path="/">
-              <TestingGrounds />
+              <Office />
             </Route>
             <Route path="/office">
               <Office />

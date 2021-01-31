@@ -30,5 +30,5 @@ const Heading: React.FC = () => (
 
 const Container = styled.View`
   align-items: center;
-  margin: 22px;
+  padding: ${({ theme }) => theme.spacing.outerPadding}px;
 `;
