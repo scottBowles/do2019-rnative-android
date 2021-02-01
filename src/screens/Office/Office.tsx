@@ -10,7 +10,15 @@ import { IApiOfficeData, OfficeData, dummyOffice } from "data/officeData";
 import React from "react";
 import { ScrollView, View } from "react-native";
 import styled from "styled-components";
-import { Caption, Congregation, H1, H2, P, Rubric } from "styles/typography";
+import {
+  Caption,
+  Congregation,
+  H1,
+  H2,
+  Leader,
+  P,
+  Rubric,
+} from "styles/typography";
 
 interface IOfficeProps {
   office: string;
@@ -23,7 +31,7 @@ interface IOfficePrayers {
 // Maps api line_type value to component for rendering
 const officeComponents = {
   heading: H2,
-  leader: P,
+  leader: Leader,
   congregation: Congregation,
   citation: Caption,
   rubric: Rubric,
@@ -33,9 +41,19 @@ const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData }) => (
   <>
     {officeData.modules.data.map((section) => (
       <SectionWrapper key={section.name}>
-        {section.lines.map(({ content, line_type, indented }) => {
-          const Line = officeComponents[line_type] || P;
-          return <Line indented={indented}>{content}</Line>;
+        {section.lines.map(({ content, line_type, indented }, index, arr) => {
+          const LineComponent = officeComponents[line_type] || P;
+          const isNewLine =
+            index === 0 || line_type !== arr[index - 1].line_type;
+          return (
+            <LineComponent
+              key={content + index}
+              indented={indented}
+              style={isNewLine && { marginTop: 10 }}
+            >
+              {content}
+            </LineComponent>
+          );
         })}
       </SectionWrapper>
     ))}
@@ -78,4 +96,6 @@ const Title = styled(H1)`
   margin-bottom: 10px;
 `;
 
-const SectionWrapper = styled(View)``;
+const SectionWrapper = styled(View)`
+  margin-top: 10px;
+`;
