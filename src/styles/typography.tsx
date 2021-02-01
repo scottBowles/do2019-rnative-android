@@ -127,7 +127,12 @@ export const P = styled(Text)`
   margin-bottom: 10px;
 `;
 
-export const Congregation = styled(P)`
+export const Leader = styled(Text)`
+  font-size: ${(props) => props.size || 16}px;
+  line-height: 25.6px;
+`;
+
+export const Congregation = styled(Leader)`
   font-family: ${({ theme }) => theme.fonts.primary.bold};
 `;
 
