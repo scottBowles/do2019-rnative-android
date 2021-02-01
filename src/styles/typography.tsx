@@ -22,35 +22,73 @@ type TTextStyledComponent = StyledComponent<
   never
 >;
 
+interface IType {
+  fontSize: number;
+  lineHeight?: number;
+  letterSpacingRatio?: number;
+}
+
 interface ILink {
   link: string;
   children: React.ReactNode;
 }
 
-// To avoid cutting off the type of the Adobe Caslon Pro font, it is necessary
-// to add top padding under a certain line height. E.g., for 16px font, line-height
-// plus padding-top must add to at least 24.
+/**
+ * Due to a React Native bug:
+ * To avoid cutting off the top of the Adobe Caslon Pro font, it is necessary
+ * to add top padding under a certain line height. E.g., for 16px font, line-height
+ * plus padding-top must add to at least 24 to avoid clipping.
+ *
+ * In order to accommodate this added top padding, a negative bottom margin is used,
+ * so material beneath the item in question is pulled back up by the same value,
+ * keeping the intended line-height functionally intact.
+ *
+ * The exact necessary numbers vary at different sizes, but the below equation
+ * avoids clipping at all sizes tested:
+ *
+ * offset = 1.5 * fontSize - lineHeight
+ *
+ * To accommodate this quirk, padding-top and margin-bottom are used for this purpose,
+ * while margin-top and padding-bottom are used for any additional spacing. Where these
+ * components are used, it is best to apply further spacing with a wrapper element to
+ * avoid unexplained math and behavior.
+ *
+ * This is a React Native bug others have reported.
+ */
+
 const Text = styled(NativeText)`
   font-family: ${({ theme }) => theme.fonts.primary.regular};
-  padding-top: 6px;
-  margin-bottom: -6px;
-  /* border: 1px red solid; */
+  color: ${({ theme }) => theme.colors.fontGrey};
+  include-font-padding: false;
+  text-align-vertical: center;
 `;
 
-const heading = ({ fontSize, letterSpacingRatio = 0 }) =>
-  styled(Text)`
-    font-family: ${(props) => props.theme.fonts.primary.regular};
+const type = ({ fontSize, lineHeight = 0, letterSpacingRatio = 0 }: IType) => {
+  lineHeight = lineHeight || fontSize;
+  return styled(Text)`
+    font-size: ${fontSize}px;
+    line-height: ${lineHeight}px;
+    padding-top: ${1.5 * fontSize - lineHeight}px;
+    margin-bottom: -${1.5 * fontSize - lineHeight}px;
+    letter-spacing: ${fontSize * letterSpacingRatio}px;
+  `;
+};
+
+const heading = ({
+  fontSize,
+  lineHeight = 0,
+  letterSpacingRatio = 0,
+}: IType) => {
+  lineHeight = lineHeight || fontSize;
+  const Base = type({ fontSize, lineHeight, letterSpacingRatio });
+  return styled(Base)`
     font-variant: small-caps;
     text-transform: lowercase;
     text-align: center;
-    font-size: ${fontSize}px;
-    line-height: ${fontSize}px;
-    margin-top: ${fontSize}px;
-    padding-bottom: ${fontSize}px;
-    letter-spacing: ${fontSize * letterSpacingRatio}px;
-    include-font-padding: false;
-    text-align-vertical: center;
+    margin-top: ${lineHeight}px;
+    padding-bottom: ${lineHeight}px;
   `;
+};
 
 const SectionTitle = heading({
   fontSize: theme.fontSize.sectionTitle,
@@ -67,15 +105,10 @@ const RiteSubtitle = heading({
   letterSpacingRatio: 0.1,
 });
 
-const ParagraphTitleBase = heading({
+const ParagraphTitle = heading({
   fontSize: theme.fontSize.paragraphTitle,
   letterSpacingRatio: 0.1,
 });
-
-const ParagraphTitle = styled(ParagraphTitleBase)`
-  padding-bottom: 10px;
-  /* border: 1px solid blue; */
-`;
 
 const FooterTitle = heading({
   fontSize: theme.fontSize.footer,
@@ -93,23 +126,24 @@ const Citation = styled(CitationBase)`
   align-self: flex-end;
 `;
 
-const Body = styled(Text)`
-  font-size: ${({ theme }) => theme.fontSize.body}px;
-  line-height: ${({ theme }) => (theme.fontSize.body * 13) / 11.5}px;
-  /* border: 1px solid green; */
-`;
+const Body = type({
+  fontSize: theme.fontSize.body,
+  lineHeight: theme.lineHeight.body,
+});
 
 const Congregation = styled(Body)`
   font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
-const Rubric = styled(Text)`
+const RubricBase = type({
+  fontSize: theme.fontSize.rubric,
+  lineHeight: theme.lineHeight.rubric,
+});
+
+const Rubric = styled(RubricBase)`
   font-family: ${({ theme }) => theme.fonts.primary.italic};
-  font-size: ${({ theme }) => theme.fontSize.rubric}px;
-  line-height: ${({ theme }) => (theme.fontSize.rubric * 10.75) / 9.75}px;
-  padding-top: ${({ theme }) => theme.fontSize.rubric}px;
-  margin-bottom: ${({ theme }) => theme.fontSize.rubric}px;
-  /* border: 1px solid red; */
+  margin-top: ${({ theme }) => theme.fontSize.rubric}px;
+  padding-bottom: ${({ theme }) => theme.fontSize.rubric}px;
 `;
 
 // const SectionTitleBase = Heading(theme.fontSize.sectionTitle);
@@ -329,7 +363,6 @@ const TextWithUtils = withTextUtilityProps(Text);
 const SectionTitleWithUtils = withTextUtilityProps(SectionTitle);
 const RiteTitleWithUtils = withTextUtilityProps(RiteTitle);
 const RiteSubtitleWithUtils = withTextUtilityProps(RiteSubtitle);
-const ParagraphTitleBaseWithUtils = withTextUtilityProps(ParagraphTitleBase);
 const ParagraphTitleWithUtils = withTextUtilityProps(ParagraphTitle);
 const FooterTitleWithUtils = withTextUtilityProps(FooterTitle);
 const CitationWithUtils = withTextUtilityProps(Citation);
@@ -347,7 +380,6 @@ export {
   SectionTitleWithUtils as SectionTitle,
   RiteTitleWithUtils as RiteTitle,
   RiteSubtitleWithUtils as RiteSubtitle,
-  ParagraphTitleBaseWithUtils as ParagraphTitleBase,
   ParagraphTitleWithUtils as ParagraphTitle,
   FooterTitleWithUtils as FooterTitle,
   CitationWithUtils as Citation,
