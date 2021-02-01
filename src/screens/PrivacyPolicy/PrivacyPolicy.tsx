@@ -1,18 +1,25 @@
 import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import { H1, H3, P, PLink, SmallItalics } from "styles/typography";
+import { theme } from "styles";
+import {
+  Body,
+  BodyLink,
+  ParagraphTitle,
+  SectionTitle,
+  SmallItalics,
+} from "styles/typography";
 
 import { PrivacyPolicyContent } from "./PrivacyPolicyContent";
 
 export const PrivacyPolicy: React.FC = () => (
   <ScrollView contentContainerStyle={styles.container}>
     <PrivacyPolicyContent
-      Title={H1}
-      Heading={H3}
-      Para={P}
+      Title={SectionTitle}
+      Heading={ParagraphTitle}
+      Para={Body}
       ParaItalic={SmallItalics}
-      ParaLink={PLink}
+      ParaLink={BodyLink}
     />
     <Footer />
   </ScrollView>
@@ -21,6 +28,6 @@ export const PrivacyPolicy: React.FC = () => (
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    margin: 22,
+    padding: theme.spacing.outerPadding,
   },
 });

@@ -1,13 +1,13 @@
 import { psalmsByTopic } from "data/psalmData";
 import React from "react";
 import styled from "styled-components/native";
-import { H3, P } from "styles/typography";
+import { Body, ParagraphTitle } from "styles/typography";
 
 import { PsalmLinks } from "./PsalmLinks";
 
 export const PsalmsByTopic: React.FC = () => (
   <>
-    <H3>Psalms by Topic</H3>
+    <ParagraphTitle>Psalms by Topic</ParagraphTitle>
     {psalmsByTopic.map(({ title, psalms }) => (
       <Wrapper key={title}>
         <Title>{title}</Title>
@@ -17,7 +17,7 @@ export const PsalmsByTopic: React.FC = () => (
   </>
 );
 
-const Title = styled(P)`
+const Title = styled(Body)`
   margin-bottom: -4px;
 `;
 

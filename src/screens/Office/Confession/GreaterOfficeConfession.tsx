@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { H2, P, People, Rubric } from "styles/typography";
+import { Body, Congregation, RiteTitle, Rubric } from "styles/typography";
 
 export const GreaterOfficeConfession = (props) => (
   <View>
-    <H2>Confession of Sin</H2>
+    <RiteTitle>Confession of Sin</RiteTitle>
     <Invitation useLongForm={props.useLongFormInvitation} />
     <ConfessionOfSin />
     <Absolution useDeaconOrLayAbsolution={props.useDeaconOrLayAbsolution} />
@@ -18,34 +18,50 @@ const shortFormInvitation = "Let us humbly confess our sins to Almighty God.";
 
 const Invitation = ({ useLongForm = true, office }) => (
   <View>
-    <Rubric>The Officiant says to the People</Rubric>
-    <P>{useLongForm ? longFormInvitation : shortFormInvitation}</P>
+    <Rubric>The Officiant says to the Congregation</Rubric>
+    <Body>{useLongForm ? longFormInvitation : shortFormInvitation}</Body>
   </View>
 );
 
 const ConfessionOfSin = () => (
   <View>
-    <Rubric>Silence is kept. All kneeling, the Officiant and People say</Rubric>
-    <People>Almighty and most merciful Father,</People>
-    <People>we have erred and strayed from your ways like lost sheep.</People>
-    <People>We have followed too much the devices and desires</People>
-    <People>of our own hearts.</People>
-    <People>We have offended against your holy laws.</People>
-    <People>
+    <Rubric>
+      Silence is kept. All kneeling, the Officiant and Congregation say
+    </Rubric>
+    <Congregation>Almighty and most merciful Father,</Congregation>
+    <Congregation>
+      we have erred and strayed from your ways like lost sheep.
+    </Congregation>
+    <Congregation>
+      We have followed too much the devices and desires
+    </Congregation>
+    <Congregation>of our own hearts.</Congregation>
+    <Congregation>We have offended against your holy laws.</Congregation>
+    <Congregation>
       We have left undone those things which we ought to have done,
-    </People>
-    <People>and we have done those things which we ought not</People>
-    <People>to have done;</People>
-    <People>and apart from your grace, there is no health in us.</People>
-    <People>O Lord, have mercy upon us.</People>
-    <People>Spare all those who confess their faults.</People>
-    <People>
+    </Congregation>
+    <Congregation>
+      and we have done those things which we ought not
+    </Congregation>
+    <Congregation>to have done;</Congregation>
+    <Congregation>
+      and apart from your grace, there is no health in us.
+    </Congregation>
+    <Congregation>O Lord, have mercy upon us.</Congregation>
+    <Congregation>Spare all those who confess their faults.</Congregation>
+    <Congregation>
       Restore all those who are penitent, according to your promises
-    </People>
-    <People>declared to all people in Christ Jesus our Lord.</People>
-    <People>And grant, O most merciful Father, for his sake,</People>
-    <People>that we may now live a godly, righteous, and sober life,</People>
-    <People>to the glory of your holy Name. Amen.</People>
+    </Congregation>
+    <Congregation>
+      declared to all people in Christ Jesus our Lord.
+    </Congregation>
+    <Congregation>
+      And grant, O most merciful Father, for his sake,
+    </Congregation>
+    <Congregation>
+      that we may now live a godly, righteous, and sober life,
+    </Congregation>
+    <Congregation>to the glory of your holy Name. Amen.</Congregation>
   </View>
 );
 
@@ -54,24 +70,24 @@ const Absolution = ({ useDeaconOrLayAbsolution = true }) =>
     <View>
       <Rubric>A Deacon or layperson remains kneeling and prays</Rubric>
       <Text>
-        <P>
+        <Body>
           Grant to your faithful people, merciful Lord, pardon and peace; that
           we may be cleansed from all our sins, and serve you with a quiet mind;
           through Jesus Christ our Lord.{" "}
-        </P>
-        <People>Amen.</People>
+        </Body>
+        <Congregation>Amen.</Congregation>
       </Text>
     </View>
   ) : (
     <View>
       <Rubric>The Priest alone stands and says</Rubric>
       <Text>
-        <P>
+        <Body>
           The Almighty and merciful Lord grant you absolution and remission of
           all your sins, true repentance, amendment of life, and the grace and
           consolation of his Holy Spirit.{" "}
-        </P>
-        <People>Amen.</People>
+        </Body>
+        <Congregation>Amen.</Congregation>
       </Text>
     </View>
   );

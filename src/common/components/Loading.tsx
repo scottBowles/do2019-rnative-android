@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
-import { H1 } from "styles/typography";
+import { SectionTitle } from "styles/typography";
 
 export const Loading: React.FC = () => (
   <Container>
-    <H1>Loading...</H1>
+    <SectionTitle>Loading...</SectionTitle>
   </Container>
 );
 

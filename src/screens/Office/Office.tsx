@@ -11,12 +11,11 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import styled from "styled-components";
 import {
-  Caption,
+  Body,
+  Citation,
   Congregation,
-  H1,
-  H2,
-  Leader,
-  P,
+  ParagraphTitle,
+  RiteTitle,
   Rubric,
 } from "styles/typography";
 
@@ -30,34 +29,28 @@ interface IOfficePrayers {
 
 // Maps api line_type value to component for rendering
 const officeComponents = {
-  heading: H2,
-  leader: Leader,
+  heading: ParagraphTitle,
+  leader: Body,
   congregation: Congregation,
-  citation: Caption,
+  citation: Citation,
   rubric: Rubric,
 };
 
-const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData }) => (
-  <>
+const OfficePrayers: React.FC<IOfficePrayers> = ({ officeData, ...props }) => (
+  <View>
     {officeData.modules.data.map((section) => (
-      <SectionWrapper key={section.name}>
-        {section.lines.map(({ content, line_type, indented }, index, arr) => {
-          const LineComponent = officeComponents[line_type] || P;
-          const isNewLine =
-            index === 0 || line_type !== arr[index - 1].line_type;
+      <View key={section.name}>
+        {section.lines.map(({ content, line_type, indented }, index) => {
+          const Line = officeComponents[line_type] || Body;
           return (
-            <LineComponent
-              key={content + index}
-              indented={indented}
-              style={isNewLine && { marginTop: 10 }}
-            >
+            <Line key={content + index} indented={indented}>
               {content}
-            </LineComponent>
+            </Line>
           );
         })}
-      </SectionWrapper>
+      </View>
     ))}
-  </>
+  </View>
 );
 
 export const Office: React.FC<IOfficeProps> = ({
@@ -66,7 +59,11 @@ export const Office: React.FC<IOfficeProps> = ({
   // TODO: Need to handle date right with time zones. See getLocalDate comments.
 }) => {
   const url = `https://data.dailyoffice2019.com/api/v1/office/morning_prayer/2020-12-10?confession=lonf&absolution=priest`;
-  const [data, isLoading] = useDummyFetch(url, dummyOffice);
+  // With loading
+  // const [data, isLoading] = useDummyFetch(url, dummyOffice);
+  // For no loading:
+  const isLoading = false;
+  const data = dummyOffice;
 
   if (isLoading || isEmptyObject(data)) {
     return <Loading />;
@@ -75,8 +72,10 @@ export const Office: React.FC<IOfficeProps> = ({
   const officeData = new OfficeData(data as IApiOfficeData);
 
   return (
-    <Container>
-      <Title>{`Daily\n${office} Prayer`}</Title>
+    <ScrollContainer>
+      <Title>
+        <RiteTitle>{`Daily\n${office} Prayer`}</RiteTitle>
+      </Title>
 
       <CalendarBlock weekday={officeData.weekday}>
         <DateBlock day={officeData} />
@@ -84,18 +83,17 @@ export const Office: React.FC<IOfficeProps> = ({
       </CalendarBlock>
 
       <OfficePrayers officeData={officeData} />
-    </Container>
+    </ScrollContainer>
   );
 };
 
-const Container = styled(ScrollView)`
-  padding: 25px;
+const ScrollContainer = styled(ScrollView)`
+  padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
 `;
 
-const Title = styled(H1)`
-  margin-bottom: 10px;
-`;
-
-const SectionWrapper = styled(View)`
-  margin-top: 10px;
+const Title = styled(View)`
+  /* Remove vertical margins provided by the sectionTitle for normal text flow and add desired margin */
+  /* margin-top: ${({ theme }) => theme.fontSize.sectionTitle * -1 + 0}px; */
+  margin-bottom: ${({ theme }) => theme.fontSize.sectionTitle * -1 + 10}px;
 `;

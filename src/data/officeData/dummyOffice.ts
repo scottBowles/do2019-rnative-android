@@ -87,6 +87,12 @@ export const dummyOffice: IApiOfficeData = {
             indented: false,
           },
           {
+            content:
+              "Silence is kept. All kneeling, the Officiant and People say",
+            line_type: "rubric",
+            indented: false,
+          },
+          {
             content: "Almighty and most merciful Father,",
             line_type: "congregation",
             indented: false,

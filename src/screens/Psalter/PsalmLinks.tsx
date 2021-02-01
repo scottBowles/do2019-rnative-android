@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { P, PWithLinkStyles, Text } from "styles/typography";
+import { Body, BodyWithLinkStyles, Text } from "styles/typography";
 
 export const PsalmLinks: React.FC<{
   psalmNumbers: number[];
@@ -22,8 +22,8 @@ const LinkToPsalm: React.FC<{ psalm: number }> = ({ psalm }) => (
     activeOpacity={0.5}
   >
     <Text>
-      <PWithLinkStyles>{psalm}</PWithLinkStyles>
-      <P>{"  "}</P>
+      <BodyWithLinkStyles>{psalm}</BodyWithLinkStyles>
+      <Body>{"  "}</Body>
     </Text>
   </Link>
 );
