@@ -274,7 +274,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "O come, let us sing unto the Lord; *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -285,7 +285,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "Let us come before his presence with thanksgiving *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -295,7 +295,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "For the Lord is a great God *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -305,7 +305,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "In his hand are all the depths of the earth, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -315,7 +315,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "The sea is his, for he made it, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -325,7 +325,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "O come, let us worship and fall down, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -335,12 +335,12 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "For he is our God, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
             content: "and we are the people of his pasture,",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: true,
           },
           {
@@ -356,7 +356,7 @@ export const dummyOffice: IApiOfficeData = {
           {
             content:
               "Today, if you will hear his voice, harden not your hearts *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -367,7 +367,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "When your fathers tested me, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -378,7 +378,7 @@ export const dummyOffice: IApiOfficeData = {
           {
             content:
               "Forty years long was I grieved with this generation and said, *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
@@ -389,7 +389,7 @@ export const dummyOffice: IApiOfficeData = {
           },
           {
             content: "Of whom I swore in my wrath *",
-            line_type: "congreation",
+            line_type: "congregation",
             indented: false,
           },
           {
