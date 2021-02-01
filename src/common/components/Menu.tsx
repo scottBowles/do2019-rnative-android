@@ -9,31 +9,42 @@
 
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import React from "react";
+import { View } from "react-native";
 import { Link } from "react-router-native";
 import styled from "styled-components/native";
-import { Body, Text } from "styles/typography";
-
-import { OutlineBtn } from "./OutlineBtn";
+import { BtnText } from "styles/typography";
 
 export const Menu: React.FC = () => {
   const menuItems = [
     {
-      icon: <ClockIcon size={12} color="black" style={{ marginRight: 2 }} />,
+      icon: (
+        <ClockIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+      ),
       text: "Now",
       route: "/office",
     },
     {
-      icon: <CalendarIcon size={12} color="black" style={{ marginRight: 2 }} />,
+      icon: (
+        <CalendarIcon
+          size={12}
+          color="black"
+          style={{ marginRight: 3, top: 4 }}
+        />
+      ),
       text: "Calendar",
       route: "/calendar",
     },
     {
-      icon: <CogIcon size={12} color="black" style={{ marginRight: 2 }} />,
+      icon: (
+        <CogIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+      ),
       text: "Settings",
       route: "/settings",
     },
     {
-      icon: <CrossIcon size={12} color="black" style={{ marginRight: 2 }} />,
+      icon: (
+        <CrossIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+      ),
       text: "About",
       route: "/about",
     },
@@ -43,13 +54,10 @@ export const Menu: React.FC = () => {
     <Container>
       {menuItems.map((item, index) => (
         <StyledLink to={item.route} underlayColor="#f0f4f7" key={index}>
-          <StyledOutlineBtn>
+          <StyledBtn>
             {item.icon}
-            <Text>
-              <FirstLetter>{item.text[0]}</FirstLetter>
-              <StyledText>{item.text.slice(1)}</StyledText>
-            </Text>
-          </StyledOutlineBtn>
+            <StyledText>{item.text}</StyledText>
+          </StyledBtn>
         </StyledLink>
       ))}
     </Container>
@@ -59,23 +67,27 @@ export const Menu: React.FC = () => {
 const Container = styled.View`
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 8px;
+  margin-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  margin-right: ${({ theme }) => theme.spacing.outerPadding}px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  border-color: black;
 `;
 
 const StyledLink = styled(Link)`
-  border-radius: 11px;
+  flex-grow: 1;
 `;
 
-const StyledOutlineBtn = styled(OutlineBtn)`
+const StyledBtn = styled(View)`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 3px 0;
   height: 32px;
 `;
 
-const StyledText = styled(Body)`
-  font-size: 11px;
-  text-transform: uppercase;
-`;
-
-const FirstLetter = styled(StyledText)`
-  font-size: 16px;
+const StyledText = styled(BtnText)`
+  font-variant: small-caps;
+  font-size: ${({ theme }) => theme.fontSize.biblicalCitation}px;
   letter-spacing: 0.66px;
 `;

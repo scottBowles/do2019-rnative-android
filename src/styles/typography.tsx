@@ -146,6 +146,9 @@ const Rubric = styled(RubricBase)`
   padding-bottom: ${({ theme }) => theme.fontSize.rubric}px;
 `;
 
+const BtnText = styled(Body)`
+  line-height: ${({ theme }) => theme.fontSize.body * 2}px;
+`;
 // const SectionTitleBase = Heading(theme.fontSize.sectionTitle);
 // export const SectionTitle = styled(SectionTitleBase)`
 //   letter-spacing: ${({ theme }) => theme.fontSize.sectionTitle * 0.2}px;
@@ -372,6 +375,7 @@ const RubricWithUtils = withTextUtilityProps(Rubric);
 const TitleWithUtils = withTextUtilityProps(Title);
 const MainSettingNameWithUtils = withTextUtilityProps(MainSettingName);
 const SmallItalicsWithUtils = withTextUtilityProps(SmallItalics);
+const BtnTextWithUtils = withTextUtilityProps(BtnText);
 const BodyLinkWithUtils = withTextUtilityProps(BodyLink);
 const SmallItalicsLinkWithUtils = withTextUtilityProps(SmallItalicsLink);
 
@@ -389,6 +393,7 @@ export {
   TitleWithUtils as Title,
   MainSettingNameWithUtils as MainSettingName,
   SmallItalicsWithUtils as SmallItalics,
+  BtnTextWithUtils as BtnText,
   BodyLinkWithUtils as BodyLink,
   SmallItalicsLinkWithUtils as SmallItalicsLink,
 };
