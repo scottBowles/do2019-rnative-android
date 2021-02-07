@@ -2,7 +2,7 @@ import { Footer } from "common/components";
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { theme } from "styles";
-import { Body, SectionTitle, SmallItalics } from "styles/typography";
+import { Body, Rubric, SectionTitle } from "styles/typography";
 
 import { AdvancedSettings } from "./AdvancedSettings";
 import { MainSettings } from "./MainSettings";
@@ -25,10 +25,10 @@ const TopMaterial = () => (
       Your settings will be saved the next time you pray on the same
       computer/phone/device and browser.
     </Body>
-    <SmallItalics>
+    <Rubric>
       Setting changes take effect immediately. You do not need to save settings
       after you have updated them.
-    </SmallItalics>
+    </Rubric>
   </>
 );
 
