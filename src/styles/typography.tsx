@@ -6,7 +6,7 @@
 
 import { withLink } from "common/components/HOCs/withLink";
 import React from "react";
-import { Text as NativeText, View } from "react-native";
+import { Text as NativeText, TextProps, TextStyle, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
 
@@ -22,9 +22,9 @@ type TTextStyledComponent = StyledComponent<
   never
 >;
 
-interface IType {
+interface IType extends React.CSSProperties {
   fontSize: number;
-  lineHeight?: number;
+  lineHeightEms?: number;
   letterSpacingRatio?: number;
 }
 
@@ -56,6 +56,9 @@ interface ILink {
  * This is a React Native bug others have reported.
  */
 
+/**
+ * Sets base styles for all Text components
+ */
 const Text = styled(NativeText)`
   font-family: ${({ theme }) => theme.fonts.primary.regular};
   color: ${({ theme }) => theme.colors.fontGrey};
@@ -63,32 +66,65 @@ const Text = styled(NativeText)`
   text-align-vertical: center;
 `;
 
-const type = ({ fontSize, lineHeight = 0, letterSpacingRatio = 0 }: IType) => {
-  lineHeight = lineHeight || fontSize;
-  return styled(Text)`
+function withAddedStyles(
+  Component: React.FC<TextProps>,
+  addedStyles: TextStyle
+): React.FC<TextProps> {
+  return ({ style, ...props }) => (
+    <Component style={[addedStyles, style]} {...props} />
+  );
+}
+
+/**
+ * Returns a base type component. Essentially accounts for not being able to use ems
+ * as a unit and implements the fix for font quirks (see explanation above). Also allows
+ * additional js-style (camelCased) styles for when that is more convenient.
+ */
+function type({
+  fontSize,
+  lineHeightEms = 1,
+  letterSpacingRatio = 0,
+  ...additionalUserStyles
+}: IType) {
+  const lineHeight = fontSize * lineHeightEms;
+
+  const Base = styled(Text)`
     font-size: ${fontSize}px;
     line-height: ${lineHeight}px;
     padding-top: ${1.5 * fontSize - lineHeight}px;
     margin-bottom: -${1.5 * fontSize - lineHeight}px;
     letter-spacing: ${fontSize * letterSpacingRatio}px;
   `;
-};
 
-const heading = ({
+  return withAddedStyles(Base, additionalUserStyles as TextStyle);
+}
+
+/**
+ * Extends the above type function, adding general heading styles
+ */
+function heading({
   fontSize,
-  lineHeight = 0,
+  lineHeightEms = 1,
   letterSpacingRatio = 0,
-}: IType) => {
-  lineHeight = lineHeight || fontSize;
-  const Base = type({ fontSize, lineHeight, letterSpacingRatio });
-  return styled(Base)`
+  ...additionalStyles
+}: IType) {
+  const lineHeight = fontSize * lineHeightEms;
+
+  const TypeBase = type({
+    fontSize,
+    lineHeightEms,
+    letterSpacingRatio,
+    ...additionalStyles,
+  });
+
+  return styled(TypeBase)`
     font-variant: small-caps;
     text-transform: lowercase;
     text-align: center;
     margin-top: ${lineHeight}px;
     padding-bottom: ${lineHeight}px;
   `;
-};
+}
 
 const SectionTitle = heading({
   fontSize: theme.fontSize.sectionTitle,
@@ -115,36 +151,30 @@ const FooterTitle = heading({
   letterSpacingRatio: 0.1,
 });
 
-const CitationBase = heading({
+const Citation = heading({
   fontSize: theme.fontSize.biblicalCitation,
   letterSpacingRatio: 0.05,
+  marginTop: 0,
+  paddingBottom: 0,
+  alignSelf: "flex-end",
 });
-
-const Citation = styled(CitationBase)`
-  margin-top: 0px;
-  padding-bottom: 0px;
-  align-self: flex-end;
-`;
 
 const Body = type({
   fontSize: theme.fontSize.body,
-  lineHeight: theme.lineHeight.body,
+  lineHeightEms: theme.lineHeightEms.body,
 });
 
 const Congregation = styled(Body)`
   font-family: ${({ theme }) => theme.fonts.primary.semibold};
 `;
 
-const RubricBase = type({
+const Rubric = type({
   fontSize: theme.fontSize.rubric,
-  lineHeight: theme.lineHeight.rubric,
+  lineHeightEms: theme.lineHeightEms.rubric,
+  fontFamily: theme.fonts.primary.italic,
+  marginTop: theme.fontSize.rubric,
+  paddingBottom: theme.fontSize.rubric,
 });
-
-const Rubric = styled(RubricBase)`
-  font-family: ${({ theme }) => theme.fonts.primary.italic};
-  margin-top: ${({ theme }) => theme.fontSize.rubric}px;
-  padding-bottom: ${({ theme }) => theme.fontSize.rubric}px;
-`;
 
 const BtnText = styled(Body)`
   line-height: ${({ theme }) => theme.fontSize.body * 2}px;
@@ -314,7 +344,7 @@ const Title = styled(Text)`
 `;
 
 const MainSettingName = styled(SectionTitle)`
-  margin-top: 32px;
+  /* margin-top: 32px; */
   /* margin-bottom: 8px; */
   /* line-height: ${({ theme }) => theme.spacing.basex2}px; // NEW */
 `;

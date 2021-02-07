@@ -46,9 +46,10 @@ export const theme = {
     biblicalCitation: 0.87 * REM,
     rubric: 0.85 * REM,
   },
-  lineHeight: {
-    body: (REM * 13) / 11.5,
-    rubric: 0.85 * REM * (10.75 / 9.75),
+  // provides line height in ems
+  lineHeightEms: {
+    body: 13 / 11.5,
+    rubric: 10.75 / 9.75,
   },
   spacing: {
     outerPadding: 22,
