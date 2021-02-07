@@ -7,6 +7,7 @@ import {
   BodyLink,
   Citation,
   ParagraphTitle,
+  RiteSubtitle,
   SectionTitle,
   SmallItalics,
 } from "styles/typography";
@@ -17,7 +18,7 @@ export const About: React.FC = () => (
   <ScrollView contentContainerStyle={styles.container}>
     <AboutContent
       Title={SectionTitle}
-      Heading={ParagraphTitle}
+      Heading={RiteSubtitle}
       Para={Body}
       ParaItalic={SmallItalics}
       Caption={Citation}
