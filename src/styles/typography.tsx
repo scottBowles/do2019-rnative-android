@@ -92,7 +92,7 @@ function type({
     font-size: ${fontSize}px;
     line-height: ${lineHeight}px;
     padding-top: ${1.5 * fontSize - lineHeight}px;
-    margin-bottom: -${1.5 * fontSize - lineHeight}px;
+    margin-bottom: -${Math.abs(1.5 * fontSize - lineHeight)}px;
     letter-spacing: ${fontSize * letterSpacingRatio}px;
   `;
 
@@ -106,7 +106,7 @@ function heading({
   fontSize,
   lineHeightEms = 1,
   letterSpacingRatio = 0,
-  ...additionalStyles
+  ...additionalUserStyles
 }: IType) {
   const lineHeight = fontSize * lineHeightEms;
 
@@ -114,16 +114,17 @@ function heading({
     fontSize,
     lineHeightEms,
     letterSpacingRatio,
-    ...additionalStyles,
   });
 
-  return styled(TypeBase)`
+  const HeadingBase = styled(TypeBase)`
     font-variant: small-caps;
     text-transform: lowercase;
     text-align: center;
     margin-top: ${lineHeight}px;
     padding-bottom: ${lineHeight}px;
   `;
+
+  return withAddedStyles(HeadingBase, additionalUserStyles as TextStyle);
 }
 
 const SectionTitle = heading({
@@ -336,12 +337,24 @@ export const HR = styled(View)`
   width: 100%;
 `;
 
-const Title = styled(Text)`
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.primary.semibold};
-  font-size: ${({ theme }) => theme.fontSize.paragraphTitle}px;
-  letter-spacing: 1.6px;
-`;
+const Title = type({
+  fontSize: theme.fontSize.paragraphTitle,
+  lineHeightEms: 1.6,
+  letterSpacingRatio: 0.1,
+  fontFamily: theme.fonts.primary.semibold,
+  textTransform: "uppercase",
+  textAlign: "center",
+});
+
+const AdvancedSettingName = type({
+  fontSize: theme.fontSize.paragraphTitle,
+  lineHeightEms: 1.3,
+  letterSpacingRatio: 0.1,
+  fontFamily: theme.fonts.primary.semibold,
+  textTransform: "uppercase",
+  textAlign: "center",
+  paddingBottom: 10,
+});
 
 const MainSettingName = styled(SectionTitle)`
   /* margin-top: 32px; */
@@ -408,6 +421,7 @@ const SmallItalicsWithUtils = withTextUtilityProps(SmallItalics);
 const BtnTextWithUtils = withTextUtilityProps(BtnText);
 const BodyLinkWithUtils = withTextUtilityProps(BodyLink);
 const SmallItalicsLinkWithUtils = withTextUtilityProps(SmallItalicsLink);
+const AdvancedSettingNameWithUtils = withTextUtilityProps(AdvancedSettingName);
 
 export {
   TextWithUtils as Text,
@@ -426,4 +440,5 @@ export {
   BtnTextWithUtils as BtnText,
   BodyLinkWithUtils as BodyLink,
   SmallItalicsLinkWithUtils as SmallItalicsLink,
+  AdvancedSettingNameWithUtils as AdvancedSettingName,
 };
