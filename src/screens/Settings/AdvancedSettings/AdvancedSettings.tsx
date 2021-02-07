@@ -6,7 +6,13 @@ import { useLocalStorageWithState } from "data/useLocalStorageWithState";
 import React from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
-import { SmallItalics, Text, Title } from "styles/typography";
+import {
+  AdvancedSettingName,
+  Body,
+  SmallItalics,
+  Text,
+  Title,
+} from "styles/typography";
 
 export const AdvancedSettings: React.FC = () => (
   <Wrapper>
@@ -24,11 +30,11 @@ const Setting: React.FC<{ setting: IAdvancedSetting }> = ({ setting }) => {
   );
   return (
     <Container>
-      <SettingName>{setting.name}</SettingName>
+      <AdvancedSettingName>{setting.name}</AdvancedSettingName>
       {setting.options.map((option) => (
         <OptionWrapper key={option} onPress={() => setCurrentSetting(option)}>
           <RadioButton selected={currentSetting === option} />
-          <Text size={14.4}>{option}</Text>
+          <Body>{option}</Body>
         </OptionWrapper>
       ))}
       <DescriptionText>{setting.description}</DescriptionText>
@@ -57,17 +63,13 @@ const Container = styled.View`
   margin: 12px 0;
 `;
 
-const SettingName = styled(Title)`
-  line-height: 21px;
-  padding-top: 3px;
-`;
-
 const OptionWrapper = styled(Pressable)`
   flex-direction: row;
 `;
 
 const DescriptionText = styled(SmallItalics)`
   line-height: 19px;
+  margin-top: 10px;
 `;
 
 const RadioButtonRing = styled.View`
