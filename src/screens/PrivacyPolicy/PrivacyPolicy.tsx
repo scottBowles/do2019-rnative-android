@@ -1,6 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import styled from "styled-components/native";
 import { theme } from "styles";
 import {
   Body,
@@ -13,17 +14,25 @@ import {
 import { PrivacyPolicyContent } from "./PrivacyPolicyContent";
 
 export const PrivacyPolicy: React.FC = () => (
-  <ScrollView contentContainerStyle={styles.container}>
-    <PrivacyPolicyContent
-      Title={SectionTitle}
-      Heading={ParagraphTitle}
-      Para={Body}
-      ParaItalic={SmallItalics}
-      ParaLink={BodyLink}
-    />
-    <Footer />
+  <ScrollView>
+    <Container>
+      <PrivacyPolicyContent
+        Title={SectionTitle}
+        Heading={ParagraphTitle}
+        Para={Body}
+        ParaItalic={SmallItalics}
+        ParaLink={BodyLink}
+      />
+      <Footer />
+    </Container>
   </ScrollView>
 );
+
+const Container = styled(View)`
+  align-items: center;
+  padding: ${({ theme }) => theme.spacing.outerPadding}px;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+`;
 
 const styles = StyleSheet.create({
   container: {

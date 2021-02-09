@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import { Route, NativeRouter as Router, Switch } from "react-router-native";
 import {
   About,
@@ -17,22 +17,38 @@ import {
 } from "screens";
 import { TestingGrounds } from "screens/TestingGrounds";
 import { ThemeProvider } from "styled-components/native";
-import { theme } from "styles/theme";
+import { Text } from "styles/typography";
+import { useTheme } from "styles/useTheme";
 
 export default function App() {
   const [fontsLoaded] = useFonts(fontRequires);
+  const { currentTheme, themeLoaded, setMode } = useTheme();
 
-  if (!fontsLoaded) return <AppLoading />;
+  if (!fontsLoaded || !themeLoaded) return <AppLoading />;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentTheme}>
       <Router>
         <SafeAreaView style={styles.container}>
           <StatusBar />
+          <View style={{ flexDirection: "row" }}>
+            <Text
+              style={{ color: "black", width: "50%", textAlign: "center" }}
+              onPress={() => setMode("light")}
+            >
+              Light
+            </Text>
+            <Text
+              style={{ color: "black", width: "50%", textAlign: "center" }}
+              onPress={() => setMode("dark")}
+            >
+              Dark
+            </Text>
+          </View>
           <Menu />
           <Switch>
             <Route exact path="/">
-              <Office />
+              <TestingGrounds setMode={setMode} />
             </Route>
             <Route path="/office">
               <Office />
@@ -73,7 +89,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     flex: 1,
   },
 });

@@ -38,17 +38,18 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledTextInput = styled(TextInput)`
-  border: 1px ${({ theme }) => theme.colors.fontGrey};
+  border: 1px ${({ theme }) => theme.colors.text};
   border-radius: 11px;
+  background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.fontGrey};
-  font-family: ${({ theme }) => theme.fonts.primary.regular};
+  font-family: ${({ theme }) => theme.fonts.primary.semibold};
   padding: 6px 10px 0;
   height: 35px;
   margin: 3.3px 0;
 `;
 
 const StyledOutlineBtn = styled(OutlineBtn)`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   height: 35px;
   margin: 3.3px 0;
 `;
@@ -56,4 +57,5 @@ const StyledOutlineBtn = styled(OutlineBtn)`
 const ButtonText = styled(Text)`
   margin-bottom: -8px;
   font-size: 14px;
+  color: ${({ theme }) => theme.colors.text};
 `;

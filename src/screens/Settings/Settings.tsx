@@ -1,6 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import styled from "styled-components/native";
 import { theme } from "styles";
 import { Body, Rubric, SectionTitle } from "styles/typography";
 
@@ -9,11 +10,13 @@ import { MainSettings } from "./MainSettings";
 
 export const Settings = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <TopMaterial />
-      <MainSettings />
-      <AdvancedSettings />
-      <Footer />
+    <ScrollView>
+      <Container>
+        <TopMaterial />
+        <MainSettings />
+        <AdvancedSettings />
+        <Footer />
+      </Container>
     </ScrollView>
   );
 };
@@ -31,6 +34,12 @@ const TopMaterial = () => (
     </Rubric>
   </>
 );
+
+const Container = styled(View)`
+  align-items: center;
+  padding: ${({ theme }) => theme.spacing.outerPadding}px;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+`;
 
 const styles = StyleSheet.create({
   container: {

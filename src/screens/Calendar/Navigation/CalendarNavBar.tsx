@@ -42,7 +42,7 @@ export const CalendarNavBar: React.FC<Props> = ({
   };
 
   const ICON_SIZE = 23;
-  const ICON_COLOR = theme.colors.black;
+
   const navItems = menuItems({
     jumpToDate,
     jumpToTop,
@@ -70,7 +70,7 @@ export const CalendarNavBar: React.FC<Props> = ({
       {navItems.map(({ Icon, text, onPress }, index) => (
         <StyledTouchableHighlight onPress={onPress} key={index}>
           <BtnContent>
-            <Icon size={ICON_SIZE} color={ICON_COLOR} />
+            <Icon size={ICON_SIZE} color={theme.colors.text} />
             <BtnText>{toTitleCase(text)}</BtnText>
           </BtnContent>
         </StyledTouchableHighlight>
@@ -133,7 +133,7 @@ const BtnContent = styled(View)`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
 `;
 
 const BtnText = styled(Text)`

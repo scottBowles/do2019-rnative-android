@@ -15,6 +15,6 @@ export const CalendarBlock = styled.View<IProps>`
   border-radius: 4px;
   background-color: ${(props) =>
     props.weekday.toLowerCase() === "sunday"
-      ? props.theme.colors.lightGrey
-      : "#ffffff"};
+      ? props.theme.colors.backgroundSecondary
+      : props.theme.colors.backgroundPrimary};
 `;

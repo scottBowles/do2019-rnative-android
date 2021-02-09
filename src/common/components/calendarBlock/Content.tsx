@@ -61,7 +61,7 @@ const CommemorationsWrapper = styled.View`
 `;
 
 const SeasonWrapper = styled.View`
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
   border: 1px black;
   align-self: flex-end;
   justify-content: flex-start;

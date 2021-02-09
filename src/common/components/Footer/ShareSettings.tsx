@@ -21,7 +21,7 @@ export const ShareSettings = () => {
         computers, tablets, or phones.
       </SmallItalics>
       <StyledTextInput selectTextOnFocus>
-        <Text>This will be a url with settings</Text>
+        <InputText>This will be a url with settings</InputText>
       </StyledTextInput>
       <CopyLinkWrapper>
         <CopyIcon color={theme.colors.linkBlue} />{" "}
@@ -35,10 +35,15 @@ const CopyLinkWrapper = styled(Text)`
   margin-top: 10px;
 `;
 
-const StyledTextInput = styled(TextInput)`
-  border: 1px ${({ theme }) => theme.colors.fontGrey};
-  border-radius: 3px;
+const InputText = styled(Text)`
   color: ${({ theme }) => theme.colors.fontGrey};
+`;
+
+const StyledTextInput = styled(TextInput)`
+  border: 1px ${({ theme }) => theme.colors.text};
+  border-radius: 3px;
+  color: black;
   font-family: ${({ theme }) => theme.fonts.primary.regular};
   padding: 0 6px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;

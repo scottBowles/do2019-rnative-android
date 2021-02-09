@@ -1,41 +1,54 @@
 import { BibleIcon, CalendarDarkIcon } from "assets/icons";
-import React from "react";
+import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
+import { ThemeContext } from "styled-components";
 import styled from "styled-components/native";
 import { ParagraphTitle, Text } from "styles/typography";
 
 import { withLink } from "../HOCs";
 import { OutlineBtn } from "../OutlineBtn";
 
-export const FooterResources = () => (
-  <Container style={{ marginTop: 15 }}>
-    <ParagraphTitle>RESOURCES</ParagraphTitle>
-    <ButtonsWrapper>
-      <Link to="/psalter" component={TouchableOpacity} activeOpacity={0.5}>
-        <StyledOutlineBtn>
-          <BibleIcon size={12} style={{ marginRight: 4 }} />
-          <TextWrapper>
-            <FirstLetter>P</FirstLetter>
-            <StyledText>salter</StyledText>
-          </TextWrapper>
-        </StyledOutlineBtn>
-      </Link>
-      <TouchableOpacityLink
-        link="https://www.dailyoffice2019.com/dailyoffice.ics"
-        activeOpacity={0.5}
-      >
-        <StyledOutlineBtn>
-          <CalendarDarkIcon style={{ marginRight: 4 }} />
-          <TextWrapper>
-            <FirstLetter>C</FirstLetter>
-            <StyledText>alendar (ical file)</StyledText>
-          </TextWrapper>
-        </StyledOutlineBtn>
-      </TouchableOpacityLink>
-    </ButtonsWrapper>
-  </Container>
-);
+export const FooterResources = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Container style={{ marginTop: 15 }}>
+      <ParagraphTitle>RESOURCES</ParagraphTitle>
+      <ButtonsWrapper>
+        <Link to="/psalter" component={TouchableOpacity} activeOpacity={0.5}>
+          <StyledOutlineBtn>
+            <BibleIcon
+              size={12}
+              color={theme.colors.text}
+              style={{ marginRight: 4 }}
+            />
+            <TextWrapper>
+              <FirstLetter>P</FirstLetter>
+              <StyledText>salter</StyledText>
+            </TextWrapper>
+          </StyledOutlineBtn>
+        </Link>
+        <TouchableOpacityLink
+          link="https://www.dailyoffice2019.com/dailyoffice.ics"
+          activeOpacity={0.5}
+        >
+          <StyledOutlineBtn>
+            <CalendarDarkIcon
+              size={12}
+              color={theme.colors.text}
+              style={{ marginRight: 4 }}
+            />
+            <TextWrapper>
+              <FirstLetter>C</FirstLetter>
+              <StyledText>alendar (ical file)</StyledText>
+            </TextWrapper>
+          </StyledOutlineBtn>
+        </TouchableOpacityLink>
+      </ButtonsWrapper>
+    </Container>
+  );
+};
 
 const TouchableOpacityLink = withLink(TouchableOpacity);
 

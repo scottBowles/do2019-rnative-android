@@ -72,24 +72,27 @@ export const Office: React.FC<IOfficeProps> = ({
   const officeData = new OfficeData(data as IApiOfficeData);
 
   return (
-    <ScrollContainer>
-      <Title>
-        <RiteTitle>{`Daily\n${office} Prayer`}</RiteTitle>
-      </Title>
+    <ScrollView>
+      <Container>
+        <Title>
+          <RiteTitle>{`Daily\n${office} Prayer`}</RiteTitle>
+        </Title>
 
-      <CalendarBlock weekday={officeData.weekday}>
-        <DateBlock day={officeData} />
-        <Content day={officeData} showSeason />
-      </CalendarBlock>
+        <CalendarBlock weekday={officeData.weekday}>
+          <DateBlock day={officeData} />
+          <Content day={officeData} showSeason />
+        </CalendarBlock>
 
-      <OfficePrayers officeData={officeData} />
-    </ScrollContainer>
+        <OfficePrayers officeData={officeData} />
+      </Container>
+    </ScrollView>
   );
 };
 
-const ScrollContainer = styled(ScrollView)`
+const Container = styled(View)`
   padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
   padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
 `;
 
 const Title = styled(View)`

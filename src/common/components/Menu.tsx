@@ -8,17 +8,23 @@
  */
 
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { Link } from "react-router-native";
+import { ThemeContext } from "styled-components";
 import styled from "styled-components/native";
 import { BtnText } from "styles/typography";
 
 export const Menu: React.FC = () => {
+  const theme = useContext(ThemeContext);
   const menuItems = [
     {
       icon: (
-        <ClockIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+        <ClockIcon
+          size={12}
+          color={theme.colors.text}
+          style={{ marginRight: 3, top: 4 }}
+        />
       ),
       text: "Now",
       route: "/office",
@@ -27,7 +33,7 @@ export const Menu: React.FC = () => {
       icon: (
         <CalendarIcon
           size={12}
-          color="black"
+          color={theme.colors.text}
           style={{ marginRight: 3, top: 4 }}
         />
       ),
@@ -36,14 +42,22 @@ export const Menu: React.FC = () => {
     },
     {
       icon: (
-        <CogIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+        <CogIcon
+          size={12}
+          color={theme.colors.text}
+          style={{ marginRight: 3, top: 4 }}
+        />
       ),
       text: "Settings",
       route: "/settings",
     },
     {
       icon: (
-        <CrossIcon size={12} color="black" style={{ marginRight: 3, top: 4 }} />
+        <CrossIcon
+          size={12}
+          color={theme.colors.text}
+          style={{ marginRight: 3, top: 4 }}
+        />
       ),
       text: "About",
       route: "/about",
@@ -53,7 +67,7 @@ export const Menu: React.FC = () => {
   return (
     <Container>
       {menuItems.map((item, index) => (
-        <StyledLink to={item.route} underlayColor="#f0f4f7" key={index}>
+        <StyledLink to={item.route} key={index}>
           <StyledBtn>
             {item.icon}
             <StyledText>{item.text}</StyledText>
@@ -65,10 +79,11 @@ export const Menu: React.FC = () => {
 };
 
 const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   flex-direction: row;
   justify-content: space-around;
-  margin-left: ${({ theme }) => theme.spacing.outerPadding}px;
-  margin-right: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
   border-bottom-width: 1px;
   border-top-width: 1px;
   border-color: black;

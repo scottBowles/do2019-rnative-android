@@ -23,6 +23,7 @@ export const useLocalStorageWithState = (
   defaultSetting: string
 ) => {
   const [currentSetting, setCurrentSetting] = useState(defaultSetting);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // On initial render, set current setting to its stored value || defaultSetting
   useEffect(() => {
@@ -30,6 +31,7 @@ export const useLocalStorageWithState = (
       try {
         const value = (await getFromStorage(storageKey)) ?? defaultSetting;
         setCurrentSetting(value);
+        setIsLoaded(true);
       } catch (e) {
         // TODO - Handle rejected promise, probably with a temporary message
         // letting the user know thier settings have failed to load.
@@ -54,5 +56,5 @@ export const useLocalStorageWithState = (
     })();
   }, [currentSetting]);
 
-  return [currentSetting, setCurrentSetting] as const;
+  return [currentSetting, setCurrentSetting, isLoaded] as const;
 };

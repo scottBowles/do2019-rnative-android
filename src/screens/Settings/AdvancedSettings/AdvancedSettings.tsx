@@ -10,7 +10,6 @@ import {
   AdvancedSettingName,
   Body,
   SmallItalics,
-  Text,
   Title,
 } from "styles/typography";
 
@@ -48,7 +47,7 @@ const RadioButton: React.FC<{ selected: boolean }> = ({ selected }) => (
 
 const Wrapper = styled.View`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   border: 1px ${({ theme }) => theme.colors.black};
   padding: 10px;
   margin-bottom: 10px;

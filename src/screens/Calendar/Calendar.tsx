@@ -19,6 +19,7 @@ import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
+import styled from "styled-components";
 
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";
@@ -90,7 +91,7 @@ export const Calendar: React.FC = () => {
   const layoutProvider = new LayoutProvider(dataProvider);
 
   return (
-    <View style={{ flex: 1 }}>
+    <Container>
       <RecyclerListView
         ref={listRef}
         dataProvider={dataProvider}
@@ -107,6 +108,11 @@ export const Calendar: React.FC = () => {
         jumpToDate={jumpToDate}
         jumpToSeason={jumpToSeason}
       />
-    </View>
+    </Container>
   );
 };
+
+const Container = styled(View)`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+`;

@@ -61,7 +61,7 @@ interface ILink {
  */
 const Text = styled(NativeText)`
   font-family: ${({ theme }) => theme.fonts.primary.regular};
-  color: ${({ theme }) => theme.colors.fontGrey};
+  color: ${({ theme }) => theme.colors.text};
   include-font-padding: false;
   text-align-vertical: center;
 `;

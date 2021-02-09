@@ -1,7 +1,8 @@
 import { MoonIcon, SunIcon, SunriseIcon, SunsetIcon } from "assets/icons";
 import { OutlineBtn } from "common/components";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-native";
+import { ThemeContext } from "styled-components";
 import styled from "styled-components/native";
 import { Text } from "styles/typography";
 
@@ -17,13 +18,14 @@ const officeLinks = (date: Date) => [
 ];
 
 export const OfficeLinks: React.FC<Props> = ({ date }) => {
+  const theme = useContext(ThemeContext);
   const links = officeLinks(date);
   return (
     <Container>
       {links.map(({ key, to, Icon, text }) => (
         <StyledLink to={to} key={key}>
           <OutlineBtn>
-            <Icon iconSize={11} />
+            <Icon iconSize={11} color={theme.colors.text} />
             <LinkText>{text}</LinkText>
           </OutlineBtn>
         </StyledLink>

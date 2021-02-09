@@ -66,7 +66,7 @@ const OptionBox = styled.View<{ selected: boolean }>`
           elevation: 15;
         `
       : css`
-          background-color: ${theme.colors.white};
+          background-color: ${theme.colors.backgroundPrimary};
           elevation: 2;
         `}
 `;
