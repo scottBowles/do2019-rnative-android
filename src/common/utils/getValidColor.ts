@@ -1,5 +1,4 @@
 import { theme } from "styles/theme";
-console.log({ theme });
 
 export const getValidColor = (color: string) => {
   // Check if color name is in colors
