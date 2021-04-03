@@ -1,22 +1,6 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 
-const getFromStorage = async (setting: string) => {
-  try {
-    const value = await AsyncStorage.getItem(setting);
-    return value;
-  } catch (e) {
-    throw new Error("Failed to get current setting");
-  }
-};
-
-const setToStorage = async (setting: string, value: string) => {
-  try {
-    await AsyncStorage.setItem(setting, value);
-  } catch (e) {
-    throw new Error("Failed to set value to storage");
-  }
-};
+import { getFromStorage, setToStorage } from "./localStorage";
 
 export const useLocalStorageWithState = (
   storageKey: string,
