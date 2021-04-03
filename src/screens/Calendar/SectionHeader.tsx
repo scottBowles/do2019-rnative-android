@@ -1,11 +1,12 @@
 import { ColorBox } from "common/components";
-import { Season, SectionData } from "data/calendarData/interfaces";
+import { ISectionData } from "data/calendarData/interfaces";
+import { ISeason } from "data/interfaces";
 import React from "react";
 import styled from "styled-components/native";
 import { ParagraphTitle } from "styles/typography";
 
 interface ISeasonHeader {
-  season: Season;
+  season: ISeason;
 }
 interface IMonthHeader {
   month: string;
@@ -13,7 +14,7 @@ interface IMonthHeader {
 }
 
 /* Season & month section headers */
-export const SectionHeader: React.FC<SectionData> = React.memo(
+export const SectionHeader: React.FC<ISectionData> = React.memo(
   ({ sectionType, month, year, season, ...props }) => (
     <Container {...props}>
       {["season", "both"].includes(sectionType) && (
@@ -57,8 +58,6 @@ const HeaderWrapper = styled.View`
 `;
 
 const HeaderText = styled(ParagraphTitle)`
-  padding-top: 0;
   margin-left: 6px;
   margin-right: 6px;
-  margin-bottom: -8px;
 `;
