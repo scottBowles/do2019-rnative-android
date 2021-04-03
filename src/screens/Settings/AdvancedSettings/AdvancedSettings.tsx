@@ -2,8 +2,7 @@ import {
   IAdvancedSetting,
   advancedSettings,
 } from "data/settingsData/advancedSettings";
-import { useLocalStorageWithState } from "data/useLocalStorageWithState";
-import React from "react";
+import React, { useContext } from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -12,6 +11,8 @@ import {
   SmallItalics,
   Title,
 } from "styles/typography";
+
+import { SettingsContext } from "../../../../SettingsContext";
 
 export const AdvancedSettings: React.FC = () => (
   <Wrapper>
@@ -23,16 +24,20 @@ export const AdvancedSettings: React.FC = () => (
 );
 
 const Setting: React.FC<{ setting: IAdvancedSetting }> = ({ setting }) => {
-  const [currentSetting, setCurrentSetting] = useLocalStorageWithState(
-    setting.storageKey,
-    setting.default
-  );
+  const { settings, updateSettings } = useContext(SettingsContext);
+  const { storageKey } = setting;
+  const value = settings[storageKey];
+  console.log(`Render setting ${setting.name}`);
+
   return (
     <Container>
       <AdvancedSettingName>{setting.name}</AdvancedSettingName>
       {setting.options.map((option) => (
-        <OptionWrapper key={option} onPress={() => setCurrentSetting(option)}>
-          <RadioButton selected={currentSetting === option} />
+        <OptionWrapper
+          key={option}
+          onPress={() => updateSettings({ [storageKey]: option })}
+        >
+          <RadioButton selected={value === option} />
           <Body>{option}</Body>
         </OptionWrapper>
       ))}

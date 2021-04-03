@@ -4,7 +4,7 @@ import AppLoading from "expo-app-loading";
 import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useContext } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import { Route, NativeRouter as Router, Switch } from "react-router-native";
 import {
@@ -17,21 +17,35 @@ import {
 } from "screens";
 import { TestingGrounds } from "screens/TestingGrounds";
 import { ThemeProvider } from "styled-components/native";
+import { darkTheme, lightTheme } from "styles/theme";
 import { Text } from "styles/typography";
 import { useTheme } from "styles/useTheme";
 
-export default function App() {
-  const [fontsLoaded] = useFonts(fontRequires);
-  const { currentTheme, themeLoaded, setMode } = useTheme();
+import { SettingsContext, SettingsProvider } from "./SettingsContext";
 
-  if (!fontsLoaded || !themeLoaded) return <AppLoading />;
+const getTheme = (theme: string) =>
+  theme === "Light Mode" ? lightTheme : darkTheme;
+
+function App() {
+  const [fontsLoaded] = useFonts(fontRequires);
+  // const { currentTheme, themeLoaded, setMode } = useTheme();
+  // const { themeLoading, settings, updateSettings } = useContext(
+  //   SettingsContext
+  // );
+
+  const themeLoading = false;
+
+  if (!fontsLoaded || themeLoading) return <AppLoading />;
+
+  // const currentTheme = getTheme(settings.visualTheme);
+  const currentTheme = getTheme("Light Mode");
 
   return (
     <ThemeProvider theme={currentTheme}>
       <Router>
         <SafeAreaView style={styles.container}>
           <StatusBar />
-          <View style={{ flexDirection: "row" }}>
+          {/* <View style={{ flexDirection: "row" }}>
             <Text
               style={{ color: "black", width: "50%", textAlign: "center" }}
               onPress={() => setMode("light")}
@@ -44,11 +58,12 @@ export default function App() {
             >
               Dark
             </Text>
-          </View>
+          </View> */}
           <Menu />
           <Switch>
             <Route exact path="/">
-              <TestingGrounds setMode={setMode} />
+              {/* <TestingGrounds setMode={setMode} /> */}
+              <Office />
             </Route>
             <Route path="/office">
               <Office />
@@ -84,6 +99,14 @@ export default function App() {
         </SafeAreaView>
       </Router>
     </ThemeProvider>
+  );
+}
+
+export default function () {
+  return (
+    <SettingsProvider>
+      <App />
+    </SettingsProvider>
   );
 }
 
