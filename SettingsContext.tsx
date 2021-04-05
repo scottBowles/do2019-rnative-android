@@ -4,8 +4,10 @@ import React, { createContext, useEffect, useState } from "react";
 
 interface ISettingsContext {
   themeLoading: boolean;
-  settings: object;
-  updateSettings: (updateObj: object) => void;
+  settings: {
+    value: object;
+    update: (updateObj: object) => void;
+  };
 }
 
 const allSettings = [...advancedSettings, ...mainSettings];
@@ -17,21 +19,29 @@ const defaultSettings = allSettings.reduce((acc, current) => {
 const SettingsContext = createContext({} as ISettingsContext);
 
 const SettingsProvider: React.FC = ({ children }) => {
-  const [settings, setSettings] = useState(defaultSettings);
+  const [settings, setSettings] = useState({
+    value: defaultSettings,
+    update: (updateObj: object) => {
+      setSettings((prevSettings) => ({
+        ...prevSettings,
+        value: { ...prevSettings.value, ...updateObj },
+      }));
+    },
+  });
+
   const [themeLoading, setThemeLoading] = useState(false);
 
   const getCurrentSettings = async () => {
-    setThemeLoading(true);
-    const localSettings = await getFromStorage("settings");
-    const currentSettings = { ...defaultSettings, ...localSettings };
-    setSettings(currentSettings);
-    setThemeLoading(false);
-    await setToStorage("settings", currentSettings);
-  };
-
-  const updateSettings = (updateObj: object) => {
-    console.log(`updated called with `, updateObj);
-    setSettings((prevSettings) => ({ ...prevSettings, ...updateObj }));
+    try {
+      setThemeLoading(true);
+      const localSettings = await getFromStorage("settings");
+      const currentSettings = { ...defaultSettings, ...localSettings };
+      settings.update(currentSettings);
+      setThemeLoading(false);
+      await setToStorage("settings", currentSettings);
+    } catch (error) {
+      console.log("local storage error", error);
+    }
   };
 
   useEffect(() => {
@@ -39,13 +49,11 @@ const SettingsProvider: React.FC = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setToStorage("settings", settings);
+    setToStorage("settings", settings.value);
   }, [settings]);
 
   return (
-    <SettingsContext.Provider
-      value={{ themeLoading, settings, updateSettings }}
-    >
+    <SettingsContext.Provider value={{ themeLoading, settings }}>
       {children}
     </SettingsContext.Provider>
   );

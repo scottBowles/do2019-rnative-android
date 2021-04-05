@@ -17,34 +17,50 @@ import { SettingsContext } from "../../../../SettingsContext";
 export const AdvancedSettings: React.FC = () => (
   <Wrapper>
     <SettingsTitle>Advanced Settings</SettingsTitle>
-    {advancedSettings.map((setting) => (
-      <Setting setting={setting} key={setting.storageKey} />
-    ))}
+    {advancedSettings.map((setting) => {
+      return (
+        <SettingContextWrapper setting={setting} key={setting.storageKey} />
+      );
+    })}
   </Wrapper>
 );
 
-const Setting: React.FC<{ setting: IAdvancedSetting }> = ({ setting }) => {
-  const { settings, updateSettings } = useContext(SettingsContext);
+const SettingContextWrapper: React.FC = ({ setting, ...props }) => {
+  const { settings } = useContext(SettingsContext);
   const { storageKey } = setting;
-  const value = settings[storageKey];
-  console.log(`Render setting ${setting.name}`);
-
+  const value = settings.value[storageKey];
   return (
-    <Container>
-      <AdvancedSettingName>{setting.name}</AdvancedSettingName>
-      {setting.options.map((option) => (
-        <OptionWrapper
-          key={option}
-          onPress={() => updateSettings({ [storageKey]: option })}
-        >
-          <RadioButton selected={value === option} />
-          <Body>{option}</Body>
-        </OptionWrapper>
-      ))}
-      <DescriptionText>{setting.description}</DescriptionText>
-    </Container>
+    <Setting
+      setting={setting}
+      value={value}
+      updateSettings={settings.update}
+      {...props}
+    />
   );
 };
+
+const Setting: React.FC<{ setting: IAdvancedSetting }> = React.memo(
+  ({ setting, value, updateSettings }) => {
+    const { storageKey } = setting;
+    console.log(`Render setting ${setting.name}`);
+
+    return (
+      <Container>
+        <AdvancedSettingName>{setting.name}</AdvancedSettingName>
+        {setting.options.map((option) => (
+          <OptionWrapper
+            key={option}
+            onPress={() => updateSettings({ [storageKey]: option })}
+          >
+            <RadioButton selected={value === option} />
+            <Body>{option}</Body>
+          </OptionWrapper>
+        ))}
+        <DescriptionText>{setting.description}</DescriptionText>
+      </Container>
+    );
+  }
+);
 
 const RadioButton: React.FC<{ selected: boolean }> = ({ selected }) => (
   <RadioButtonRing>{selected && <RadioButtonDot />}</RadioButtonRing>
