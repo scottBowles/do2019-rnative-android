@@ -2,7 +2,7 @@ import {
   IAdvancedSetting,
   advancedSettings,
 } from "data/settingsData/advancedSettings";
-import React, { useContext } from "react";
+import React from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -12,55 +12,59 @@ import {
   Title,
 } from "styles/typography";
 
-import { SettingsContext } from "../../../../SettingsContext";
+import { connectToContext } from "../connectToContext";
 
+/**
+ * Renders Advanced Settings, connected up to the SettingsContext
+ */
 export const AdvancedSettings: React.FC = () => (
   <Wrapper>
     <SettingsTitle>Advanced Settings</SettingsTitle>
     {advancedSettings.map((setting) => {
-      return (
-        <SettingContextWrapper setting={setting} key={setting.storageKey} />
-      );
+      return <SettingWithContext setting={setting} key={setting.storageKey} />;
     })}
   </Wrapper>
 );
 
-const SettingContextWrapper: React.FC = ({ setting, ...props }) => {
-  const { settings, updateSettings } = useContext(SettingsContext);
+/**
+ * Renders a single advanced setting. Needs to be connected to SettingsContext
+ * to receive `value` for the selected option and an `updateSettings` function.
+ * React.memo is necessary to avoid all settings rerendering when one is changed.
+ */
+const Setting: React.FC<{
+  setting: IAdvancedSetting;
+  value: string;
+  updateSettings: (updateObj: object) => void;
+}> = React.memo(({ setting, value, updateSettings }) => {
   const { storageKey } = setting;
-  const value = settings[storageKey];
+  console.log(`Render setting ${setting.name}`);
+
   return (
-    <Setting
-      setting={setting}
-      value={value}
-      updateSettings={updateSettings}
-      {...props}
-    />
+    <Container>
+      <AdvancedSettingName>{setting.name}</AdvancedSettingName>
+      {setting.options.map((option) => (
+        <OptionWrapper
+          key={option}
+          onPress={() => updateSettings({ [storageKey]: option })}
+        >
+          <RadioButton selected={value === option} />
+          <Body>{option}</Body>
+        </OptionWrapper>
+      ))}
+      <DescriptionText>{setting.description}</DescriptionText>
+    </Container>
   );
-};
+});
 
-const Setting: React.FC<{ setting: IAdvancedSetting }> = React.memo(
-  ({ setting, value, updateSettings }) => {
-    const { storageKey } = setting;
-    console.log(`Render setting ${setting.name}`);
+/**
+ * Connects a Setting to the SettingsContext, handing the Setting's current value
+ * and the updateSettings function.
+ */
+const SettingWithContext = connectToContext(Setting);
 
-    return (
-      <Container>
-        <AdvancedSettingName>{setting.name}</AdvancedSettingName>
-        {setting.options.map((option) => (
-          <OptionWrapper
-            key={option}
-            onPress={() => updateSettings({ [storageKey]: option })}
-          >
-            <RadioButton selected={value === option} />
-            <Body>{option}</Body>
-          </OptionWrapper>
-        ))}
-        <DescriptionText>{setting.description}</DescriptionText>
-      </Container>
-    );
-  }
-);
+/**
+ *                    STYLES
+ */
 
 const RadioButton: React.FC<{ selected: boolean }> = ({ selected }) => (
   <RadioButtonRing>{selected && <RadioButtonDot />}</RadioButtonRing>
