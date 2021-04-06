@@ -1,13 +1,11 @@
 import { getFromStorage, setToStorage } from "data/localStorage";
 import { advancedSettings, mainSettings } from "data/settingsData";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
 interface ISettingsContext {
   themeLoading: boolean;
-  settings: {
-    value: object;
-    update: (updateObj: object) => void;
-  };
+  settings: object;
+  updateSettings: (updateObj: object) => void;
 }
 
 const allSettings = [...advancedSettings, ...mainSettings];
@@ -19,41 +17,40 @@ const defaultSettings = allSettings.reduce((acc, current) => {
 const SettingsContext = createContext({} as ISettingsContext);
 
 const SettingsProvider: React.FC = ({ children }) => {
-  const [settings, setSettings] = useState({
-    value: defaultSettings,
-    update: (updateObj: object) => {
-      setSettings((prevSettings) => ({
-        ...prevSettings,
-        value: { ...prevSettings.value, ...updateObj },
-      }));
-    },
-  });
-
+  const [settings, setSettings] = useState(defaultSettings);
   const [themeLoading, setThemeLoading] = useState(false);
 
-  const getCurrentSettings = async () => {
-    try {
-      setThemeLoading(true);
-      const localSettings = await getFromStorage("settings");
-      const currentSettings = { ...defaultSettings, ...localSettings };
-      settings.update(currentSettings);
-      setThemeLoading(false);
-      await setToStorage("settings", currentSettings);
-    } catch (error) {
-      console.log("local storage error", error);
-    }
-  };
+  /**
+   * useCallback allows consumers to not all update with every change, as otherwise
+   * a new instance of updateSettings would be created. The other option would be to
+   * put updateSettings into state, but this is cleaner.
+   */
+  const updateSettings = useCallback((updateObj: object) => {
+    setSettings((prevSettings) => ({ ...prevSettings, ...updateObj }));
+  }, []);
 
   useEffect(() => {
+    const getCurrentSettings = async () => {
+      try {
+        setThemeLoading(true);
+        const localSettings = await getFromStorage("settings");
+        updateSettings(localSettings);
+        setThemeLoading(false);
+      } catch (error) {
+        console.log("local storage error", error);
+      }
+    };
     getCurrentSettings();
   }, []);
 
   useEffect(() => {
-    setToStorage("settings", settings.value);
+    setToStorage("settings", settings);
   }, [settings]);
 
   return (
-    <SettingsContext.Provider value={{ themeLoading, settings }}>
+    <SettingsContext.Provider
+      value={{ themeLoading, settings, updateSettings }}
+    >
       {children}
     </SettingsContext.Provider>
   );

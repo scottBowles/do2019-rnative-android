@@ -26,14 +26,14 @@ export const AdvancedSettings: React.FC = () => (
 );
 
 const SettingContextWrapper: React.FC = ({ setting, ...props }) => {
-  const { settings } = useContext(SettingsContext);
+  const { settings, updateSettings } = useContext(SettingsContext);
   const { storageKey } = setting;
-  const value = settings.value[storageKey];
+  const value = settings[storageKey];
   return (
     <Setting
       setting={setting}
       value={value}
-      updateSettings={settings.update}
+      updateSettings={updateSettings}
       {...props}
     />
   );
