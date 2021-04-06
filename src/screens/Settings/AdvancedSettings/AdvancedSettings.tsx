@@ -21,7 +21,13 @@ export const AdvancedSettings: React.FC = () => (
   <Wrapper>
     <SettingsTitle>Advanced Settings</SettingsTitle>
     {advancedSettings.map((setting) => {
-      return <SettingWithContext setting={setting} key={setting.storageKey} />;
+      return (
+        <SettingWithContext
+          setting={setting}
+          storageKey={setting.storageKey}
+          key={setting.storageKey}
+        />
+      );
     })}
   </Wrapper>
 );
@@ -33,28 +39,21 @@ export const AdvancedSettings: React.FC = () => (
  */
 const Setting: React.FC<{
   setting: IAdvancedSetting;
+  storageKey: string;
   value: string;
-  updateSettings: (updateObj: object) => void;
-}> = React.memo(({ setting, value, updateSettings }) => {
-  const { storageKey } = setting;
-  console.log(`Render setting ${setting.name}`);
-
-  return (
-    <Container>
-      <AdvancedSettingName>{setting.name}</AdvancedSettingName>
-      {setting.options.map((option) => (
-        <OptionWrapper
-          key={option}
-          onPress={() => updateSettings({ [storageKey]: option })}
-        >
-          <RadioButton selected={value === option} />
-          <Body>{option}</Body>
-        </OptionWrapper>
-      ))}
-      <DescriptionText>{setting.description}</DescriptionText>
-    </Container>
-  );
-});
+  updateSetting: (newValue: string) => void;
+}> = React.memo(({ setting, storageKey, value, updateSetting }) => (
+  <Container>
+    <AdvancedSettingName>{setting.name}</AdvancedSettingName>
+    {setting.options.map((option) => (
+      <OptionWrapper key={option} onPress={() => updateSetting(option)}>
+        <RadioButton selected={value === option} />
+        <Body>{option}</Body>
+      </OptionWrapper>
+    ))}
+    <DescriptionText>{setting.description}</DescriptionText>
+  </Container>
+));
 
 /**
  * Connects a Setting to the SettingsContext, handing the Setting's current value

@@ -7,17 +7,17 @@ import { Text, Title } from "styles/typography";
 
 interface IMainOptionProps {
   option: IOption;
-  selectOption: (optionTitle: string) => void;
+  updateSetting: (optionTitle: string) => void;
   selected?: boolean;
 }
 
 export const MainOption: React.FC<IMainOptionProps> = ({
   option,
-  selectOption,
+  updateSetting,
   selected = false,
 }) => {
   return (
-    <Pressable onPress={() => selectOption(option.title)}>
+    <Pressable onPress={() => updateSetting(option.title)}>
       <OptionBox selected={selected}>
         {selected && <Checkmark size={35} />}
         <OptionTitle selected={selected}>{option.title}</OptionTitle>

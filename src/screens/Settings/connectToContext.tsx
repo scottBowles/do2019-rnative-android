@@ -1,17 +1,15 @@
-import { IAdvancedSetting } from "data/settingsData/advancedSettings";
-import { IMainSetting } from "data/settingsData/mainSettings";
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 
 import { SettingsContext } from "../../../SettingsContext";
 
-type ConnectedComponent<T> = React.FC<{
-  setting: T;
+type ConnectedComponent = React.FC<{
+  storageKey: string;
 }>;
 
-type SettingsComponent<T> = React.FC<{
-  setting: T;
+type SettingsComponent = React.FC<{
+  storageKey: string;
   value: string;
-  updateSettings: (updateObj: object) => void;
+  updateSetting: (newValue: string) => void;
 }>;
 
 /**
@@ -19,18 +17,20 @@ type SettingsComponent<T> = React.FC<{
  * from the context. This keeps the setting component from rerendering each time any
  * part of the context value changes.
  */
-export const connectToContext = <T extends IAdvancedSetting | IMainSetting>(
-  C: SettingsComponent<T>
-): ConnectedComponent<T> => {
-  const SettingWithContext: ConnectedComponent<T> = ({ setting, ...props }) => {
+export const connectToContext = (C: SettingsComponent): ConnectedComponent => {
+  const SettingWithContext: ConnectedComponent = ({ storageKey, ...props }) => {
     const { settings, updateSettings } = useContext(SettingsContext);
-    const { storageKey } = setting;
     const value = settings[storageKey];
+    const updateSetting = useCallback(
+      (newValue: string) => updateSettings({ [storageKey]: newValue }),
+      []
+    );
+
     return (
       <C
-        setting={setting}
         value={value}
-        updateSettings={updateSettings}
+        storageKey={storageKey}
+        updateSetting={updateSetting}
         {...props}
       />
     );

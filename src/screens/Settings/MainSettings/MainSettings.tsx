@@ -11,7 +11,11 @@ import { MainOption } from "./MainOption";
 export const MainSettings: React.FC = () => (
   <>
     {mainSettings.map((mainSetting) => (
-      <SettingWithContext key={mainSetting.storageKey} setting={mainSetting} />
+      <SettingWithContext
+        key={mainSetting.storageKey}
+        setting={mainSetting}
+        storageKey={mainSetting.storageKey}
+      />
     ))}
   </>
 );
@@ -23,12 +27,10 @@ export const MainSettings: React.FC = () => (
  */
 const MainSetting: React.FC<{
   setting: IMainSetting;
+  storageKey: string;
   value: string;
-  updateSettings: (updateObj: object) => void;
-}> = React.memo(({ setting, value, updateSettings }) => {
-  const selectOption = (optionTitle: string) =>
-    updateSettings({ [setting.storageKey]: optionTitle });
-
+  updateSetting: (newValue: string) => void;
+}> = React.memo(({ setting, value, updateSetting }) => {
   return (
     <View style={{ width: "100%", alignItems: "center" }}>
       <MainSettingName>{setting.name}</MainSettingName>
@@ -36,7 +38,7 @@ const MainSetting: React.FC<{
         <MainOption
           key={option.title}
           option={option}
-          selectOption={selectOption}
+          updateSetting={updateSetting}
           selected={value === option.title}
         />
       ))}
