@@ -1,21 +1,27 @@
-import { mainSettings } from "data/settingsData";
-import { IMainSetting } from "data/settingsData/mainSettings";
-import React from "react";
+import { SettingConsumer } from "data/settingsData/SettingsContext";
+import { IMainSetting, mainSettings } from "data/settingsData/mainSettings";
+import React, { memo } from "react";
 import { View } from "react-native";
 import { MainSettingName } from "styles/typography";
 
-import { connectToContext } from "../connectToContext";
 import { MainOption } from "./MainOption";
 
 /** Renders Main Settings, connected up to the Settings Context */
 export const MainSettings: React.FC = () => (
   <>
-    {mainSettings.map((mainSetting) => (
-      <SettingWithContext
-        key={mainSetting.storageKey}
-        setting={mainSetting}
-        storageKey={mainSetting.storageKey}
-      />
+    {mainSettings.map((setting) => (
+      <SettingConsumer
+        settingStorageKey={setting.storageKey}
+        key={setting.storageKey}
+      >
+        {({ value, updateSetting }) => (
+          <MainSetting
+            setting={setting}
+            value={value}
+            updateSetting={updateSetting}
+          />
+        )}
+      </SettingConsumer>
     ))}
   </>
 );
@@ -27,27 +33,18 @@ export const MainSettings: React.FC = () => (
  */
 const MainSetting: React.FC<{
   setting: IMainSetting;
-  storageKey: string;
   value: string;
   updateSetting: (newValue: string) => void;
-}> = React.memo(({ setting, value, updateSetting }) => {
-  return (
-    <View style={{ width: "100%", alignItems: "center" }}>
-      <MainSettingName>{setting.name}</MainSettingName>
-      {setting.options.map((option) => (
-        <MainOption
-          key={option.title}
-          option={option}
-          updateSetting={updateSetting}
-          selected={value === option.title}
-        />
-      ))}
-    </View>
-  );
-});
-
-/**
- * Connects a MainSetting to the SettingsContext, handing the MainSetting's current value
- * and the updateSettings function.
- */
-const SettingWithContext = connectToContext(MainSetting);
+}> = memo(({ setting, value, updateSetting }) => (
+  <View style={{ width: "100%", alignItems: "center" }}>
+    <MainSettingName>{setting.name}</MainSettingName>
+    {setting.options.map((option) => (
+      <MainOption
+        key={option.title}
+        option={option}
+        updateSetting={updateSetting}
+        selected={value === option.title}
+      />
+    ))}
+  </View>
+));

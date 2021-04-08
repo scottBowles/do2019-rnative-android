@@ -1,8 +1,7 @@
 import { Footer } from "common/components";
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
-import { theme } from "styles";
 import { Body, Rubric, SectionTitle } from "styles/typography";
 
 import { AdvancedSettings } from "./AdvancedSettings";
@@ -40,10 +39,3 @@ const Container = styled(View)`
   padding: ${({ theme }) => theme.spacing.outerPadding}px;
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};
 `;
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    padding: theme.spacing.outerPadding,
-  },
-});

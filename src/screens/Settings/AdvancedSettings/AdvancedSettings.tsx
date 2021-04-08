@@ -2,7 +2,7 @@ import {
   IAdvancedSetting,
   advancedSettings,
 } from "data/settingsData/advancedSettings";
-import React from "react";
+import React, { memo } from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -12,37 +12,43 @@ import {
   Title,
 } from "styles/typography";
 
-import { connectToContext } from "../connectToContext";
+import { SettingConsumer } from "../../../data/settingsData/SettingsContext";
 
 /**
  * Renders Advanced Settings, connected up to the SettingsContext
  */
-export const AdvancedSettings: React.FC = () => (
-  <Wrapper>
-    <SettingsTitle>Advanced Settings</SettingsTitle>
-    {advancedSettings.map((setting) => {
-      return (
-        <SettingWithContext
-          setting={setting}
-          storageKey={setting.storageKey}
+export const AdvancedSettings: React.FC = () => {
+  return (
+    <Wrapper>
+      <SettingsTitle>Advanced Settings</SettingsTitle>
+      {advancedSettings.map((setting) => (
+        <SettingConsumer
+          settingStorageKey={setting.storageKey}
           key={setting.storageKey}
-        />
-      );
-    })}
-  </Wrapper>
-);
+        >
+          {({ value, updateSetting }) => (
+            <Setting
+              setting={setting}
+              value={value}
+              updateSetting={updateSetting}
+            />
+          )}
+        </SettingConsumer>
+      ))}
+    </Wrapper>
+  );
+};
 
 /**
- * Renders a single advanced setting. Needs to be connected to SettingsContext
- * to receive `value` for the selected option and an `updateSettings` function.
- * React.memo is necessary to avoid all settings rerendering when one is changed.
+ * Renders a single advanced setting. Consumes SettingsContext to receive `value`
+ * for the selected option and an `updateSetting` function. React.memo is necessary
+ * to avoid all settings rerendering when one is changed.
  */
 const Setting: React.FC<{
   setting: IAdvancedSetting;
-  storageKey: string;
   value: string;
   updateSetting: (newValue: string) => void;
-}> = React.memo(({ setting, storageKey, value, updateSetting }) => (
+}> = memo(({ setting, value, updateSetting }) => (
   <Container>
     <AdvancedSettingName>{setting.name}</AdvancedSettingName>
     {setting.options.map((option) => (
@@ -54,12 +60,6 @@ const Setting: React.FC<{
     <DescriptionText>{setting.description}</DescriptionText>
   </Container>
 ));
-
-/**
- * Connects a Setting to the SettingsContext, handing the Setting's current value
- * and the updateSettings function.
- */
-const SettingWithContext = connectToContext(Setting);
 
 /**
  *                    STYLES
