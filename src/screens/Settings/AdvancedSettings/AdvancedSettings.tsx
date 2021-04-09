@@ -1,8 +1,9 @@
+import { SettingsContext } from "data/settingsData/SettingsContext";
 import {
   IAdvancedSetting,
   advancedSettings,
 } from "data/settingsData/advancedSettings";
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { Pressable } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -12,28 +13,23 @@ import {
   Title,
 } from "styles/typography";
 
-import { SettingConsumer } from "../../../data/settingsData/SettingsContext";
-
 /**
- * Renders Advanced Settings, connected up to the SettingsContext
+ * Renders Advanced Settings, connected up to the SettingsContext.
+ * We receive the Settings Context here rather than in each Setting to
+ * avoid every Setting rerendering on any individual setting change.
  */
 export const AdvancedSettings: React.FC = () => {
+  const { settings, updateSettings } = useContext(SettingsContext);
   return (
     <Wrapper>
       <SettingsTitle>Advanced Settings</SettingsTitle>
       {advancedSettings.map((setting) => (
-        <SettingConsumer
-          settingStorageKey={setting.storageKey}
+        <Setting
+          setting={setting}
+          value={settings[setting.storageKey]}
+          updateSettings={updateSettings}
           key={setting.storageKey}
-        >
-          {({ value, updateSetting }) => (
-            <Setting
-              setting={setting}
-              value={value}
-              updateSetting={updateSetting}
-            />
-          )}
-        </SettingConsumer>
+        />
       ))}
     </Wrapper>
   );
@@ -41,25 +37,30 @@ export const AdvancedSettings: React.FC = () => {
 
 /**
  * Renders a single advanced setting. Consumes SettingsContext to receive `value`
- * for the selected option and an `updateSetting` function. React.memo is necessary
+ * for the selected option and an `updateSettings` function. React.memo is necessary
  * to avoid all settings rerendering when one is changed.
  */
 const Setting: React.FC<{
   setting: IAdvancedSetting;
   value: string;
-  updateSetting: (newValue: string) => void;
-}> = memo(({ setting, value, updateSetting }) => (
-  <Container>
-    <AdvancedSettingName>{setting.name}</AdvancedSettingName>
-    {setting.options.map((option) => (
-      <OptionWrapper key={option} onPress={() => updateSetting(option)}>
-        <RadioButton selected={value === option} />
-        <Body>{option}</Body>
-      </OptionWrapper>
-    ))}
-    <DescriptionText>{setting.description}</DescriptionText>
-  </Container>
-));
+  updateSettings: (updateObj: object) => void;
+}> = memo(({ setting, value, updateSettings }) => {
+  const updateSetting = (option: string) =>
+    updateSettings({ [setting.storageKey]: option });
+
+  return (
+    <Container>
+      <AdvancedSettingName>{setting.name}</AdvancedSettingName>
+      {setting.options.map((option) => (
+        <OptionWrapper key={option} onPress={() => updateSetting(option)}>
+          <RadioButton selected={value === option} />
+          <Body>{option}</Body>
+        </OptionWrapper>
+      ))}
+      <DescriptionText>{setting.description}</DescriptionText>
+    </Container>
+  );
+});
 
 /**
  *                    STYLES
