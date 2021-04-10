@@ -1,15 +1,16 @@
 import { fontRequires } from "assets/fonts/fontRequires";
 import { Menu } from "common/components";
 import {
+  IInjectedSettingProps,
   SettingConsumer,
   SettingsProvider,
-} from "data/settingsData/SettingsContext";
+} from "data/settingsData";
 import AppLoading from "expo-app-loading";
 import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import React, { memo } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { Route, NativeRouter as Router, Switch } from "react-router-native";
 import {
   About,
@@ -22,11 +23,9 @@ import {
 import { TestingGrounds } from "screens/TestingGrounds";
 import { ThemeProvider } from "styled-components/native";
 import { darkTheme, lightTheme } from "styles/theme";
-import { Text } from "styles/typography";
-
 
 interface IAppProps {
-  theme: string;
+  theme?: string;
 }
 
 const App: React.FC<IAppProps> = memo(({ theme }) => {
@@ -86,8 +85,8 @@ const App: React.FC<IAppProps> = memo(({ theme }) => {
 export default function () {
   return (
     <SettingsProvider>
-      <SettingConsumer settingStorageKey="visualTheme">
-        {({ value }) => <App theme={value} />}
+      <SettingConsumer settingKey="visualTheme">
+        {({ value }: IInjectedSettingProps) => <App theme={value} />}
       </SettingConsumer>
     </SettingsProvider>
   );

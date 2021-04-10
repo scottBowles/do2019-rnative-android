@@ -1,23 +1,12 @@
 import { Footer } from "common/components";
-import { advancedSettings, mainSettings } from "data/settingsData";
-import { SettingConsumer } from "data/settingsData/SettingsContext";
-import { IAdvancedSetting } from "data/settingsData/advancedSettings";
-import { IMainSetting } from "data/settingsData/mainSettings";
-import React, { memo } from "react";
+import { advancedSettings, mainSettings, withSetting } from "data/settingsData";
+import React from "react";
 import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
 import { Body, Rubric, SectionTitle, Title } from "styles/typography";
 
 import { AdvancedSetting } from "./AdvancedSettings";
 import { MainSetting } from "./MainSettings";
-
-type TSetting = IAdvancedSetting | IMainSetting;
-
-interface ISettingProps<T extends TSetting> {
-  setting: T;
-  value: string;
-  updateSetting: (option: string) => void;
-}
 
 export const Settings = () => (
   <ScrollView>
@@ -32,57 +21,23 @@ export const Settings = () => (
         settings after you have updated them.
       </Rubric>
 
-      {mainSettings.map((setting) => (
-        <RenderedSetting
-          Component={MainSetting}
-          setting={setting}
-          key={setting.storageKey}
-        />
-      ))}
+      {mainSettings.map((setting) => {
+        const C = withSetting(MainSetting, setting.storageKey);
+        return <C key={setting.storageKey} />;
+      })}
 
       <Wrapper>
         <AdvancedSettingsTitle>Advanced Settings</AdvancedSettingsTitle>
-        {advancedSettings.map((setting) => (
-          <RenderedSetting
-            Component={AdvancedSetting}
-            setting={setting}
-            key={setting.storageKey}
-          />
-        ))}
+        {advancedSettings.map((setting) => {
+          const C = withSetting(AdvancedSetting, setting.storageKey);
+          return <C key={setting.storageKey} />;
+        })}
       </Wrapper>
 
       <Footer />
     </Container>
   </ScrollView>
 );
-
-/**
- * Renders an isolated setting using `SettingConsumer` and memoizing the component.
- * This ensures that when one setting is updated, components using other settings
- * do not all rerender.
- */
-const RenderedSetting = <T extends TSetting>({
-  Component,
-  setting,
-  ...props
-}: {
-  Component: React.ComponentType<ISettingProps<T>>;
-  setting: T;
-}) => {
-  const C = memo(Component);
-  return (
-    <SettingConsumer settingStorageKey={setting.storageKey}>
-      {({ value, updateSetting }) => (
-        <C
-          setting={setting}
-          value={value}
-          updateSetting={updateSetting}
-          {...props}
-        />
-      )}
-    </SettingConsumer>
-  );
-};
 
 const Container = styled(View)`
   align-items: center;

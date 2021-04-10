@@ -1,4 +1,4 @@
-import { IMainSetting } from "data/settingsData/mainSettings";
+import { IMainSetting } from "data/settingsData";
 import React from "react";
 import { View } from "react-native";
 import { MainSettingName } from "styles/typography";

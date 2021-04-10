@@ -1,12 +1,7 @@
 import { getFromStorage, setToStorage } from "data/localStorage";
-import { advancedSettings, mainSettings } from "data/settingsData";
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { advancedSettings } from "data/settingsData/advancedSettings";
+import { mainSettings } from "data/settingsData/mainSettings";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
 interface ISettingsContext {
   themeLoading: boolean;
@@ -62,33 +57,4 @@ const SettingsProvider: React.FC = ({ children }) => {
   );
 };
 
-interface IInjectedSettingProps {
-  value: string;
-  updateSetting: (option: string) => void;
-}
-
-interface ISettingConsumerProps {
-  settingStorageKey: string;
-  children: (props: IInjectedSettingProps) => JSX.Element;
-}
-
-/**
- * Allows a consumer to consume and update a setting without every other
- * consumer rerendering. `value` and `updateSetting` are provided via the
- * render prop pattern, using the `children` prop. Components receiving these
- * props should be memoized with `React.memo` to avoid rerenders.
- */
-const SettingConsumer: React.FC<ISettingConsumerProps> = ({
-  settingStorageKey,
-  children,
-}) => {
-  const { settings, updateSettings } = useContext(SettingsContext);
-  const value = settings[settingStorageKey];
-  const updateSetting = useCallback(
-    (option) => updateSettings({ [settingStorageKey]: option }),
-    []
-  );
-  return <>{children({ value, updateSetting })}</>;
-};
-
-export { SettingsContext, SettingsProvider, SettingConsumer };
+export { SettingsContext, SettingsProvider };

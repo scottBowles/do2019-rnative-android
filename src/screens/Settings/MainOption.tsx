@@ -1,5 +1,5 @@
 import { CheckmarkIcon } from "assets/icons";
-import { IDescriptionPart, IOption } from "data/settingsData/mainSettings";
+import { IDescriptionPart, IOption } from "data/settingsData";
 import React from "react";
 import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
