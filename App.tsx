@@ -29,7 +29,7 @@ interface IAppProps {
 }
 
 const App: React.FC<IAppProps> = memo(({ theme }) => {
-  const currentTheme = theme === "Light Mode" ? lightTheme : darkTheme;
+  const currentTheme = theme === "theme-light" ? lightTheme : darkTheme;
   const [fontsLoaded] = useFonts(fontRequires);
 
   if (!fontsLoaded) return <AppLoading />;
@@ -85,7 +85,7 @@ const App: React.FC<IAppProps> = memo(({ theme }) => {
 export default function () {
   return (
     <SettingsProvider>
-      <SettingConsumer settingKey="visualTheme">
+      <SettingConsumer settingName="theme">
         {({ value }: IInjectedSettingProps) => <App theme={value} />}
       </SettingConsumer>
     </SettingsProvider>

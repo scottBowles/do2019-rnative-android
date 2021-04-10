@@ -17,11 +17,11 @@ export const MainOption: React.FC<IMainOptionProps> = ({
   selected = false,
 }) => {
   return (
-    <Pressable onPress={() => updateSetting(option.title)}>
+    <Pressable onPress={() => updateSetting(option.value)}>
       <OptionBox selected={selected}>
         {selected && <Checkmark size={35} />}
-        <OptionTitle selected={selected}>{option.title}</OptionTitle>
-        <Description description={option.description} selected={selected} />
+        <OptionTitle selected={selected}>{option.heading}</OptionTitle>
+        <Description description={option.text} selected={selected} />
       </OptionBox>
     </Pressable>
   );

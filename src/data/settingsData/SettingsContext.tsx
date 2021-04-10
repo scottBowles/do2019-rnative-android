@@ -3,6 +3,7 @@ import { advancedSettings } from "data/settingsData/advancedSettings";
 import { mainSettings } from "data/settingsData/mainSettings";
 import React, { createContext, useCallback, useEffect, useState } from "react";
 
+import { defaultSettings } from "./defaultSettings";
 interface ISettingsContext {
   themeLoading: boolean;
   settings: object;
@@ -11,9 +12,9 @@ interface ISettingsContext {
 
 const allSettings = [...advancedSettings, ...mainSettings];
 
-const defaultSettings = allSettings.reduce((acc, current) => {
-  return { ...acc, [current.storageKey]: current.default };
-}, {});
+// const defaultSettings = allSettings.reduce((acc, current) => {
+//   return { ...acc, [current.storageKey]: current.default };
+// }, {});
 
 const SettingsContext = createContext({} as ISettingsContext);
 

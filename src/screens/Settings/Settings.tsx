@@ -22,15 +22,15 @@ export const Settings = () => (
       </Rubric>
 
       {mainSettings.map((setting) => {
-        const C = withSetting(MainSetting, setting.storageKey);
-        return <C key={setting.storageKey} />;
+        const C = withSetting(MainSetting, setting.name);
+        return <C key={setting.name} />;
       })}
 
       <Wrapper>
         <AdvancedSettingsTitle>Advanced Settings</AdvancedSettingsTitle>
         {advancedSettings.map((setting) => {
-          const C = withSetting(AdvancedSetting, setting.storageKey);
-          return <C key={setting.storageKey} />;
+          const C = withSetting(AdvancedSetting, setting.name);
+          return <C key={setting.name} />;
         })}
       </Wrapper>
 

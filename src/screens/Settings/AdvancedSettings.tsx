@@ -10,14 +10,14 @@ export const AdvancedSetting: React.FC<{
   updateSetting: (option: string) => void;
 }> = ({ setting, value, updateSetting }) => (
   <Container>
-    <AdvancedSettingName>{setting.name}</AdvancedSettingName>
-    {setting.options.map((option) => (
-      <OptionWrapper key={option} onPress={() => updateSetting(option)}>
-        <RadioButton selected={value === option} />
-        <Body>{option}</Body>
+    <AdvancedSettingName>{setting.title}</AdvancedSettingName>
+    {setting.options.map((option, index) => (
+      <OptionWrapper key={index} onPress={() => updateSetting(option.value)}>
+        <RadioButton selected={value === option.value} />
+        <Body>{option.heading}</Body>
       </OptionWrapper>
     ))}
-    <DescriptionText>{setting.description}</DescriptionText>
+    <DescriptionText>{setting.help_text}</DescriptionText>
   </Container>
 );
 

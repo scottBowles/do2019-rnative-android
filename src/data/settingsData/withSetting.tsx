@@ -1,5 +1,11 @@
-import { IAdvancedSetting } from "data/settingsData/advancedSettings";
-import { IMainSetting } from "data/settingsData/mainSettings";
+import {
+  IAdvancedSetting,
+  advanceds,
+} from "data/settingsData/advancedSettings";
+import {
+  IMainSetting,
+  settings as mains,
+} from "data/settingsData/mainSettings";
 import React, { memo, useCallback, useContext } from "react";
 
 import { SettingsContext } from "./SettingsContext";
@@ -22,15 +28,15 @@ interface ISettingProps<T extends TSetting> {
  */
 export const withSetting = <T extends TSetting>(
   C: React.ComponentType<ISettingProps<T>>,
-  settingKey: string
+  settingName: string
 ) => {
   const MemoizedC = memo(C);
   return (props: unknown) => {
     const { settings, updateSettings } = useContext(SettingsContext);
-    const value: string = settings[settingKey];
-    const setting: T = findSetting(settingKey) as T;
+    const value: string = settings[settingName];
+    const setting: T = findSetting(settingName) as T;
     const updateSetting = useCallback(
-      (option) => updateSettings({ [settingKey]: option }),
+      (option) => updateSettings({ [settingName]: option }),
       []
     );
     return (

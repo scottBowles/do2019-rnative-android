@@ -25,15 +25,15 @@ interface ISettingConsumerProps {
  * `React.memo` to avoid rerenders.
  */
 export const SettingConsumer = ({
-  settingKey,
+  settingName,
   children,
 }: ISettingConsumerProps) => {
   const { settings, updateSettings } = useContext(SettingsContext);
 
-  const value = settings[settingKey];
-  const setting: TSetting | undefined = findSetting(settingKey);
+  const value = settings[settingName];
+  const setting: TSetting | undefined = findSetting(settingName);
   const updateSetting = useCallback(
-    (option) => updateSettings({ [settingKey]: option }),
+    (option) => updateSettings({ [settingName]: option }),
     []
   );
 

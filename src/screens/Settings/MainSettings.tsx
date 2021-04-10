@@ -11,13 +11,13 @@ export const MainSetting: React.FC<{
   updateSetting: (option: string) => void;
 }> = ({ setting, value, updateSetting }) => (
   <View style={{ width: "100%", alignItems: "center" }}>
-    <MainSettingName>{setting.name}</MainSettingName>
+    <MainSettingName>{setting.title}</MainSettingName>
     {setting.options.map((option) => (
       <MainOption
-        key={option.title}
+        key={option.heading}
         option={option}
         updateSetting={updateSetting}
-        selected={value === option.title}
+        selected={value === option.value}
       />
     ))}
   </View>
