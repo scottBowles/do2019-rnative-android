@@ -180,156 +180,6 @@ const Rubric = type({
 const BtnText = styled(Body)`
   line-height: ${({ theme }) => theme.fontSize.body * 2}px;
 `;
-// const SectionTitleBase = Heading(theme.fontSize.sectionTitle);
-// export const SectionTitle = styled(SectionTitleBase)`
-//   letter-spacing: ${({ theme }) => theme.fontSize.sectionTitle * 0.2}px;
-// `;
-
-// const RiteTitleBase = Heading(theme.fontSize.riteTitle);
-// export const RiteTitle = styled(RiteTitleBase)`
-//   letter-spacing: ${({ theme }) => theme.fontSize.riteTitle * 0.2}px;
-// `;
-
-// const RiteSubtitleBase = Heading(theme.fontSize.riteSubtitle);
-// export const RiteSubtitle = styled(RiteSubtitleBase)`
-//   font-size: ${({ theme }) => theme.fontSize.riteSubtitle}px;
-//   letter-spacing: ${({ theme }) => theme.fontSize.riteSubtitle * 0.1}px;
-//   padding-top: ${({ theme }) => theme.fontSize.riteSubtitle}px;
-//   padding-bottom: ${({ theme }) => theme.fontSize.riteSubtitle}px;
-// `;
-
-// const ParagraphTitleBase = heading({ fontSize: theme.fontSize.paragraphTitle });
-// export const ParagraphTitle = styled(ParagraphTitleBase)`
-//   font-size: ${({ theme }) => theme.fontSize.paragraphTitle}px;
-//   letter-spacing: ${({ theme }) => theme.fontSize.paragraphTitle * 0.1}px;
-//   padding-top: ${({ theme }) => theme.fontSize.paragraphTitle}px;
-//   margin-bottom: ${({ theme }) => theme.fontSize.paragraphTitle}px;
-//   border: 1px solid red;
-//   /* margin-bottom: 0px; */
-//   line-height: ${({ theme }) => theme.fontSize.paragraphTitle}px;
-// `;
-
-// const FooterTitleBase = Heading(theme.fontSize.footer);
-// export const FooterTitle = styled(FooterTitleBase)`
-//   ${({ theme }) => `
-//     font-size: ${theme.fontSize.footer}px;
-//     letter-spacing: ${theme.fontSize.footer * 0.1}px;
-//     padding-top: ${theme.fontSize.footer}px;
-//     padding-bottom: ${theme.fontSize.footer}px;
-//   `}
-// `;
-
-// const CitationBase = Heading(theme.fontSize.biblicalCitation);
-// export const Citation = styled(CitationBase)`
-//   font-size: ${({ theme }) => theme.fontSize.biblicalCitation}px;
-//   letter-spacing: ${({ theme }) => theme.fontSize.biblicalCitation * 0.05}px;
-//   /* padding-top: ${({ theme }) => theme.fontSize.biblicalCitation}px;
-//   padding-bottom: ${({ theme }) => theme.fontSize.biblicalCitation}px; */
-//   align-self: flex-end;
-// `;
-
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-
-// export const Caption = styled(Text)`
-//   font-size: ${({ theme }) => theme.fontSize.biblicalCitation}px;
-//   align-self: flex-end;
-// `;
-
-// export const H1 = styled(HeadingBase)`
-//   font-size: ${({ theme }) => theme.fontSize.sectionTitle}px;
-//   line-height: 24px;
-//   text-transform: uppercase;
-//   /* padding-top: 32px; */
-//   padding-top: ${({ theme }) => theme.spacing.base}px;
-// `;
-
-// export const H2 = styled(HeadingBase)`
-//   font-size: ${({ theme }) => theme.fontSize.base}px;
-//   text-transform: uppercase;
-// `;
-
-// export const Title = styled(Text)`
-//   text-transform: uppercase;
-//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
-//   font-size: ${({ theme }) => theme.fontSize.base}px;
-//   letter-spacing: 1.6px;
-// `;
-
-// export const MainSettingName = styled(Text)`
-//   text-transform: uppercase;
-//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
-//   letter-spacing: 1.6px;
-//   font-size: ${({ theme }) => theme.fontSize.xxxl}px;
-//   margin-top: 32px;
-//   /* margin-bottom: 8px; */
-//   line-height: ${({ theme }) => theme.spacing.basex2}px; // NEW
-//   text-align: center;
-// `;
-
-// export const H3 = styled(HeadingBase)`
-//   padding-top: ${({ theme }) => theme.spacing.base}px;
-//   /* margin-bottom: 5px; */
-//   font-size: ${({ theme }) => theme.fontSize.base}px;
-//   line-height: ${({ theme }) => theme.spacing.base}px;
-//   text-transform: uppercase;
-// `;
-
-// // H4 is currently not used anywhere.
-// // I'm assuming it shows up somewhere in the Office?
-// export const H4 = styled(HeadingBase)`
-//   margin-top: 0;
-//   padding-top: 0;
-//   font-size: ${({ theme }) => theme.fontSize.sm}px;
-//   /* line-height: 16px; */
-// `;
-
-// // H5 likely won't be used. Was used for the caption/citation.
-// export const H5 = styled(Text)`
-//   text-align: right;
-//   font-size: ${({ theme }) => theme.fontSize.sm}px;
-//   /* margin: 10px 0; */
-// `;
-
-// export const P = styled(Text)`
-//   font-size: ${(props) => props.size || props.theme.fontSize.base}px;
-//   line-height: ${({ theme }) => theme.spacing.base}px;
-//   margin-top: ${({ theme }) => theme.spacing.baseHalf}px;
-//   /* margin-bottom: 10px; */
-// `;
-
-// // export const Congregation = styled(P)`
-// //   font-family: ${({ theme }) => theme.fonts.primary.bold};
-// // `;
-
-// export const SmallItalics = styled(P)`
-//   font-family: ${({ theme }) => theme.fonts.primary.italic};
-//   font-size: ${({ theme }) => theme.fontSize.xs}px;
-// `;
-
-// export const People = styled(Text)`
-//   font-family: ${({ theme }) => theme.fonts.primary.semibold};
-//   font-size: ${({ theme }) => theme.fontSize.sm}px;
-//   line-height: ${({ theme }) => theme.spacing.base}px;
-// `;
-
-// // export const Rubric = styled(Text)`
-// //   font-family: ${({ theme }) => theme.fonts.primary.italic};
-// //   font-size: ${({ theme }) => theme.fontSize.xs}px;
-// //   /* margin-vertical: 10px; */
-// // `;
-
-// export const ChapterNumber = styled(Text)`
-//   font-size: ${({ theme }) => theme.fontSize.xxxl}px;
-//   line-height: ${({ theme }) => theme.spacing.base}px;
-//   letter-spacing: 1px;
-// `;
-
-// export const VerseNumber = styled(Text)`
-//   font-size: ${({ theme }) => theme.fontSize.xxxs}px;
-//   line-height: ${({ theme }) => theme.spacing.base}px;
-//   letter-spacing: 1px;
-// `;
 
 export const HR = styled(View)`
   border-bottom-color: #aaa;
@@ -371,7 +221,9 @@ const SmallItalics = styled(Body)`
  * Adds generic link styles to the given component
  * @param Base Base styled component to add link styles to
  */
-const addLinkStylesTo = (Base: TTextStyledComponent) => styled(Base)`
+const addLinkStylesTo = (Base: TTextStyledComponent | FC<TextProps>) => styled(
+  Base
+)`
   color: ${({ theme }) => theme.colors.linkBlue};
   text-decoration-line: underline;
 `;
@@ -394,9 +246,6 @@ export const createStyledLink = (base: TStyledComponent) => ({
     </C>
   );
 };
-
-// export const PWithLinkStyles = addLinkStylesTo(P);
-// export const PLink = createStyledLink(PWithLinkStyles);
 
 export const BodyWithLinkStyles = addLinkStylesTo(Body);
 const BodyLink = createStyledLink(BodyWithLinkStyles);
