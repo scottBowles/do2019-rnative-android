@@ -4,6 +4,7 @@ const RHYTHM_UNIT = REM * 1.6;
 const generalColors = {
   black: "#000000",
   blue: "#4169e1",
+  btnBlue: "#2196f3",
   fontGray: "#333333",
   fontGrey: "#333333",
   green: "#077339",
