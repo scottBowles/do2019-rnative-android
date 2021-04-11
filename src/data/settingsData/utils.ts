@@ -20,6 +20,7 @@ export const getSettingsUrl = (settings: object) => {
 
 export const parseLink = (link: string) => {
   const queryString = link.split("?")[1];
+  if (!queryString) return {};
 
   const settingsUpdateObj = queryString
     .split("&")
