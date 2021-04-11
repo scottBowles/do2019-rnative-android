@@ -16,6 +16,7 @@
     "@types/styled-components-react-native": "^5.1.0",
     "expo": "^40.0.0",
     "expo-app-loading": "^1.0.1",
+    "expo-clipboard": "~1.0.1",
     "expo-status-bar": "~1.0.3",
     "expo-web-browser": "~8.6.0",
     "is-core-module": "^2.1.0",
