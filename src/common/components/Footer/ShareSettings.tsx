@@ -1,7 +1,8 @@
 import { CopyIcon } from "assets/icons";
 import { SettingsContext } from "data/settingsData";
 import { getSettingsUrl } from "data/settingsData/utils";
-import React, { useContext } from "react";
+import Clipboard from "expo-clipboard";
+import React, { useContext, useState } from "react";
 import { TextInput } from "react-native";
 import { ThemeContext } from "styled-components";
 import styled from "styled-components/native";
@@ -13,10 +14,20 @@ import {
 } from "styles/typography";
 
 export const ShareSettings = () => {
+  const [recentlyClicked, setRecentlyClicked] = useState(false);
+
   const theme = useContext(ThemeContext);
   const { settings } = useContext(SettingsContext);
 
   const settingsUrl = getSettingsUrl(settings);
+
+  const handleClick = () => {
+    Clipboard.setString(settingsUrl);
+    setRecentlyClicked(true);
+    setTimeout(() => {
+      setRecentlyClicked(false);
+    }, 2000);
+  };
 
   return (
     <OutlinedContainer style={{ marginTop: 50 }}>
@@ -26,12 +37,20 @@ export const ShareSettings = () => {
         settings. This can also be used to share your settings between different
         computers, tablets, or phones.
       </SmallItalics>
+
       <StyledTextInput selectTextOnFocus>
         <InputText>{settingsUrl}</InputText>
       </StyledTextInput>
-      <CopyLinkWrapper>
-        <CopyIcon color={theme.colors.linkBlue} />{" "}
-        <SmallItalicsWithLinkStyles>Copy link</SmallItalicsWithLinkStyles>
+
+      <CopyLinkWrapper onPress={handleClick}>
+        {recentlyClicked ? (
+          <SmallItalics>Copied!</SmallItalics>
+        ) : (
+          <>
+            <CopyIcon color={theme.colors.linkBlue} />{" "}
+            <SmallItalicsWithLinkStyles>Copy link</SmallItalicsWithLinkStyles>
+          </>
+        )}
       </CopyLinkWrapper>
     </OutlinedContainer>
   );
