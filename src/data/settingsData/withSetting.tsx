@@ -1,11 +1,5 @@
-import {
-  IAdvancedSetting,
-  advanceds,
-} from "data/settingsData/advancedSettings";
-import {
-  IMainSetting,
-  settings as mains,
-} from "data/settingsData/mainSettings";
+import { IAdvancedSetting } from "data/settingsData/advancedSettings";
+import { IMainSetting } from "data/settingsData/mainSettings";
 import React, { memo, useCallback, useContext } from "react";
 
 import { SettingsContext } from "./SettingsContext";

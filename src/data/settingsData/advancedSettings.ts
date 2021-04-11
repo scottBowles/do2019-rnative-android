@@ -1,9 +1,18 @@
 export interface IAdvancedSetting {
+  title: string;
   name: string;
-  storageKey: string;
-  default: string;
-  options: string[];
-  description: string;
+  help_text: string;
+  options: {
+    value: string;
+    hide: string[];
+    show: string[];
+    heading: string;
+    text?: string;
+    tags?: {
+      class?: string;
+      "data-theme"?: string;
+    };
+  }[];
 }
 
 const url = `https://www.dailyoffice2019.com/?
@@ -30,7 +39,7 @@ setting_psalter=60
 &setting_grace=rotating
 &setting_o_antiphons=literal`;
 
-export const advancedSettings = [
+export const advancedSettings: IAdvancedSetting[] = [
   {
     title: "Visual Theme",
     name: "theme",

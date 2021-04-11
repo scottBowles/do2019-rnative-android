@@ -14,7 +14,7 @@ export interface IInjectedSettingProps {
 }
 
 interface ISettingConsumerProps {
-  settingKey: string;
+  settingName: string;
   children: (props: IInjectedSettingProps) => JSX.Element;
 }
 

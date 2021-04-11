@@ -1,16 +1,19 @@
 export interface IMainSetting {
+  title: string;
   name: string;
-  storageKey: string;
-  default: string;
+  help_text: ISettingText[];
   options: IOption[];
 }
 
 export interface IOption {
-  title: string;
-  description: IDescriptionPart[];
+  value: string;
+  hide: string[];
+  show: string[];
+  heading: string;
+  text: ISettingText[];
 }
 
-export interface IDescriptionPart {
+export interface ISettingText {
   content: string;
   type: string;
 }
@@ -142,7 +145,7 @@ const parseHTML = (line: string) =>
     type: index % 2 === 0 ? "regular" : "bold",
   }));
 
-export const mainSettings = apiSettings.map((setting) => {
+export const mainSettings: IMainSetting[] = apiSettings.map((setting) => {
   const help_text = parseHTML(setting.help_text);
   const options = setting.options.map((option) => {
     const text = parseHTML(option.text);

@@ -1,5 +1,5 @@
 import { CheckmarkIcon } from "assets/icons";
-import { IDescriptionPart, IOption } from "data/settingsData";
+import { IOption, ISettingText } from "data/settingsData";
 import React from "react";
 import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
@@ -21,32 +21,25 @@ export const MainOption: React.FC<IMainOptionProps> = ({
       <OptionBox selected={selected}>
         {selected && <Checkmark size={35} />}
         <OptionTitle selected={selected}>{option.heading}</OptionTitle>
-        <Description description={option.text} selected={selected} />
+        <OptionText text={option.text} selected={selected} />
       </OptionBox>
     </Pressable>
   );
 };
 
-interface IDescriptionProps {
-  description: IDescriptionPart[];
+interface IOptionText {
+  text: ISettingText[];
   selected: boolean;
 }
 
-const Description: React.FC<IDescriptionProps> = ({
-  description,
-  selected,
-}) => (
-  <DescriptionWrapper>
-    {description.map((words) => (
-      <DescriptionPart
-        key={words.content}
-        type={words.type}
-        selected={selected}
-      >
+const OptionText = ({ text, selected }: IOptionText) => (
+  <OptionTextWrapper>
+    {text.map((words) => (
+      <Run key={words.content} type={words.type} selected={selected}>
         {words.content}
-      </DescriptionPart>
+      </Run>
     ))}
-  </DescriptionWrapper>
+  </OptionTextWrapper>
 );
 
 /**
@@ -88,11 +81,11 @@ const OptionTitle = styled(Title)<{ selected: boolean }>`
   ${({ selected, theme }) => selected && `color: ${theme.colors.white}`}
 `;
 
-const DescriptionWrapper = styled(Text)`
+const OptionTextWrapper = styled(Text)`
   text-align: center;
 `;
 
-const DescriptionPart = styled(Text)<{ type: string; selected: boolean }>`
+const Run = styled(Text)<{ type: string; selected: boolean }>`
   font-size: 16px;
   line-height: 24px;
   text-align: center;
