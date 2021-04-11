@@ -1,9 +1,9 @@
 import { CopyIcon } from "assets/icons";
 import { SettingsContext } from "data/settingsData";
-import { getSettingsUrl } from "data/settingsData/utils";
+import { getSettingsUrl, parseLink } from "data/settingsData/utils";
 import Clipboard from "expo-clipboard";
 import React, { useContext, useState } from "react";
-import { TextInput } from "react-native";
+import { TextInput, TouchableNativeFeedback, View } from "react-native";
 import { ThemeContext } from "styled-components";
 import styled from "styled-components/native";
 import { OutlinedContainer } from "styles/containers";
@@ -14,18 +14,31 @@ import {
 } from "styles/typography";
 
 export const ShareSettings = () => {
-  const [recentlyClicked, setRecentlyClicked] = useState(false);
+  const [incomingLink, setIncomingLink] = useState("");
+  const [recentlySaved, setRecentlySaved] = useState(false);
+  const [recentlySynced, setRecentlySynced] = useState(false);
 
   const theme = useContext(ThemeContext);
-  const { settings } = useContext(SettingsContext);
+  const { settings, updateSettings } = useContext(SettingsContext);
 
   const settingsUrl = getSettingsUrl(settings);
 
-  const handleClick = () => {
+  const copyLink = () => {
     Clipboard.setString(settingsUrl);
-    setRecentlyClicked(true);
+    setRecentlySaved(true);
     setTimeout(() => {
-      setRecentlyClicked(false);
+      setRecentlySaved(false);
+    }, 2000);
+  };
+
+  const handleChange = (text: string) => setIncomingLink(text);
+
+  const handleSubmit = () => {
+    const updates = parseLink(incomingLink);
+    updateSettings(updates);
+    setRecentlySynced(true);
+    setTimeout(() => {
+      setRecentlySynced(false);
     }, 2000);
   };
 
@@ -33,17 +46,18 @@ export const ShareSettings = () => {
     <OutlinedContainer style={{ marginTop: 50 }}>
       <Text bold>Praying in a group? Want to share your settings?</Text>
       <SmallItalics>
-        Share this link to open this screen using your currently configured
-        settings. This can also be used to share your settings between different
-        computers, tablets, or phones.
+        Use this link to share your currently configured settings. This can also
+        be used to share your settings between different computers, tablets, or
+        phones. Enter it into the address bar of a browser, or submit it in the
+        input below to sync the app.
       </SmallItalics>
 
       <StyledTextInput selectTextOnFocus>
         <InputText>{settingsUrl}</InputText>
       </StyledTextInput>
 
-      <CopyLinkWrapper onPress={handleClick}>
-        {recentlyClicked ? (
+      <CopyLinkWrapper onPress={copyLink}>
+        {recentlySaved ? (
           <SmallItalics>Copied!</SmallItalics>
         ) : (
           <>
@@ -52,6 +66,22 @@ export const ShareSettings = () => {
           </>
         )}
       </CopyLinkWrapper>
+      <SmallItalics>
+        Have a link from elsewhere? Submit it here to sync your settings.
+      </SmallItalics>
+      <StyledTextInput
+        onChangeText={handleChange}
+        placeholder="Paste here to sync"
+      >
+        {incomingLink}
+      </StyledTextInput>
+      <TouchableNativeFeedback onPress={handleSubmit}>
+        <StyledButton>
+          <ButtonText>
+            {recentlySynced ? "Synced!" : "Sync Settings"}
+          </ButtonText>
+        </StyledButton>
+      </TouchableNativeFeedback>
     </OutlinedContainer>
   );
 };
@@ -70,5 +100,20 @@ const StyledTextInput = styled(TextInput)`
   color: black;
   font-family: ${({ theme }) => theme.fonts.primary.regular};
   padding: 0 6px;
+  margin-top: 6px;
   background-color: ${({ theme }) => theme.colors.white};
+`;
+
+const StyledButton = styled(View)`
+  margin-top: 6px;
+  padding-top: 2px;
+  height: 30px;
+  background-color: ${({ theme }) => theme.colors.btnBlue};
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ButtonText = styled(Text)`
+  color: ${({ theme }) => theme.colors.white};
 `;
