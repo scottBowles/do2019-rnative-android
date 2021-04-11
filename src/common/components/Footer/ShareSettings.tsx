@@ -1,4 +1,6 @@
 import { CopyIcon } from "assets/icons";
+import { SettingsContext } from "data/settingsData";
+import { getSettingsUrl } from "data/settingsData/utils";
 import React, { useContext } from "react";
 import { TextInput } from "react-native";
 import { ThemeContext } from "styled-components";
@@ -12,6 +14,10 @@ import {
 
 export const ShareSettings = () => {
   const theme = useContext(ThemeContext);
+  const { settings } = useContext(SettingsContext);
+
+  const settingsUrl = getSettingsUrl(settings);
+
   return (
     <OutlinedContainer style={{ marginTop: 50 }}>
       <Text bold>Praying in a group? Want to share your settings?</Text>
@@ -21,7 +27,7 @@ export const ShareSettings = () => {
         computers, tablets, or phones.
       </SmallItalics>
       <StyledTextInput selectTextOnFocus>
-        <InputText>This will be a url with settings</InputText>
+        <InputText>{settingsUrl}</InputText>
       </StyledTextInput>
       <CopyLinkWrapper>
         <CopyIcon color={theme.colors.linkBlue} />{" "}

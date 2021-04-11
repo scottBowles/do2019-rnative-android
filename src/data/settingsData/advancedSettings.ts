@@ -15,30 +15,6 @@ export interface IAdvancedSetting {
   }[];
 }
 
-const url = `https://www.dailyoffice2019.com/?
-setting_psalter=60
-&setting_reading_cycle=1
-&setting_reading_length=abbreviated
-&setting_reading_audio=off
-&setting_canticle_rotation=2011
-&setting_theme=theme-light
-&setting_lectionary=daily-office-readings
-&setting_confession=long-on-fast
-&setting_absolution=lay
-&setting_morning_prayer_invitatory=invitatory_rotating
-&setting_reading_headings=off
-&setting_language_style=traditional
-&setting_national_holidays=us
-&setting_suffrages=rotating
-&setting_collects=rotating
-&setting_election_prayers=election_yes
-&setting_pandemic_prayers=pandemic_no
-&setting_mp_great_litany=mp_litany_off
-&setting_ep_great_litany=ep_litany_off
-&setting_general_thanksgiving=off&setting_chrysostom=on
-&setting_grace=rotating
-&setting_o_antiphons=literal`;
-
 export const advancedSettings: IAdvancedSetting[] = [
   {
     title: "Visual Theme",
