@@ -8,8 +8,7 @@ import {
 import { toTitleCase } from "common/utils";
 import React, { useContext, useState } from "react";
 import { Platform, StyleSheet, TouchableHighlight, View } from "react-native";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { Text } from "styles/typography";
 
 import { SeasonModal } from "./SeasonModal";

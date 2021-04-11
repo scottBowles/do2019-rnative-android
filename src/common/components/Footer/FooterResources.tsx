@@ -2,8 +2,7 @@ import { BibleIcon, CalendarDarkIcon } from "assets/icons";
 import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { ParagraphTitle, Text } from "styles/typography";
 
 import { withLink } from "../HOCs";

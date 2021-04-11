@@ -11,8 +11,7 @@ import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import React, { useContext } from "react";
 import { View } from "react-native";
 import { Link } from "react-router-native";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { BtnText } from "styles/typography";
 
 export const Menu: React.FC = () => {

@@ -2,7 +2,7 @@ import { CloseIcon } from "assets/icons";
 import { ContentLine } from "common/components/calendarBlock/ContentLine";
 import React, { useContext } from "react";
 import { Modal, StyleSheet, TouchableHighlight, View } from "react-native";
-import { ThemeContext } from "styled-components";
+import { ThemeContext } from "styled-components/native";
 import { SectionTitle } from "styles/typography";
 
 // Figure out what to do with ContentLine (probably separate into own file)

@@ -2,8 +2,7 @@ import { MoonIcon, SunIcon, SunriseIcon, SunsetIcon } from "assets/icons";
 import { OutlineBtn } from "common/components";
 import React, { useContext } from "react";
 import { Link } from "react-router-native";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { Text } from "styles/typography";
 
 interface Props {

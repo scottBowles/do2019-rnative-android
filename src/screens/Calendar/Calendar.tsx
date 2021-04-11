@@ -19,7 +19,7 @@ import React, { useEffect, useRef } from "react";
 import { View } from "react-native";
 import { useParams } from "react-router-native";
 import { RecyclerListView } from "recyclerlistview";
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 import { DateDisplay } from "./DateDisplay";
 import { LayoutProvider } from "./LayoutProvider";

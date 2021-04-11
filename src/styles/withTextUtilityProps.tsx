@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Text as NativeText } from "react-native";
-import { DefaultTheme, StyledComponent } from "styled-components";
-import styled, { css } from "styled-components/native";
+import { StyledComponent } from "styled-components";
+import styled, { DefaultTheme, css } from "styled-components/native";
 
 interface ITextProps {
   bold?: boolean;

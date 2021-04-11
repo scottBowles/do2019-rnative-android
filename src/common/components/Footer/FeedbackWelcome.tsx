@@ -1,8 +1,7 @@
 import { ExternalLinks } from "assets/ExternalLinks";
 import { EnvelopeIcon, FacebookIcon } from "assets/icons";
 import React, { useContext } from "react";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { OutlinedContainer } from "styles/containers";
 import { SmallItalics, SmallItalicsLink, Text } from "styles/typography";
 

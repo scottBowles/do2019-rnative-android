@@ -4,8 +4,7 @@ import { getSettingsUrl, parseLink } from "data/settingsData/utils";
 import Clipboard from "expo-clipboard";
 import React, { useContext, useState } from "react";
 import { TextInput, TouchableNativeFeedback, View } from "react-native";
-import { ThemeContext } from "styled-components";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { OutlinedContainer } from "styles/containers";
 import {
   SmallItalics,
@@ -52,9 +51,7 @@ export const ShareSettings = () => {
         input below to sync the app.
       </SmallItalics>
 
-      <StyledTextInput selectTextOnFocus>
-        <InputText>{settingsUrl}</InputText>
-      </StyledTextInput>
+      <StyledTextInput selectTextOnFocus value={settingsUrl} />
 
       <CopyLinkWrapper onPress={copyLink}>
         {recentlySaved ? (
@@ -72,9 +69,8 @@ export const ShareSettings = () => {
       <StyledTextInput
         onChangeText={handleChange}
         placeholder="Paste here to sync"
-      >
-        {incomingLink}
-      </StyledTextInput>
+        value={incomingLink}
+      />
       <TouchableNativeFeedback onPress={handleSubmit}>
         <StyledButton>
           <ButtonText>

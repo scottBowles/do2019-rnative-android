@@ -11,7 +11,7 @@
 import { CrossIcon } from "assets/icons";
 import { CalendarDay } from "data/calendarData/models";
 import React, { useContext } from "react";
-import { ThemeContext } from "styled-components";
+import { ThemeContext } from "styled-components/native";
 
 import {
   DateBlockContainer,

@@ -9,7 +9,7 @@ import { useDummyFetch } from "data/common";
 import { IApiOfficeData, OfficeData, dummyOffice } from "data/officeData";
 import React from "react";
 import { ScrollView, View } from "react-native";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import {
   Body,
   Citation,
