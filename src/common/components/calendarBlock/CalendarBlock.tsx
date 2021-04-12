@@ -6,7 +6,7 @@ interface IProps {
 }
 
 export const CalendarBlock = styled.View<IProps>`
-  flex: 1;
+  /* flex: 1; */
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 6px;
