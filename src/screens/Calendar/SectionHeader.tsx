@@ -44,7 +44,7 @@ const MonthHeader: React.FC<IMonthHeader> = ({ month, year }) => (
 
 const Container = styled.View`
   align-items: center;
-  flex: 1;
+  width: 100%;
   margin-top: 20px;
   padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
   padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
