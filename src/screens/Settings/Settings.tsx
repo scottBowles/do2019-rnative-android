@@ -5,8 +5,8 @@ import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
 import { Body, Rubric, SectionTitle, Title } from "styles/typography";
 
-import { AdvancedSetting } from "./AdvancedSettings";
-import { MainSetting } from "./MainSettings";
+import { AdvancedSetting } from "./AdvancedSetting";
+import { MainSetting } from "./MainSetting";
 
 export const Settings = () => (
   <ScrollView>
