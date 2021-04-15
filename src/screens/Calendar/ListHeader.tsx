@@ -10,10 +10,10 @@
 
 import { ArrowLeft, ArrowRight } from "assets/icons";
 import { OutlineBtn } from "common/components";
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { Link } from "react-router-native";
-import styled from "styled-components/native";
+import styled, { ThemeContext } from "styled-components/native";
 import { RiteTitle, SectionTitle, Text } from "styles/typography";
 
 interface ListHeaderProps {
@@ -46,6 +46,7 @@ export const ListHeader: React.FC<ListHeaderProps> = React.memo(
 
 const NextYearLink: React.FC<NextYearProps> = React.memo(
   ({ direction, year, ...props }) => {
+    const theme = useContext(ThemeContext);
     const Arrow = direction === "past" ? ArrowLeft : ArrowRight;
     return (
       <StyledLink to={`/calendar/${year}`} {...props}>
@@ -54,7 +55,7 @@ const NextYearLink: React.FC<NextYearProps> = React.memo(
             <NavText style={{ lineHeight: 18 }}>
               {year} - {year + 1}
             </NavText>
-            <Arrow size={12} />
+            <Arrow size={12} color={theme.colors.text} />
           </NavTextWrapper>
         </OutlineBtn>
       </StyledLink>
@@ -93,5 +94,5 @@ const NavTextWrapper = styled.View`
 
 const NavText = styled(Text)`
   font-size: 12px;
-  margin-bottom: -6px;
+  margin-bottom: 1px;
 `;

@@ -63,11 +63,17 @@ export const theme = {
     footer: 0.96 * REM,
     biblicalCitation: 0.87 * REM,
     rubric: 0.85 * REM,
+    dateBlock: {
+      primary: 16,
+      secondary: 12.8,
+      season: 9.6,
+    },
   },
   // provides line height in ems
   lineHeightEms: {
     body: 13 / 11.5,
     rubric: 10.75 / 9.75,
+    dateBlock: 1.2,
   },
   spacing: {
     outerPadding: 22,

@@ -5,7 +5,7 @@
  */
 
 import { withLink } from "common/components/HOCs/withLink";
-import React from "react";
+import React, { ComponentType, ReactNode } from "react";
 import { Text as NativeText, TextProps, TextStyle, View } from "react-native";
 import { StyledComponent } from "styled-components";
 import styled from "styled-components/native";
@@ -30,7 +30,7 @@ interface IType extends React.CSSProperties {
 
 interface ILink {
   link: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
@@ -67,9 +67,9 @@ const Text = styled(NativeText)`
 `;
 
 function withAddedStyles(
-  Component: React.FC<TextProps>,
+  Component: ComponentType<TextProps>,
   addedStyles: TextStyle
-): React.FC<TextProps> {
+): ComponentType<TextProps> {
   return ({ style, ...props }) => (
     <Component style={[addedStyles, style]} {...props} />
   );
@@ -91,8 +91,8 @@ function type({
   const Base = styled(Text)`
     font-size: ${fontSize}px;
     line-height: ${lineHeight}px;
-    padding-top: ${1.5 * fontSize - lineHeight}px;
-    margin-bottom: -${Math.abs(1.5 * fontSize - lineHeight)}px;
+    /* padding-top: ${1.5 * fontSize - lineHeight}px;
+    margin-bottom: -${Math.abs(1.5 * fontSize - lineHeight)}px; */
     letter-spacing: ${fontSize * letterSpacingRatio}px;
   `;
 
@@ -178,8 +178,26 @@ const Rubric = type({
 });
 
 const BtnText = styled(Body)`
-  line-height: ${({ theme }) => theme.fontSize.body * 2}px;
+  /* line-height: ${({ theme }) => theme.fontSize.body * 2}px; */
 `;
+
+const DateBlockText = ({
+  variant,
+  precedence,
+  ...props
+}: {
+  variant: string;
+  precedence: number;
+}) => {
+  const C = type({
+    fontSize: theme.fontSize.dateBlock[variant],
+    lineHeightEms: theme.lineHeightEms.dateBlock,
+    fontFamily:
+      precedence < 4 ? theme.fonts.primary.bold : theme.fonts.primary.regular,
+    letterSpacing: -0.5,
+  });
+  return <C {...props} />;
+};
 
 export const HR = styled(View)`
   border-bottom-color: #aaa;
@@ -221,9 +239,9 @@ const SmallItalics = styled(Body)`
  * Adds generic link styles to the given component
  * @param Base Base styled component to add link styles to
  */
-const addLinkStylesTo = (Base: TTextStyledComponent | FC<TextProps>) => styled(
-  Base
-)`
+const addLinkStylesTo = (
+  Base: TTextStyledComponent | ComponentType<TextProps>
+) => styled(Base)`
   color: ${({ theme }) => theme.colors.linkBlue};
   text-decoration-line: underline;
 `;
@@ -271,6 +289,7 @@ const BtnTextWithUtils = withTextUtilityProps(BtnText);
 const BodyLinkWithUtils = withTextUtilityProps(BodyLink);
 const SmallItalicsLinkWithUtils = withTextUtilityProps(SmallItalicsLink);
 const AdvancedSettingNameWithUtils = withTextUtilityProps(AdvancedSettingName);
+const DateBlockTextWithUtils = withTextUtilityProps(DateBlockText);
 
 export {
   TextWithUtils as Text,
@@ -290,4 +309,5 @@ export {
   BodyLinkWithUtils as BodyLink,
   SmallItalicsLinkWithUtils as SmallItalicsLink,
   AdvancedSettingNameWithUtils as AdvancedSettingName,
+  DateBlockTextWithUtils as DateBlockText,
 };

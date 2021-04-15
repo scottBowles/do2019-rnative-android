@@ -9,7 +9,7 @@
 
 import { CalendarIcon, ClockIcon, CogIcon, CrossIcon } from "assets/icons";
 import React, { useContext } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Link } from "react-router-native";
 import styled, { ThemeContext } from "styled-components/native";
 import { BtnText } from "styles/typography";
@@ -19,44 +19,26 @@ export const Menu: React.FC = () => {
   const menuItems = [
     {
       icon: (
-        <ClockIcon
-          size={12}
-          color={theme.colors.text}
-          style={{ marginRight: 3, top: 4 }}
-        />
+        <ClockIcon size={12} color={theme.colors.text} style={styles.icon} />
       ),
       text: "Now",
       route: "/office",
     },
     {
       icon: (
-        <CalendarIcon
-          size={12}
-          color={theme.colors.text}
-          style={{ marginRight: 3, top: 4 }}
-        />
+        <CalendarIcon size={12} color={theme.colors.text} style={styles.icon} />
       ),
       text: "Calendar",
       route: "/calendar",
     },
     {
-      icon: (
-        <CogIcon
-          size={12}
-          color={theme.colors.text}
-          style={{ marginRight: 3, top: 4 }}
-        />
-      ),
+      icon: <CogIcon size={12} color={theme.colors.text} style={styles.icon} />,
       text: "Settings",
       route: "/settings",
     },
     {
       icon: (
-        <CrossIcon
-          size={12}
-          color={theme.colors.text}
-          style={{ marginRight: 3, top: 4 }}
-        />
+        <CrossIcon size={12} color={theme.colors.text} style={styles.icon} />
       ),
       text: "About",
       route: "/about",
@@ -77,12 +59,16 @@ export const Menu: React.FC = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  icon: { marginRight: 3 },
+});
+
 const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   flex-direction: row;
-  justify-content: space-around;
-  padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
-  padding-right: ${({ theme }) => theme.spacing.outerPadding}px;
+  justify-content: center;
+  /* padding-left: ${({ theme }) => theme.spacing.outerPadding}px;
+  padding-right: ${({ theme }) => theme.spacing.outerPadding}px; */
   border-bottom-width: 1px;
   border-top-width: 1px;
   border-color: black;

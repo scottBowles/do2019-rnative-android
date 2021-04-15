@@ -47,6 +47,6 @@ const StyledLink = styled(Link)`
 const LinkText = styled(Text)`
   font-size: 11px;
   text-transform: uppercase;
-  padding-left: 5px;
-  top: 2px;
+  padding-left: 8px;
+  bottom: 2px;
 `;

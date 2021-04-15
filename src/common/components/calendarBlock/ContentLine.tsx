@@ -1,16 +1,18 @@
 import { ExternalLinkIcon } from "assets/icons";
 import { ColorBox } from "common/components";
 import * as WebBrowser from "expo-web-browser";
-import React from "react";
-import styled, { css } from "styled-components/native";
-import { Text } from "styles/typography";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components/native";
+import { DateBlockText, Text } from "styles/typography";
 
-interface ContentLineProps<T extends "primary" | "secondary" | "season"> {
+interface ContentLineProps<
+  T extends "primary" | "secondary" | "season" | undefined
+> {
   type?: T;
   data: {
     colors: string[];
     name: string;
-    links: T extends "primary" | "secondary" ? string[] : undefined;
+    links?: T extends "primary" | "secondary" ? string[] : undefined;
     rank?: T extends "primary" | "secondary"
       ? { precedence: number }
       : undefined;
@@ -26,6 +28,7 @@ export const ContentLine: React.FC<
   style: incomingStyle,
   ...props
 }) => {
+  const theme = useContext(ThemeContext);
   /**
    * For colorBoxes, words, and links to all wrap together in React Native,
    * the following is necessary. Each word is split into its own Text element.
@@ -39,9 +42,13 @@ export const ContentLine: React.FC<
   ));
 
   const words = name.split(" ").map((word, index, arr) => (
-    <StyledText key={word + index} type={type} precedence={rank?.precedence}>
+    <DateBlockText
+      key={word + index}
+      variant={type}
+      precedence={rank?.precedence}
+    >
       {index !== arr.length - 1 ? word + " " : word}
-    </StyledText>
+    </DateBlockText>
   ));
 
   const linksDisplay = links
@@ -49,7 +56,7 @@ export const ContentLine: React.FC<
         <Text key={link + index} style={{ paddingLeft: 5 }}>
           <ExternalLinkIcon
             size={9}
-            color="black"
+            color={theme.colors.text}
             onPress={() => WebBrowser.openBrowserAsync(link)}
           />
         </Text>
@@ -73,35 +80,4 @@ const Container = styled.View`
 
 const StyledColorBox = styled(ColorBox)`
   margin-right: 5px;
-`;
-
-/**
- * Padding and negative margin present to account for Adobe Caslon Pro's
- * significant bottom padding, which throws off alignment
- */
-const StyledText = styled(Text)<{ type: string; precedence?: number }>`
-  ${(props) =>
-    props.type === "primary" &&
-    css`
-      font-family: ${props.precedence! < 4
-        ? props.theme.fonts.primary.bold
-        : props.theme.fonts.primary.regular};
-      font-size: 16px;
-      padding-top: 8px;
-      margin-bottom: -16px;
-      letter-spacing: -0.5px;
-    `}
-  ${(props) =>
-    props.type === "secondary" &&
-    css`
-      font-size: 12.8px;
-      padding-top: 6.4px;
-      margin-bottom: -9.6px;
-      letter-spacing: -0.5px;
-    `}
-${(props) =>
-    props.type === "season" &&
-    css`
-      font-size: 9.6px;
-    `}
 `;
