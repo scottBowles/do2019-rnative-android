@@ -137,5 +137,6 @@ const BtnContent = styled(View)`
 
 const BtnText = styled(Text)`
   font-size: 17px;
+  line-height: 24px;
   text-align: center;
 `;

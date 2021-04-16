@@ -11,8 +11,16 @@ interface ITextProps {
   semiboldItalic?: boolean;
   regular?: boolean;
   size?: number;
-  color?: string;
   indented?: boolean;
+  color?: string;
+  ml?: number;
+  mr?: number;
+  mt?: number;
+  mb?: number;
+  pl?: number;
+  pr?: number;
+  pt?: number;
+  pb?: number;
   children?: ReactNode;
 }
 
@@ -33,5 +41,13 @@ export const withTextUtilityProps = (
       ${props.size && `font-size: ${props.size}px;`}
       ${props.indented && `margin-left: 16px;`}
       ${props.color && `color: ${props.color};`}
+      ${props.ml && `margin-left: ${props.ml}px;`}
+      ${props.mr && `margin-right: ${props.mr}px;`}
+      ${props.mt && `margin-top: ${props.mt}px;`}
+      ${props.mb && `margin-bottom: ${props.mb}px;`}
+      ${props.pl && `padding-left: ${props.pl}px;`}
+      ${props.pr && `padding-right: ${props.pr}px;`}
+      ${props.pt && `padding-top: ${props.pt}px;`}
+      ${props.pb && `padding-bottom: ${props.pb}px;`}
     `}
 `;

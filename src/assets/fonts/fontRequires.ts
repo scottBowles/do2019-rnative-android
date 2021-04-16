@@ -1,4 +1,11 @@
 export const fontRequires = {
+  // "ACaslonPro-Bold": require("./ACaslonPro-Regular.otf"),
+  // "ACaslonPro-BoldItalic": require("./ACaslonPro-Regular.otf"),
+  // "ACaslonPro-Italic": require("./ACaslonPro-Regular.otf"),
+  // "ACaslonPro-Regular": require("./ACaslonPro-Regular.otf"),
+  // // "ACaslonPro-Regular-Android": require("./Android-ACaslonPro-Regular.otf"),
+  // "ACaslonPro-Semibold": require("./ACaslonPro-Regular.otf"),
+  // "ACaslonPro-SemiboldItalic": require("./ACaslonPro-Regular.otf"),
   "ACaslonPro-Bold": require("./ACaslonPro-Bold.otf"),
   "ACaslonPro-BoldItalic": require("./ACaslonPro-BoldItalic.otf"),
   "ACaslonPro-Italic": require("./ACaslonPro-Italic.otf"),

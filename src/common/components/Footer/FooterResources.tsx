@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Link } from "react-router-native";
 import styled, { ThemeContext } from "styled-components/native";
-import { ParagraphTitle, Text } from "styles/typography";
+import { Body, ParagraphTitle } from "styles/typography";
 
 import { withLink } from "../HOCs";
 import { OutlineBtn } from "../OutlineBtn";
@@ -22,10 +22,7 @@ export const FooterResources = () => {
               color={theme.colors.text}
               style={{ marginRight: 4 }}
             />
-            <TextWrapper>
-              <FirstLetter>P</FirstLetter>
-              <StyledText>salter</StyledText>
-            </TextWrapper>
+            <StyledText>Psalter</StyledText>
           </StyledOutlineBtn>
         </Link>
         <TouchableOpacityLink
@@ -38,10 +35,7 @@ export const FooterResources = () => {
               color={theme.colors.text}
               style={{ marginRight: 4 }}
             />
-            <TextWrapper>
-              <FirstLetter>C</FirstLetter>
-              <StyledText>alendar (ical file)</StyledText>
-            </TextWrapper>
+            <StyledText>Calendar (ical file)</StyledText>
           </StyledOutlineBtn>
         </TouchableOpacityLink>
       </ButtonsWrapper>
@@ -68,17 +62,8 @@ const StyledOutlineBtn = styled(OutlineBtn)`
   margin: 0 3.8px;
 `;
 
-const TextWrapper = styled(Text)`
-  align-items: baseline;
-  top: 3px;
-`;
-
-const StyledText = styled(Text)`
-  font-size: 11px;
-  text-transform: uppercase;
-`;
-
-const FirstLetter = styled(StyledText)`
+const StyledText = styled(Body)`
+  font-variant: small-caps;
   font-size: 16px;
   letter-spacing: 0.66px;
 `;
