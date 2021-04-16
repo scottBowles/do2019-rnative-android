@@ -38,12 +38,6 @@ const lightThemeColors = {
 export const theme = {
   colors: generalColors,
   fonts: {
-    android: {
-      regular: "ACaslonPro-Regular-android",
-    },
-    ios: {
-      regular: "ACaslonPro-Regular-ios",
-    },
     primary: {
       bold: "ACaslonPro-Bold",
       boldItalic: "ACaslonPro-BoldItalic",
