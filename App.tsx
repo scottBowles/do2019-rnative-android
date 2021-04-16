@@ -39,11 +39,11 @@ const App: React.FC<IAppProps> = memo(({ theme }) => {
       <Router>
         <SafeAreaView style={styles.container}>
           <StatusBar />
-          <Menu />
+          {/* <Menu /> */}
           <Switch>
             <Route exact path="/">
-              {/* <TestingGrounds setMode={setMode} /> */}
-              <Office />
+              <TestingGrounds />
+              {/* <Office /> */}
             </Route>
             <Route path="/office">
               <Office />
