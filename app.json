@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "do2019-rnative-android",
-    "slug": "do2019-rnative-android",
+    "name": "Daily Office 2019 for Android",
+    "slug": "daily-office-2019-for-android",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./favicon-32x32.png",
@@ -13,14 +13,18 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "build": {
         "babel": {
-          "include": ["react-router-native"]
+          "include": [
+            "react-router-native"
+          ]
         }
       },
       "favicon": "./favicon-32x32.png"
@@ -37,6 +41,8 @@
           }
         }
       ]
-    }
+    },
+    "description": "An in-progress Android version of https://www.dailyoffice2019.com/",
+    "githubUrl": "https://github.com/scottBowles/do2019-rnative-android"
   }
 }
