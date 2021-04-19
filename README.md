@@ -42,7 +42,7 @@ Follow [Expo's instructions](https://docs.expo.io/get-started/installation/) to 
 
 1. Clone this repository and change directory into the folder.
 
-   > Choose a folder outside of a service like Dropbox or iCloud, which will occasionally make changes when the live server starts, resulting in an infinite loop. So, on a Mac, avoid the Documents and Desktop folders.
+   > Choose a folder outside of a service like Dropbox or iCloud, which will occasionally make changes when the live server starts, resulting in an infinite loop. On a Mac, this means avoiding the `Documents` and `Desktop` folders.
 
    - Using SSH
 
@@ -67,3 +67,13 @@ Follow [Expo's instructions](https://docs.expo.io/get-started/installation/) to 
    `npm start`
 
 1. And the site should be available! Follow the simple instructions in your terminal to open the app on your phone, on an emulator, or in the browser.
+
+### Do I really have to use Android?
+
+Feel free to use iOS or web. They'll just be a bit buggy.
+
+On iOS, the settings boxes look wonky, the Calendar screen's `Jump to Date` and `Jump to Season` modals don't work, and titles are in lowercase because iOS isn't recognizing the small-caps font variant.
+
+On web, the `Jump to Date` modal doesn't work, the `Jump to Season` modal works only intermittently, and the width is constrained to a mobile-like width as the mobile experience has been my focus thus far.
+
+You can see quite a bit of what is there on either, but Android is my first priority and it shows.
