@@ -1,10 +1,10 @@
 # Daily Office Mobile App
 
-> :construction: Under construction :construction:
+> :construction: Under development :construction:
 >
 > A React Native Android version of https://www.dailyoffice2019.com/. Hits the api at https://api.dailyoffice2019.com/api/, under development.
 
-Try out the app on an Android device by scanning the QR code at https://expo.io/@scottbowles/projects/daily-office-2019-for-android, or follow instructions below to install locally and run on Expo's development server.
+Try out the app on an Android device by scanning the QR code at https://expo.io/@scottbowles/projects/daily-office-2019-for-android, or follow instructions below to install locally and run on a development server.
 
 ## Table of Contents
 
@@ -26,9 +26,9 @@ Try out the app on an Android device by scanning the QR code at https://expo.io/
 
 ## About
 
-This app has the majority of functionality in place, on hold pending backend development.
+This app has the majority of functionality in place, but currently uses dummy data for all but the Calendar screen. Data fetching for the other screens will be added as the relevant data becomes available from the API.
 
-This is the beginnings of a move toward a unified codebase across platforms for https://www.dailyoffice2019.com/, starting with its first Android version.
+This is the beginnings of a move toward a unified, cross-platform codebase for https://www.dailyoffice2019.com/, starting with its first Android version.
 
 It largely follows the existing site, but implements the typography of the print version of the 2019 Book of Common Prayer, outlined in styleGuide.docx.
 
@@ -40,7 +40,9 @@ Follow [Expo's instructions](https://docs.expo.io/get-started/installation/) to 
 
 ### Instructions
 
-1. Clone this repository and change directory into the folder
+1. Clone this repository and change directory into the folder.
+
+   > Choose a folder outside of a service like Dropbox or iCloud, which will occasionally make changes when the live server starts, resulting in an infinite loop. So, on a Mac, avoid the Documents and Desktop folders.
 
    - Using SSH
 
