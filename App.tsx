@@ -97,7 +97,7 @@ const SafeArea = ({ children }: { children: JSX.Element }) => {
   if (Platform.OS === "web" && windowWidth > 450) {
     return (
       <WebSafeArea>
-        <View style={{ maxWidth: 380, flex: 1 }}>{children}</View>
+        <View style={{ width: 380, flex: 1 }}>{children}</View>
       </WebSafeArea>
     );
   }
@@ -114,5 +114,5 @@ const WebSafeArea = styled(MobileSafeArea)`
   flex: 1;
   width: 100%;
   align-items: center;
-  background-color: grey;
+  background-color: ${({ theme }) => theme.colors.grey};
 `;
