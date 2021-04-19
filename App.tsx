@@ -10,8 +10,11 @@ import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import React, { memo } from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { Platform, View, useWindowDimensions } from "react-native";
 import { Route, NativeRouter as Router, Switch } from "react-router-native";
+import styled, { ThemeProvider } from "styled-components/native";
+import { darkTheme, lightTheme } from "styles/theme";
+
 import {
   About,
   Calendar,
@@ -19,13 +22,20 @@ import {
   PrivacyPolicy,
   Psalter,
   Settings,
-} from "screens";
-import { TestingGrounds } from "screens/TestingGrounds";
-import { ThemeProvider } from "styled-components/native";
-import { darkTheme, lightTheme } from "styles/theme";
+} from "./src/screens";
 
 interface IAppProps {
   theme?: string;
+}
+
+export default function () {
+  return (
+    <SettingsProvider>
+      <SettingConsumer settingName="theme">
+        {({ value }: IInjectedSettingProps) => <App theme={value} />}
+      </SettingConsumer>
+    </SettingsProvider>
+  );
 }
 
 const App: React.FC<IAppProps> = memo(({ theme }) => {
@@ -36,13 +46,12 @@ const App: React.FC<IAppProps> = memo(({ theme }) => {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <Router>
-        <SafeAreaView style={styles.container}>
+      <SafeArea>
+        <Router>
           <StatusBar />
           <Menu />
           <Switch>
             <Route exact path="/">
-              {/* <TestingGrounds /> */}
               <Office />
             </Route>
             <Route path="/office">
@@ -76,25 +85,34 @@ const App: React.FC<IAppProps> = memo(({ theme }) => {
               <Psalter />
             </Route>
           </Switch>
-        </SafeAreaView>
-      </Router>
+        </Router>
+      </SafeArea>
     </ThemeProvider>
   );
 });
 
-export default function () {
-  return (
-    <SettingsProvider>
-      <SettingConsumer settingName="theme">
-        {({ value }: IInjectedSettingProps) => <App theme={value} />}
-      </SettingConsumer>
-    </SettingsProvider>
-  );
-}
+const SafeArea = ({ children }: { children: JSX.Element }) => {
+  const windowWidth = useWindowDimensions().width;
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-    flex: 1,
-  },
-});
+  if (Platform.OS === "web" && windowWidth > 450) {
+    return (
+      <WebSafeArea>
+        <View style={{ maxWidth: 380, flex: 1 }}>{children}</View>
+      </WebSafeArea>
+    );
+  }
+
+  return <MobileSafeArea style={{ flex: 1 }}>{children}</MobileSafeArea>;
+};
+
+const MobileSafeArea = styled.SafeAreaView`
+  padding-top: ${Constants.statusBarHeight}px;
+  flex: 1;
+`;
+
+const WebSafeArea = styled(MobileSafeArea)`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  background-color: grey;
+`;
