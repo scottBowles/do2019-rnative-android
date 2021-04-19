@@ -20,8 +20,8 @@ import {
 } from "styles/typography";
 
 interface IOfficeProps {
-  office: string;
-  date: Date;
+  office?: string;
+  date?: Date;
 }
 interface IOfficePrayers {
   officeData: OfficeData;
