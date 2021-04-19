@@ -2,12 +2,15 @@
 
 > :construction: Under construction :construction:
 >
-> A React Native Android version of https://www.dailyoffice2019.com/. Hits api at https://api.dailyoffice2019.com/api/, under development.
+> A React Native Android version of https://www.dailyoffice2019.com/. Hits the api at https://api.dailyoffice2019.com/api/, under development.
+
+Try out the app on an Android device by scanning the QR code at https://expo.io/@scottbowles/projects/daily-office-2019-for-android, or follow instructions below to install locally and run on Expo's development server.
 
 ## Table of Contents
 
 1. [Technology Stack](#technology-stack)
 1. [About](#about)
+1. [Local Installation](#local-installation)
 
 ## Technology Stack
 
@@ -28,3 +31,37 @@ This app has the majority of functionality in place, on hold pending backend dev
 This is the beginnings of a move toward a unified codebase across platforms for https://www.dailyoffice2019.com/, starting with its first Android version.
 
 It largely follows the existing site, but implements the typography of the print version of the 2019 Book of Common Prayer, outlined in styleGuide.docx.
+
+## Local Installation
+
+### Requirements
+
+Follow [Expo's instructions](https://docs.expo.io/get-started/installation/) to install the Expo CLI and prepare a device or emulator on which to run the app. This app is currently being developed for Android, but enough cross-platform work has been done for most functionality to run on iOS or web. Still, Android is strongly preferred.
+
+### Instructions
+
+1. Clone this repository and change directory into the folder
+
+   - Using SSH
+
+     ```bash
+     git clone git@github.com:scottBowles/do2019-rnative-android.git
+     cd do2019-rnative-android
+     ```
+
+   - Using https
+
+     ```bash
+     git clone https://github.com/scottBowles/do2019-rnative-android.git
+     cd do2019-rnative-android
+     ```
+
+1. Install dependencies
+
+   `npm i`
+
+1. Start the local server
+
+   `npm start`
+
+1. And the site should be available! Follow the simple instructions in your terminal to open the app on your phone, on an emulator, or in the browser.
