@@ -86,10 +86,6 @@ const CopyLinkWrapper = styled(Text)`
   margin-top: 10px;
 `;
 
-const InputText = styled(Text)`
-  color: ${({ theme }) => theme.colors.fontGrey};
-`;
-
 const StyledTextInput = styled(TextInput)`
   border: 1px ${({ theme }) => theme.colors.text};
   border-radius: 3px;
@@ -102,7 +98,6 @@ const StyledTextInput = styled(TextInput)`
 
 const StyledButton = styled(View)`
   margin-top: 6px;
-  padding-top: 2px;
   height: 30px;
   background-color: ${({ theme }) => theme.colors.btnBlue};
   border-radius: 2px;
@@ -111,5 +106,7 @@ const StyledButton = styled(View)`
 `;
 
 const ButtonText = styled(Text)`
+  font-size: 16px;
+  line-height: 16px;
   color: ${({ theme }) => theme.colors.white};
 `;
