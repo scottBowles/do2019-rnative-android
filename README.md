@@ -26,11 +26,11 @@ Try out the app on an Android device by scanning the QR code at https://expo.io/
 
 ## About
 
-This app has the majority of functionality in place, but currently uses dummy data for all but the Calendar screen. Data fetching for the other screens will be added as the relevant data becomes available from the API.
-
 This is the beginnings of a move toward a unified, cross-platform codebase for https://www.dailyoffice2019.com/, starting with its first Android version.
 
 It largely follows the existing site, but implements the typography of the print version of the 2019 Book of Common Prayer, outlined in styleGuide.docx.
+
+This app has the majority of functionality in place, but currently uses dummy data for all but the Calendar screen. Data fetching for the other screens will be added as the relevant data becomes available from the API.
 
 ## Local Installation
 
