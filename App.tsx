@@ -29,7 +29,7 @@ interface IAppProps {
 }
 
 const App: React.FC<IAppProps> = memo(({ theme }) => {
-  const currentTheme = theme === "theme-light" ? lightTheme : darkTheme;
+  const currentTheme = theme === "theme-dark" ? darkTheme : lightTheme;
   const [fontsLoaded] = useFonts(fontRequires);
 
   if (!fontsLoaded) return <AppLoading />;
